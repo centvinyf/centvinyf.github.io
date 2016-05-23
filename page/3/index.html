@@ -298,6 +298,306 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/15/Leetcode刷题记录68-Product-Of-Array-Except-Self/" itemprop="url">
+                  Leetcode刷题记录68-Product Of Array Except Self
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-15T01:51:41+08:00" content="2015-10-15">
+              2015-10-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/15/Leetcode刷题记录68-Product-Of-Array-Except-Self/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/Leetcode刷题记录68-Product-Of-Array-Except-Self/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/15/Leetcode刷题记录68-Product-Of-Array-Except-Self/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录68-Product Of Array Except Self">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of n integers where n &gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].</p>
+<p>Solve it without division and in O(n).</p>
+<p>For example, given [1,2,3,4], return [24,12,8,6].</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>To record everything’s product from left and from right and make a product.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        vector&lt;int&gt; productExceptSelf(vector&lt;int&gt;&amp; nums) {
+               vector&lt;int&gt; left(nums.size(),1);
+               for(int i=1;i&lt;left.size();i++)
+                   left[i]= left[i-1]*nums[i-1];
+               vector&lt;int&gt; right(nums.size(),1);
+               for(int i=right.size()-2;i&gt;=0;i--)
+                   right[i]=right[i+1]*nums[i+1];
+               vector&lt;int&gt; res(nums.size(),1);
+               for(int i=0;i&lt;res.size();i++)
+                   res[i]=left[i]*right[i];
+               return res;
+    }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/15/Leetcode刷题记录67-Single-Number-III/" itemprop="url">
+                  Leetcode刷题记录67-Single Number III
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-15T01:50:05+08:00" content="2015-10-15">
+              2015-10-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/15/Leetcode刷题记录67-Single-Number-III/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/Leetcode刷题记录67-Single-Number-III/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/15/Leetcode刷题记录67-Single-Number-III/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录67-Single Number III">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.</p>
+<p>For example:</p>
+<p>Given nums = [1, 2, 1, 3, 2, 5], return [3, 5].</p>
+<p>Note:<br>The order of the result is not important. So in the above example, [5, 3] is also correct.<br>Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Using a set to store unique items.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        vector&lt;int&gt; singleNumber(vector&lt;int&gt;&amp; nums) {
+            set&lt;int&gt; s;
+            s.clear();
+            for(int i=0;i&lt;nums.size();i++)
+                {
+                    if(s.find(nums[i])!=s.end())
+                        s.erase(nums[i]);
+                    else 
+                        s.insert(nums[i]);
+                }
+            vector&lt;int&gt; res;
+            res.push_back(*s.begin());
+            s.erase(*s.begin());
+            res.push_back(*s.begin());
+            return res;
+
+    }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/15/Leetcode刷题记录66-Best-Time-to-Buy-and-Sell-Stock-II/" itemprop="url">
                   Leetcode刷题记录66-Best Time to Buy and Sell Stock II
                 </a>
@@ -352,6 +652,15 @@
           
 
           
+          
+             <span id="/2015/10/15/Leetcode刷题记录66-Best-Time-to-Buy-and-Sell-Stock-II/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录66-Best Time to Buy and Sell Stock II">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
           
 
           
@@ -505,6 +814,15 @@
           
 
           
+          
+             <span id="/2015/10/15/Leetcode刷题记录65-Binary-Tree-Level-Order-Traversal-II/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录65-Binary Tree Level Order Traversal-II">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
           
 
           
@@ -677,6 +995,15 @@ class Solution {
 
           
           
+             <span id="/2015/10/15/Leetcode刷题记录64-Binary-Tree-Level-Order-Traversal/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录64-Binary Tree Level Order Traversal">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -844,6 +1171,15 @@ class Solution {
 
           
           
+             <span id="/2015/10/15/随手小记/" class="leancloud_visitors" data-flag-title="随手小记">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -963,6 +1299,15 @@ class Solution {
           
 
           
+          
+             <span id="/2015/10/15/Leetcode刷题记录63-String-to-INteger-atoi/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录63-String to INteger(atoi)">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
           
 
           
@@ -1120,6 +1465,15 @@ class Solution {
 
           
           
+             <span id="/2015/10/15/Leetcode刷题记录62-Compare-Version-Number/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录62-Compare Version Number">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -1269,6 +1623,15 @@ class Solution {
           
 
           
+          
+             <span id="/2015/10/15/Leetcode刷题记录61-Excel-Sheet-Column-Title/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录61-Excel Sheet Column Title">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
           
 
           
@@ -1421,6 +1784,15 @@ class Solution {
 
           
           
+             <span id="/2015/10/14/Leetcode刷题记录60-First-Bad-Version/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录60-First Bad Version">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -1498,341 +1870,11 @@ class Solution {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/14/Leetcode刷题记录59-Summary-Ranges/" itemprop="url">
-                  Leetcode刷题记录59-Summary Ranges
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-14T01:29:23+08:00" content="2015-10-14">
-              2015-10-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/14/Leetcode刷题记录59-Summary-Ranges/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/14/Leetcode刷题记录59-Summary-Ranges/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Descriptions"><a href="#Problem-Descriptions" class="headerlink" title="Problem Descriptions:"></a>Problem Descriptions:</h2><p>Given a sorted integer array without duplicates, return the summary of its ranges.</p>
-<p>For example, given [0,1,2,4,5,7], return [“0-&gt;2”,”4-&gt;5”,”7”].</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>use tags to mark every range.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        vector&lt;string&gt; summaryRanges(vector&lt;int&gt;&amp; nums) {
-            vector&lt;string&gt; res;
-            int i=0;
-            while(i&lt;nums.size())
-                {
-                    int j=1;
-                    while(i+j&lt;nums.size()&amp;&amp;nums[i+j]-nums[i]==j) 
-                        j++;
-                    res.push_back(j==1? to_string(nums[i]):to_string(nums[i])+&quot;-&gt;&quot;+to_string(nums[i+j-1]));
-                    i+=j;
-                }
-            return res;
-        }
-};
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/13/Leetcode刷题记录58-Counting-Primes/" itemprop="url">
-                  Leetcode刷题记录58-Counting Primes
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-13T01:25:09+08:00" content="2015-10-13">
-              2015-10-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/13/Leetcode刷题记录58-Counting-Primes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/13/Leetcode刷题记录58-Counting-Primes/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Count the number of prime numbers less than a non-negative number, n.</p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><p>using a function to determine if a number is prime, but the solution would time out when n reaches 1500000</p>
-<h2 id="Code-in-C-for-Solution-1"><a href="#Code-in-C-for-Solution-1" class="headerlink" title="Code in C++ for Solution 1:"></a>Code in C++ for Solution 1:</h2><pre><code>class Solution {
-    public:
-        bool isPrime(int x)
-            {
-                if(x==2||x==3) 
-                    return true;
-                else
-                    {
-                        int tem=2;
-                        while(tem*tem&lt;=x)
-                            {
-                                if(x%tem==0) 
-                                    return false;
-                                else
-                                    tem++;
-                            }
-                        return true;
-                    }
-
-            }
-        int countPrimes(int n) {
-            if(n&lt;=2) 
-                return 0;
-            else
-                {
-                    int res =0;
-                    for(int i=2;i&lt;=n-1;i++)
-                        {
-                            if(isPrime(i)) 
-                                res++;
-                        }
-                    return res;
-                }
-            }
-
-    };
-</code></pre><h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><p>Using Sieve of Eratosthenes.</p>
-<p>It marks everytime when a number can be divided by one prime. The left is those primes;</p>
-<h2 id="Code-in-C-for-Solution-2"><a href="#Code-in-C-for-Solution-2" class="headerlink" title="Code in C++ for Solution 2:"></a>Code in C++ for Solution 2:</h2><pre><code>class Solution {
-    public:
-        int countPrimes(int n) {
-                bool mark[n];
-            for(int i=2;i&lt;n;i++)
-                mark[i]=false;//init the mark arry
-            for(int i=2;i&lt;n;i+=2)
-                mark[i]=true;//mark all even numbers
-                mark[2]=false;//unmark 2
-            for(int i=3;i&lt;n;i+=2)
-                {
-                    if(mark[i]==false)//for unmarked elements
-                        {
-                            if(i*i&gt;n) 
-                                break;//left numbers are all odd
-                            else
-                                {
-                                    for(int j=2;j*i&lt;n;j++)//mark the times of the current biggeset prime
-                                        mark[i*j]=true;
-                                }
-                        }
-                }
-            int count=0;
-            for(int i=2;i&lt;n;i++)//count
-                {
-                    if(mark[i]==false)
-                        count++;
-                    }
-
-            return count;
-
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1873,7 +1915,7 @@ class Solution {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">90</span>
+              <span class="site-state-item-count">92</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1890,7 +1932,7 @@ class Solution {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2188,6 +2230,105 @@ class Solution {
   
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("U50GmHLo0VG2TqyC0Jfs7DuR-gzGzoHsz", "5pYdv8Y4Cu9L09xdTSNYXne3");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

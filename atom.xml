@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-22T16:25:00.000Z</updated>
+  <updated>2016-05-23T08:10:08.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,105 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-191-Number of 1 Bits</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-191-Number-of-1-Bits/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-191-Number-of-1-Bits/</id>
+    <published>2016-05-23T08:06:57.000Z</published>
+    <updated>2016-05-23T08:10:08.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).&lt;/p&gt;
+&lt;p&gt;For example, the 32-bit integer ’11’ has binary representation 00000000000000000000000000001011, so the function should return 3.&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;写一个函数，返回某一数字二进制表示中1出现的次数&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用位运算中&amp;amp;操作符号，和指定数的每一位都单独&amp;amp;一次，如果是1，则会返回1，再使用一个计数器实现统计。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int hammingWeight(uint32_t n) {
+            int count=0;
+            for(int i=0;i&amp;lt;32;i++)
+                if(n&amp;amp;1&amp;lt;&amp;lt;i) count++;
+
+            return count;
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-338-Counting Bits</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-338-Counting-Bits/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-338-Counting-Bits/</id>
+    <published>2016-05-23T02:26:55.000Z</published>
+    <updated>2016-05-23T08:35:46.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;For num = 5 you should return [0,1,1,2,1,2].&lt;/p&gt;
+&lt;p&gt;Follow up:&lt;/p&gt;
+&lt;p&gt;It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?&lt;br&gt;Space complexity should be O(n).&lt;br&gt;Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;输入一个数字，输出从0开始到该数字为止的所有数字二进制表示中1的个数.&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;对于最基本的解题思路，如果使用O(n*sizeof(integer))的时间的话,可以写一个统计某个数之中出现“1”的次数的函数，正如&lt;a href=&quot;&quot;&gt;这一题&lt;/a&gt;，然后从0开始循环调用N次。&lt;br&gt;但是我们通过观察二进制的规律不难发现，除了2的整数次幂只有一个1以外，每多一位，立马会从0开始到这个数字为止全部重复一次。动态规划转移方程为a[n]=1(如果n为2的整数次幂)，a[n]=1+a[mark] （mark为我们的标记）我们用两个标记变量，一个表示2的整数次幂，另一个表示已经循环到的数字，每次经过2的整数次幂后，该标记归0。这样便能把时间复杂度降低为O(n)，而且只用使用O(n)的额外空间。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        vector&amp;lt;int&amp;gt; countBits(int num) {
+            vector&amp;lt;int&amp;gt; res(num+1);
+            if(num==0) return res;
+            else {
+
+                res[0]=0;
+                int power=1;
+                int mark=1;
+                for(int i =1;i&amp;lt;=num;i++)
+                    {
+                        if(i==power)
+                            {
+                                    res[i]=1;
+                                    power&amp;lt;&amp;lt;=1;
+                                    mark=1;
+                            }else
+                        {
+                              res[i]=1+res[mark];
+                              mark++;
+                        }
+                    }
+                }
+            return res;
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode-344-Reverse String</title>
@@ -94,11 +193,11 @@ public:
       <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
     
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
     
       <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
     
   </entry>
   
@@ -239,9 +338,9 @@ class Solution {
       <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
     
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
     
       <category term="Two Pointers" scheme="http://yoursite.com/tags/Two-Pointers/"/>
     
@@ -288,11 +387,11 @@ class Solution {
       <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
     
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
     
       <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
     
   </entry>
   
@@ -341,11 +440,11 @@ class Solution {
       <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
     
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
     
       <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
     
   </entry>
   
@@ -398,9 +497,9 @@ class Solution {
       <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
     
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
     
       <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
     
@@ -550,9 +649,9 @@ class Solution {
       <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
     
-      <category term="String" scheme="http://yoursite.com/tags/String/"/>
-    
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="String" scheme="http://yoursite.com/tags/String/"/>
     
       <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
     
@@ -611,9 +710,9 @@ class Solution {
       <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
     
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
     
       <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
     
@@ -722,9 +821,9 @@ class Solution {
     
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
     
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
-    
       <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
+    
+      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
     
   </entry>
   
@@ -1051,98 +1150,6 @@ class Solution {
     
     
       <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录68-Product Of Array Except Self</title>
-    <link href="http://yoursite.com/2015/10/15/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9568-Product-Of-Array-Except-Self/"/>
-    <id>http://yoursite.com/2015/10/15/Leetcode刷题记录68-Product-Of-Array-Except-Self/</id>
-    <published>2015-10-14T17:51:41.000Z</published>
-    <updated>2015-10-21T05:52:55.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].&lt;/p&gt;
-&lt;p&gt;Solve it without division and in O(n).&lt;/p&gt;
-&lt;p&gt;For example, given [1,2,3,4], return [24,12,8,6].&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;To record everything’s product from left and from right and make a product.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        vector&amp;lt;int&amp;gt; productExceptSelf(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-               vector&amp;lt;int&amp;gt; left(nums.size(),1);
-               for(int i=1;i&amp;lt;left.size();i++)
-                   left[i]= left[i-1]*nums[i-1];
-               vector&amp;lt;int&amp;gt; right(nums.size(),1);
-               for(int i=right.size()-2;i&amp;gt;=0;i--)
-                   right[i]=right[i+1]*nums[i+1];
-               vector&amp;lt;int&amp;gt; res(nums.size(),1);
-               for(int i=0;i&amp;lt;res.size();i++)
-                   res[i]=left[i]*right[i];
-               return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录67-Single Number III</title>
-    <link href="http://yoursite.com/2015/10/15/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9567-Single-Number-III/"/>
-    <id>http://yoursite.com/2015/10/15/Leetcode刷题记录67-Single-Number-III/</id>
-    <published>2015-10-14T17:50:05.000Z</published>
-    <updated>2015-10-21T05:51:17.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;p&gt;Given nums = [1, 2, 1, 3, 2, 5], return [3, 5].&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;The order of the result is not important. So in the above example, [5, 3] is also correct.&lt;br&gt;Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;Using a set to store unique items.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        vector&amp;lt;int&amp;gt; singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            set&amp;lt;int&amp;gt; s;
-            s.clear();
-            for(int i=0;i&amp;lt;nums.size();i++)
-                {
-                    if(s.find(nums[i])!=s.end())
-                        s.erase(nums[i]);
-                    else 
-                        s.insert(nums[i]);
-                }
-            vector&amp;lt;int&amp;gt; res;
-            res.push_back(*s.begin());
-            s.erase(*s.begin());
-            res.push_back(*s.begin());
-            return res;
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Hashtable" scheme="http://yoursite.com/tags/Hashtable/"/>
     
   </entry>
   

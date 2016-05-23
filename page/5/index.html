@@ -298,6 +298,328 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/12/Leetcode刷题记录49-Reverse-Integer/" itemprop="url">
+                  Leetcode刷题记录49-Reverse Integer
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-12T01:03:18+08:00" content="2015-10-12">
+              2015-10-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/12/Leetcode刷题记录49-Reverse-Integer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/12/Leetcode刷题记录49-Reverse-Integer/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/12/Leetcode刷题记录49-Reverse-Integer/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录49-Reverse Integer">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Reverse digits of an integer.</p>
+<p>Example1: x = 123, return 321<br>Example2: x = -123, return -321</p>
+<p>click to show spoilers.</p>
+<p>Have you thought about this?<br>Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!</p>
+<p>If the integer’s last digit is 0, what should the output be? ie, cases such as 10, 100.</p>
+<p>Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?</p>
+<p>For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>A simple math task</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int reverse(int x) {
+               int res = 0;
+            while(x!=0)
+                {
+                    if(res&gt;INT_MAX/10||res&lt;INT_MIN/10) 
+                        return 0;
+                    else
+                        {
+                            res= res*10+x%10;
+                            x/=10;
+                        }
+                }
+            return res;
+        }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/11/Leetcode刷题记录48-Add-Binary/" itemprop="url">
+                  Leetcode刷题记录48-Add Binary
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-11T01:00:49+08:00" content="2015-10-11">
+              2015-10-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/11/Leetcode刷题记录48-Add-Binary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/11/Leetcode刷题记录48-Add-Binary/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/11/Leetcode刷题记录48-Add-Binary/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录48-Add Binary">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two binary strings, return their sum (also a binary string).</p>
+<p>For example,<br>a = “11”<br>b = “1”<br>Return “100”.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Handle that from back to front;</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        string addBinary(string a, string b) {
+            string res;
+            int carry=0;
+                int i=a.length()-1;
+            int j=b.length()-1;
+                for(;i&gt;=0||j&gt;=0;i--,j--)
+                {
+                    int aa,bb;
+                       if(i&gt;=0)
+                           aa=(a[i]-&apos;0&apos;);
+                    else 
+                        aa=0;
+                    if(j&gt;=0)
+                        bb=(b[j]-&apos;0&apos;);
+                    else 
+                        bb=0;
+                    int current=aa+bb+carry;
+                    char bit;
+                    switch(current)
+                        {
+                                case 0: bit=&apos;0&apos;;carry=0;break;
+                                 case 1: bit=&apos;1&apos;;carry=0;break;
+                                case 2: bit=&apos;0&apos;;carry=1;break;
+                              case 3: bit=&apos;1&apos;;carry=1;break;
+                              default:break;
+                        }
+                    res=bit+res;
+                }
+            if(carry)
+                {
+                    string s=&quot;1&quot;;
+                    return s+res;
+                }
+            return res;
+    }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/11/Leetcode刷题记录47-Count-and-Say/" itemprop="url">
                   Leetcode刷题记录47-Count and Say
                 </a>
@@ -352,6 +674,15 @@
           
 
           
+          
+             <span id="/2015/10/11/Leetcode刷题记录47-Count-and-Say/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录47-Count and Say">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
           
 
           
@@ -535,6 +866,15 @@
 
           
           
+             <span id="/2015/10/11/Leetcode刷题记录46-Valid-Parentheses/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录46-Valid Parentheses">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -703,6 +1043,15 @@
 
           
           
+             <span id="/2015/10/11/Leetcode刷题记录45-Remove-Nth-Node-From-End-Of-List/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录45-Remove Nth Node From End Of List">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -868,6 +1217,15 @@ class Solution {
 
           
           
+             <span id="/2015/10/11/Leetcode刷题记录44-Minimum-Depth-of-Binary-Tree/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录44-Minimum Depth of Binary Tree">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -1011,6 +1369,15 @@ class Solution {
           
 
           
+          
+             <span id="/2015/10/11/Leetcode刷题记录43-Palindrome-Number/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录43-Palindrome Number">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
           
 
           
@@ -1164,6 +1531,15 @@ class Solution {
 
           
           
+             <span id="/2015/10/10/Leetcode刷题记录42-Two-Sum/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录42-Two Sum">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -1315,6 +1691,15 @@ class Solution {
           
 
           
+          
+             <span id="/2015/10/10/Leetcode刷题记录41-Intersection-of-Two-Linked-Lists/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录41-Intersection of Two Linked Lists">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
           
 
           
@@ -1530,6 +1915,15 @@ class Solution {
 
           
           
+             <span id="/2015/10/10/Leetcode刷题记录40-actorial-Trailing-Zeroes/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录40-actorial Trailing Zeroes">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
 
           
         </div>
@@ -1587,333 +1981,11 @@ class Solution {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/10/Leetcode刷题记录39-Symmetric-Tree/" itemprop="url">
-                  Leetcode刷题记录39-Symmetric Tree
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-10T00:25:07+08:00" content="2015-10-10">
-              2015-10-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/10/Leetcode刷题记录39-Symmetric-Tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/Leetcode刷题记录39-Symmetric-Tree/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
-<p>For example, this binary tree is symmetric:</p>
-<pre><code>    1
-   / \
-  2   2
-   / \ / \
-3  4 4  3
-</code></pre><p>But the following is not:<br>      1<br>     / \<br>     2  2<br>     \   \<br>     3    3</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Just use Depth First Search</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        bool isSymmetric(TreeNode* a,TreeNode*b)
-            {
-                if(!a&amp;&amp;!b)
-                    return true;
-                if((!a&amp;&amp;b)||(!b&amp;&amp;a))
-                    return false;
-                else
-                    {
-                        if(a-&gt;val==b-&gt;val)
-                            return isSymmetric(a-&gt;left,b-&gt;right)&amp;&amp;isSymmetric(a-&gt;right,b-&gt;left);
-                    }
-                return false;
-            }
-        bool isSymmetric(TreeNode* root) {
-                if(!root)
-                    return true;
-                if(!root-&gt;left&amp;&amp;!root-&gt;right) 
-                    return true;
-                if((!root-&gt;left&amp;&amp;root-&gt;right)||(!root-&gt;right&amp;&amp;root-&gt;left)) 
-                    return false;
-                if(root-&gt;left&amp;&amp;root-&gt;right)
-                    {
-                        if(root-&gt;left-&gt;val==root-&gt;right-&gt;val) return isSymmetric(root-&gt;left,root-&gt;right);
-                        return false;
-                    }
-
-
-
-            }
-        };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/10/Leetcode刷题记录38-Path-Sum/" itemprop="url">
-                  Leetcode刷题记录38-Path Sum
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-10T00:21:43+08:00" content="2015-10-10">
-              2015-10-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/10/Leetcode刷题记录38-Path-Sum/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/Leetcode刷题记录38-Path-Sum/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
-<p>For example:<br>Given the below binary tree and sum = 22,</p>
-<pre><code>       5
-   / \
-   4 8
-  / / \
-11 13 4
-  / \ \
-  7 2 1
-</code></pre><p>return true, as there exist a root-to-leaf path 5-&gt;4-&gt;11-&gt;2 which sum is 22.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Using Depth-First Search</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
-* Definition for a binary tree node.
-* struct TreeNode {
-*     int val;
-*     TreeNode *left;
-*     TreeNode *right;
-*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-* };
-*/
-class Solution {
-    public:
-        bool hasPathSum(TreeNode* root, int sum) {
-            if(!root) 
-                return false;
-            if(root-&gt;val == sum &amp;&amp; !root-&gt;left&amp;&amp;!root-&gt;right) 
-                return true;
-            if(hasPathSum(root-&gt;left,sum-root-&gt;val)||hasPathSum(root-&gt;right,sum-root-&gt;val))
-                return true;
-            return false;
-
-
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1954,7 +2026,7 @@ class Solution {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">90</span>
+              <span class="site-state-item-count">92</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1971,7 +2043,7 @@ class Solution {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2269,6 +2341,105 @@ class Solution {
   
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("U50GmHLo0VG2TqyC0Jfs7DuR-gzGzoHsz", "5pYdv8Y4Cu9L09xdTSNYXne3");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
