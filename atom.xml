@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-23T09:15:21.000Z</updated>
+  <updated>2016-05-23T10:00:04.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,254 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-100-Same Tree</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-100-Same-Tree/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-100-Same-Tree/</id>
+    <published>2016-05-23T09:45:16.000Z</published>
+    <updated>2016-05-23T10:00:04.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two binary trees, write a function to check if they are equal or not.&lt;/p&gt;
+&lt;p&gt;Two binary trees are considered equal if they are structurally identical and the nodes have the same value.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定两个二叉树，写一个函数来检查它们是否相同。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;递归调用函数，检查左右子树以及根节点的值是否相同。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        bool isSameTree(TreeNode* p, TreeNode* q) {
+            if(!p&amp;amp;&amp;amp;!q) return true;
+            if((p&amp;amp;&amp;amp;!q)||(!p&amp;amp;&amp;amp;q)) return false;
+            return (p-&amp;gt;val==q-&amp;gt;val)&amp;amp;&amp;amp;isSameTree(p-&amp;gt;left,q-&amp;gt;left)&amp;amp;&amp;amp;isSameTree(p-&amp;gt;right,q-&amp;gt;right);
+
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two binary trees, write a function to check if they are equal or not.&lt;/p&gt;
+&lt;p&gt;Two binary trees are considered equal if they are structurally identical and the nodes have the same value.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-237-Delete Node in a Linked List</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-237-Delete-Node-in-a-Linked-List/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-237-Delete-Node-in-a-Linked-List/</id>
+    <published>2016-05-23T09:42:16.000Z</published>
+    <updated>2016-05-23T09:44:39.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.&lt;/p&gt;
+&lt;p&gt;Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node with value 3, the linked list should become 1 -&amp;gt; 2 -&amp;gt; 4 after calling your function.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;删除一个链表中的结点，你只能获取该结点的指针。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;有点像脑筋急转弯。很简单，将这个结点的next结点拷贝到这个结点就可以了。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        void deleteNode(ListNode* node) {
+            node-&amp;gt;val=node-&amp;gt;next-&amp;gt;val;
+            node-&amp;gt;next=node-&amp;gt;next-&amp;gt;next;
+        }
+    };
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.&lt;/p&gt;
+&lt;p&gt;Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node with value 3, the linked list should become 1 -&amp;gt; 2 -&amp;gt; 4 after calling your function.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Linked List" scheme="http://yoursite.com/tags/Linked-List/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-260-Single Number III</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-260-Single-Number-III/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-260-Single-Number-III/</id>
+    <published>2016-05-23T09:33:28.000Z</published>
+    <updated>2016-05-23T09:41:27.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;p&gt;Given nums = [1, 2, 1, 3, 2, 5], return [3, 5].&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;The order of the result is not important. So in the above example, [5, 3] is also correct.&lt;br&gt;Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，其中有两个元素只出现了一次，其他的元素出现了2次，找出这两个只出现过一次的元素。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;第一步与&lt;a href=&quot;/2016/05/23/Leetcode-136-Single-Number/&quot;&gt;simgle number I&lt;/a&gt; 一样，先求出所有的数字的^结果，此时假设这两个数是a和b,那么我们已经得到了a^b的结果。那么我们如何将这两个数分开呢。^运算的结果是同位相等为0，不等为1.那么我们就可以找出a和b不相等的最低位，然后把原数组分成两个子数组，接着使用我们&lt;a href=&quot;/2016/05/23/Leetcode-136-Single-Number/&quot;&gt;simgle number I&lt;/a&gt; 中使用的方法即可求解两个数。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        vector&amp;lt;int&amp;gt; singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+            int tem = 0;
+            for(int i=0;i&amp;lt;nums.size();i++)
+                tem^=nums[i];
+            int last = tem-(tem&amp;amp;(tem-1));//求出tem中最低“1”位
+            int first = 0; int second = 0;
+            for(int i=0;i&amp;lt;nums.size();i++)
+                {
+                    if(nums[i]&amp;amp;last)
+                        first^=nums[i];
+                    else
+                        second^=nums[i];
+                }
+            vector&amp;lt;int&amp;gt; ans;
+            ans.push_back(first);
+            ans.push_back(second);
+            return ans;
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;p&gt;Given nums = [1, 2, 1, 3, 2, 5], return [3, 5].&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;The order of the result is not important. So in the above example, [5, 3] is also correct.&lt;br&gt;Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-283-Move Zeroes</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-283-Move-Zeroes/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-283-Move-Zeroes/</id>
+    <published>2016-05-23T09:27:42.000Z</published>
+    <updated>2016-05-23T09:32:43.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.&lt;/p&gt;
+&lt;p&gt;For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You must do this in-place without making a copy of the array.&lt;br&gt;Minimize the total number of operations.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，写一个函数把所有的0都移动到数组的末端且非0元素的相对位置不变。&lt;br&gt;你没有额外的存储空间来复制一遍数组。且使移动操作次数最少。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用一个指针指向第一个0的坐标，如果不是0，则交换0坐标上的数字与当前数字&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        void moveZeroes(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+            int mark = 0;
+            for(int i =0;i&amp;lt;nums.size();i++)
+                {
+                    if(nums[i]!=0)
+                           swap(nums[i],nums[mark++]);     
+                }
+
+            }
+    };
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.&lt;/p&gt;
+&lt;p&gt;For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You must do this in-place without making a copy of the array.&lt;br&gt;Minimize the total number of operations.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
+    
+      <category term="Two Pointers" scheme="http://yoursite.com/tags/Two-Pointers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-349-Intersection of Two Arrays</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-349-Intersection-of-Two-Arrays/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-349-Intersection-of-Two-Arrays/</id>
+    <published>2016-05-23T09:19:50.000Z</published>
+    <updated>2016-05-23T09:24:17.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two arrays, write a function to compute their intersection.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;Each element in the result must be unique.&lt;br&gt;The result can be in any order.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;找到两个集合的交集，并且注意交集中每个元素只能出现一次。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;很简单的hash map的题，遍历a中每一个元素，只要在b中出现的，如果没有添加过，则添加到结果集合中。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    vector&amp;lt;int&amp;gt; intersection(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) {
+        vector&amp;lt;int&amp;gt; res;
+        if(!nums1.empty()||!nums2.empty())
+            for(int i=0;i&amp;lt;nums1.size();i++)
+                {
+                    if(find(nums2.begin(),nums2.end(),nums1[i])!=nums2.end())//if nums1[i] is in nums2
+                        if(find(res.begin(),res.end(),nums1[i])==res.end())// if nums[i] not in res
+                            res.push_back(nums1[i]);
+                }
+            return res;
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two arrays, write a function to compute their intersection.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;Each element in the result must be unique.&lt;br&gt;The result can be in any order.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Hash Table" scheme="http://yoursite.com/tags/Hash-Table/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode-226-Invert Binay Tree</title>
@@ -412,677 +660,134 @@ public:
   </entry>
   
   <entry>
-    <title>Leetcode刷题记录84-Minimum Path Sum</title>
-    <link href="http://yoursite.com/2015/10/29/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9584-Minimum-Path-Sum/"/>
-    <id>http://yoursite.com/2015/10/29/Leetcode刷题记录84-Minimum-Path-Sum/</id>
-    <published>2015-10-29T04:45:26.000Z</published>
-    <updated>2015-10-29T16:47:03.000Z</updated>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2015/10/20/Hello-World/"/>
+    <id>http://yoursite.com/2015/10/20/Hello-World/</id>
+    <published>2015-10-20T13:04:33.000Z</published>
+    <updated>2015-10-21T14:54:12.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.&lt;/p&gt;
-&lt;p&gt;Note: You can only move either down or right at any point in time.&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;A simple 2D dynamic programming problem&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int minPathSum(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; grid) {
-            int m=grid[0].size();
-            int n=grid.size();
-            int solution[n][m];
-            solution[0][0]=grid[0][0];
-            for(int i=1;i&amp;lt;m;i++)
-                solution[0][i]=solution[0][i-1]+grid[0][i];
-            for(int j=1;j&amp;lt;n;j++)
-                solution[j][0]=solution[j-1][0]+grid[j][0];
-
-            for(int j=1;j&amp;lt;n;j++)
-                for(int i=1;i&amp;lt;m;i++)
-                    solution[j][i]=min(solution[j-1][i],solution[j][i-1])+grid[j][i];
-
-            return solution[n-1][m-1];
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
+    <content type="html">&lt;p&gt;由于上一次惨痛的经历。。。重装系统忘记备份博客源码。我决定使用Time Machine。。。没啥好说的，心情十分复杂，就这样。。。&lt;/p&gt;
+</content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;p&gt;由于上一次惨痛的经历。。。重装系统忘记备份博客源码。我决定使用Time Machine。。。没啥好说的，心情十分复杂，就这样。。。&lt;/p&gt;
+
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Milestone" scheme="http://yoursite.com/categories/Milestone/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
-    
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode刷题记录83-Swap Nodes in Pairs</title>
-    <link href="http://yoursite.com/2015/10/27/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9583-Swap-Nodes-in-Pairs/"/>
-    <id>http://yoursite.com/2015/10/27/Leetcode刷题记录83-Swap-Nodes-in-Pairs/</id>
-    <published>2015-10-27T14:41:20.000Z</published>
-    <updated>2015-10-28T02:43:55.000Z</updated>
+    <title>随手小记</title>
+    <link href="http://yoursite.com/2015/10/15/%E9%9A%8F%E6%89%8B%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://yoursite.com/2015/10/15/随手小记/</id>
+    <published>2015-10-14T17:40:05.000Z</published>
+    <updated>2015-10-21T05:41:04.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, swap every two adjacent nodes and return its head.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.&lt;/p&gt;
-&lt;p&gt;Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;exchange every pair. remember to keep the pre of next pair.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-    public:
-        ListNode* swapPairs(ListNode* head) {
-            if(!head||!head-&amp;gt;next) 
-                return head;
-            ListNode * a= head;
-            ListNode * b= a-&amp;gt;next;
-            ListNode * newhead =b;
-            ListNode* pre= new ListNode(-1);
-            pre-&amp;gt;next=head;
-            while(b&amp;amp;&amp;amp;a)
-                {
-                    a-&amp;gt;next=b-&amp;gt;next;
-                    b-&amp;gt;next=a;
-                    pre-&amp;gt;next=b;
-                    pre=a;
-                    a=a-&amp;gt;next;
-                    if(a)
-                    b=a-&amp;gt;next;
-                    else break;
-                }
-            return newhead;
-       }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
+    <content type="html">&lt;p&gt;今天终于刷完了Leetcode最后一道我能做的Easy难度。明天就要迈向Medium了。想到Z君说的easy 5分钟一道，我还是太年轻了么果然。。。加油吧。。。坚持就是胜利！逐渐成为一个合格的码农！不过通过这两周来的训练，我觉得我自己的代码能力确实有了一个很大的提升。No pains, no gains.加油吧。从0到1比从1到2难多了，非常庆幸自己能迈出第一步。&lt;/p&gt;
+</content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;p&gt;今天终于刷完了Leetcode最后一道我能做的Easy难度。明天就要迈向Medium了。想到Z君说的easy 5分钟一道，我还是太年轻了么果然。。。加油吧。。。坚持就是胜利！逐渐成为一个合格的码农！不过通过这两周来的训练，我觉得我自己的代码能力确实有了一个很大的提升。No 
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Milestone" scheme="http://yoursite.com/categories/Milestone/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Two Pointers" scheme="http://yoursite.com/tags/Two-Pointers/"/>
-    
-      <category term="Linked List" scheme="http://yoursite.com/tags/Linked-List/"/>
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode刷题记录82-Sort Colors</title>
-    <link href="http://yoursite.com/2015/10/27/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9582-Sort-Colors/"/>
-    <id>http://yoursite.com/2015/10/27/Leetcode刷题记录82-Sort-Colors/</id>
-    <published>2015-10-27T12:46:35.000Z</published>
-    <updated>2015-10-28T01:33:51.000Z</updated>
+    <title>Latex使用经验1——用bibtex添加引用</title>
+    <link href="http://yoursite.com/2015/10/02/Latex%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C1%E2%80%94%E2%80%94%E7%94%A8bibtex%E6%B7%BB%E5%8A%A0%E5%BC%95%E7%94%A8/"/>
+    <id>http://yoursite.com/2015/10/02/Latex使用经验1——用bibtex添加引用/</id>
+    <published>2015-10-02T13:34:08.000Z</published>
+    <updated>2015-10-21T01:39:34.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.&lt;/p&gt;
-&lt;p&gt;Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;You are not suppose to use the library’s sort function for this problem.&lt;/p&gt;
-&lt;p&gt;click to show follow up.&lt;/p&gt;
-&lt;p&gt;Follow up:&lt;br&gt;A rather straight forward solution is a two-pass algorithm using counting sort.&lt;br&gt;First, iterate the array counting number of 0’s, 1’s, and 2’s, then overwrite array with total number of 0’s, then 1’s and followed by 2’s.&lt;/p&gt;
-&lt;p&gt;Could you come up with an one-pass algorithm using only constant space?&lt;/p&gt;
-&lt;h2 id=&quot;Solution-1&quot;&gt;&lt;a href=&quot;#Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Solution 1:&quot;&gt;&lt;/a&gt;Solution 1:&lt;/h2&gt;&lt;p&gt;A typical counting sort problem. &lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C-for-Solution-1&quot;&gt;&lt;a href=&quot;#Code-in-C-for-Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Code in C++ for Solution 1:&quot;&gt;&lt;/a&gt;Code in C++ for Solution 1:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        void sortColors(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            int numof0=0;
-            int numof1=0;
-            int numof2=0;
-            for(int i=0;i&amp;lt;nums.size();i++)
-                {
-                    switch(nums[i])
-                        {
-                            case 0 : numof0++;break;
-                            case 1 : numof1++;break;
-                            case 2 : numof2++;break;
-                            default: break;
-                           }
-                   }
-            for(int i=0;i&amp;lt;numof0;i++)
-                nums[i]=0;
-            for(int j=0;j&amp;lt;numof1;j++)
-                nums[j+numof0]=1;
-            for(int k=numof0+numof1;k&amp;lt;nums.size();k++)
-                nums[k]=2;
-
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Solution-2&quot;&gt;&lt;a href=&quot;#Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Solution 2:&quot;&gt;&lt;/a&gt;Solution 2:&lt;/h2&gt;&lt;p&gt;Using two pointers to seprate those parts.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C-for-Solution-2&quot;&gt;&lt;a href=&quot;#Code-in-C-for-Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Code in C++ for Solution 2:&quot;&gt;&lt;/a&gt;Code in C++ for Solution 2:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        void sortColors(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            int indexof0=0;
-            int indexof2=nums.size()-1;
-            int i=0;
-            while(i&amp;lt;=indexof2)
-                {
-                    if(nums[i]==0)
-                        {
-                            swap(nums[i],nums[indexof0]);
-                            indexof0++;
-                            i++;
-                        }
-                    else if(nums[i]==2)
-                        {
-                            swap(nums[i],nums[indexof2]);
-                            indexof2--;
-                        }
-                    else i++;
-            }
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
+    <content type="html">&lt;p&gt;用bibtex添加引用&lt;/p&gt;
+&lt;h2 id=&quot;第一步：建立一个tex文件&quot;&gt;&lt;a href=&quot;#第一步：建立一个tex文件&quot; class=&quot;headerlink&quot; title=&quot;第一步：建立一个tex文件&quot;&gt;&lt;/a&gt;第一步：建立一个tex文件&lt;/h2&gt;&lt;p&gt;任何一种你想要方法建立一个tex文件，假如说叫a.tex&lt;/p&gt;
+&lt;p&gt;在文章末尾\end{document}之前加入以下三行：&lt;br&gt;\renewcommand\refname{Reference}&lt;br&gt;\bibliographystyle{plain}&lt;br&gt;\bibliography{b}&lt;br&gt;其中第一行是参考文献的标题，标题是Reference；第二行是格式，还有其他格式见此处，这里用plain；第三行是一个bib格式文件的名字，最好和tex文件名称一致，编译起来方便一些。&lt;br&gt;(有一点小小要注意的地方：最常见的引用格式是plain，它是按作者字母排序的，如果要按引用顺序来排序，推荐用格式unsrt)&lt;/p&gt;
+&lt;h2 id=&quot;第二步：建立一个bib文件&quot;&gt;&lt;a href=&quot;#第二步：建立一个bib文件&quot; class=&quot;headerlink&quot; title=&quot;第二步：建立一个bib文件&quot;&gt;&lt;/a&gt;第二步：建立一个bib文件&lt;/h2&gt;&lt;p&gt;bib文件就是一个plain text文件，明明为b.bib，bib格式可以在各种数据库里面的citation找到，例如&lt;br&gt;@book{Book1,&lt;br&gt;title = “Title1”,&lt;br&gt;author = “author1”,&lt;br&gt;publisher = “publisher1”,&lt;br&gt;year = “2015”&lt;br&gt;}&lt;/p&gt;
+&lt;h2 id=&quot;第三步：在tex文件中引用&quot;&gt;&lt;a href=&quot;#第三步：在tex文件中引用&quot; class=&quot;headerlink&quot; title=&quot;第三步：在tex文件中引用&quot;&gt;&lt;/a&gt;第三步：在tex文件中引用&lt;/h2&gt;&lt;p&gt;在需要引用的地方使用\cite{Book1},期中Book1是你在bib文件中给每个引用的名字&lt;/p&gt;
+&lt;h2 id=&quot;第四步：运行-tex文件&quot;&gt;&lt;a href=&quot;#第四步：运行-tex文件&quot; class=&quot;headerlink&quot; title=&quot;第四步：运行.tex文件&quot;&gt;&lt;/a&gt;第四步：运行.tex文件&lt;/h2&gt;&lt;p&gt;可以直接运行texshop里面的排版或者用命令行 pdflatex a(a是咱们.tex文件的名字)&lt;/p&gt;
+&lt;h2 id=&quot;第五步：运行-bib文件&quot;&gt;&lt;a href=&quot;#第五步：运行-bib文件&quot; class=&quot;headerlink&quot; title=&quot;第五步：运行.bib文件&quot;&gt;&lt;/a&gt;第五步：运行.bib文件&lt;/h2&gt;&lt;p&gt;用bibtex b(b是咱们.bib文件的名字)，注意：一定要先运行pdflatex命令，因为运行后会生成aux文件，而编译bib是需要aux文件的、&lt;/p&gt;
+&lt;h2 id=&quot;第六步：运行-tex文件2次&quot;&gt;&lt;a href=&quot;#第六步：运行-tex文件2次&quot; class=&quot;headerlink&quot; title=&quot;第六步：运行.tex文件2次&quot;&gt;&lt;/a&gt;第六步：运行.tex文件2次&lt;/h2&gt;&lt;p&gt;对，你没看错，运行2次，才能正确生成引用和引用目录，原理我也不知道，就这么用就行了！pdflatex a 这个命令运行2次就行了&lt;/p&gt;
+</content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;p&gt;用bibtex添加引用&lt;/p&gt;
+&lt;h2 id=&quot;第一步：建立一个tex文件&quot;&gt;&lt;a href=&quot;#第一步：建立一个tex文件&quot; class=&quot;headerlink&quot; title=&quot;第一步：建立一个tex文件&quot;&gt;&lt;/a&gt;第一步：建立一个tex文件&lt;/h2&gt;&lt;p&gt;任何一种你想要
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Latex" scheme="http://yoursite.com/categories/Latex/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Latex" scheme="http://yoursite.com/tags/Latex/"/>
     
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-      <category term="Two Pointers" scheme="http://yoursite.com/tags/Two-Pointers/"/>
-    
-      <category term="Sort" scheme="http://yoursite.com/tags/Sort/"/>
+      <category term="经验" scheme="http://yoursite.com/tags/%E7%BB%8F%E9%AA%8C/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode刷题记录81-Best Time to Buy and Sell Stock</title>
-    <link href="http://yoursite.com/2015/10/27/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9581-Best-Time-to-Buy-and-Sell-Stock/"/>
-    <id>http://yoursite.com/2015/10/27/Leetcode刷题记录81-Best-Time-to-Buy-and-Sell-Stock/</id>
-    <published>2015-10-27T05:05:52.000Z</published>
-    <updated>2015-10-27T17:08:26.000Z</updated>
+    <title>今天的月亮很美</title>
+    <link href="http://yoursite.com/2015/10/01/%E4%BB%8A%E5%A4%A9%E7%9A%84%E6%9C%88%E4%BA%AE%E5%BE%88%E7%BE%8E/"/>
+    <id>http://yoursite.com/2015/10/01/今天的月亮很美/</id>
+    <published>2015-10-01T13:09:42.000Z</published>
+    <updated>2015-10-21T01:40:05.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
-&lt;p&gt;If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;This problem is very similar to &lt;a href=&quot;/2015/10/25/Leetcode刷题记录77-Maximum-Subarray/&quot;&gt;This problem&lt;/a&gt;.Just change the array into the change array.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int maxProfit(vector&amp;lt;int&amp;gt;&amp;amp; prices) {
-            if(prices.empty()) 
-                return 0;
-            int change[prices.size()];
-            change[0]=0;
-            for(int i=1;i&amp;lt;prices.size();i++)
-                change[i]=prices[i]-prices[i-1];
-            int res=INT_MIN;
-               int sum=0;
-            for(int i=0;i&amp;lt;prices.size();i++){
-                sum= sum&amp;gt;=0? sum+change[i]:change[i];
-                res=max(res,sum);
-        }
-            return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
+    <content type="html">&lt;p&gt;前几天中秋节，在美帝幸运地看到了血月和月全食之后。突然想起了夏目漱石问学生如何翻译“i love you”这个问题。他给学生的答案是“今天的月亮很美”。想起曾经和人谈论过这个问题，当时觉得有种听到“今天的风儿真是喧嚣”的感觉。其实我觉得我现在能理解了这种观点。就仿佛是我期待着下雪，想到下雪后的第一件事就是拍张照片，然后告诉某人，“下雪了”，这是一样的。&lt;/p&gt;
+</content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;p&gt;前几天中秋节，在美帝幸运地看到了血月和月全食之后。突然想起了夏目漱石问学生如何翻译“i love you”这个问题。他给学生的答案是“今天的月亮很美”。想起曾经和人谈论过这个问题，当时觉得有种听到“今天的风儿真是喧嚣”的感觉。其实我觉得我现在能理解了这种观点。就仿佛是我期待
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Mood" scheme="http://yoursite.com/categories/Mood/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
-    
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
+      <category term="杂谈" scheme="http://yoursite.com/tags/%E6%9D%82%E8%B0%88/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode刷题记录80-Unique Paths</title>
-    <link href="http://yoursite.com/2015/10/27/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9580-Unique-Paths/"/>
-    <id>http://yoursite.com/2015/10/27/Leetcode刷题记录80-Unique-Paths/</id>
-    <published>2015-10-27T02:51:42.000Z</published>
-    <updated>2015-10-31T12:54:39.000Z</updated>
+    <title>TableView上方总是有一截留白的解决方法</title>
+    <link href="http://yoursite.com/2015/09/29/TableView%E4%B8%8A%E6%96%B9%E6%80%BB%E6%98%AF%E6%9C%89%E4%B8%80%E6%88%AA%E7%95%99%E7%99%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2015/09/29/TableView上方总是有一截留白的解决方法/</id>
+    <published>2015-09-29T13:07:41.000Z</published>
+    <updated>2015-10-21T01:43:15.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;Problem-Descriptions&quot;&gt;&lt;a href=&quot;#Problem-Descriptions&quot; class=&quot;headerlink&quot; title=&quot;Problem Descriptions:&quot;&gt;&lt;/a&gt;Problem Descriptions:&lt;/h2&gt;&lt;p&gt;A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).&lt;/p&gt;
-&lt;p&gt;The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).&lt;/p&gt;
-&lt;p&gt;How many possible unique paths are there?&lt;/p&gt;
-&lt;h2 id=&quot;Solutions-1&quot;&gt;&lt;a href=&quot;#Solutions-1&quot; class=&quot;headerlink&quot; title=&quot;Solutions 1:&quot;&gt;&lt;/a&gt;Solutions 1:&lt;/h2&gt;&lt;p&gt;Using recursive call. It’s like the &lt;a href=&quot;/2015/10/10/Leetcode刷题记录34-Climbing-Stairs/&quot;&gt;Climbing stairs problem&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C-for-Solution-1&quot;&gt;&lt;a href=&quot;#Code-in-C-for-Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Code in C++ for Solution 1:&quot;&gt;&lt;/a&gt;Code in C++ for Solution 1:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int uniquePaths(int m, int n) {
-            if(m==1||n==1) return 1;
-            else return uniquePaths(m-1,n)+uniquePaths(m,n-1);
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Solution-2&quot;&gt;&lt;a href=&quot;#Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Solution 2:&quot;&gt;&lt;/a&gt;Solution 2:&lt;/h2&gt;&lt;p&gt;Using a map to record the best solutions(using dynamic programming)&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C-for-Solution-2&quot;&gt;&lt;a href=&quot;#Code-in-C-for-Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Code in C++ for Solution 2:&quot;&gt;&lt;/a&gt;Code in C++ for Solution 2:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-       public:
-           int uniquePaths(int m, int n) {
-           int a[m][n];
-           for(int i=0;i&amp;lt;m;i++)
-                a[i][n-1]=1;
-           for(int i=0;i&amp;lt;n;i++)
-               a[m-1][i]=1;
-           for(int i=m-2;i&amp;gt;=0;i--)
-               for(int j=n-2;j&amp;gt;=0;j--)
-                   a[i][j]=a[i+1][j]+a[i][j+1];
-           return a[0][0];
-        }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
+    <content type="html">&lt;p&gt;不知道从哪个版本（大概是iOS8）开始，如果你用了autolayout，当你设置某个tableview（或者任意scrollview）顶部约束为顶格的适合，它总会多出来一个留白，其实解决方法很简单，在该viewcontroller的.m文件中把automaticallyAdjustsScrollViewInsets这个属性设置成false就可以了。鬼知道谁设计的留白。。。&lt;/p&gt;
+</content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Descriptions&quot;&gt;&lt;a href=&quot;#Problem-Descriptions&quot; class=&quot;headerlink&quot; title=&quot;Problem Descriptions:&quot;&gt;&lt;/a&gt;Problem Descriptions:&lt;/h2
+      &lt;p&gt;不知道从哪个版本（大概是iOS8）开始，如果你用了autolayout，当你设置某个tableview（或者任意scrollview）顶部约束为顶格的适合，它总会多出来一个留白，其实解决方法很简单，在该viewcontroller的.m文件中把automaticallyAd
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="经验" scheme="http://yoursite.com/tags/%E7%BB%8F%E9%AA%8C/"/>
     
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
     
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录79-Find Minimum</title>
-    <link href="http://yoursite.com/2015/10/27/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9579-Find-Minimum/"/>
-    <id>http://yoursite.com/2015/10/27/Leetcode刷题记录79-Find-Minimum/</id>
-    <published>2015-10-27T02:43:09.000Z</published>
-    <updated>2015-10-27T14:45:16.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Suppose a sorted array is rotated at some pivot unknown to you beforehand.&lt;/p&gt;
-&lt;p&gt;(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).&lt;/p&gt;
-&lt;p&gt;Find the minimum element.&lt;/p&gt;
-&lt;p&gt;You may assume no duplicate exists in the array.&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;Using binary search&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int findMin(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            int begin =0;
-            int end = nums.size()-1;
-            int mid =begin+(end-begin)/2;
-            if(nums[end]&amp;gt;nums[begin]) return nums[begin];
-            while(end-begin&amp;gt;1)
-                {
-                    if(nums[mid-1]&amp;gt;nums[mid])
-                        return nums[mid];
-                    else if(nums[mid]&amp;lt;nums[begin])
-                        {
-                            end = mid ;
-                            mid = begin + (end-begin)/2;
-                        }
-                    else if (nums[mid]&amp;gt;nums[begin])
-                        {
-                            begin = mid;
-                            mid = begin + (end-begin)/2;
-                        }
-                }
-            return min(nums[end],nums[begin]);
-
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录78-Convert Sorted Array to Binary Search Tree</title>
-    <link href="http://yoursite.com/2015/10/25/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9578-Convert-Sorted-Array-to-Binary-Search-Tree/"/>
-    <id>http://yoursite.com/2015/10/25/Leetcode刷题记录78-Convert-Sorted-Array-to-Binary-Search-Tree/</id>
-    <published>2015-10-25T08:09:55.000Z</published>
-    <updated>2015-10-25T20:12:32.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array where elements are sorted in ascending order, convert it to a height balanced BST.&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;Do it recursively. use mid element to be the root.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        TreeNode* sortedArrayToBST(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            vector&amp;lt;int&amp;gt; a;
-            vector&amp;lt;int&amp;gt; b;
-            int mid=nums.size()/2;
-            for(int i=0;i&amp;lt;mid;i++)
-            a.push_back(nums[i]);
-            for(int i=mid+1;i&amp;lt;nums.size();i++)
-            b.push_back(nums[i]);
-            if(nums.size()==0) 
-                return NULL;
-            else if(nums.size()==1)
-                {
-                    TreeNode* t= new TreeNode(nums[0]);
-                    return t;
-                }
-            else
-                {
-                       TreeNode* root =new TreeNode(nums[mid]);
-                       root-&amp;gt;left= sortedArrayToBST(a);
-                       root-&amp;gt;right=sortedArrayToBST(b);
-                       return root;
-                }
-        }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
-      <category term="Depth First Search" scheme="http://yoursite.com/tags/Depth-First-Search/"/>
-    
-      <category term="Binary Search Tree" scheme="http://yoursite.com/tags/Binary-Search-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录77-Maximum Subarray</title>
-    <link href="http://yoursite.com/2015/10/25/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9577-Maximum-Subarray/"/>
-    <id>http://yoursite.com/2015/10/25/Leetcode刷题记录77-Maximum-Subarray/</id>
-    <published>2015-10-25T06:51:03.000Z</published>
-    <updated>2015-10-25T20:18:43.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Descriptions&quot;&gt;&lt;a href=&quot;#Problem-Descriptions&quot; class=&quot;headerlink&quot; title=&quot;Problem Descriptions:&quot;&gt;&lt;/a&gt;Problem Descriptions:&lt;/h2&gt;&lt;p&gt;Find the contiguous subarray within an array (containing at least one number) which has the largest sum.&lt;/p&gt;
-&lt;p&gt;For example, given the array [−2,1,−3,4,−1,2,1,−5,4],&lt;br&gt;the contiguous subarray [4,−1,2,1] has the largest sum = 6.&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;Once the sum is less than 0, start from the current element.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int maxSubArray(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            int res=INT_MIN;
-            int sum=0;
-            for(int i=0;i&amp;lt;nums.size();i++){
-                sum= sum&amp;gt;=0? sum+nums[i]:nums[i];
-                res=max(res,sum);
-            }
-        return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Descriptions&quot;&gt;&lt;a href=&quot;#Problem-Descriptions&quot; class=&quot;headerlink&quot; title=&quot;Problem Descriptions:&quot;&gt;&lt;/a&gt;Problem Descriptions:&lt;/h2
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录76-Integer to Roman</title>
-    <link href="http://yoursite.com/2015/10/25/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9576-Integer-to-Roman/"/>
-    <id>http://yoursite.com/2015/10/25/Leetcode刷题记录76-Integer-to-Roman/</id>
-    <published>2015-10-25T04:55:10.000Z</published>
-    <updated>2015-10-25T17:51:02.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an integer, convert it to a roman numeral.&lt;/p&gt;
-&lt;p&gt;Input is guaranteed to be within the range from 1 to 3999.&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;Like coin pick problems, just use greedy algorithm&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        string intToRoman(int num) {
-            string res=&amp;quot;&amp;quot;;
-            int a[13]={1000,900,500,400,100,90,50,40,10,9,5,4,1};
-            string x[13]={&amp;quot;M&amp;quot;,&amp;quot;CM&amp;quot;,&amp;quot;D&amp;quot;,&amp;quot;CD&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;XC&amp;quot;,&amp;quot;L&amp;quot;,&amp;quot;XL&amp;quot;,&amp;quot;X&amp;quot;,&amp;quot;IX&amp;quot;,&amp;quot;V&amp;quot;,&amp;quot;IV&amp;quot;,&amp;quot;I&amp;quot;};
-            for(int i=0;i&amp;lt;13;i++)
-                {
-                    if(num&amp;gt;=a[i])
-                        {
-                            for(int j=0;j&amp;lt;num/a[i];j++)
-                                res+=x[i];
-                                num%=a[i];
-                        }
-                }
-            return res;
-
-        }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
-    
-      <category term="String" scheme="http://yoursite.com/tags/String/"/>
-    
-      <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录75-Search Insert Position</title>
-    <link href="http://yoursite.com/2015/10/25/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9575-Search-Insert-Position/"/>
-    <id>http://yoursite.com/2015/10/25/Leetcode刷题记录75-Search-Insert-Position/</id>
-    <published>2015-10-25T03:17:06.000Z</published>
-    <updated>2015-10-25T20:18:57.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.&lt;/p&gt;
-&lt;p&gt;You may assume no duplicates in the array.&lt;/p&gt;
-&lt;p&gt;Here are few examples.&lt;br&gt;[1,3,5,6], 5 → 2&lt;br&gt;[1,3,5,6], 2 → 1&lt;br&gt;[1,3,5,6], 7 → 4&lt;br&gt;[1,3,5,6], 0 → 0&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;Using binary search&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int searchInsert(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
-            int begin =0;
-            int end = nums.size()-1;
-            int mid = begin+(end-begin)/2;
-            while(end-begin&amp;gt;1)
-                    {
-                    if(nums[mid]==target) 
-                        return mid;
-                    else if(nums[mid]&amp;gt;target)
-                        {
-                            end=mid;
-                            mid=begin+(end-begin)/2;
-                            continue;
-                        }
-                    else if(nums[mid]&amp;lt;target)
-                        {
-                            begin=mid;
-                            mid=begin+(end-begin)/2;
-                            continue;
-                        }
-                }
-            if(target&amp;lt;=nums[begin])return begin;
-            if(target&amp;gt;nums[end]) return end+1;
-            return end;
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录74-Unique Binary Search Tree</title>
-    <link href="http://yoursite.com/2015/10/25/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9574-Unique-Binary-Search-Tree/"/>
-    <id>http://yoursite.com/2015/10/25/Leetcode刷题记录74-Unique-Binary-Search-Tree/</id>
-    <published>2015-10-25T02:45:37.000Z</published>
-    <updated>2015-10-25T14:50:08.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given n, how many structurally unique BST’s (binary search trees) that store values 1…n?&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given n = 3, there are a total of 5 unique BST’s.&lt;/p&gt;
-&lt;p&gt;   1         3     3      2      1&lt;br&gt;    \       /     /      / \      \&lt;br&gt;     3     2     1      1   3      2&lt;br&gt;    /     /       \                 \&lt;br&gt;   2     1         2                 3&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot; Solutions:&quot;&gt;&lt;/a&gt; Solutions:&lt;/h2&gt;&lt;p&gt; A unique binary search tree using i as root in n nodes are (0~i-1) in the left and (i+1~n) in the right. So we can do a dynamic programming.&lt;/p&gt;
-&lt;p&gt; Updates:&lt;br&gt; You can see from &lt;a href=&quot;https://en.wikipedia.org/wiki/Catalan_number&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;here&lt;/a&gt; . This kind of number is called “Catalan number”.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot; Code in C++:&quot;&gt;&lt;/a&gt; Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int numTrees(int n) {
-            int res[n+1]={0};
-            res[0]=1;
-            res[1]=1;
-            for(int i=2;i&amp;lt;=n;i++)
-                    for(int j=0;j&amp;lt;i;j++)
-                      res[i]+=res[j]*res[i-1-j];
-            return res[n];
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
-    
-      <category term="Binary Search Tree" scheme="http://yoursite.com/tags/Binary-Search-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录73-Missing Number</title>
-    <link href="http://yoursite.com/2015/10/24/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9573-Missing-Number/"/>
-    <id>http://yoursite.com/2015/10/24/Leetcode刷题记录73-Missing-Number/</id>
-    <published>2015-10-24T15:59:52.000Z</published>
-    <updated>2015-10-25T04:21:58.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given nums = [0, 1, 3] return 2.&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?&lt;/p&gt;
-&lt;h2 id=&quot;Solution-1&quot;&gt;&lt;a href=&quot;#Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Solution 1:&quot;&gt;&lt;/a&gt;Solution 1:&lt;/h2&gt;&lt;p&gt;If we have O(n) extra space. we can mark every appeard element.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C-for-Solution-1&quot;&gt;&lt;a href=&quot;#Code-in-C-for-Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Code in C++ for Solution 1:&quot;&gt;&lt;/a&gt;Code in C++ for Solution 1:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int missingNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            bool flag[nums.size()+1];
-            for(int i=0;i&amp;lt;nums.size();i++) 
-                flag[i]=false;
-            for(int i=0;i&amp;lt;nums.size();i++)
-                flag[nums[i]]= true;
-            for(int i=0;i&amp;lt;nums.size();i++)
-                if(!flag[i]) return i;
-            return nums.size();
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Solution-2&quot;&gt;&lt;a href=&quot;#Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Solution 2:&quot;&gt;&lt;/a&gt;Solution 2:&lt;/h2&gt;&lt;p&gt;We can add the total number and minus every element.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C-for-Solution-2&quot;&gt;&lt;a href=&quot;#Code-in-C-for-Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Code in C++ for Solution 2:&quot;&gt;&lt;/a&gt;Code in C++ for Solution 2:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int missingNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            int res=nums.size();
-            for(int i=0;i&amp;lt;nums.size();i++)
-                res += (i-nums[i]);
-            return res;
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Solution-3&quot;&gt;&lt;a href=&quot;#Solution-3&quot; class=&quot;headerlink&quot; title=&quot;Solution 3:&quot;&gt;&lt;/a&gt;Solution 3:&lt;/h2&gt;&lt;p&gt;Use Bit Manipulation(which I don’t know very well)&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C-for-Solution-3&quot;&gt;&lt;a href=&quot;#Code-in-C-for-Solution-3&quot; class=&quot;headerlink&quot; title=&quot;Code in C++ for Solution 3:&quot;&gt;&lt;/a&gt;Code in C++ for Solution 3:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int missingNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            int res = 0;
-            for (int i = 0; i &amp;lt; nums.size(); ++i) {
-                res ^= (i + 1) ^ nums[i];
-        }
-            return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
-    
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+      <category term="TableView" scheme="http://yoursite.com/tags/TableView/"/>
     
   </entry>
   
