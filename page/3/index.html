@@ -298,6 +298,191 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/24/Leetcode刷题记录72-Populating-Next-Right-Pointers-in-Each-Node/" itemprop="url">
+                  Leetcode刷题记录72-Populating Next Right Pointers in Each Node
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-24T23:55:46+08:00" content="2015-10-24">
+              2015-10-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/24/Leetcode刷题记录72-Populating-Next-Right-Pointers-in-Each-Node/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/24/Leetcode刷题记录72-Populating-Next-Right-Pointers-in-Each-Node/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/24/Leetcode刷题记录72-Populating-Next-Right-Pointers-in-Each-Node/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录72-Populating Next Right Pointers in Each Node">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree</p>
+<pre><code>struct TreeLinkNode {
+  TreeLinkNode *left;
+  TreeLinkNode *right;
+  TreeLinkNode *next;
+}
+</code></pre><p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.</p>
+<p>Initially, all next pointers are set to NULL.</p>
+<p>Note:</p>
+<p>You may only use constant extra space.<br>You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).<br>For example,<br>Given the following perfect binary tree,<br>         1<br>       /  \<br>      2    3<br>     / \  / \<br>    4  5  6  7<br>After calling your function, the tree should look like:<br>         1 -&gt; NULL<br>       /  \<br>      2 -&gt; 3 -&gt; NULL<br>     / \  / \<br>    4-&gt;5-&gt;6-&gt;7 -&gt; NULL</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title=" Solutions:"></a> Solutions:</h2><p> It’s very like <a href="/2015/10/15/Leetcode刷题记录64-Binary-Tree-Level-Order-Traversal/">This Problem</a></p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title=" Code in C++:"></a> Code in C++:</h2><pre><code> /**
+ * Definition for binary tree with next pointer.
+ * struct TreeLinkNode {
+ *  int val;
+ *  TreeLinkNode *left, *right, *next;
+ *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        void connect(TreeLinkNode *root) {
+            queue&lt;TreeLinkNode*&gt; a;
+            if(root)
+                {
+                    TreeLinkNode* pre=NULL;
+                    a.push(root);
+                    a.push(NULL);
+                    while(!a.empty())
+                        {
+                            TreeLinkNode* t=a.front();
+                            a.pop();
+                            if(t)
+                                {
+                                    if(t-&gt;left)
+                                        a.push(t-&gt;left);
+                                    if(t-&gt;right)
+                                        a.push(t-&gt;right);
+                                    if(pre) 
+                                        pre-&gt;next = t;
+                                    pre=t;                                 
+                                }
+                            else{
+                                    if(!a.empty())
+                                        {
+                                            a.push(NULL);
+                                            if(pre) 
+                                                pre-&gt;next=NULL;
+                                            pre=NULL;
+                                        }
+                                }
+
+                        }
+                }
+
+        }
+    };
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/24/Leetcode刷题记录71-Linked-List-Cycle/" itemprop="url">
                   Leetcode刷题记录71-Linked List Cycle
                 </a>
@@ -1749,135 +1934,6 @@ class Solution {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/15/随手小记/" itemprop="url">
-                  随手小记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-15T01:40:05+08:00" content="2015-10-15">
-              2015-10-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Milestone/" itemprop="url" rel="index">
-                    <span itemprop="name">Milestone</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/15/随手小记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/随手小记/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/15/随手小记/" class="leancloud_visitors" data-flag-title="随手小记">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天终于刷完了Leetcode最后一道我能做的Easy难度。明天就要迈向Medium了。想到Z君说的easy 5分钟一道，我还是太年轻了么果然。。。加油吧。。。坚持就是胜利！逐渐成为一个合格的码农！不过通过这两周来的训练，我觉得我自己的代码能力确实有了一个很大的提升。No pains, no gains.加油吧。从0到1比从1到2难多了，非常庆幸自己能迈出第一步。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1923,7 +1979,7 @@ class Solution {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

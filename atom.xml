@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-23T09:08:09.000Z</updated>
+  <updated>2016-05-23T09:15:21.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/05/23/Leetcode-226-Invert-Binay-Tree/"/>
     <id>http://yoursite.com/2016/05/23/Leetcode-226-Invert-Binay-Tree/</id>
     <published>2016-05-23T09:04:15.000Z</published>
-    <updated>2016-05-23T09:08:09.000Z</updated>
+    <updated>2016-05-23T09:15:21.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Invert a binary tree.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;     4
@@ -28,7 +28,13 @@
   2     7
  / \   / \
 1   3 6   9
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;to&lt;br&gt;         4&lt;br&gt;       /   \&lt;br&gt;      7     2&lt;br&gt;     / \   / \&lt;br&gt;    9   6 3   1&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;to&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;      4
+    /   \
+  7     2
+ / \   / \
+9   6 3   1
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;反转一个二叉树&lt;/p&gt;
 &lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;递归调用函数本身即可，注意边界条件。&lt;/p&gt;
 &lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
@@ -59,7 +65,19 @@ class Solution {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Invert a binary tree.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;to&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;      4
+    /   \
+  7     2
+ / \   / \
+9   6 3   1
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -81,10 +99,10 @@ class Solution {
     <link href="http://yoursite.com/2016/05/23/Leetcode-104-Maximum-Depth-of-Binary-Tree/"/>
     <id>http://yoursite.com/2016/05/23/Leetcode-104-Maximum-Depth-of-Binary-Tree/</id>
     <published>2016-05-23T09:00:29.000Z</published>
-    <updated>2016-05-23T09:03:43.000Z</updated>
+    <updated>2016-05-23T09:17:19.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, find its maximum depth.&lt;/p&gt;
-&lt;p&gt;The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.&lt;/p&gt;
+&lt;p&gt;The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个二叉树，返回它的最大深度&lt;/p&gt;
 &lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;递归调用本函数，返回左右子树的最大深度中较大值+1即可。&lt;/p&gt;
 &lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
@@ -109,7 +127,8 @@ class Solution {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, find its maximum depth.&lt;/p&gt;
+&lt;p&gt;The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.&lt;br&gt;
     
     </summary>
     
@@ -127,13 +146,56 @@ class Solution {
   </entry>
   
   <entry>
+    <title>Leetcode-258-Add Digits</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-258-Add-Digits/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-258-Add-Digits/</id>
+    <published>2016-05-23T08:51:32.000Z</published>
+    <updated>2016-05-23T09:15:19.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;p&gt;Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个非负整数，重复累加它的每一位，直到生成的新数字只有一位。&lt;br&gt;例如：38-》3+8=11-》1+1=2.此时返回2.&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这里提供两种方法，第一种是正常的循环解题思路，另一种是数学的方法。数学方法请参见&lt;a href=&quot;https://en.wikipedia.org/wiki/Digital_root&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇wiki文章&lt;/a&gt;.循环解法只需要按照题目要求累加每一位数字即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int addDigits(int num) {
+            switch(num)
+                {
+                    case 0: return 0;
+                    default: return (num-1)%9+1;
+                }
+            }
+    };
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;p&gt;Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Leetcode-136-Single Number</title>
     <link href="http://yoursite.com/2016/05/23/Leetcode-136-Single-Number/"/>
     <id>http://yoursite.com/2016/05/23/Leetcode-136-Single-Number/</id>
     <published>2016-05-23T08:47:34.000Z</published>
-    <updated>2016-05-23T08:50:46.000Z</updated>
+    <updated>2016-05-23T09:15:18.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, every element appears twice except for one. Find that single one.&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, every element appears twice except for one. Find that single one.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，其中除了某一个数字以外其他数字都出现过两次，找出这个数字。&lt;/p&gt;
 &lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题方法有许多，这里本文介绍最简单的一种，使用位运算，一个数字a^b^b以后仍然为它本身。这样，把整个数组^一次即可。&lt;/p&gt;
 &lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
@@ -151,7 +213,7 @@ class Solution {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, every element appears twice except for one. Find that single one.&lt;br&gt;
     
     </summary>
     
@@ -171,11 +233,11 @@ class Solution {
     <link href="http://yoursite.com/2016/05/23/Leetcode-292-Nim-Game/"/>
     <id>http://yoursite.com/2016/05/23/Leetcode-292-Nim-Game/</id>
     <published>2016-05-23T08:40:44.000Z</published>
-    <updated>2016-05-23T08:45:43.000Z</updated>
+    <updated>2016-05-23T09:16:48.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.&lt;/p&gt;
 &lt;p&gt;Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.&lt;/p&gt;
-&lt;p&gt;For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.&lt;/p&gt;
+&lt;p&gt;For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;你和朋友玩一个取石子的游戏，每一个人可以取1-3个石子，假如你们俩都能每一步做出最优选择，那么当你先取的时候，输入一个石子数，返回你是否能取得胜利。&lt;/p&gt;
 &lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题仔细分析其实并不难。当石子数为4的整数倍的时候，总是后手胜利，因为不管先手拿走了n(1-3)枚石子，你总是拿走4-n枚，即可获胜，其他情况下，先手可以把自己变为后手，即取走余数。所以想通了这一点之后这道题变得非常简单。即判断先手是否胜利的条件在于石子数能否被4整除。&lt;/p&gt;
 &lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
@@ -188,7 +250,9 @@ class Solution {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.&lt;/p&gt;
+&lt;p&gt;Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.&lt;/p&gt;
+&lt;p&gt;For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.&lt;br&gt;
     
     </summary>
     
@@ -208,10 +272,10 @@ class Solution {
     <link href="http://yoursite.com/2016/05/23/Leetcode-191-Number-of-1-Bits/"/>
     <id>http://yoursite.com/2016/05/23/Leetcode-191-Number-of-1-Bits/</id>
     <published>2016-05-23T08:06:57.000Z</published>
-    <updated>2016-05-23T08:40:16.000Z</updated>
+    <updated>2016-05-23T09:17:11.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).&lt;/p&gt;
-&lt;p&gt;For example, the 32-bit integer ’11’ has binary representation 00000000000000000000000000001011, so the function should return 3.&lt;/p&gt;
+&lt;p&gt;For example, the 32-bit integer ’11’ has binary representation 00000000000000000000000000001011, so the function should return 3.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;写一个函数，返回某一数字二进制表示中1出现的次数&lt;/p&gt;
 &lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用位运算中&amp;amp;操作符号，和指定数的每一位都单独&amp;amp;一次，如果是1，则会返回1，再使用一个计数器实现统计。&lt;/p&gt;
 &lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
@@ -229,7 +293,8 @@ class Solution {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).&lt;/p&gt;
+&lt;p&gt;For example, the 32-bit integer ’11’ has binary representation 00000000000000000000000000001011, so the function should return 3.&lt;br&gt;
     
     </summary>
     
@@ -249,12 +314,12 @@ class Solution {
     <link href="http://yoursite.com/2016/05/23/Leetcode-338-Counting-Bits/"/>
     <id>http://yoursite.com/2016/05/23/Leetcode-338-Counting-Bits/</id>
     <published>2016-05-23T02:26:55.000Z</published>
-    <updated>2016-05-23T08:37:04.000Z</updated>
+    <updated>2016-05-23T09:16:37.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.&lt;/p&gt;
 &lt;p&gt;Example:&lt;br&gt;For num = 5 you should return [0,1,1,2,1,2].&lt;/p&gt;
 &lt;p&gt;Follow up:&lt;/p&gt;
-&lt;p&gt;It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?&lt;br&gt;Space complexity should be O(n).&lt;br&gt;Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.&lt;/p&gt;
+&lt;p&gt;It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?&lt;br&gt;Space complexity should be O(n).&lt;br&gt;Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;输入一个数字，输出从0开始到该数字为止的所有数字二进制表示中1的个数.&lt;/p&gt;
 &lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;对于最基本的解题思路，如果使用O(n*sizeof(integer))的时间的话,可以写一个统计某个数之中出现“1”的次数的函数，正如&lt;a href=&quot;/2016/05/23/Leetcode-191-Number-of-1-Bits/&quot;&gt;这一题&lt;/a&gt;，然后从0开始循环调用N次。&lt;br&gt;但是我们通过观察二进制的规律不难发现，除了2的整数次幂只有一个1以外，每多一位，立马会从0开始到这个数字为止全部重复一次。动态规划转移方程为a[n]=1(如果n为2的整数次幂)，a[n]=1+a[mark] （mark为我们的标记）我们用两个标记变量，一个表示2的整数次幂，另一个表示已经循环到的数字，每次经过2的整数次幂后，该标记归0。这样便能把时间复杂度降低为O(n)，而且只用使用O(n)的额外空间。&lt;/p&gt;
 &lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
@@ -289,7 +354,10 @@ class Solution {
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1’s in their binary representation and return them as an array.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;For num = 5 you should return [0,1,1,2,1,2].&lt;/p&gt;
+&lt;p&gt;Follow up:&lt;/p&gt;
+&lt;p&gt;It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?&lt;br&gt;Space complexity should be O(n).&lt;br&gt;Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.&lt;br&gt;
     
     </summary>
     
@@ -309,10 +377,10 @@ class Solution {
     <link href="http://yoursite.com/2016/05/22/Leetcode-344-Reverse-String/"/>
     <id>http://yoursite.com/2016/05/22/Leetcode-344-Reverse-String/</id>
     <published>2016-05-22T11:32:54.000Z</published>
-    <updated>2016-05-22T16:25:00.000Z</updated>
+    <updated>2016-05-23T09:16:26.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes a string as input and returns the string reversed.&lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given s = “hello”, return “olleh”.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given s = “hello”, return “olleh”.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;反转一个给定字符串&lt;/p&gt;
 &lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;简单的倒序添加每一个字符即可&lt;/p&gt;
 &lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
@@ -329,7 +397,8 @@ public:
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes a string as input and returns the string reversed.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given s = “hello”, return “olleh”.&lt;br&gt;
     
     </summary>
     
@@ -1014,89 +1083,6 @@ class Solution {
       <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
     
       <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录72-Populating Next Right Pointers in Each Node</title>
-    <link href="http://yoursite.com/2015/10/24/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9572-Populating-Next-Right-Pointers-in-Each-Node/"/>
-    <id>http://yoursite.com/2015/10/24/Leetcode刷题记录72-Populating-Next-Right-Pointers-in-Each-Node/</id>
-    <published>2015-10-24T15:55:46.000Z</published>
-    <updated>2015-10-25T03:59:25.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;struct TreeLinkNode {
-  TreeLinkNode *left;
-  TreeLinkNode *right;
-  TreeLinkNode *next;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.&lt;/p&gt;
-&lt;p&gt;Initially, all next pointers are set to NULL.&lt;/p&gt;
-&lt;p&gt;Note:&lt;/p&gt;
-&lt;p&gt;You may only use constant extra space.&lt;br&gt;You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).&lt;br&gt;For example,&lt;br&gt;Given the following perfect binary tree,&lt;br&gt;         1&lt;br&gt;       /  \&lt;br&gt;      2    3&lt;br&gt;     / \  / \&lt;br&gt;    4  5  6  7&lt;br&gt;After calling your function, the tree should look like:&lt;br&gt;         1 -&amp;gt; NULL&lt;br&gt;       /  \&lt;br&gt;      2 -&amp;gt; 3 -&amp;gt; NULL&lt;br&gt;     / \  / \&lt;br&gt;    4-&amp;gt;5-&amp;gt;6-&amp;gt;7 -&amp;gt; NULL&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot; Solutions:&quot;&gt;&lt;/a&gt; Solutions:&lt;/h2&gt;&lt;p&gt; It’s very like &lt;a href=&quot;/2015/10/15/Leetcode刷题记录64-Binary-Tree-Level-Order-Traversal/&quot;&gt;This Problem&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot; Code in C++:&quot;&gt;&lt;/a&gt; Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt; /**
- * Definition for binary tree with next pointer.
- * struct TreeLinkNode {
- *  int val;
- *  TreeLinkNode *left, *right, *next;
- *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
- * };
- */
-class Solution {
-    public:
-        void connect(TreeLinkNode *root) {
-            queue&amp;lt;TreeLinkNode*&amp;gt; a;
-            if(root)
-                {
-                    TreeLinkNode* pre=NULL;
-                    a.push(root);
-                    a.push(NULL);
-                    while(!a.empty())
-                        {
-                            TreeLinkNode* t=a.front();
-                            a.pop();
-                            if(t)
-                                {
-                                    if(t-&amp;gt;left)
-                                        a.push(t-&amp;gt;left);
-                                    if(t-&amp;gt;right)
-                                        a.push(t-&amp;gt;right);
-                                    if(pre) 
-                                        pre-&amp;gt;next = t;
-                                    pre=t;                                 
-                                }
-                            else{
-                                    if(!a.empty())
-                                        {
-                                            a.push(NULL);
-                                            if(pre) 
-                                                pre-&amp;gt;next=NULL;
-                                            pre=NULL;
-                                        }
-                                }
-
-                        }
-                }
-
-        }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Depth First Search" scheme="http://yoursite.com/tags/Depth-First-Search/"/>
-    
-      <category term="Binary Tree" scheme="http://yoursite.com/tags/Binary-Tree/"/>
     
   </entry>
   

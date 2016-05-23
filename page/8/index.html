@@ -298,6 +298,161 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/08/Leetcode刷题记录24-Longest-Common-Prefix/" itemprop="url">
+                  Leetcode刷题记录24-Longest Common Prefix
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-08T23:39:58+08:00" content="2015-10-08">
+              2015-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/08/Leetcode刷题记录24-Longest-Common-Prefix/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/08/Leetcode刷题记录24-Longest-Common-Prefix/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/08/Leetcode刷题记录24-Longest-Common-Prefix/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录24-Longest Common Prefix">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Write a function to find the longest common prefix string amongst an array of strings.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>A very simple task.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
+            if(strs.size()==0) 
+                return &quot;&quot;;
+            string res = &quot;&quot;;
+            string restem =res+strs[0][0];
+            while(res.length()&lt;strs[0].length())
+                {
+                    for(int i = 0;i&lt; strs.size();i++)
+                        {
+                            for(int j = 0;j&lt;restem.length();j++)
+                                {
+                                    if(strs[i][j]!=restem[j]) 
+                                        return res;
+                                }
+                        }
+                    res = restem;
+                    restem+=strs[0][restem.length()];
+                }
+
+            return res;
+
+        }
+    };
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/08/Leetcode刷题记录23-Remove-Linked-List-Elements/" itemprop="url">
                   Leetcode刷题记录23-Remove Linked List Elements
                 </a>
@@ -1742,183 +1897,6 @@ class Solution {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/06/Leetcode刷题记录14-House-Robber/" itemprop="url">
-                  Leetcode刷题记录14-House Robber
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-06T23:08:25+08:00" content="2015-10-06">
-              2015-10-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/06/Leetcode刷题记录14-House-Robber/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/06/Leetcode刷题记录14-House-Robber/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/06/Leetcode刷题记录14-House-Robber/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录14-House Robber">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.</p>
-<p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.</p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><p>Use recursive algorithms. That will take so much time,and will not be accepted;</p>
-<h2 id="Code-in-C-for-Solution-1"><a href="#Code-in-C-for-Solution-1" class="headerlink" title="Code in C++ for Solution 1:"></a>Code in C++ for Solution 1:</h2><pre><code>class Solution {
-    public:
-        int max(vector&lt;int&gt;&amp; a, int p)
-            {
-                if(p == 0) return 0;
-                if(p == 1) return a[0];
-                if(p == 2) return a[0]&gt;a[1]? a[0]:a[1];
-                else
-                    {
-                        if(max(a,p-2)+a[p-1]&gt;max(a,p-1)) 
-                            return max(a,p-2)+a[p-1];
-                        else 
-                            return max(a,p-1);
-                    }
-            }
-        int rob(vector&lt;int&gt;&amp; nums) {
-            return max(nums,nums.size());
-
-            }
-};
-</code></pre><h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><p>Use Dynamic Programming, which will use an array to keep every best solution for each step.</p>
-<h2 id="Code-in-C-for-Solution-2"><a href="#Code-in-C-for-Solution-2" class="headerlink" title="Code in C++ for Solution 2:"></a>Code in C++ for Solution 2:</h2><pre><code>class Solution {
-    public:
-        int rob(vector&lt;int&gt;&amp; nums) {
-            if(nums.size()==0) 
-                return 0;
-            if(nums.size()==1) 
-                return nums[0];
-            if(nums.size()==2) 
-                return nums[0]&gt;nums[1]?nums[0]:nums[1];
-            if(nums.size()&gt;=3)
-                {
-                    vector&lt;int&gt; solutions;
-                    solutions.push_back(nums[0]);
-                    solutions.push_back(nums[0]&gt;nums[1]?nums[0]:nums[1]);
-                    for(int i = 2; i &lt; nums.size();i++)
-                        if(solutions[i-2]+nums[i]&gt;solutions[i-1])
-                            solutions.push_back(solutions[i-2]+nums[i]);
-                        else
-                            solutions.push_back(solutions[i-1]);
-
-                    return solutions.back();
-                }
-
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1964,7 +1942,7 @@ class Solution {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

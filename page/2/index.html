@@ -298,6 +298,191 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/27/Leetcode刷题记录82-Sort-Colors/" itemprop="url">
+                  Leetcode刷题记录82-Sort Colors
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-27T20:46:35+08:00" content="2015-10-27">
+              2015-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/27/Leetcode刷题记录82-Sort-Colors/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/27/Leetcode刷题记录82-Sort-Colors/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/27/Leetcode刷题记录82-Sort-Colors/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录82-Sort Colors">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
+<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
+<p>Note:<br>You are not suppose to use the library’s sort function for this problem.</p>
+<p>click to show follow up.</p>
+<p>Follow up:<br>A rather straight forward solution is a two-pass algorithm using counting sort.<br>First, iterate the array counting number of 0’s, 1’s, and 2’s, then overwrite array with total number of 0’s, then 1’s and followed by 2’s.</p>
+<p>Could you come up with an one-pass algorithm using only constant space?</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><p>A typical counting sort problem. </p>
+<h2 id="Code-in-C-for-Solution-1"><a href="#Code-in-C-for-Solution-1" class="headerlink" title="Code in C++ for Solution 1:"></a>Code in C++ for Solution 1:</h2><pre><code>class Solution {
+    public:
+        void sortColors(vector&lt;int&gt;&amp; nums) {
+            int numof0=0;
+            int numof1=0;
+            int numof2=0;
+            for(int i=0;i&lt;nums.size();i++)
+                {
+                    switch(nums[i])
+                        {
+                            case 0 : numof0++;break;
+                            case 1 : numof1++;break;
+                            case 2 : numof2++;break;
+                            default: break;
+                           }
+                   }
+            for(int i=0;i&lt;numof0;i++)
+                nums[i]=0;
+            for(int j=0;j&lt;numof1;j++)
+                nums[j+numof0]=1;
+            for(int k=numof0+numof1;k&lt;nums.size();k++)
+                nums[k]=2;
+
+        }
+};
+</code></pre><h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><p>Using two pointers to seprate those parts.</p>
+<h2 id="Code-in-C-for-Solution-2"><a href="#Code-in-C-for-Solution-2" class="headerlink" title="Code in C++ for Solution 2:"></a>Code in C++ for Solution 2:</h2><pre><code>class Solution {
+    public:
+        void sortColors(vector&lt;int&gt;&amp; nums) {
+            int indexof0=0;
+            int indexof2=nums.size()-1;
+            int i=0;
+            while(i&lt;=indexof2)
+                {
+                    if(nums[i]==0)
+                        {
+                            swap(nums[i],nums[indexof0]);
+                            indexof0++;
+                            i++;
+                        }
+                    else if(nums[i]==2)
+                        {
+                            swap(nums[i],nums[indexof2]);
+                            indexof2--;
+                        }
+                    else i++;
+            }
+
+    }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/27/Leetcode刷题记录81-Best-Time-to-Buy-and-Sell-Stock/" itemprop="url">
                   Leetcode刷题记录81-Best Time to Buy and Sell Stock
                 </a>
@@ -1672,191 +1857,6 @@ class Solution {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/24/Leetcode刷题记录72-Populating-Next-Right-Pointers-in-Each-Node/" itemprop="url">
-                  Leetcode刷题记录72-Populating Next Right Pointers in Each Node
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-24T23:55:46+08:00" content="2015-10-24">
-              2015-10-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/24/Leetcode刷题记录72-Populating-Next-Right-Pointers-in-Each-Node/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/24/Leetcode刷题记录72-Populating-Next-Right-Pointers-in-Each-Node/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/24/Leetcode刷题记录72-Populating-Next-Right-Pointers-in-Each-Node/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录72-Populating Next Right Pointers in Each Node">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree</p>
-<pre><code>struct TreeLinkNode {
-  TreeLinkNode *left;
-  TreeLinkNode *right;
-  TreeLinkNode *next;
-}
-</code></pre><p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.</p>
-<p>Initially, all next pointers are set to NULL.</p>
-<p>Note:</p>
-<p>You may only use constant extra space.<br>You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).<br>For example,<br>Given the following perfect binary tree,<br>         1<br>       /  \<br>      2    3<br>     / \  / \<br>    4  5  6  7<br>After calling your function, the tree should look like:<br>         1 -&gt; NULL<br>       /  \<br>      2 -&gt; 3 -&gt; NULL<br>     / \  / \<br>    4-&gt;5-&gt;6-&gt;7 -&gt; NULL</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title=" Solutions:"></a> Solutions:</h2><p> It’s very like <a href="/2015/10/15/Leetcode刷题记录64-Binary-Tree-Level-Order-Traversal/">This Problem</a></p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title=" Code in C++:"></a> Code in C++:</h2><pre><code> /**
- * Definition for binary tree with next pointer.
- * struct TreeLinkNode {
- *  int val;
- *  TreeLinkNode *left, *right, *next;
- *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
- * };
- */
-class Solution {
-    public:
-        void connect(TreeLinkNode *root) {
-            queue&lt;TreeLinkNode*&gt; a;
-            if(root)
-                {
-                    TreeLinkNode* pre=NULL;
-                    a.push(root);
-                    a.push(NULL);
-                    while(!a.empty())
-                        {
-                            TreeLinkNode* t=a.front();
-                            a.pop();
-                            if(t)
-                                {
-                                    if(t-&gt;left)
-                                        a.push(t-&gt;left);
-                                    if(t-&gt;right)
-                                        a.push(t-&gt;right);
-                                    if(pre) 
-                                        pre-&gt;next = t;
-                                    pre=t;                                 
-                                }
-                            else{
-                                    if(!a.empty())
-                                        {
-                                            a.push(NULL);
-                                            if(pre) 
-                                                pre-&gt;next=NULL;
-                                            pre=NULL;
-                                        }
-                                }
-
-                        }
-                }
-
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1902,7 +1902,7 @@ class Solution {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

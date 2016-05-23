@@ -298,6 +298,169 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/10/Leetcode刷题记录34-Climbing-Stairs/" itemprop="url">
+                  Leetcode刷题记录34-Climbing Stairs
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-10T00:02:19+08:00" content="2015-10-10">
+              2015-10-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/10/Leetcode刷题记录34-Climbing-Stairs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/Leetcode刷题记录34-Climbing-Stairs/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/10/Leetcode刷题记录34-Climbing-Stairs/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录34-Climbing Stairs">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>You are climbing a stair case. It takes n steps to reach to the top.</p>
+<p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><p>Using Dynamic Programming</p>
+<h2 id="Code-for-Solution-1"><a href="#Code-for-Solution-1" class="headerlink" title="Code for Solution 1:"></a>Code for Solution 1:</h2><pre><code>class Solution {
+    public:
+        int climbStairs(int n) {
+            switch(n)
+                {
+                    case 0:return 1;
+                    case 1:return 1;
+                    default:
+                    vector&lt;int&gt; result;
+                    result.push_back(1);
+                    result.push_back(1);
+                    for(int i =2;i&lt;=n;i++)
+                        {
+                            result.push_back(result[i-1]+result[i-2]);
+                        }
+                    return result[n];
+                }
+            }
+    };
+</code></pre><h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><p>Using Recursive call</p>
+<h2 id="Code-for-Solution-2"><a href="#Code-for-Solution-2" class="headerlink" title="Code for Solution 2:"></a>Code for Solution 2:</h2><pre><code>class Solution {
+    public:
+        int climbStairs(int n) {
+            switch(n)
+                {
+                    case 0 : return 1;
+                    case 1 : return 1;
+                    default: return climbStairs(n-1)+climbStairs(n-2);
+
+                }
+            }
+    };
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/10/Leetcode刷题记录33-Majority-Element/" itemprop="url">
                   Leetcode刷题记录33-Majority Element
                 </a>
@@ -1648,161 +1811,6 @@ class Solution {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/08/Leetcode刷题记录24-Longest-Common-Prefix/" itemprop="url">
-                  Leetcode刷题记录24-Longest Common Prefix
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-08T23:39:58+08:00" content="2015-10-08">
-              2015-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/08/Leetcode刷题记录24-Longest-Common-Prefix/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/08/Leetcode刷题记录24-Longest-Common-Prefix/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/08/Leetcode刷题记录24-Longest-Common-Prefix/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录24-Longest Common Prefix">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Write a function to find the longest common prefix string amongst an array of strings.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>A very simple task.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
-            if(strs.size()==0) 
-                return &quot;&quot;;
-            string res = &quot;&quot;;
-            string restem =res+strs[0][0];
-            while(res.length()&lt;strs[0].length())
-                {
-                    for(int i = 0;i&lt; strs.size();i++)
-                        {
-                            for(int j = 0;j&lt;restem.length();j++)
-                                {
-                                    if(strs[i][j]!=restem[j]) 
-                                        return res;
-                                }
-                        }
-                    res = restem;
-                    restem+=strs[0][restem.length()];
-                }
-
-            return res;
-
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1848,7 +1856,7 @@ class Solution {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">97</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
