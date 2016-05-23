@@ -525,7 +525,7 @@
 <p>Follow up:</p>
 <p>It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?<br>Space complexity should be O(n).<br>Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in c++ or in any other language.</p>
 <h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>输入一个数字，输出从0开始到该数字为止的所有数字二进制表示中1的个数.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>对于最基本的解题思路，如果使用O(n*sizeof(integer))的时间的话,可以写一个统计某个数之中出现“1”的次数的函数，正如<a href="">这一题</a>，然后从0开始循环调用N次。<br>但是我们通过观察二进制的规律不难发现，除了2的整数次幂只有一个1以外，每多一位，立马会从0开始到这个数字为止全部重复一次。动态规划转移方程为a[n]=1(如果n为2的整数次幂)，a[n]=1+a[mark] （mark为我们的标记）我们用两个标记变量，一个表示2的整数次幂，另一个表示已经循环到的数字，每次经过2的整数次幂后，该标记归0。这样便能把时间复杂度降低为O(n)，而且只用使用O(n)的额外空间。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>对于最基本的解题思路，如果使用O(n*sizeof(integer))的时间的话,可以写一个统计某个数之中出现“1”的次数的函数，正如<a href="/2016/05/23/Leetcode-191-Number-of-1-Bits/">这一题</a>，然后从0开始循环调用N次。<br>但是我们通过观察二进制的规律不难发现，除了2的整数次幂只有一个1以外，每多一位，立马会从0开始到这个数字为止全部重复一次。动态规划转移方程为a[n]=1(如果n为2的整数次幂)，a[n]=1+a[mark] （mark为我们的标记）我们用两个标记变量，一个表示2的整数次幂，另一个表示已经循环到的数字，每次经过2的整数次幂后，该标记归0。这样便能把时间复杂度降低为O(n)，而且只用使用O(n)的额外空间。</p>
 <h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
     public:
         vector&lt;int&gt; countBits(int num) {
