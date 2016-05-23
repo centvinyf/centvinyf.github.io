@@ -298,6 +298,632 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/10/Leetcode刷题记录33-Majority-Element/" itemprop="url">
+                  Leetcode刷题记录33-Majority Element
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-10T00:00:39+08:00" content="2015-10-10">
+              2015-10-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/10/Leetcode刷题记录33-Majority-Element/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/Leetcode刷题记录33-Majority-Element/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/10/Leetcode刷题记录33-Majority-Element/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录33-Majority Element">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.</p>
+<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Every other element will cancel the majority once. The left one is the majority.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int majorityElement(vector&lt;int&gt;&amp; nums) {
+            int res = nums[0];
+            int count = 1;
+            for(int i =1;i&lt;nums.size();i++)
+                {    
+                    if(nums[i]==res) 
+                        count++;
+                    else if(nums[i]!=res) 
+                        count--;
+                    if(count==0) 
+                        {
+                            res = nums[i];
+                            count=1;
+                        }
+                }
+            return res;
+        }
+    };
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录32-Remove-Duplicates-from-Sorted-List/" itemprop="url">
+                  Leetcode刷题记录32-Remove Duplicates from Sorted List
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-09T23:58:26+08:00" content="2015-10-09">
+              2015-10-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/09/Leetcode刷题记录32-Remove-Duplicates-from-Sorted-List/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Leetcode刷题记录32-Remove-Duplicates-from-Sorted-List/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/09/Leetcode刷题记录32-Remove-Duplicates-from-Sorted-List/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录32-Remove Duplicates from Sorted List">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a sorted linked list, delete all duplicates such that each element appear only once.</p>
+<p>For example,<br>Given 1-&gt;1-&gt;2, return 1-&gt;2.<br>Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Simple task</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     ListNode *next;
+*     ListNode(int x) : val(x), next(NULL) {}
+* };
+*/
+class Solution {
+    public:
+        ListNode* deleteDuplicates(ListNode* head) {
+            if(head==NULL||head-&gt;next==NULL) 
+                return head;
+            else
+                {
+                    ListNode*a = head;      
+                    ListNode*b = head-&gt;next;
+                    while(a!=NULL&amp;&amp;b!=NULL)
+                        {
+                            if(a-&gt;val==b-&gt;val)
+                                {
+                                    a-&gt;next=b-&gt;next;
+                                    b=b-&gt;next;
+                                }
+                            else
+                                {
+                                    a= a-&gt;next;
+                                    b=b-&gt;next;
+                                }
+
+                        }
+                    return head; 
+                }
+
+        }
+    };
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录31-Excel-Sheet-Column-Number/" itemprop="url">
+                  Leetcode刷题记录31-Excel Sheet Column Number
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-09T23:56:05+08:00" content="2015-10-09">
+              2015-10-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/09/Leetcode刷题记录31-Excel-Sheet-Column-Number/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Leetcode刷题记录31-Excel-Sheet-Column-Number/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/09/Leetcode刷题记录31-Excel-Sheet-Column-Number/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录31-Excel Sheet Column Number">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Related to question Excel Sheet Column Title</p>
+<p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
+<p>For example:</p>
+<pre><code>A -&gt; 1
+B -&gt; 2
+C -&gt; 3
+...
+Z -&gt; 26
+AA -&gt; 27
+AB -&gt; 28 
+</code></pre><h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Easy task</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int toInt(char a)
+            {
+                if(a&gt;=&apos;A&apos;&amp;&amp;a&lt;=&apos;Z&apos;)
+                    return (int)(a-&apos;A&apos;+1);
+                else 
+                    return 0;
+            }
+int titleToNumber(string s) {
+    int res = 0;
+    for(int i =0;i&lt;s.length();i++)
+        {
+            res+= (pow(26,s.length()-i-1)*toInt(s[i])); 
+        }
+    return res;
+
+    }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录30-Same-Tree/" itemprop="url">
+                  Leetcode刷题记录30-Same Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-09T23:53:15+08:00" content="2015-10-09">
+              2015-10-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/09/Leetcode刷题记录30-Same-Tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Leetcode刷题记录30-Same-Tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/09/Leetcode刷题记录30-Same-Tree/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录30-Same Tree">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two binary trees, write a function to check if they are equal or not.</p>
+<p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Using Depth First Search.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     TreeNode *left;
+*     TreeNode *right;
+*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+* };
+*/
+class Solution {
+    public:
+        bool isSameTree(TreeNode* p, TreeNode* q) {
+            if(!p&amp;&amp;!q) 
+                return true;
+            if((p&amp;&amp;!q)||(q&amp;&amp;!p)) 
+                return false;
+            return isSameTree(p-&gt;left,q-&gt;left)&amp;&amp;isSameTree(p-&gt;right,q-&gt;right)&amp;&amp;(p-&gt;val==q-&gt;val);
+        }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录29-Delete-Node-in-a-Linked-List/" itemprop="url">
                   Leetcode刷题记录29-Delete Node in a Linked List
                 </a>
@@ -1177,661 +1803,6 @@ class Solution {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/08/Leetcode刷题记录23-Remove-Linked-List-Elements/" itemprop="url">
-                  Leetcode刷题记录23-Remove Linked List Elements
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-08T23:37:25+08:00" content="2015-10-08">
-              2015-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/08/Leetcode刷题记录23-Remove-Linked-List-Elements/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/08/Leetcode刷题记录23-Remove-Linked-List-Elements/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/08/Leetcode刷题记录23-Remove-Linked-List-Elements/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录23-Remove Linked List Elements">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Remove all elements from a linked list of integers that have value val.</p>
-<p>Example<br>Given: 1 –&gt; 2 –&gt; 6 –&gt; 3 –&gt; 4 –&gt; 5 –&gt; 6, val = 6<br>Return: 1 –&gt; 2 –&gt; 3 –&gt; 4 –&gt; 5</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Pay attention when first few elements is to be deleted</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
-* Definition for singly-linked list.
-* struct ListNode {
-*     int val;
-*     ListNode *next;
-*     ListNode(int x) : val(x), next(NULL) {}
-* };
-*/
-class Solution {
-    public:
-        ListNode* removeElements(ListNode* head, int val) {
-            if(head == NULL) 
-                return NULL;
-            while(head-&gt;val == val) 
-                {
-                    head=head-&gt;next;
-                    if(head == NULL) 
-                        return head;
-                }
-            ListNode* a = head;
-            while(a-&gt;next!= NULL&amp;&amp;a!=NULL)
-                {
-                    if(a-&gt;next-&gt;val == val)
-                        {
-                            ListNode * b= a-&gt;next;
-                            a-&gt;next = b-&gt;next;
-                        }
-                    else
-                        {
-                            a=a-&gt;next;
-                        }
-                }
-            return head;
-
-        }
-};
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/08/Leetcode刷题记录22-Word-Pattern/" itemprop="url">
-                  Leetcode刷题记录22-Word Pattern
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-08T23:32:40+08:00" content="2015-10-08">
-              2015-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/08/Leetcode刷题记录22-Word-Pattern/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/08/Leetcode刷题记录22-Word-Pattern/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/08/Leetcode刷题记录22-Word-Pattern/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录22-Word Pattern">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a pattern and a string str, find if str follows the same pattern.</p>
-<p>Examples:<br>pattern = “abba”, str = “dog cat cat dog” should return true.<br>pattern = “abba”, str = “dog cat cat fish” should return false.<br>pattern = “aaaa”, str = “dog cat cat dog” should return false.<br>pattern = “abba”, str = “dog dog dog dog” should return false.<br>Notes:<br>patterncontains only lowercase alphabetical letters, and str contains words separated by a single space. Each word in str contains only lowercase alphabetical letters.<br>Both pattern and str do not have leading or trailing spaces.<br>Each letter in pattern must map to a word with length that is at least 1.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>use two hashtables to store the pairs.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        vector&lt;string&gt; stringTovec(string s){
-            vector&lt;string&gt; res;
-            int len=s.size();
-            string temp=&quot;&quot;;
-            for(int i=0;i&lt;len;++i)
-                {
-                    if(s[i]==&apos; &apos;)
-                        {
-                            res.push_back(temp);
-                            temp=&quot;&quot;;
-                        }
-                    else
-                        temp+=s[i];
-                }
-            res.push_back(temp);
-            return res;
-        }
-
-        bool wordPattern(string pattern, string str) {
-            if(pattern.length()==0||str.length()==0) 
-                return false;
-            int len = pattern.length();
-            vector&lt;string&gt; a = stringTovec(str);
-            if(a.size()!=len) return false;
-
-            std::map&lt;char,string&gt; map;
-            std::map&lt;string,char&gt; map2;
-            std::map&lt;char,string&gt;::iterator it;
-            std::map&lt;string ,char&gt;::iterator it2;
-
-            for(int i =0;i&lt;len;i++)
-                {
-                    it = map.find(pattern[i]);
-                    it2 = map2.find(a[i]);
-                    if (it != map.end()|| it2 !=map2.end())
-                        {
-                            if(a[i]!=map[pattern[i]])
-                                return false;
-                            if(map[map2[a[i]]]!=a[i]) 
-                                return false;
-                        }
-                    else
-                        {
-                            map[pattern[i]]=a[i];
-                            map2[a[i]]=pattern[i];  
-                        }
-                }
-            return true;
-
-
-        }
-};
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/08/Leetcode刷题记录21-Rectangular-Area/" itemprop="url">
-                  Leetcode刷题记录21-Rectangular Area
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-08T23:31:10+08:00" content="2015-10-08">
-              2015-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/08/Leetcode刷题记录21-Rectangular-Area/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/08/Leetcode刷题记录21-Rectangular-Area/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/08/Leetcode刷题记录21-Rectangular-Area/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录21-Rectangular Area">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Find the total area covered by two rectilinear rectangles in a 2D plane.</p>
-<p>Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.</p>
-<p>Rectangle Area<br>Assume that the total area is never beyond the maximum possible value of int.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Easy math problem. remember to cut off repeat part.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
-            int coverleft = A&gt;E?A:E;
-            int coverright = C&lt;G?C:G;
-            int covertop = D&gt;H?H:D;
-            int coverbot = F&gt;B?F:B;
-
-            int coverarea = 0;
-            if(coverleft&lt;=coverright&amp;&amp;covertop&gt;=coverbot)
-                {
-                    coverarea=(coverright-coverleft)*(covertop-coverbot);
-
-                }
-            return(C-A)*(D-B)+(G-E)*(H-F)-coverarea;
-
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/07/Leetcode刷题记录20-Contains-Duplicate-II/" itemprop="url">
-                  Leetcode刷题记录20-Contains Duplicate II
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-07T23:28:39+08:00" content="2015-10-07">
-              2015-10-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/07/Leetcode刷题记录20-Contains-Duplicate-II/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/07/Leetcode刷题记录20-Contains-Duplicate-II/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/07/Leetcode刷题记录20-Contains-Duplicate-II/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录20-Contains Duplicate II">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Using a moving window of at most size k , find there’s duplicats in the window.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        bool containsNearbyDuplicate(vector&lt;int&gt;&amp; nums, int k) {
-            if(nums.size()&lt;=1||k&lt;=0) 
-                return false;
-            else
-                {
-                    set&lt;int&gt; a;
-                    for(int i =0;i&lt;nums.size();i++)
-                        {
-                            if(a.size()&gt;k)
-                                {
-                                    a.erase(nums[i-k-1]);
-                                }
-                            if(a.find(nums[i])!=a.end())
-                                return true;
-
-                            a.insert(nums[i]);
-                        }
-                    return false;
-                }
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1877,7 +1848,7 @@ class Solution {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">96</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1894,7 +1865,7 @@ class Solution {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-23T08:10:08.000Z</updated>
+  <updated>2016-05-23T09:08:09.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,199 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Leetcode-226-Invert Binay Tree</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-226-Invert-Binay-Tree/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-226-Invert-Binay-Tree/</id>
+    <published>2016-05-23T09:04:15.000Z</published>
+    <updated>2016-05-23T09:08:09.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Invert a binary tree.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;to&lt;br&gt;         4&lt;br&gt;       /   \&lt;br&gt;      7     2&lt;br&gt;     / \   / \&lt;br&gt;    9   6 3   1&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;反转一个二叉树&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;递归调用函数本身即可，注意边界条件。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+           TreeNode* invertTree(TreeNode* root) {
+            if(!root) return root;
+            if(!root-&amp;gt;left&amp;amp;&amp;amp;!root-&amp;gt;right) return root;
+            else{
+                TreeNode* teml = invertTree(root-&amp;gt;right);
+                TreeNode* temr = invertTree(root-&amp;gt;left);
+                root-&amp;gt;left= teml;
+                root-&amp;gt;right=temr;
+                return root;
+                    }
+
+            }
+    };
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+    
+      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-104-Maximum Depth of Binary Tree</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-104-Maximum-Depth-of-Binary-Tree/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-104-Maximum-Depth-of-Binary-Tree/</id>
+    <published>2016-05-23T09:00:29.000Z</published>
+    <updated>2016-05-23T09:03:43.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, find its maximum depth.&lt;/p&gt;
+&lt;p&gt;The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个二叉树，返回它的最大深度&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;递归调用本函数，返回左右子树的最大深度中较大值+1即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        int maxDepth(TreeNode* root) {
+            if(!root) return 0;
+            else
+                return max(maxDepth(root-&amp;gt;left),maxDepth(root-&amp;gt;right))+1;
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-136-Single Number</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-136-Single-Number/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-136-Single-Number/</id>
+    <published>2016-05-23T08:47:34.000Z</published>
+    <updated>2016-05-23T08:50:46.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, every element appears twice except for one. Find that single one.&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，其中除了某一个数字以外其他数字都出现过两次，找出这个数字。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题方法有许多，这里本文介绍最简单的一种，使用位运算，一个数字a^b^b以后仍然为它本身。这样，把整个数组^一次即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+            int res=0;
+            for(int i=0;i&amp;lt;nums.size();i++)
+                res^=nums[i];
+
+            return res;
+
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-292-Nim Game</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-292-Nim-Game/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-292-Nim-Game/</id>
+    <published>2016-05-23T08:40:44.000Z</published>
+    <updated>2016-05-23T08:45:43.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.&lt;/p&gt;
+&lt;p&gt;Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.&lt;/p&gt;
+&lt;p&gt;For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;你和朋友玩一个取石子的游戏，每一个人可以取1-3个石子，假如你们俩都能每一步做出最优选择，那么当你先取的时候，输入一个石子数，返回你是否能取得胜利。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题仔细分析其实并不难。当石子数为4的整数倍的时候，总是后手胜利，因为不管先手拿走了n(1-3)枚石子，你总是拿走4-n枚，即可获胜，其他情况下，先手可以把自己变为后手，即取走余数。所以想通了这一点之后这道题变得非常简单。即判断先手是否胜利的条件在于石子数能否被4整除。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        bool canWinNim(int n) {
+            return n%4;
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Leetcode-191-Number of 1 Bits</title>
     <link href="http://yoursite.com/2016/05/23/Leetcode-191-Number-of-1-Bits/"/>
     <id>http://yoursite.com/2016/05/23/Leetcode-191-Number-of-1-Bits/</id>
     <published>2016-05-23T08:06:57.000Z</published>
-    <updated>2016-05-23T08:10:08.000Z</updated>
+    <updated>2016-05-23T08:40:16.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).&lt;/p&gt;
 &lt;p&gt;For example, the 32-bit integer ’11’ has binary representation 00000000000000000000000000001011, so the function should return 3.&lt;/p&gt;
@@ -49,6 +237,8 @@
     
     
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
     
       <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
     
@@ -146,9 +336,9 @@ public:
       <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
     
     
-      <category term="String" scheme="http://yoursite.com/tags/String/"/>
-    
       <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="String" scheme="http://yoursite.com/tags/String/"/>
     
   </entry>
   
@@ -651,9 +841,9 @@ class Solution {
     
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
     
-      <category term="String" scheme="http://yoursite.com/tags/String/"/>
-    
       <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
+      <category term="String" scheme="http://yoursite.com/tags/String/"/>
     
       <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
     
@@ -907,249 +1097,6 @@ class Solution {
       <category term="Depth First Search" scheme="http://yoursite.com/tags/Depth-First-Search/"/>
     
       <category term="Binary Tree" scheme="http://yoursite.com/tags/Binary-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录71-Linked List Cycle</title>
-    <link href="http://yoursite.com/2015/10/24/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9571-Linked-List-Cycle/"/>
-    <id>http://yoursite.com/2015/10/24/Leetcode刷题记录71-Linked-List-Cycle/</id>
-    <published>2015-10-24T15:12:51.000Z</published>
-    <updated>2015-10-25T03:34:13.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, determine if it has a cycle in it.&lt;/p&gt;
-&lt;p&gt;Follow up:&lt;br&gt;Can you solve it without using extra space?&lt;/p&gt;
-&lt;h2 id=&quot;Solution-1&quot;&gt;&lt;a href=&quot;#Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Solution 1:&quot;&gt;&lt;/a&gt;Solution 1:&lt;/h2&gt;&lt;p&gt;If we can have extra space&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C-for-Solution-1&quot;&gt;&lt;a href=&quot;#Code-in-C-for-Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Code in C++ for Solution 1:&quot;&gt;&lt;/a&gt;Code in C++ for Solution 1:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-    public:
-        bool hasCycle(ListNode *head) {
-            set&amp;lt;ListNode*&amp;gt; s;
-            ListNode*a = head;
-            while(a)
-                {
-                    if(s.find(a)!=s.end()) 
-                        return true;
-                    else 
-                        {
-                               s.insert(a);
-                               a=a-&amp;gt;next;
-                        }
-
-                }
-            return false;
-
-        }        
-    };
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Solution-2&quot;&gt;&lt;a href=&quot;#Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Solution 2:&quot;&gt;&lt;/a&gt;Solution 2:&lt;/h2&gt;&lt;p&gt;If we don’t have extra space. We can have two pointers, once there being a cycle, they will meet.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C-for-Solution-2&quot;&gt;&lt;a href=&quot;#Code-in-C-for-Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Code in C++ for Solution 2:&quot;&gt;&lt;/a&gt;Code in C++ for Solution 2:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-    public:
-        bool hasCycle(ListNode *head) {
-            if(!head) 
-                return false;
-            ListNode *a = head;
-            ListNode *b = NULL;
-            if(a-&amp;gt;next)
-                b=a-&amp;gt;next;
-            while(a&amp;amp;&amp;amp;b)
-                {
-                       if(a==b) 
-                           return true;
-                       else
-                           {
-                               if(b-&amp;gt;next) 
-                                   b=b-&amp;gt;next-&amp;gt;next;
-                               else 
-                                   return false;
-                               a=a-&amp;gt;next;
-                           }
-
-                }
-            return false;
-
-        }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Two Pointers" scheme="http://yoursite.com/tags/Two-Pointers/"/>
-    
-      <category term="Linked List" scheme="http://yoursite.com/tags/Linked-List/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录70-Binary Search Tree InOrder Traversal</title>
-    <link href="http://yoursite.com/2015/10/24/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9570-Binary-Search-Tree-InOrder-Traversal/"/>
-    <id>http://yoursite.com/2015/10/24/Leetcode刷题记录70-Binary-Search-Tree-InOrder-Traversal/</id>
-    <published>2015-10-24T15:01:24.000Z</published>
-    <updated>2015-10-25T03:04:20.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, return the inorder traversal of its nodes’ values.&lt;/p&gt;
-&lt;p&gt;For example:&lt;br&gt;Given binary tree {1,#,2,3},&lt;br&gt;   1&lt;br&gt;    \&lt;br&gt;     2&lt;br&gt;    /&lt;br&gt;   3&lt;br&gt;return [1,3,2].&lt;/p&gt;
-&lt;p&gt;Note: Recursive solution is trivial, could you do it iteratively?&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;It’s like &lt;a href=&quot;/2015/10/24/Leetcode刷题记录69-Binary-Search-Tree-PreOrder-Traversal/&quot;&gt;This Problem&lt;/a&gt; &lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        vector&amp;lt;int&amp;gt; inorderTraversal(TreeNode* root) {
-                vector&amp;lt;int&amp;gt; res;
-            stack&amp;lt;TreeNode*&amp;gt; s;
-            TreeNode*p = root;
-            while(p||!s.empty())
-                {
-                    while(p)
-                        {
-                            s.push(p);
-                            p=p-&amp;gt;left;
-                        }
-                    if(!s.empty())
-                        {
-                               res.push_back(s.top()-&amp;gt;val);
-                               p=s.top()-&amp;gt;right;
-                               s.pop();
-                        }
-                }
-            return res;
-
-        }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
-      <category term="Stack" scheme="http://yoursite.com/tags/Stack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode刷题记录69-Binary Tree Preorder Traversal</title>
-    <link href="http://yoursite.com/2015/10/24/Leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%9569-Binary-Search-Tree-PreOrder-Traversal/"/>
-    <id>http://yoursite.com/2015/10/24/Leetcode刷题记录69-Binary-Search-Tree-PreOrder-Traversal/</id>
-    <published>2015-10-24T14:25:30.000Z</published>
-    <updated>2015-10-25T02:46:26.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, return the preorder traversal of its nodes’ values.&lt;/p&gt;
-&lt;p&gt;For example:&lt;br&gt;Given binary tree {1,#,2,3},&lt;br&gt;   1&lt;br&gt;    \&lt;br&gt;     2&lt;br&gt;    /&lt;br&gt;   3&lt;br&gt;return [1,2,3].&lt;/p&gt;
-&lt;p&gt;Note: Recursive solution is trivial, could you do it iteratively?&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;Use a stack to store the pre nodes.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) {
-            vector&amp;lt;int&amp;gt; res;
-            TreeNode* p = root;
-            stack&amp;lt;TreeNode*&amp;gt; s;
-            while(!s.empty()||p)
-                {
-                    while(p)
-                        {
-                            s.push(p);
-                            res.push_back(p-&amp;gt;val);
-                            p=p-&amp;gt;left;
-                        }
-                    if(!s.empty())
-                        {
-                            p=s.top()-&amp;gt;right;
-                            s.pop();
-                        }
-                }
-            return res;
-
-            }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
-      <category term="Stack" scheme="http://yoursite.com/tags/Stack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2015/10/20/Hello-World/"/>
-    <id>http://yoursite.com/2015/10/20/Hello-World/</id>
-    <published>2015-10-20T13:04:33.000Z</published>
-    <updated>2015-10-21T14:54:12.000Z</updated>
-    
-    <content type="html">&lt;p&gt;由于上一次惨痛的经历。。。重装系统忘记备份博客源码。我决定使用Time Machine。。。没啥好说的，心情十分复杂，就这样。。。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于上一次惨痛的经历。。。重装系统忘记备份博客源码。我决定使用Time Machine。。。没啥好说的，心情十分复杂，就这样。。。&lt;/p&gt;
-
-    
-    </summary>
-    
-      <category term="Milestone" scheme="http://yoursite.com/categories/Milestone/"/>
-    
-    
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   

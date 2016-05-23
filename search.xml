@@ -4,6 +4,110 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-226-Invert Binay Tree]]></title>
+      <url>http://yoursite.com/2016/05/23/Leetcode-226-Invert-Binay-Tree/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Invert a binary tree.</p>
+<pre><code>     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9
+</code></pre><p>to<br>         4<br>       /   \<br>      7     2<br>     / \   / \<br>    9   6 3   1</p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>反转一个二叉树</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>递归调用函数本身即可，注意边界条件。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+           TreeNode* invertTree(TreeNode* root) {
+            if(!root) return root;
+            if(!root-&gt;left&amp;&amp;!root-&gt;right) return root;
+            else{
+                TreeNode* teml = invertTree(root-&gt;right);
+                TreeNode* temr = invertTree(root-&gt;left);
+                root-&gt;left= teml;
+                root-&gt;right=temr;
+                return root;
+                    }
+
+            }
+    };
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-104-Maximum Depth of Binary Tree]]></title>
+      <url>http://yoursite.com/2016/05/23/Leetcode-104-Maximum-Depth-of-Binary-Tree/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree, find its maximum depth.</p>
+<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个二叉树，返回它的最大深度</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>递归调用本函数，返回左右子树的最大深度中较大值+1即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        int maxDepth(TreeNode* root) {
+            if(!root) return 0;
+            else
+                return max(maxDepth(root-&gt;left),maxDepth(root-&gt;right))+1;
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-136-Single Number]]></title>
+      <url>http://yoursite.com/2016/05/23/Leetcode-136-Single-Number/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个数组，其中除了某一个数字以外其他数字都出现过两次，找出这个数字。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>这道题方法有许多，这里本文介绍最简单的一种，使用位运算，一个数字a^b^b以后仍然为它本身。这样，把整个数组^一次即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int singleNumber(vector&lt;int&gt;&amp; nums) {
+            int res=0;
+            for(int i=0;i&lt;nums.size();i++)
+                res^=nums[i];
+
+            return res;
+
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-292-Nim Game]]></title>
+      <url>http://yoursite.com/2016/05/23/Leetcode-292-Nim-Game/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.</p>
+<p>Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.</p>
+<p>For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.</p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>你和朋友玩一个取石子的游戏，每一个人可以取1-3个石子，假如你们俩都能每一步做出最优选择，那么当你先取的时候，输入一个石子数，返回你是否能取得胜利。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>这道题仔细分析其实并不难。当石子数为4的整数倍的时候，总是后手胜利，因为不管先手拿走了n(1-3)枚石子，你总是拿走4-n枚，即可获胜，其他情况下，先手可以把自己变为后手，即取走余数。所以想通了这一点之后这道题变得非常简单。即判断先手是否胜利的条件在于石子数能否被4整除。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        bool canWinNim(int n) {
+            return n%4;
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-191-Number of 1 Bits]]></title>
       <url>http://yoursite.com/2016/05/23/Leetcode-191-Number-of-1-Bits/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).</p>

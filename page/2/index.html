@@ -298,6 +298,634 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/27/Leetcode刷题记录81-Best-Time-to-Buy-and-Sell-Stock/" itemprop="url">
+                  Leetcode刷题记录81-Best Time to Buy and Sell Stock
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-27T13:05:52+08:00" content="2015-10-27">
+              2015-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/27/Leetcode刷题记录81-Best-Time-to-Buy-and-Sell-Stock/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/27/Leetcode刷题记录81-Best-Time-to-Buy-and-Sell-Stock/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/27/Leetcode刷题记录81-Best-Time-to-Buy-and-Sell-Stock/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录81-Best Time to Buy and Sell Stock">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>This problem is very similar to <a href="/2015/10/25/Leetcode刷题记录77-Maximum-Subarray/">This problem</a>.Just change the array into the change array.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int maxProfit(vector&lt;int&gt;&amp; prices) {
+            if(prices.empty()) 
+                return 0;
+            int change[prices.size()];
+            change[0]=0;
+            for(int i=1;i&lt;prices.size();i++)
+                change[i]=prices[i]-prices[i-1];
+            int res=INT_MIN;
+               int sum=0;
+            for(int i=0;i&lt;prices.size();i++){
+                sum= sum&gt;=0? sum+change[i]:change[i];
+                res=max(res,sum);
+        }
+            return res;
+    }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/27/Leetcode刷题记录80-Unique-Paths/" itemprop="url">
+                  Leetcode刷题记录80-Unique Paths
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-27T10:51:42+08:00" content="2015-10-27">
+              2015-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/27/Leetcode刷题记录80-Unique-Paths/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/27/Leetcode刷题记录80-Unique-Paths/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/27/Leetcode刷题记录80-Unique-Paths/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录80-Unique Paths">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Descriptions"><a href="#Problem-Descriptions" class="headerlink" title="Problem Descriptions:"></a>Problem Descriptions:</h2><p>A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).</p>
+<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
+<p>How many possible unique paths are there?</p>
+<h2 id="Solutions-1"><a href="#Solutions-1" class="headerlink" title="Solutions 1:"></a>Solutions 1:</h2><p>Using recursive call. It’s like the <a href="/2015/10/10/Leetcode刷题记录34-Climbing-Stairs/">Climbing stairs problem</a>.</p>
+<h2 id="Code-in-C-for-Solution-1"><a href="#Code-in-C-for-Solution-1" class="headerlink" title="Code in C++ for Solution 1:"></a>Code in C++ for Solution 1:</h2><pre><code>class Solution {
+    public:
+        int uniquePaths(int m, int n) {
+            if(m==1||n==1) return 1;
+            else return uniquePaths(m-1,n)+uniquePaths(m,n-1);
+
+    }
+};
+</code></pre><h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><p>Using a map to record the best solutions(using dynamic programming)</p>
+<h2 id="Code-in-C-for-Solution-2"><a href="#Code-in-C-for-Solution-2" class="headerlink" title="Code in C++ for Solution 2:"></a>Code in C++ for Solution 2:</h2><pre><code>class Solution {
+       public:
+           int uniquePaths(int m, int n) {
+           int a[m][n];
+           for(int i=0;i&lt;m;i++)
+                a[i][n-1]=1;
+           for(int i=0;i&lt;n;i++)
+               a[m-1][i]=1;
+           for(int i=m-2;i&gt;=0;i--)
+               for(int j=n-2;j&gt;=0;j--)
+                   a[i][j]=a[i+1][j]+a[i][j+1];
+           return a[0][0];
+        }
+    };
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/27/Leetcode刷题记录79-Find-Minimum/" itemprop="url">
+                  Leetcode刷题记录79-Find Minimum
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-27T10:43:09+08:00" content="2015-10-27">
+              2015-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/27/Leetcode刷题记录79-Find-Minimum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/27/Leetcode刷题记录79-Find-Minimum/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/27/Leetcode刷题记录79-Find-Minimum/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录79-Find Minimum">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
+<p>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).</p>
+<p>Find the minimum element.</p>
+<p>You may assume no duplicate exists in the array.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Using binary search</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int findMin(vector&lt;int&gt;&amp; nums) {
+            int begin =0;
+            int end = nums.size()-1;
+            int mid =begin+(end-begin)/2;
+            if(nums[end]&gt;nums[begin]) return nums[begin];
+            while(end-begin&gt;1)
+                {
+                    if(nums[mid-1]&gt;nums[mid])
+                        return nums[mid];
+                    else if(nums[mid]&lt;nums[begin])
+                        {
+                            end = mid ;
+                            mid = begin + (end-begin)/2;
+                        }
+                    else if (nums[mid]&gt;nums[begin])
+                        {
+                            begin = mid;
+                            mid = begin + (end-begin)/2;
+                        }
+                }
+            return min(nums[end],nums[begin]);
+
+        }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/25/Leetcode刷题记录78-Convert-Sorted-Array-to-Binary-Search-Tree/" itemprop="url">
+                  Leetcode刷题记录78-Convert Sorted Array to Binary Search Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-25T16:09:55+08:00" content="2015-10-25">
+              2015-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/25/Leetcode刷题记录78-Convert-Sorted-Array-to-Binary-Search-Tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/25/Leetcode刷题记录78-Convert-Sorted-Array-to-Binary-Search-Tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/25/Leetcode刷题记录78-Convert-Sorted-Array-to-Binary-Search-Tree/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录78-Convert Sorted Array to Binary Search Tree">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array where elements are sorted in ascending order, convert it to a height balanced BST.</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Do it recursively. use mid element to be the root.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        TreeNode* sortedArrayToBST(vector&lt;int&gt;&amp; nums) {
+            vector&lt;int&gt; a;
+            vector&lt;int&gt; b;
+            int mid=nums.size()/2;
+            for(int i=0;i&lt;mid;i++)
+            a.push_back(nums[i]);
+            for(int i=mid+1;i&lt;nums.size();i++)
+            b.push_back(nums[i]);
+            if(nums.size()==0) 
+                return NULL;
+            else if(nums.size()==1)
+                {
+                    TreeNode* t= new TreeNode(nums[0]);
+                    return t;
+                }
+            else
+                {
+                       TreeNode* root =new TreeNode(nums[mid]);
+                       root-&gt;left= sortedArrayToBST(a);
+                       root-&gt;right=sortedArrayToBST(b);
+                       return root;
+                }
+        }
+    };
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/25/Leetcode刷题记录77-Maximum-Subarray/" itemprop="url">
                   Leetcode刷题记录77-Maximum Subarray
                 </a>
@@ -1229,660 +1857,6 @@ class Solution {
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/24/Leetcode刷题记录71-Linked-List-Cycle/" itemprop="url">
-                  Leetcode刷题记录71-Linked List Cycle
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-24T23:12:51+08:00" content="2015-10-24">
-              2015-10-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/24/Leetcode刷题记录71-Linked-List-Cycle/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/24/Leetcode刷题记录71-Linked-List-Cycle/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/24/Leetcode刷题记录71-Linked-List-Cycle/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录71-Linked List Cycle">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a linked list, determine if it has a cycle in it.</p>
-<p>Follow up:<br>Can you solve it without using extra space?</p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><p>If we can have extra space</p>
-<h2 id="Code-in-C-for-Solution-1"><a href="#Code-in-C-for-Solution-1" class="headerlink" title="Code in C++ for Solution 1:"></a>Code in C++ for Solution 1:</h2><pre><code>/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-    public:
-        bool hasCycle(ListNode *head) {
-            set&lt;ListNode*&gt; s;
-            ListNode*a = head;
-            while(a)
-                {
-                    if(s.find(a)!=s.end()) 
-                        return true;
-                    else 
-                        {
-                               s.insert(a);
-                               a=a-&gt;next;
-                        }
-
-                }
-            return false;
-
-        }        
-    };
-</code></pre><h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><p>If we don’t have extra space. We can have two pointers, once there being a cycle, they will meet.</p>
-<h2 id="Code-in-C-for-Solution-2"><a href="#Code-in-C-for-Solution-2" class="headerlink" title="Code in C++ for Solution 2:"></a>Code in C++ for Solution 2:</h2><pre><code>/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-    public:
-        bool hasCycle(ListNode *head) {
-            if(!head) 
-                return false;
-            ListNode *a = head;
-            ListNode *b = NULL;
-            if(a-&gt;next)
-                b=a-&gt;next;
-            while(a&amp;&amp;b)
-                {
-                       if(a==b) 
-                           return true;
-                       else
-                           {
-                               if(b-&gt;next) 
-                                   b=b-&gt;next-&gt;next;
-                               else 
-                                   return false;
-                               a=a-&gt;next;
-                           }
-
-                }
-            return false;
-
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/24/Leetcode刷题记录70-Binary-Search-Tree-InOrder-Traversal/" itemprop="url">
-                  Leetcode刷题记录70-Binary Search Tree InOrder Traversal
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-24T23:01:24+08:00" content="2015-10-24">
-              2015-10-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/24/Leetcode刷题记录70-Binary-Search-Tree-InOrder-Traversal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/24/Leetcode刷题记录70-Binary-Search-Tree-InOrder-Traversal/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/24/Leetcode刷题记录70-Binary-Search-Tree-InOrder-Traversal/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录70-Binary Search Tree InOrder Traversal">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree, return the inorder traversal of its nodes’ values.</p>
-<p>For example:<br>Given binary tree {1,#,2,3},<br>   1<br>    \<br>     2<br>    /<br>   3<br>return [1,3,2].</p>
-<p>Note: Recursive solution is trivial, could you do it iteratively?</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>It’s like <a href="/2015/10/24/Leetcode刷题记录69-Binary-Search-Tree-PreOrder-Traversal/">This Problem</a> </p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        vector&lt;int&gt; inorderTraversal(TreeNode* root) {
-                vector&lt;int&gt; res;
-            stack&lt;TreeNode*&gt; s;
-            TreeNode*p = root;
-            while(p||!s.empty())
-                {
-                    while(p)
-                        {
-                            s.push(p);
-                            p=p-&gt;left;
-                        }
-                    if(!s.empty())
-                        {
-                               res.push_back(s.top()-&gt;val);
-                               p=s.top()-&gt;right;
-                               s.pop();
-                        }
-                }
-            return res;
-
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/24/Leetcode刷题记录69-Binary-Search-Tree-PreOrder-Traversal/" itemprop="url">
-                  Leetcode刷题记录69-Binary Tree Preorder Traversal
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-24T22:25:30+08:00" content="2015-10-24">
-              2015-10-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/24/Leetcode刷题记录69-Binary-Search-Tree-PreOrder-Traversal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/24/Leetcode刷题记录69-Binary-Search-Tree-PreOrder-Traversal/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/24/Leetcode刷题记录69-Binary-Search-Tree-PreOrder-Traversal/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录69-Binary Tree Preorder Traversal">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree, return the preorder traversal of its nodes’ values.</p>
-<p>For example:<br>Given binary tree {1,#,2,3},<br>   1<br>    \<br>     2<br>    /<br>   3<br>return [1,2,3].</p>
-<p>Note: Recursive solution is trivial, could you do it iteratively?</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Use a stack to store the pre nodes.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        vector&lt;int&gt; preorderTraversal(TreeNode* root) {
-            vector&lt;int&gt; res;
-            TreeNode* p = root;
-            stack&lt;TreeNode*&gt; s;
-            while(!s.empty()||p)
-                {
-                    while(p)
-                        {
-                            s.push(p);
-                            res.push_back(p-&gt;val);
-                            p=p-&gt;left;
-                        }
-                    if(!s.empty())
-                        {
-                            p=s.top()-&gt;right;
-                            s.pop();
-                        }
-                }
-            return res;
-
-            }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/20/Hello-World/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-20T21:04:33+08:00" content="2015-10-20">
-              2015-10-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Milestone/" itemprop="url" rel="index">
-                    <span itemprop="name">Milestone</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/20/Hello-World/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/20/Hello-World/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/20/Hello-World/" class="leancloud_visitors" data-flag-title="Hello World">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>由于上一次惨痛的经历。。。重装系统忘记备份博客源码。我决定使用Time Machine。。。没啥好说的，心情十分复杂，就这样。。。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1928,7 +1902,7 @@ class Solution {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">96</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1945,7 +1919,7 @@ class Solution {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
