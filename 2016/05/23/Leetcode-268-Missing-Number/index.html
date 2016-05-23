@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Leetcode,Medium,Bit Manipulation,Array,Math," />
 
 
 
@@ -86,15 +86,22 @@
 
 
 
-<meta name="description" content="Time passed never returns.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="帆的小窝">
-<meta property="og:url" content="http://yoursite.com/tags/Leetcode/page/3/index.html">
+<meta name="description" content="Problem Description:Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.
+For example,Given nums = [0, 1, 3] return 2.
+Note:Your algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode-268-Missing Number">
+<meta property="og:url" content="http://yoursite.com/2016/05/23/Leetcode-268-Missing-Number/index.html">
 <meta property="og:site_name" content="帆的小窝">
-<meta property="og:description" content="Time passed never returns.">
+<meta property="og:description" content="Problem Description:Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.
+For example,Given nums = [0, 1, 3] return 2.
+Note:Your algorithm">
+<meta property="og:updated_time" content="2016-05-23T14:22:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="帆的小窝">
-<meta name="twitter:description" content="Time passed never returns.">
+<meta name="twitter:title" content="Leetcode-268-Missing Number">
+<meta name="twitter:description" content="Problem Description:Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.
+For example,Given nums = [0, 1, 3] return 2.
+Note:Your algorithm">
 
 
 
@@ -112,7 +119,7 @@
   };
 </script>
 
-  <title> 标签: Leetcode | 帆的小窝 </title>
+  <title> Leetcode-268-Missing Number | 帆的小窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -133,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -274,50 +281,200 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Leetcode
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Leetcode-268-Missing Number
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-23T22:17:51+08:00" content="2016-05-23">
+              2016-05-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">Leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/23/Leetcode-268-Missing-Number/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/23/Leetcode-268-Missing-Number/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/23/Leetcode-268-Missing-Number/" class="leancloud_visitors" data-flag-title="Leetcode-268-Missing Number">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>
+<p>For example,<br>Given nums = [0, 1, 3] return 2.</p>
+<p>Note:<br>Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给你一个n个互异整数组成的数组，其中少掉了一个数字，求这个数字。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>这道题有很多解法。对于O(n)的解法，可以求出和，再减去每个数字。对于位运算来说就是求所有的异或再与完整数组异或一次。本文给出数学的解法。<br>如果是排好序的数组，可以利用二分查找进而把复杂度降低到O（lgn）</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int missingNumber(vector&lt;int&gt;&amp; nums) {
+            int n=nums.size();
+            int res=n*(n+1)/2;
+            for(int i=0;i&lt;n;i++)
+            res-=nums[i];
 
-      <h1 class="post-title">
+                return res;
+        }
+};
+</code></pre>
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/05/23/Leetcode-338-Counting-Bits/" itemprop="url">
-              
-                <span itemprop="name">Leetcode-338-Counting Bits</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward.jpg" alt="Fan Yang WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward.jpg" alt="Fan Yang Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-05-23T10:26:55+08:00"
-              content="2016-05-23" >
-          05-23
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
+          
+            <a href="/tags/Medium/" rel="tag">#Medium</a>
+          
+            <a href="/tags/Bit-Manipulation/" rel="tag">#Bit Manipulation</a>
+          
+            <a href="/tags/Array/" rel="tag">#Array</a>
+          
+            <a href="/tags/Math/" rel="tag">#Math</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/23/Leetcode-343-Integer-Break/" rel="next" title="Leetcode-343-Integer Break">
+                <i class="fa fa-chevron-left"></i> Leetcode-343-Integer Break
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
+      
+    </div>
   </div>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/Leetcode/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/Leetcode/">1</a><a class="page-number" href="/tags/Leetcode/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
-
 
 
           </div>
@@ -325,6 +482,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/23/Leetcode-268-Missing-Number/"
+           data-title="Leetcode-268-Missing Number" data-url="http://yoursite.com/2016/05/23/Leetcode-268-Missing-Number/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -344,8 +509,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/fan.png"
@@ -402,6 +576,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Description"><span class="nav-number">1.</span> <span class="nav-text">Problem Description:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目大意："><span class="nav-number">2.</span> <span class="nav-text">题目大意：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solutions"><span class="nav-number">3.</span> <span class="nav-text">Solutions:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-in-C"><span class="nav-number">4.</span> <span class="nav-text">Code in C++:</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -498,6 +683,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
