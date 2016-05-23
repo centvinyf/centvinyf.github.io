@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-23T10:00:04.000Z</updated>
+  <updated>2016-05-23T10:22:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,251 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-217-Contains Duplicate</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-217-Contains-Duplicate/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-217-Contains-Duplicate/</id>
+    <published>2016-05-23T10:19:21.000Z</published>
+    <updated>2016-05-23T10:22:00.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，找出其是否包含重复元素。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;简单的利用一个哈希表存储所有未重复数字，当发现重复数字即可返回true,否则返回false&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        bool containsDuplicate(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+            set&amp;lt;int&amp;gt; s;
+            for(int i=0;i&amp;lt;nums.size();i++){
+                if(s.find(nums[i])!=s.end()) return true;
+                else s.insert(nums[i]);
+            }
+            return false;
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
+    
+      <category term="Hash Table" scheme="http://yoursite.com/tags/Hash-Table/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-171-Excel Sheet Column Number</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-171-Excel-Sheet-Column-Number/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-171-Excel-Sheet-Column-Number/</id>
+    <published>2016-05-23T10:16:28.000Z</published>
+    <updated>2016-05-23T10:18:48.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;Given a column title as appear in an Excel sheet, return its corresponding column number.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;A -&amp;gt; 1
+B -&amp;gt; 2
+C -&amp;gt; 3
+...
+Z -&amp;gt; 26
+AA -&amp;gt; 27
+AB -&amp;gt; 28 
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;简单的26进制转化问题。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int titleToNumber(string s) {
+            int res=0;
+            int high=s.length()-1;
+            for(int i=0;i&amp;lt;s.length();i++)
+                res+=pow(26,high-i)*(s[i]-&amp;apos;A&amp;apos;+1);
+
+            return res;
+
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-242-Valid Anagram</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-242-Valid-Anagram/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-242-Valid-Anagram/</id>
+    <published>2016-05-23T10:11:12.000Z</published>
+    <updated>2016-05-23T10:15:33.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two strings s and t, write a function to determine if t is an anagram of s.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;s = “anagram”, t = “nagaram”, return true.&lt;br&gt;s = “rat”, t = “car”, return false.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You may assume the string contains only lowercase alphabets.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定两个字符串，判定它们是否是异构体（即包含相同的字符）&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用哈希表，把字符串放入数组中排序，如果是异构体则排序后结果应该相同。或者利用两个向量变量统计每个字母出现的次数，看是否相同。本文给出第一种解法，第二种请读者自己完成。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        bool isAnagram(string s, string t) {
+            if(s.length()!=t.length()) return false;
+            vector&amp;lt;char&amp;gt;a;
+            vector&amp;lt;char&amp;gt;b;
+            for(int i=0;i&amp;lt;s.length();i++)
+                {
+                    a.push_back(s[i]);
+                    b.push_back(t[i]);
+                }
+            sort(a.begin(),a.end());
+            sort(b.begin(),b.end());
+            for(int i =0;i&amp;lt;a.size();i++)
+                if(a[i]!=b[i]) return false;
+            return true;
+
+
+            return true;
+
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two strings s and t, write a function to determine if t is an anagram of s.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;s = “anagram”, t = “nagaram”, return true.&lt;br&gt;s = “rat”, t = “car”, return false.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You may assume the string contains only lowercase alphabets.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Hash Table" scheme="http://yoursite.com/tags/Hash-Table/"/>
+    
+      <category term="Sort" scheme="http://yoursite.com/tags/Sort/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-122-Best Time to Buy and Sell Stock II</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II/</id>
+    <published>2016-05-23T10:07:30.000Z</published>
+    <updated>2016-05-23T10:10:40.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
+&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;你有一个数组表示某只股票每天的市值，设计一个算法求出你过了这些天之后能够赚到的最大利润（再次买入之前必须售出）&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用贪心算法，只要是任何两天之内有的价值增加都能被加入总收益之中。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int maxProfit(vector&amp;lt;int&amp;gt;&amp;amp; prices) {
+            int max=0;
+            for(int i=1;i&amp;lt;prices.size();i++)
+                prices[i]-prices[i-1]&amp;gt;0?max+=prices[i]-prices[i-1]:max+=0;
+            return max;
+
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
+&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
+    
+      <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-238-Product of Array Except Self</title>
+    <link href="http://yoursite.com/2016/05/23/Leetcode-238-Product-of-Array-Except-Self/"/>
+    <id>http://yoursite.com/2016/05/23/Leetcode-238-Product-of-Array-Except-Self/</id>
+    <published>2016-05-23T10:02:07.000Z</published>
+    <updated>2016-05-23T10:06:49.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].&lt;/p&gt;
+&lt;p&gt;Solve it without division and in O(n).&lt;/p&gt;
+&lt;p&gt;For example, given [1,2,3,4], return [24,12,8,6].&lt;/p&gt;
+&lt;p&gt;Follow up:&lt;br&gt;Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，输出为其他数组中所有其他元素的乘积，不能使用除法，时间复杂度应为O(n)&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;使用动态规划，遍历2次数组，求出左边所有元素的乘积和右边所有元素的乘积，再把它们相乘即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        vector&amp;lt;int&amp;gt; productExceptSelf(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+            vector&amp;lt;int&amp;gt; res;
+            if(nums.empty()) return res;
+               vector&amp;lt;int&amp;gt; productleft(nums.size(),1);
+            vector&amp;lt;int&amp;gt; productright(nums.size(),1);
+            for(int i =1;i&amp;lt;nums.size();i++)
+                   productleft[i]=productleft[i-1]*nums[i-1];
+            for(int j=nums.size()-2;j&amp;gt;=0;j--)
+                productright[j]=productright[j+1]*nums[j+1];
+            for(int i =0;i&amp;lt;nums.size();i++)
+                res.push_back(productleft[i]*productright[i]);
+            return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].&lt;/p&gt;
+&lt;p&gt;Solve it without division and in O(n).&lt;/p&gt;
+&lt;p&gt;For example, given [1,2,3,4], return [24,12,8,6].&lt;/p&gt;
+&lt;p&gt;Follow up:&lt;br&gt;Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
+    
+      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode-100-Same Tree</title>
@@ -703,91 +948,6 @@ public:
     
     
       <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Latex使用经验1——用bibtex添加引用</title>
-    <link href="http://yoursite.com/2015/10/02/Latex%E4%BD%BF%E7%94%A8%E7%BB%8F%E9%AA%8C1%E2%80%94%E2%80%94%E7%94%A8bibtex%E6%B7%BB%E5%8A%A0%E5%BC%95%E7%94%A8/"/>
-    <id>http://yoursite.com/2015/10/02/Latex使用经验1——用bibtex添加引用/</id>
-    <published>2015-10-02T13:34:08.000Z</published>
-    <updated>2015-10-21T01:39:34.000Z</updated>
-    
-    <content type="html">&lt;p&gt;用bibtex添加引用&lt;/p&gt;
-&lt;h2 id=&quot;第一步：建立一个tex文件&quot;&gt;&lt;a href=&quot;#第一步：建立一个tex文件&quot; class=&quot;headerlink&quot; title=&quot;第一步：建立一个tex文件&quot;&gt;&lt;/a&gt;第一步：建立一个tex文件&lt;/h2&gt;&lt;p&gt;任何一种你想要方法建立一个tex文件，假如说叫a.tex&lt;/p&gt;
-&lt;p&gt;在文章末尾\end{document}之前加入以下三行：&lt;br&gt;\renewcommand\refname{Reference}&lt;br&gt;\bibliographystyle{plain}&lt;br&gt;\bibliography{b}&lt;br&gt;其中第一行是参考文献的标题，标题是Reference；第二行是格式，还有其他格式见此处，这里用plain；第三行是一个bib格式文件的名字，最好和tex文件名称一致，编译起来方便一些。&lt;br&gt;(有一点小小要注意的地方：最常见的引用格式是plain，它是按作者字母排序的，如果要按引用顺序来排序，推荐用格式unsrt)&lt;/p&gt;
-&lt;h2 id=&quot;第二步：建立一个bib文件&quot;&gt;&lt;a href=&quot;#第二步：建立一个bib文件&quot; class=&quot;headerlink&quot; title=&quot;第二步：建立一个bib文件&quot;&gt;&lt;/a&gt;第二步：建立一个bib文件&lt;/h2&gt;&lt;p&gt;bib文件就是一个plain text文件，明明为b.bib，bib格式可以在各种数据库里面的citation找到，例如&lt;br&gt;@book{Book1,&lt;br&gt;title = “Title1”,&lt;br&gt;author = “author1”,&lt;br&gt;publisher = “publisher1”,&lt;br&gt;year = “2015”&lt;br&gt;}&lt;/p&gt;
-&lt;h2 id=&quot;第三步：在tex文件中引用&quot;&gt;&lt;a href=&quot;#第三步：在tex文件中引用&quot; class=&quot;headerlink&quot; title=&quot;第三步：在tex文件中引用&quot;&gt;&lt;/a&gt;第三步：在tex文件中引用&lt;/h2&gt;&lt;p&gt;在需要引用的地方使用\cite{Book1},期中Book1是你在bib文件中给每个引用的名字&lt;/p&gt;
-&lt;h2 id=&quot;第四步：运行-tex文件&quot;&gt;&lt;a href=&quot;#第四步：运行-tex文件&quot; class=&quot;headerlink&quot; title=&quot;第四步：运行.tex文件&quot;&gt;&lt;/a&gt;第四步：运行.tex文件&lt;/h2&gt;&lt;p&gt;可以直接运行texshop里面的排版或者用命令行 pdflatex a(a是咱们.tex文件的名字)&lt;/p&gt;
-&lt;h2 id=&quot;第五步：运行-bib文件&quot;&gt;&lt;a href=&quot;#第五步：运行-bib文件&quot; class=&quot;headerlink&quot; title=&quot;第五步：运行.bib文件&quot;&gt;&lt;/a&gt;第五步：运行.bib文件&lt;/h2&gt;&lt;p&gt;用bibtex b(b是咱们.bib文件的名字)，注意：一定要先运行pdflatex命令，因为运行后会生成aux文件，而编译bib是需要aux文件的、&lt;/p&gt;
-&lt;h2 id=&quot;第六步：运行-tex文件2次&quot;&gt;&lt;a href=&quot;#第六步：运行-tex文件2次&quot; class=&quot;headerlink&quot; title=&quot;第六步：运行.tex文件2次&quot;&gt;&lt;/a&gt;第六步：运行.tex文件2次&lt;/h2&gt;&lt;p&gt;对，你没看错，运行2次，才能正确生成引用和引用目录，原理我也不知道，就这么用就行了！pdflatex a 这个命令运行2次就行了&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;用bibtex添加引用&lt;/p&gt;
-&lt;h2 id=&quot;第一步：建立一个tex文件&quot;&gt;&lt;a href=&quot;#第一步：建立一个tex文件&quot; class=&quot;headerlink&quot; title=&quot;第一步：建立一个tex文件&quot;&gt;&lt;/a&gt;第一步：建立一个tex文件&lt;/h2&gt;&lt;p&gt;任何一种你想要
-    
-    </summary>
-    
-      <category term="Latex" scheme="http://yoursite.com/categories/Latex/"/>
-    
-    
-      <category term="Latex" scheme="http://yoursite.com/tags/Latex/"/>
-    
-      <category term="经验" scheme="http://yoursite.com/tags/%E7%BB%8F%E9%AA%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>今天的月亮很美</title>
-    <link href="http://yoursite.com/2015/10/01/%E4%BB%8A%E5%A4%A9%E7%9A%84%E6%9C%88%E4%BA%AE%E5%BE%88%E7%BE%8E/"/>
-    <id>http://yoursite.com/2015/10/01/今天的月亮很美/</id>
-    <published>2015-10-01T13:09:42.000Z</published>
-    <updated>2015-10-21T01:40:05.000Z</updated>
-    
-    <content type="html">&lt;p&gt;前几天中秋节，在美帝幸运地看到了血月和月全食之后。突然想起了夏目漱石问学生如何翻译“i love you”这个问题。他给学生的答案是“今天的月亮很美”。想起曾经和人谈论过这个问题，当时觉得有种听到“今天的风儿真是喧嚣”的感觉。其实我觉得我现在能理解了这种观点。就仿佛是我期待着下雪，想到下雪后的第一件事就是拍张照片，然后告诉某人，“下雪了”，这是一样的。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前几天中秋节，在美帝幸运地看到了血月和月全食之后。突然想起了夏目漱石问学生如何翻译“i love you”这个问题。他给学生的答案是“今天的月亮很美”。想起曾经和人谈论过这个问题，当时觉得有种听到“今天的风儿真是喧嚣”的感觉。其实我觉得我现在能理解了这种观点。就仿佛是我期待
-    
-    </summary>
-    
-      <category term="Mood" scheme="http://yoursite.com/categories/Mood/"/>
-    
-    
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="杂谈" scheme="http://yoursite.com/tags/%E6%9D%82%E8%B0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TableView上方总是有一截留白的解决方法</title>
-    <link href="http://yoursite.com/2015/09/29/TableView%E4%B8%8A%E6%96%B9%E6%80%BB%E6%98%AF%E6%9C%89%E4%B8%80%E6%88%AA%E7%95%99%E7%99%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2015/09/29/TableView上方总是有一截留白的解决方法/</id>
-    <published>2015-09-29T13:07:41.000Z</published>
-    <updated>2015-10-21T01:43:15.000Z</updated>
-    
-    <content type="html">&lt;p&gt;不知道从哪个版本（大概是iOS8）开始，如果你用了autolayout，当你设置某个tableview（或者任意scrollview）顶部约束为顶格的适合，它总会多出来一个留白，其实解决方法很简单，在该viewcontroller的.m文件中把automaticallyAdjustsScrollViewInsets这个属性设置成false就可以了。鬼知道谁设计的留白。。。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;不知道从哪个版本（大概是iOS8）开始，如果你用了autolayout，当你设置某个tableview（或者任意scrollview）顶部约束为顶格的适合，它总会多出来一个留白，其实解决方法很简单，在该viewcontroller的.m文件中把automaticallyAd
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
-    
-    
-      <category term="经验" scheme="http://yoursite.com/tags/%E7%BB%8F%E9%AA%8C/"/>
-    
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
-    
-      <category term="TableView" scheme="http://yoursite.com/tags/TableView/"/>
     
   </entry>
   

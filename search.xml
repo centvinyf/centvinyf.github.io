@@ -4,6 +4,137 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-217-Contains Duplicate]]></title>
+      <url>http://yoursite.com/2016/05/23/Leetcode-217-Contains-Duplicate/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个数组，找出其是否包含重复元素。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>简单的利用一个哈希表存储所有未重复数字，当发现重复数字即可返回true,否则返回false</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        bool containsDuplicate(vector&lt;int&gt;&amp; nums) {
+            set&lt;int&gt; s;
+            for(int i=0;i&lt;nums.size();i++){
+                if(s.find(nums[i])!=s.end()) return true;
+                else s.insert(nums[i]);
+            }
+            return false;
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-171-Excel Sheet Column Number]]></title>
+      <url>http://yoursite.com/2016/05/23/Leetcode-171-Excel-Sheet-Column-Number/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
+<p>For example:</p>
+<pre><code>A -&gt; 1
+B -&gt; 2
+C -&gt; 3
+...
+Z -&gt; 26
+AA -&gt; 27
+AB -&gt; 28 
+</code></pre><h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>简单的26进制转化问题。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int titleToNumber(string s) {
+            int res=0;
+            int high=s.length()-1;
+            for(int i=0;i&lt;s.length();i++)
+                res+=pow(26,high-i)*(s[i]-&apos;A&apos;+1);
+
+            return res;
+
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-242-Valid Anagram]]></title>
+      <url>http://yoursite.com/2016/05/23/Leetcode-242-Valid-Anagram/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two strings s and t, write a function to determine if t is an anagram of s.</p>
+<p>For example,<br>s = “anagram”, t = “nagaram”, return true.<br>s = “rat”, t = “car”, return false.</p>
+<p>Note:<br>You may assume the string contains only lowercase alphabets.</p>
+<a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定两个字符串，判定它们是否是异构体（即包含相同的字符）</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用哈希表，把字符串放入数组中排序，如果是异构体则排序后结果应该相同。或者利用两个向量变量统计每个字母出现的次数，看是否相同。本文给出第一种解法，第二种请读者自己完成。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        bool isAnagram(string s, string t) {
+            if(s.length()!=t.length()) return false;
+            vector&lt;char&gt;a;
+            vector&lt;char&gt;b;
+            for(int i=0;i&lt;s.length();i++)
+                {
+                    a.push_back(s[i]);
+                    b.push_back(t[i]);
+                }
+            sort(a.begin(),a.end());
+            sort(b.begin(),b.end());
+            for(int i =0;i&lt;a.size();i++)
+                if(a[i]!=b[i]) return false;
+            return true;
+
+
+            return true;
+
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-122-Best Time to Buy and Sell Stock II]]></title>
+      <url>http://yoursite.com/2016/05/23/Leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>你有一个数组表示某只股票每天的市值，设计一个算法求出你过了这些天之后能够赚到的最大利润（再次买入之前必须售出）</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用贪心算法，只要是任何两天之内有的价值增加都能被加入总收益之中。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int maxProfit(vector&lt;int&gt;&amp; prices) {
+            int max=0;
+            for(int i=1;i&lt;prices.size();i++)
+                prices[i]-prices[i-1]&gt;0?max+=prices[i]-prices[i-1]:max+=0;
+            return max;
+
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-238-Product of Array Except Self]]></title>
+      <url>http://yoursite.com/2016/05/23/Leetcode-238-Product-of-Array-Except-Self/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of n integers where n &gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].</p>
+<p>Solve it without division and in O(n).</p>
+<p>For example, given [1,2,3,4], return [24,12,8,6].</p>
+<p>Follow up:<br>Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个数组，输出为其他数组中所有其他元素的乘积，不能使用除法，时间复杂度应为O(n)</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>使用动态规划，遍历2次数组，求出左边所有元素的乘积和右边所有元素的乘积，再把它们相乘即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        vector&lt;int&gt; productExceptSelf(vector&lt;int&gt;&amp; nums) {
+            vector&lt;int&gt; res;
+            if(nums.empty()) return res;
+               vector&lt;int&gt; productleft(nums.size(),1);
+            vector&lt;int&gt; productright(nums.size(),1);
+            for(int i =1;i&lt;nums.size();i++)
+                   productleft[i]=productleft[i-1]*nums[i-1];
+            for(int j=nums.size()-2;j&gt;=0;j--)
+                productright[j]=productright[j+1]*nums[j+1];
+            for(int i =0;i&lt;nums.size();i++)
+                res.push_back(productleft[i]*productright[i]);
+            return res;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-100-Same Tree]]></title>
       <url>http://yoursite.com/2016/05/23/Leetcode-100-Same-Tree/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two binary trees, write a function to check if they are equal or not.</p>
