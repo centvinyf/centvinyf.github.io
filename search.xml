@@ -4,6 +4,519 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-22-Generate Parentheses]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-22-Generate-Parentheses/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
+<p>For example, given n = 3, a solution set is:</p>
+<p>“((()))”, “(()())”, “(())()”, “()(())”, “()()()”<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个数字，返回该数字对括号能产生的所有合法括号组合。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>使用回溯法，生成所有组合。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        vector&lt;string&gt; generateParenthesis(int n) {
+            vector&lt;string&gt; res;
+            string tem;
+            helper(res,tem,0,0,n);
+            return res;
+
+        }
+        void helper(vector&lt;string&gt;&amp;res,string&amp; s,int left,int right,int n)
+            {
+                if(left==n&amp;&amp;right==n) {res.push_back(s);}
+
+                if(left&lt;n) {s.push_back(&apos;(&apos;); helper(res,s,left+1,right,n);s.pop_back();}
+                if(right&lt;left) {s.push_back(&apos;)&apos;); helper(res,s,left,right+1,n);s.pop_back();}
+
+            }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-35-Search Insert Position]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-35-Search-Insert-Position/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.</p>
+<p>You may assume no duplicates in the array.</p>
+<p>Here are few examples.<br>[1,3,5,6], 5 → 2<br>[1,3,5,6], 2 → 1<br>[1,3,5,6], 7 → 4<br>[1,3,5,6], 0 → 0<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个排好序的数组和一个值，返回它的下标，如果它在数组里，否则，则返回该值应该被插入的位置。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>找到第一个大于该值的位置，返回之前一个位置。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int searchInsert(vector&lt;int&gt;&amp; nums, int target) {
+            if(target&lt;nums[0]) return 0;
+            if(target&gt;nums[nums.size()-1]) return nums.size();
+            for(int i=0;i&lt;nums.size();i++)
+                {
+                    if(nums[i]==target) return i;
+                    else if(nums[i]&lt;target) continue;
+                    else if(nums[i-1]&lt;target) return i;  
+                }
+            return 0;
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-108-Convert Sorted Array to Binary Search Tree]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array where elements are sorted in ascending order, convert it to a height balanced BST.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给一个已排序数组，把它转化成一个平衡BST。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用DFS和递归调用函数生成。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        TreeNode* sortedArrayToBST(vector&lt;int&gt;&amp; nums) {
+            return helper(nums,0,nums.size()-1);
+    }
+        TreeNode* helper(vector&lt;int&gt; &amp;nums,int begin,int end)
+                {
+                if(begin&gt;end) return NULL;
+                if(begin==end) return new TreeNode(nums[begin]);
+                int mid = begin + (end-begin)/2;
+                 TreeNode* res = new TreeNode(nums[mid]);
+                 res-&gt;left = helper(nums,begin,mid-1);
+                 res-&gt;right = helper(nums,mid+1,end);
+                 return res;
+                }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-235-Lowest Common Ancester of a Binary Search Tree]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-235-Lowest-Common-Ancester-of-a-Binary-Search-Tree/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.</p>
+<p>According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>找到两个节点的最低相同祖先。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>先求出两条路径，再找到最后一个相同元素即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+            vector&lt;TreeNode*&gt; p1;
+            vector&lt;TreeNode*&gt; q1;
+            findpath(p1,p,root);
+            findpath(q1,q,root);
+            for(int i=p1.size()-1;i&gt;=0;i--)
+                {
+                    if(find(q1.begin(),q1.end(),p1[i])!=q1.end())
+                        return p1[i];
+                }
+            return NULL;
+
+
+        }
+        void findpath(vector&lt;TreeNode*&gt;&amp; path,TreeNode* p, TreeNode* root)
+            {
+                TreeNode* current = root;
+                while(current-&gt;val!=p-&gt;val)
+                    {
+                        path.push_back(current);
+                        if(current-&gt;val&gt;p-&gt;val)
+                            current=current-&gt;left;
+                        else current=current-&gt;right;
+                        }
+                path.push_back(p);
+            }
+    };
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-96-Unique Binary Search Trees]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-96-Unique-Binary-Search-Trees/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given n, how many structurally unique BST’s (binary search trees) that store values 1…n?</p>
+<p>For example,<br>Given n = 3, there are a total of 5 unique BST’s.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给一个数字，求有多少个不同的二叉搜索树。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用动态规划，两边的可能性相乘的和即为总数。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int numTrees(int n) {
+            vector&lt;int&gt; ans(n+1,0);
+            ans[0]=1;
+            ans[1]=1;
+            for(int i=2;i&lt;=n;i++)
+                {
+                    for(int j=0;j&lt;=i;j++)
+                        ans[i]+=ans[j]*ans[i-j-1];
+                   }
+            return ans[n];
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-137-Single Number II]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-137-Single-Number-II/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of integers, every element appears three times except for one. Find that single one.</p>
+<p>Note:<br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>一个数组中每个元素都出现了3次除了一个只出现了一次，找到这个元素。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用2个哈希表，第一次出现就放入第一个，第二次出现把第一个表里删除再插入第二个表，第三次出现把第二个表里删除。这样那个单独元素就会在第一个哈希表里。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int singleNumber(vector&lt;int&gt;&amp; nums) {
+            set&lt;int&gt; first;
+            set&lt;int&gt; second;
+            for(int i=0;i&lt;nums.size();i++)
+                {
+                    if(second.find(nums[i])!=second.end()){
+                        second.erase(nums[i]);
+                    }else
+                        {
+                            if(first.find(nums[i])!=first.end())
+                                    {
+                                    first.erase(nums[i]);
+                                    second.insert(nums[i]);
+                                }else first.insert(nums[i]);
+                        }
+                }
+            return *first.begin();
+
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-230-Kth Smallest Element in a BST]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-230-Kth-Smallest-Element-in-a-BST/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.</p>
+<p>Note:<br>You may assume k is always valid, 1 ≤ k ≤ BST’s total elements.</p>
+<p>Follow up:<br>What if the BST is modified (insert/delete operations) often and you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?</p>
+<p>Hint:</p>
+<p>Try to utilize the property of a BST.<br>What if you could modify the BST node’s structure?<br>The optimal runtime complexity is O(height of BST).<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给一个BST,找出第K小的元素。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>先遍历一次，按顺序存下来，再返回特定坐标即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        int kthSmallest(TreeNode* root, int k) {
+            stack&lt;TreeNode*&gt; st;
+            vector&lt;int&gt; ans;
+            while(!st.empty()||root)
+                {
+                    while(root)
+                        {
+                            st.push(root);
+                            root=root-&gt;left;
+                        }
+            TreeNode* tem=st.top();
+            ans.push_back(tem-&gt;val);
+            st.pop();
+            if(tem-&gt;right)
+                root=tem-&gt;right;
+
+                    }
+            return ans[k-1];
+
+    }
+    };
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-328-Odd Even Linked List]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-328-Odd-Even-Linked-List/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.</p>
+<p>You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.</p>
+<p>Example:<br>Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL,<br>return 1-&gt;3-&gt;5-&gt;2-&gt;4-&gt;NULL.</p>
+<p>Note:<br>The relative order inside both the even and odd groups should remain as it was in the input.<br>The first node is considered odd, the second node even and so on …</p>
+<a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个单向链表，返回所有奇数结点，再接上所有偶数结点。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>先分别构建两个子串，再连起来。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        ListNode* oddEvenList(ListNode* head) {
+            if(!head||!head-&gt;next) return head;
+            ListNode* odd=head;
+            ListNode* eve=head-&gt;next;
+            ListNode* tem=eve;
+            while(odd-&gt;next&amp;&amp;eve-&gt;next)
+                {
+                    odd-&gt;next=eve-&gt;next;
+                    eve-&gt;next=odd-&gt;next-&gt;next;
+                    if(odd-&gt;next)
+                        odd=odd-&gt;next;
+                    if(eve-&gt;next)
+                        eve=eve-&gt;next;
+                }
+            odd-&gt;next=tem;
+            eve-&gt;next=NULL;
+            return head;
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-287-Find the Duplicate Number]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-287-Find-the-Duplicate-Number/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.</p>
+<p>Note:<br>You must not modify the array (assume the array is read only).<br>You must use only constant, O(1) extra space.<br>Your runtime complexity should be less than O(n2).<br>There is only one duplicate number in the array, but it could be repeated more than once.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>有一个大小为n+1的数组，数字均在1-n之间，证明一定至少有一个重复的数字，假设只有一个重复数字，找到它。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>这道题有许多种解法。如果数组不能被改动，则可以利用二分查找，统计不大于mid的数个数，如果超过mid个，则这个重复的数字一定在1-mid之间，否则在mid-n之间。<br>如果数组可以被改动，可以使用循环标记的算法，把每个数字的值作为下标，标负，当发现标负的值的时候，该值即为重复值。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int findDuplicate(vector&lt;int&gt;&amp; nums) {
+            int begin=1,end=nums.size()-1;
+            int mid= begin+(end-begin)/2;
+            while(end-begin&gt;0)
+                {
+                    if(helper(nums,mid))
+                        {
+                            end=mid;
+                            mid=begin+(end-begin)/2;
+                        }else
+                            {
+                                begin=mid+1;
+                                mid=begin+(end-begin)/2;
+                            }
+                }
+            return begin;
+
+        }
+        bool helper(vector&lt;int&gt;&amp; nums, int target)
+            {
+                int count = 0;
+                    for(int i=0;i&lt;nums.size();i++)
+                    if(nums[i]&lt;=target) count++;
+                        return count&gt;target;
+            }
+    };
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-12-Integer to Roman]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-12-Integer-to-Roman/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an integer, convert it to a roman numeral.</p>
+<p>Input is guaranteed to be within the range from 1 to 3999.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>把十进制数字转化为罗马数字。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>先找到不同的转化点，再依次转化</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        string intToRoman(int num) {
+            string res=&quot;&quot;;
+            int nums[13]={1000,900,500,400,100,90,50,40,10,9,5,4,1};
+            string s[13]={&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,&quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;};
+            for(int i=0;i&lt;=13;i++)
+                {
+                    if(num&gt;=nums[i])
+                        {
+                            for(int j=0;j&lt;num/nums[i];j++)
+                                res+=s[i];
+                                num%=nums[i];
+                        }
+                }
+            return res;
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-13-Roman to Integer]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-13-Roman-to-Integer/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a roman numeral, convert it to an integer.</p>
+<p>Input is guaranteed to be within the range from 1 to 3999.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个罗马数字，1-3999内，求对应的十进制数字</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>很简单，如果左边的比右边的小，说明左边的需要减去，右边的比左边的小或者相等就累加</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int romanToInt(string s) {
+            if(s.length()==0) return 0;
+            if(s.length()==1) return letter2int(s[0]);
+            int res=letter2int(s[0]);
+            for(int i=1;i&lt;s.length();i++)
+                {
+                    if(letter2int(s[i])&gt;letter2int(s[i-1]))
+                        res+=letter2int(s[i])-2*letter2int(s[i-1]);
+                    else res+=letter2int(s[i]);
+                }
+            return res;
+
+        }
+        int letter2int(char a)
+            {
+                switch(a)
+                    {
+                        case &apos;I&apos;: return 1;
+                        case &apos;V&apos;: return 5;
+                        case &apos;X&apos;: return 10;
+                        case &apos;L&apos;: return 50;
+                        case &apos;C&apos;: return 100;
+                        case &apos;D&apos;: return 500;
+                        case &apos;M&apos;: return 1000;
+                        default : return 0;
+                    }
+            }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-94-Binary Tree Inorder Traversal]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-94-Binary-Tree-Inorder-Traversal/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree, return the inorder traversal of its nodes’ values.</p>
+<p>For example:<br>Given binary tree {1,#,2,3},<br>           1<br>        \<br>         2<br>        /<br>           3<br>return [1,3,2].<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>中序遍历一个二叉树</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>用递归的办法做很简单，这里选择一个辅助栈，用非递归的方法完成中序遍历。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        vector&lt;int&gt; inorderTraversal(TreeNode* root) {
+            stack&lt;TreeNode*&gt; s;
+            vector&lt;int&gt; res;
+            while(!s.empty()||root)
+                {
+                    s.push(root);
+                    while(root-&gt;left)
+                        {
+                            s.push(root-&gt;left);
+                            root=root-&gt;left;
+                        }
+                    while(!s.empty())
+                        {
+                            root=s.top();
+                            s.pop();
+                            res.push_back(root-&gt;val);
+                    if(root-&gt;right)
+                        {
+                            root=root-&gt;right;
+                            break;
+                        }else root=NULL;
+                        }
+                }
+            return res;
+
+        }
+    };
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-206-Reverse Linked List]]></title>
+      <url>http://yoursite.com/2016/05/26/Leetcode-206-Reverse-Linked-List/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Reverse a singly linked list.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>反转一个单向链表</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>有许多方法可以反转一个单向链表，这里我们选择把每个结点都放在头结点之后一次，再从尾部连接头结点，最后再断环。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        ListNode* reverseList(ListNode* head) {
+            if(!head||!head-&gt;next) return head;
+            ListNode * current = head-&gt;next;
+            ListNode * next;
+            while(current-&gt;next)
+                {
+                    next = current-&gt;next;
+                    current-&gt;next=next-&gt;next;
+                    next-&gt;next=head-&gt;next;
+                    head-&gt;next=next;
+                }
+            current-&gt;next=head;
+            ListNode *newhead=head-&gt;next;
+            head-&gt;next=NULL;
+            return newhead;   
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-144-Binary Tree Preorder Traversal]]></title>
+      <url>http://yoursite.com/2016/05/24/Leetcode-144-Binary-Tree-Preorder-Traversal/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree, return the preorder traversal of its nodes’ values.</p>
+<p>For example:<br>Given binary tree {1,#,2,3},<br>       1<br>      \<br>         2<br>        /<br>         3<br>return [1,2,3].</p>
+<p>Note: Recursive solution is trivial, could you do it iteratively?<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>二叉树前序遍历。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>如果用递归做这道题很简单，这里本文提供一种非递归的解法。利用一个辅助栈，既然是先序遍历，那么右子树应该先入栈，接着是左子树。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        vector&lt;int&gt; preorderTraversal(TreeNode* root) {
+            stack&lt;TreeNode*&gt; s;
+            vector&lt;int&gt; res;
+            while(!s.empty()||root)
+                {
+
+                    if(root)
+                        {
+                            res.push_back(root-&gt;val);
+                            if(root-&gt;right)
+                                s.push(root-&gt;right);
+                            root=root-&gt;left;
+                        }
+                    else{
+                            root=s.top();
+                            s.pop();
+                        }
+                }
+            return res;
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-268-Missing Number]]></title>
       <url>http://yoursite.com/2016/05/23/Leetcode-268-Missing-Number/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array containing n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array.</p>

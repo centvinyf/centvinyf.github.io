@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-23T14:22:25.000Z</updated>
+  <updated>2016-05-26T11:36:01.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,853 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-22-Generate Parentheses</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-22-Generate-Parentheses/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-22-Generate-Parentheses/</id>
+    <published>2016-05-26T11:33:14.000Z</published>
+    <updated>2016-05-26T11:36:01.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.&lt;/p&gt;
+&lt;p&gt;For example, given n = 3, a solution set is:&lt;/p&gt;
+&lt;p&gt;“((()))”, “(()())”, “(())()”, “()(())”, “()()()”&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数字，返回该数字对括号能产生的所有合法括号组合。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;使用回溯法，生成所有组合。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        vector&amp;lt;string&amp;gt; generateParenthesis(int n) {
+            vector&amp;lt;string&amp;gt; res;
+            string tem;
+            helper(res,tem,0,0,n);
+            return res;
+
+        }
+        void helper(vector&amp;lt;string&amp;gt;&amp;amp;res,string&amp;amp; s,int left,int right,int n)
+            {
+                if(left==n&amp;amp;&amp;amp;right==n) {res.push_back(s);}
+
+                if(left&amp;lt;n) {s.push_back(&amp;apos;(&amp;apos;); helper(res,s,left+1,right,n);s.pop_back();}
+                if(right&amp;lt;left) {s.push_back(&amp;apos;)&amp;apos;); helper(res,s,left,right+1,n);s.pop_back();}
+
+            }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.&lt;/p&gt;
+&lt;p&gt;For example, given n = 3, a solution set is:&lt;/p&gt;
+&lt;p&gt;“((()))”, “(()())”, “(())()”, “()(())”, “()()()”&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="String" scheme="http://yoursite.com/tags/String/"/>
+    
+      <category term="Backtracking" scheme="http://yoursite.com/tags/Backtracking/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-35-Search Insert Position</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-35-Search-Insert-Position/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-35-Search-Insert-Position/</id>
+    <published>2016-05-26T11:28:02.000Z</published>
+    <updated>2016-05-26T11:32:34.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.&lt;/p&gt;
+&lt;p&gt;You may assume no duplicates in the array.&lt;/p&gt;
+&lt;p&gt;Here are few examples.&lt;br&gt;[1,3,5,6], 5 → 2&lt;br&gt;[1,3,5,6], 2 → 1&lt;br&gt;[1,3,5,6], 7 → 4&lt;br&gt;[1,3,5,6], 0 → 0&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个排好序的数组和一个值，返回它的下标，如果它在数组里，否则，则返回该值应该被插入的位置。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;找到第一个大于该值的位置，返回之前一个位置。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int searchInsert(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
+            if(target&amp;lt;nums[0]) return 0;
+            if(target&amp;gt;nums[nums.size()-1]) return nums.size();
+            for(int i=0;i&amp;lt;nums.size();i++)
+                {
+                    if(nums[i]==target) return i;
+                    else if(nums[i]&amp;lt;target) continue;
+                    else if(nums[i-1]&amp;lt;target) return i;  
+                }
+            return 0;
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.&lt;/p&gt;
+&lt;p&gt;You may assume no duplicates in the array.&lt;/p&gt;
+&lt;p&gt;Here are few examples.&lt;br&gt;[1,3,5,6], 5 → 2&lt;br&gt;[1,3,5,6], 2 → 1&lt;br&gt;[1,3,5,6], 7 → 4&lt;br&gt;[1,3,5,6], 0 → 0&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
+    
+      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-108-Convert Sorted Array to Binary Search Tree</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree/</id>
+    <published>2016-05-26T10:54:00.000Z</published>
+    <updated>2016-05-26T11:27:33.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array where elements are sorted in ascending order, convert it to a height balanced BST.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给一个已排序数组，把它转化成一个平衡BST。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用DFS和递归调用函数生成。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        TreeNode* sortedArrayToBST(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+            return helper(nums,0,nums.size()-1);
+    }
+        TreeNode* helper(vector&amp;lt;int&amp;gt; &amp;amp;nums,int begin,int end)
+                {
+                if(begin&amp;gt;end) return NULL;
+                if(begin==end) return new TreeNode(nums[begin]);
+                int mid = begin + (end-begin)/2;
+                 TreeNode* res = new TreeNode(nums[mid]);
+                 res-&amp;gt;left = helper(nums,begin,mid-1);
+                 res-&amp;gt;right = helper(nums,mid+1,end);
+                 return res;
+                }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array where elements are sorted in ascending order, convert it to a height balanced BST.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-235-Lowest Common Ancester of a Binary Search Tree</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-235-Lowest-Common-Ancester-of-a-Binary-Search-Tree/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-235-Lowest-Common-Ancester-of-a-Binary-Search-Tree/</id>
+    <published>2016-05-26T10:49:18.000Z</published>
+    <updated>2016-05-26T10:52:44.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.&lt;/p&gt;
+&lt;p&gt;According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;找到两个节点的最低相同祖先。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;先求出两条路径，再找到最后一个相同元素即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+            vector&amp;lt;TreeNode*&amp;gt; p1;
+            vector&amp;lt;TreeNode*&amp;gt; q1;
+            findpath(p1,p,root);
+            findpath(q1,q,root);
+            for(int i=p1.size()-1;i&amp;gt;=0;i--)
+                {
+                    if(find(q1.begin(),q1.end(),p1[i])!=q1.end())
+                        return p1[i];
+                }
+            return NULL;
+
+
+        }
+        void findpath(vector&amp;lt;TreeNode*&amp;gt;&amp;amp; path,TreeNode* p, TreeNode* root)
+            {
+                TreeNode* current = root;
+                while(current-&amp;gt;val!=p-&amp;gt;val)
+                    {
+                        path.push_back(current);
+                        if(current-&amp;gt;val&amp;gt;p-&amp;gt;val)
+                            current=current-&amp;gt;left;
+                        else current=current-&amp;gt;right;
+                        }
+                path.push_back(p);
+            }
+    };
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.&lt;/p&gt;
+&lt;p&gt;According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-96-Unique Binary Search Trees</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-96-Unique-Binary-Search-Trees/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-96-Unique-Binary-Search-Trees/</id>
+    <published>2016-05-26T10:35:53.000Z</published>
+    <updated>2016-05-26T10:44:25.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given n, how many structurally unique BST’s (binary search trees) that store values 1…n?&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;Given n = 3, there are a total of 5 unique BST’s.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给一个数字，求有多少个不同的二叉搜索树。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用动态规划，两边的可能性相乘的和即为总数。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int numTrees(int n) {
+            vector&amp;lt;int&amp;gt; ans(n+1,0);
+            ans[0]=1;
+            ans[1]=1;
+            for(int i=2;i&amp;lt;=n;i++)
+                {
+                    for(int j=0;j&amp;lt;=i;j++)
+                        ans[i]+=ans[j]*ans[i-j-1];
+                   }
+            return ans[n];
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given n, how many structurally unique BST’s (binary search trees) that store values 1…n?&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;Given n = 3, there are a total of 5 unique BST’s.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+    
+      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-137-Single Number II</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-137-Single-Number-II/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-137-Single-Number-II/</id>
+    <published>2016-05-26T10:25:53.000Z</published>
+    <updated>2016-05-26T10:34:31.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, every element appears three times except for one. Find that single one.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;一个数组中每个元素都出现了3次除了一个只出现了一次，找到这个元素。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用2个哈希表，第一次出现就放入第一个，第二次出现把第一个表里删除再插入第二个表，第三次出现把第二个表里删除。这样那个单独元素就会在第一个哈希表里。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+            set&amp;lt;int&amp;gt; first;
+            set&amp;lt;int&amp;gt; second;
+            for(int i=0;i&amp;lt;nums.size();i++)
+                {
+                    if(second.find(nums[i])!=second.end()){
+                        second.erase(nums[i]);
+                    }else
+                        {
+                            if(first.find(nums[i])!=first.end())
+                                    {
+                                    first.erase(nums[i]);
+                                    second.insert(nums[i]);
+                                }else first.insert(nums[i]);
+                        }
+                }
+            return *first.begin();
+
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, every element appears three times except for one. Find that single one.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+    
+      <category term="Hash Table" scheme="http://yoursite.com/tags/Hash-Table/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-230-Kth Smallest Element in a BST</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-230-Kth-Smallest-Element-in-a-BST/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-230-Kth-Smallest-Element-in-a-BST/</id>
+    <published>2016-05-26T10:21:30.000Z</published>
+    <updated>2016-05-26T11:32:55.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You may assume k is always valid, 1 ≤ k ≤ BST’s total elements.&lt;/p&gt;
+&lt;p&gt;Follow up:&lt;br&gt;What if the BST is modified (insert/delete operations) often and you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?&lt;/p&gt;
+&lt;p&gt;Hint:&lt;/p&gt;
+&lt;p&gt;Try to utilize the property of a BST.&lt;br&gt;What if you could modify the BST node’s structure?&lt;br&gt;The optimal runtime complexity is O(height of BST).&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给一个BST,找出第K小的元素。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;先遍历一次，按顺序存下来，再返回特定坐标即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        int kthSmallest(TreeNode* root, int k) {
+            stack&amp;lt;TreeNode*&amp;gt; st;
+            vector&amp;lt;int&amp;gt; ans;
+            while(!st.empty()||root)
+                {
+                    while(root)
+                        {
+                            st.push(root);
+                            root=root-&amp;gt;left;
+                        }
+            TreeNode* tem=st.top();
+            ans.push_back(tem-&amp;gt;val);
+            st.pop();
+            if(tem-&amp;gt;right)
+                root=tem-&amp;gt;right;
+
+                    }
+            return ans[k-1];
+
+    }
+    };
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You may assume k is always valid, 1 ≤ k ≤ BST’s total elements.&lt;/p&gt;
+&lt;p&gt;Follow up:&lt;br&gt;What if the BST is modified (insert/delete operations) often and you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?&lt;/p&gt;
+&lt;p&gt;Hint:&lt;/p&gt;
+&lt;p&gt;Try to utilize the property of a BST.&lt;br&gt;What if you could modify the BST node’s structure?&lt;br&gt;The optimal runtime complexity is O(height of BST).&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-328-Odd Even Linked List</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-328-Odd-Even-Linked-List/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-328-Odd-Even-Linked-List/</id>
+    <published>2016-05-26T09:39:52.000Z</published>
+    <updated>2016-05-26T10:15:59.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.&lt;/p&gt;
+&lt;p&gt;You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL,&lt;br&gt;return 1-&amp;gt;3-&amp;gt;5-&amp;gt;2-&amp;gt;4-&amp;gt;NULL.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;The relative order inside both the even and odd groups should remain as it was in the input.&lt;br&gt;The first node is considered odd, the second node even and so on …&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个单向链表，返回所有奇数结点，再接上所有偶数结点。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;先分别构建两个子串，再连起来。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        ListNode* oddEvenList(ListNode* head) {
+            if(!head||!head-&amp;gt;next) return head;
+            ListNode* odd=head;
+            ListNode* eve=head-&amp;gt;next;
+            ListNode* tem=eve;
+            while(odd-&amp;gt;next&amp;amp;&amp;amp;eve-&amp;gt;next)
+                {
+                    odd-&amp;gt;next=eve-&amp;gt;next;
+                    eve-&amp;gt;next=odd-&amp;gt;next-&amp;gt;next;
+                    if(odd-&amp;gt;next)
+                        odd=odd-&amp;gt;next;
+                    if(eve-&amp;gt;next)
+                        eve=eve-&amp;gt;next;
+                }
+            odd-&amp;gt;next=tem;
+            eve-&amp;gt;next=NULL;
+            return head;
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.&lt;/p&gt;
+&lt;p&gt;You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL,&lt;br&gt;return 1-&amp;gt;3-&amp;gt;5-&amp;gt;2-&amp;gt;4-&amp;gt;NULL.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;The relative order inside both the even and odd groups should remain as it was in the input.&lt;br&gt;The first node is considered odd, the second node even and so on …&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Linked List" scheme="http://yoursite.com/tags/Linked-List/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-287-Find the Duplicate Number</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-287-Find-the-Duplicate-Number/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-287-Find-the-Duplicate-Number/</id>
+    <published>2016-05-26T09:32:33.000Z</published>
+    <updated>2016-05-26T09:38:10.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You must not modify the array (assume the array is read only).&lt;br&gt;You must use only constant, O(1) extra space.&lt;br&gt;Your runtime complexity should be less than O(n2).&lt;br&gt;There is only one duplicate number in the array, but it could be repeated more than once.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;有一个大小为n+1的数组，数字均在1-n之间，证明一定至少有一个重复的数字，假设只有一个重复数字，找到它。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题有许多种解法。如果数组不能被改动，则可以利用二分查找，统计不大于mid的数个数，如果超过mid个，则这个重复的数字一定在1-mid之间，否则在mid-n之间。&lt;br&gt;如果数组可以被改动，可以使用循环标记的算法，把每个数字的值作为下标，标负，当发现标负的值的时候，该值即为重复值。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int findDuplicate(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+            int begin=1,end=nums.size()-1;
+            int mid= begin+(end-begin)/2;
+            while(end-begin&amp;gt;0)
+                {
+                    if(helper(nums,mid))
+                        {
+                            end=mid;
+                            mid=begin+(end-begin)/2;
+                        }else
+                            {
+                                begin=mid+1;
+                                mid=begin+(end-begin)/2;
+                            }
+                }
+            return begin;
+
+        }
+        bool helper(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target)
+            {
+                int count = 0;
+                    for(int i=0;i&amp;lt;nums.size();i++)
+                    if(nums[i]&amp;lt;=target) count++;
+                        return count&amp;gt;target;
+            }
+    };
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You must not modify the array (assume the array is read only).&lt;br&gt;You must use only constant, O(1) extra space.&lt;br&gt;Your runtime complexity should be less than O(n2).&lt;br&gt;There is only one duplicate number in the array, but it could be repeated more than once.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+    
+      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
+    
+      <category term="Hard" scheme="http://yoursite.com/tags/Hard/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-12-Integer to Roman</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-12-Integer-to-Roman/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-12-Integer-to-Roman/</id>
+    <published>2016-05-26T09:27:41.000Z</published>
+    <updated>2016-05-26T09:29:52.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an integer, convert it to a roman numeral.&lt;/p&gt;
+&lt;p&gt;Input is guaranteed to be within the range from 1 to 3999.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;把十进制数字转化为罗马数字。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;先找到不同的转化点，再依次转化&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        string intToRoman(int num) {
+            string res=&amp;quot;&amp;quot;;
+            int nums[13]={1000,900,500,400,100,90,50,40,10,9,5,4,1};
+            string s[13]={&amp;quot;M&amp;quot;,&amp;quot;CM&amp;quot;,&amp;quot;D&amp;quot;,&amp;quot;CD&amp;quot;,&amp;quot;C&amp;quot;,&amp;quot;XC&amp;quot;,&amp;quot;L&amp;quot;,&amp;quot;XL&amp;quot;,&amp;quot;X&amp;quot;,&amp;quot;IX&amp;quot;,&amp;quot;V&amp;quot;,&amp;quot;IV&amp;quot;,&amp;quot;I&amp;quot;};
+            for(int i=0;i&amp;lt;=13;i++)
+                {
+                    if(num&amp;gt;=nums[i])
+                        {
+                            for(int j=0;j&amp;lt;num/nums[i];j++)
+                                res+=s[i];
+                                num%=nums[i];
+                        }
+                }
+            return res;
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an integer, convert it to a roman numeral.&lt;/p&gt;
+&lt;p&gt;Input is guaranteed to be within the range from 1 to 3999.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+    
+      <category term="String" scheme="http://yoursite.com/tags/String/"/>
+    
+      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-13-Roman to Integer</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-13-Roman-to-Integer/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-13-Roman-to-Integer/</id>
+    <published>2016-05-26T08:12:59.000Z</published>
+    <updated>2016-05-26T08:19:28.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a roman numeral, convert it to an integer.&lt;/p&gt;
+&lt;p&gt;Input is guaranteed to be within the range from 1 to 3999.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个罗马数字，1-3999内，求对应的十进制数字&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;很简单，如果左边的比右边的小，说明左边的需要减去，右边的比左边的小或者相等就累加&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+    public:
+        int romanToInt(string s) {
+            if(s.length()==0) return 0;
+            if(s.length()==1) return letter2int(s[0]);
+            int res=letter2int(s[0]);
+            for(int i=1;i&amp;lt;s.length();i++)
+                {
+                    if(letter2int(s[i])&amp;gt;letter2int(s[i-1]))
+                        res+=letter2int(s[i])-2*letter2int(s[i-1]);
+                    else res+=letter2int(s[i]);
+                }
+            return res;
+
+        }
+        int letter2int(char a)
+            {
+                switch(a)
+                    {
+                        case &amp;apos;I&amp;apos;: return 1;
+                        case &amp;apos;V&amp;apos;: return 5;
+                        case &amp;apos;X&amp;apos;: return 10;
+                        case &amp;apos;L&amp;apos;: return 50;
+                        case &amp;apos;C&amp;apos;: return 100;
+                        case &amp;apos;D&amp;apos;: return 500;
+                        case &amp;apos;M&amp;apos;: return 1000;
+                        default : return 0;
+                    }
+            }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a roman numeral, convert it to an integer.&lt;/p&gt;
+&lt;p&gt;Input is guaranteed to be within the range from 1 to 3999.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="String" scheme="http://yoursite.com/tags/String/"/>
+    
+      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-94-Binary Tree Inorder Traversal</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-94-Binary-Tree-Inorder-Traversal/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-94-Binary-Tree-Inorder-Traversal/</id>
+    <published>2016-05-26T08:02:13.000Z</published>
+    <updated>2016-05-26T08:05:12.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, return the inorder traversal of its nodes’ values.&lt;/p&gt;
+&lt;p&gt;For example:&lt;br&gt;Given binary tree {1,#,2,3},&lt;br&gt;           1&lt;br&gt;        \&lt;br&gt;         2&lt;br&gt;        /&lt;br&gt;           3&lt;br&gt;return [1,3,2].&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;中序遍历一个二叉树&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用递归的办法做很简单，这里选择一个辅助栈，用非递归的方法完成中序遍历。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        vector&amp;lt;int&amp;gt; inorderTraversal(TreeNode* root) {
+            stack&amp;lt;TreeNode*&amp;gt; s;
+            vector&amp;lt;int&amp;gt; res;
+            while(!s.empty()||root)
+                {
+                    s.push(root);
+                    while(root-&amp;gt;left)
+                        {
+                            s.push(root-&amp;gt;left);
+                            root=root-&amp;gt;left;
+                        }
+                    while(!s.empty())
+                        {
+                            root=s.top();
+                            s.pop();
+                            res.push_back(root-&amp;gt;val);
+                    if(root-&amp;gt;right)
+                        {
+                            root=root-&amp;gt;right;
+                            break;
+                        }else root=NULL;
+                        }
+                }
+            return res;
+
+        }
+    };
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, return the inorder traversal of its nodes’ values.&lt;/p&gt;
+&lt;p&gt;For example:&lt;br&gt;Given binary tree {1,#,2,3},&lt;br&gt;           1&lt;br&gt;        \&lt;br&gt;         2&lt;br&gt;        /&lt;br&gt;           3&lt;br&gt;return [1,3,2].&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+    
+      <category term="Stack" scheme="http://yoursite.com/tags/Stack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-206-Reverse Linked List</title>
+    <link href="http://yoursite.com/2016/05/26/Leetcode-206-Reverse-Linked-List/"/>
+    <id>http://yoursite.com/2016/05/26/Leetcode-206-Reverse-Linked-List/</id>
+    <published>2016-05-26T07:58:58.000Z</published>
+    <updated>2016-05-26T08:01:42.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Reverse a singly linked list.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;反转一个单向链表&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;有许多方法可以反转一个单向链表，这里我们选择把每个结点都放在头结点之后一次，再从尾部连接头结点，最后再断环。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        ListNode* reverseList(ListNode* head) {
+            if(!head||!head-&amp;gt;next) return head;
+            ListNode * current = head-&amp;gt;next;
+            ListNode * next;
+            while(current-&amp;gt;next)
+                {
+                    next = current-&amp;gt;next;
+                    current-&amp;gt;next=next-&amp;gt;next;
+                    next-&amp;gt;next=head-&amp;gt;next;
+                    head-&amp;gt;next=next;
+                }
+            current-&amp;gt;next=head;
+            ListNode *newhead=head-&amp;gt;next;
+            head-&amp;gt;next=NULL;
+            return newhead;   
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Reverse a singly linked list.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+    
+      <category term="Linked List" scheme="http://yoursite.com/tags/Linked-List/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-144-Binary Tree Preorder Traversal</title>
+    <link href="http://yoursite.com/2016/05/24/Leetcode-144-Binary-Tree-Preorder-Traversal/"/>
+    <id>http://yoursite.com/2016/05/24/Leetcode-144-Binary-Tree-Preorder-Traversal/</id>
+    <published>2016-05-24T03:15:59.000Z</published>
+    <updated>2016-05-24T03:21:03.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, return the preorder traversal of its nodes’ values.&lt;/p&gt;
+&lt;p&gt;For example:&lt;br&gt;Given binary tree {1,#,2,3},&lt;br&gt;       1&lt;br&gt;      \&lt;br&gt;         2&lt;br&gt;        /&lt;br&gt;         3&lt;br&gt;return [1,2,3].&lt;/p&gt;
+&lt;p&gt;Note: Recursive solution is trivial, could you do it iteratively?&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;二叉树前序遍历。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;如果用递归做这道题很简单，这里本文提供一种非递归的解法。利用一个辅助栈，既然是先序遍历，那么右子树应该先入栈，接着是左子树。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        vector&amp;lt;int&amp;gt; preorderTraversal(TreeNode* root) {
+            stack&amp;lt;TreeNode*&amp;gt; s;
+            vector&amp;lt;int&amp;gt; res;
+            while(!s.empty()||root)
+                {
+
+                    if(root)
+                        {
+                            res.push_back(root-&amp;gt;val);
+                            if(root-&amp;gt;right)
+                                s.push(root-&amp;gt;right);
+                            root=root-&amp;gt;left;
+                        }
+                    else{
+                            root=s.top();
+                            s.pop();
+                        }
+                }
+            return res;
+        }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, return the preorder traversal of its nodes’ values.&lt;/p&gt;
+&lt;p&gt;For example:&lt;br&gt;Given binary tree {1,#,2,3},&lt;br&gt;       1&lt;br&gt;      \&lt;br&gt;         2&lt;br&gt;        /&lt;br&gt;         3&lt;br&gt;return [1,2,3].&lt;/p&gt;
+&lt;p&gt;Note: Recursive solution is trivial, could you do it iteratively?&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+    
+      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+    
+      <category term="Stack" scheme="http://yoursite.com/tags/Stack/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode-268-Missing Number</title>
@@ -55,11 +902,11 @@
     
       <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
     
+      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
       <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
     
       <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
     
   </entry>
   
@@ -111,9 +958,9 @@
     
       <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
     
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
-    
       <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
+      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
     
   </entry>
   
@@ -299,702 +1146,6 @@ AB -&amp;gt; 28
       <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
     
       <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-242-Valid Anagram</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-242-Valid-Anagram/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-242-Valid-Anagram/</id>
-    <published>2016-05-23T10:11:12.000Z</published>
-    <updated>2016-05-23T10:15:33.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two strings s and t, write a function to determine if t is an anagram of s.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;s = “anagram”, t = “nagaram”, return true.&lt;br&gt;s = “rat”, t = “car”, return false.&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;You may assume the string contains only lowercase alphabets.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定两个字符串，判定它们是否是异构体（即包含相同的字符）&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用哈希表，把字符串放入数组中排序，如果是异构体则排序后结果应该相同。或者利用两个向量变量统计每个字母出现的次数，看是否相同。本文给出第一种解法，第二种请读者自己完成。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        bool isAnagram(string s, string t) {
-            if(s.length()!=t.length()) return false;
-            vector&amp;lt;char&amp;gt;a;
-            vector&amp;lt;char&amp;gt;b;
-            for(int i=0;i&amp;lt;s.length();i++)
-                {
-                    a.push_back(s[i]);
-                    b.push_back(t[i]);
-                }
-            sort(a.begin(),a.end());
-            sort(b.begin(),b.end());
-            for(int i =0;i&amp;lt;a.size();i++)
-                if(a[i]!=b[i]) return false;
-            return true;
-
-
-            return true;
-
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two strings s and t, write a function to determine if t is an anagram of s.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;s = “anagram”, t = “nagaram”, return true.&lt;br&gt;s = “rat”, t = “car”, return false.&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;You may assume the string contains only lowercase alphabets.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Sort" scheme="http://yoursite.com/tags/Sort/"/>
-    
-      <category term="Hash Table" scheme="http://yoursite.com/tags/Hash-Table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-122-Best Time to Buy and Sell Stock II</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-122-Best-Time-to-Buy-and-Sell-Stock-II/</id>
-    <published>2016-05-23T10:07:30.000Z</published>
-    <updated>2016-05-23T10:10:40.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
-&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;你有一个数组表示某只股票每天的市值，设计一个算法求出你过了这些天之后能够赚到的最大利润（再次买入之前必须售出）&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用贪心算法，只要是任何两天之内有的价值增加都能被加入总收益之中。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int maxProfit(vector&amp;lt;int&amp;gt;&amp;amp; prices) {
-            int max=0;
-            for(int i=1;i&amp;lt;prices.size();i++)
-                prices[i]-prices[i-1]&amp;gt;0?max+=prices[i]-prices[i-1]:max+=0;
-            return max;
-
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
-&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-      <category term="Greedy" scheme="http://yoursite.com/tags/Greedy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-238-Product of Array Except Self</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-238-Product-of-Array-Except-Self/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-238-Product-of-Array-Except-Self/</id>
-    <published>2016-05-23T10:02:07.000Z</published>
-    <updated>2016-05-23T10:06:49.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].&lt;/p&gt;
-&lt;p&gt;Solve it without division and in O(n).&lt;/p&gt;
-&lt;p&gt;For example, given [1,2,3,4], return [24,12,8,6].&lt;/p&gt;
-&lt;p&gt;Follow up:&lt;br&gt;Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，输出为其他数组中所有其他元素的乘积，不能使用除法，时间复杂度应为O(n)&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;使用动态规划，遍历2次数组，求出左边所有元素的乘积和右边所有元素的乘积，再把它们相乘即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        vector&amp;lt;int&amp;gt; productExceptSelf(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            vector&amp;lt;int&amp;gt; res;
-            if(nums.empty()) return res;
-               vector&amp;lt;int&amp;gt; productleft(nums.size(),1);
-            vector&amp;lt;int&amp;gt; productright(nums.size(),1);
-            for(int i =1;i&amp;lt;nums.size();i++)
-                   productleft[i]=productleft[i-1]*nums[i-1];
-            for(int j=nums.size()-2;j&amp;gt;=0;j--)
-                productright[j]=productright[j+1]*nums[j+1];
-            for(int i =0;i&amp;lt;nums.size();i++)
-                res.push_back(productleft[i]*productright[i]);
-            return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].&lt;/p&gt;
-&lt;p&gt;Solve it without division and in O(n).&lt;/p&gt;
-&lt;p&gt;For example, given [1,2,3,4], return [24,12,8,6].&lt;/p&gt;
-&lt;p&gt;Follow up:&lt;br&gt;Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-100-Same Tree</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-100-Same-Tree/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-100-Same-Tree/</id>
-    <published>2016-05-23T09:45:16.000Z</published>
-    <updated>2016-05-23T10:00:04.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two binary trees, write a function to check if they are equal or not.&lt;/p&gt;
-&lt;p&gt;Two binary trees are considered equal if they are structurally identical and the nodes have the same value.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定两个二叉树，写一个函数来检查它们是否相同。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;递归调用函数，检查左右子树以及根节点的值是否相同。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        bool isSameTree(TreeNode* p, TreeNode* q) {
-            if(!p&amp;amp;&amp;amp;!q) return true;
-            if((p&amp;amp;&amp;amp;!q)||(!p&amp;amp;&amp;amp;q)) return false;
-            return (p-&amp;gt;val==q-&amp;gt;val)&amp;amp;&amp;amp;isSameTree(p-&amp;gt;left,q-&amp;gt;left)&amp;amp;&amp;amp;isSameTree(p-&amp;gt;right,q-&amp;gt;right);
-
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two binary trees, write a function to check if they are equal or not.&lt;/p&gt;
-&lt;p&gt;Two binary trees are considered equal if they are structurally identical and the nodes have the same value.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
-      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-237-Delete Node in a Linked List</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-237-Delete-Node-in-a-Linked-List/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-237-Delete-Node-in-a-Linked-List/</id>
-    <published>2016-05-23T09:42:16.000Z</published>
-    <updated>2016-05-23T09:44:39.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.&lt;/p&gt;
-&lt;p&gt;Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node with value 3, the linked list should become 1 -&amp;gt; 2 -&amp;gt; 4 after calling your function.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;删除一个链表中的结点，你只能获取该结点的指针。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;有点像脑筋急转弯。很简单，将这个结点的next结点拷贝到这个结点就可以了。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-    public:
-        void deleteNode(ListNode* node) {
-            node-&amp;gt;val=node-&amp;gt;next-&amp;gt;val;
-            node-&amp;gt;next=node-&amp;gt;next-&amp;gt;next;
-        }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.&lt;/p&gt;
-&lt;p&gt;Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node with value 3, the linked list should become 1 -&amp;gt; 2 -&amp;gt; 4 after calling your function.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Linked List" scheme="http://yoursite.com/tags/Linked-List/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-260-Single Number III</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-260-Single-Number-III/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-260-Single-Number-III/</id>
-    <published>2016-05-23T09:33:28.000Z</published>
-    <updated>2016-05-23T09:41:27.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;p&gt;Given nums = [1, 2, 1, 3, 2, 5], return [3, 5].&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;The order of the result is not important. So in the above example, [5, 3] is also correct.&lt;br&gt;Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，其中有两个元素只出现了一次，其他的元素出现了2次，找出这两个只出现过一次的元素。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;第一步与&lt;a href=&quot;/2016/05/23/Leetcode-136-Single-Number/&quot;&gt;simgle number I&lt;/a&gt; 一样，先求出所有的数字的^结果，此时假设这两个数是a和b,那么我们已经得到了a^b的结果。那么我们如何将这两个数分开呢。^运算的结果是同位相等为0，不等为1.那么我们就可以找出a和b不相等的最低位，然后把原数组分成两个子数组，接着使用我们&lt;a href=&quot;/2016/05/23/Leetcode-136-Single-Number/&quot;&gt;simgle number I&lt;/a&gt; 中使用的方法即可求解两个数。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        vector&amp;lt;int&amp;gt; singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            int tem = 0;
-            for(int i=0;i&amp;lt;nums.size();i++)
-                tem^=nums[i];
-            int last = tem-(tem&amp;amp;(tem-1));//求出tem中最低“1”位
-            int first = 0; int second = 0;
-            for(int i=0;i&amp;lt;nums.size();i++)
-                {
-                    if(nums[i]&amp;amp;last)
-                        first^=nums[i];
-                    else
-                        second^=nums[i];
-                }
-            vector&amp;lt;int&amp;gt; ans;
-            ans.push_back(first);
-            ans.push_back(second);
-            return ans;
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;p&gt;Given nums = [1, 2, 1, 3, 2, 5], return [3, 5].&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;The order of the result is not important. So in the above example, [5, 3] is also correct.&lt;br&gt;Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
-      <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-283-Move Zeroes</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-283-Move-Zeroes/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-283-Move-Zeroes/</id>
-    <published>2016-05-23T09:27:42.000Z</published>
-    <updated>2016-05-23T13:32:41.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.&lt;/p&gt;
-&lt;p&gt;For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;You must do this in-place without making a copy of the array.&lt;br&gt;Minimize the total number of operations.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，写一个函数把所有的0都移动到数组的末端且非0元素的相对位置不变。&lt;br&gt;你没有额外的存储空间来复制一遍数组。且使移动操作次数最少。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用一个指针指向第一个0的坐标，如果不是0，则交换0坐标上的数字与当前数字&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        void moveZeroes(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            int mark = 0;
-            for(int i =0;i&amp;lt;nums.size();i++)
-                {
-                    if(nums[i]!=0)
-                           swap(nums[i],nums[mark++]);     
-                }
-
-            }
-        };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array nums, write a function to move all 0’s to the end of it while maintaining the relative order of the non-zero elements.&lt;/p&gt;
-&lt;p&gt;For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;You must do this in-place without making a copy of the array.&lt;br&gt;Minimize the total number of operations.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-      <category term="Two Pointers" scheme="http://yoursite.com/tags/Two-Pointers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-349-Intersection of Two Arrays</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-349-Intersection-of-Two-Arrays/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-349-Intersection-of-Two-Arrays/</id>
-    <published>2016-05-23T09:19:50.000Z</published>
-    <updated>2016-05-23T09:24:17.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two arrays, write a function to compute their intersection.&lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;Each element in the result must be unique.&lt;br&gt;The result can be in any order.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;找到两个集合的交集，并且注意交集中每个元素只能出现一次。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;很简单的hash map的题，遍历a中每一个元素，只要在b中出现的，如果没有添加过，则添加到结果集合中。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    vector&amp;lt;int&amp;gt; intersection(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) {
-        vector&amp;lt;int&amp;gt; res;
-        if(!nums1.empty()||!nums2.empty())
-            for(int i=0;i&amp;lt;nums1.size();i++)
-                {
-                    if(find(nums2.begin(),nums2.end(),nums1[i])!=nums2.end())//if nums1[i] is in nums2
-                        if(find(res.begin(),res.end(),nums1[i])==res.end())// if nums[i] not in res
-                            res.push_back(nums1[i]);
-                }
-            return res;
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two arrays, write a function to compute their intersection.&lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;Each element in the result must be unique.&lt;br&gt;The result can be in any order.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Hash Table" scheme="http://yoursite.com/tags/Hash-Table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-226-Invert Binay Tree</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-226-Invert-Binay-Tree/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-226-Invert-Binay-Tree/</id>
-    <published>2016-05-23T09:04:15.000Z</published>
-    <updated>2016-05-23T13:32:45.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Invert a binary tree.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;     4
-   /   \
-  2     7
- / \   / \
-1   3 6   9
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;to&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;      4
-    /   \
-  7     2
- / \   / \
-9   6 3   1
-&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;        
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;反转一个二叉树&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;递归调用函数本身即可，注意边界条件。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-           TreeNode* invertTree(TreeNode* root) {
-            if(!root) return root;
-            if(!root-&amp;gt;left&amp;amp;&amp;amp;!root-&amp;gt;right) return root;
-            else{
-                TreeNode* teml = invertTree(root-&amp;gt;right);
-                TreeNode* temr = invertTree(root-&amp;gt;left);
-                root-&amp;gt;left= teml;
-                root-&amp;gt;right=temr;
-                return root;
-                    }
-
-            }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Invert a binary tree.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;     4
-   /   \
-  2     7
- / \   / \
-1   3 6   9
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;to&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;      4
-    /   \
-  7     2
- / \   / \
-9   6 3   1
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
-      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-104-Maximum Depth of Binary Tree</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-104-Maximum-Depth-of-Binary-Tree/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-104-Maximum-Depth-of-Binary-Tree/</id>
-    <published>2016-05-23T09:00:29.000Z</published>
-    <updated>2016-05-23T09:17:19.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, find its maximum depth.&lt;/p&gt;
-&lt;p&gt;The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个二叉树，返回它的最大深度&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;递归调用本函数，返回左右子树的最大深度中较大值+1即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        int maxDepth(TreeNode* root) {
-            if(!root) return 0;
-            else
-                return max(maxDepth(root-&amp;gt;left),maxDepth(root-&amp;gt;right))+1;
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, find its maximum depth.&lt;/p&gt;
-&lt;p&gt;The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
-      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-258-Add Digits</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-258-Add-Digits/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-258-Add-Digits/</id>
-    <published>2016-05-23T08:51:32.000Z</published>
-    <updated>2016-05-23T09:15:19.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;p&gt;Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个非负整数，重复累加它的每一位，直到生成的新数字只有一位。&lt;br&gt;例如：38-》3+8=11-》1+1=2.此时返回2.&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这里提供两种方法，第一种是正常的循环解题思路，另一种是数学的方法。数学方法请参见&lt;a href=&quot;https://en.wikipedia.org/wiki/Digital_root&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇wiki文章&lt;/a&gt;.循环解法只需要按照题目要求累加每一位数字即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int addDigits(int num) {
-            switch(num)
-                {
-                    case 0: return 0;
-                    default: return (num-1)%9+1;
-                }
-            }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;p&gt;Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-136-Single Number</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-136-Single-Number/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-136-Single-Number/</id>
-    <published>2016-05-23T08:47:34.000Z</published>
-    <updated>2016-05-23T09:15:18.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, every element appears twice except for one. Find that single one.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组，其中除了某一个数字以外其他数字都出现过两次，找出这个数字。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题方法有许多，这里本文介绍最简单的一种，使用位运算，一个数字a^b^b以后仍然为它本身。这样，把整个数组^一次即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            int res=0;
-            for(int i=0;i&amp;lt;nums.size();i++)
-                res^=nums[i];
-
-            return res;
-
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, every element appears twice except for one. Find that single one.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
-      <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-292-Nim Game</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-292-Nim-Game/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-292-Nim-Game/</id>
-    <published>2016-05-23T08:40:44.000Z</published>
-    <updated>2016-05-23T09:16:48.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.&lt;/p&gt;
-&lt;p&gt;Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.&lt;/p&gt;
-&lt;p&gt;For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;你和朋友玩一个取石子的游戏，每一个人可以取1-3个石子，假如你们俩都能每一步做出最优选择，那么当你先取的时候，输入一个石子数，返回你是否能取得胜利。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题仔细分析其实并不难。当石子数为4的整数倍的时候，总是后手胜利，因为不管先手拿走了n(1-3)枚石子，你总是拿走4-n枚，即可获胜，其他情况下，先手可以把自己变为后手，即取走余数。所以想通了这一点之后这道题变得非常简单。即判断先手是否胜利的条件在于石子数能否被4整除。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        bool canWinNim(int n) {
-            return n%4;
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.&lt;/p&gt;
-&lt;p&gt;Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.&lt;/p&gt;
-&lt;p&gt;For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-191-Number of 1 Bits</title>
-    <link href="http://yoursite.com/2016/05/23/Leetcode-191-Number-of-1-Bits/"/>
-    <id>http://yoursite.com/2016/05/23/Leetcode-191-Number-of-1-Bits/</id>
-    <published>2016-05-23T08:06:57.000Z</published>
-    <updated>2016-05-23T09:17:11.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).&lt;/p&gt;
-&lt;p&gt;For example, the 32-bit integer ’11’ has binary representation 00000000000000000000000000001011, so the function should return 3.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;写一个函数，返回某一数字二进制表示中1出现的次数&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用位运算中&amp;amp;操作符号，和指定数的每一位都单独&amp;amp;一次，如果是1，则会返回1，再使用一个计数器实现统计。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int hammingWeight(uint32_t n) {
-            int count=0;
-            for(int i=0;i&amp;lt;32;i++)
-                if(n&amp;amp;1&amp;lt;&amp;lt;i) count++;
-
-            return count;
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).&lt;/p&gt;
-&lt;p&gt;For example, the 32-bit integer ’11’ has binary representation 00000000000000000000000000001011, so the function should return 3.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Bit Manipulation" scheme="http://yoursite.com/tags/Bit-Manipulation/"/>
     
   </entry>
   
