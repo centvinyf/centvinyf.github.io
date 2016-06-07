@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-350-Intersection of Two Arrays II]]></title>
+      <url>http://yoursite.com/2016/06/07/Leetcode-350-Intersection-of-Two-Arrays-II/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two arrays, write a function to compute their intersection.</p>
+<p>Example:<br>Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].</p>
+<p>Note:<br>Each element in the result should appear as many times as it shows in both arrays.<br>The result can be in any order.<br>Follow up:<br>What if the given array is already sorted? How would you optimize your algorithm?<br>What if nums1’s size is small compared to nums2’s size? Which algorithm is better?<br>What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定两个数组，写一个函数来返回两个数组的交集，如果有重复的也需要返回。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>本题和<a href="/2016/05/23/Leetcode-349-Intersection-of-Two-Arrays/">这道题</a>略有不同。本题需要返回交集中的重复数字。其实类似于这类集合的交、并集问题，<a href="https://www.quora.com/Programming-Interview-Questions-How-do-you-find-out-intersection-between-two-arrays-when-they-are-sorted-when-they-are-not-sorted" target="_blank" rel="external">这篇文章</a>讲的非常详细，推荐读一读。一个简单的算法，先对数组进行排序，然后使用双指针，当遍历完短数组后结束。这样复杂度为O(nlogn+mlogm)。如果是已排好序的数组，或者某一个数组已排好序，可以对未排序数组的每个元素在已排序数组里进行二分查找，复杂度为O(m*logn).本文提供排序后双指针的解法。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        vector&lt;int&gt; intersect(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {
+            vector&lt;int&gt; res;
+            if(nums1.empty()||nums2.empty()) return res;
+            sort(nums1.begin(),nums1.end());
+            sort(nums2.begin(),nums2.end());
+            int i=0,j=0;
+               while(i&lt;nums1.size()&amp;&amp;j&lt;nums2.size())
+                   {
+                       if(nums1[i]==nums2[j]){
+                         res.push_back(nums1[i]);
+                         i++;
+                         j++;
+                   }
+                       else if(nums1[i]&gt;nums2[j]) j++;
+                       else i++;
+           }
+               return res;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-141-Linked List Cycle]]></title>
       <url>http://yoursite.com/2016/06/07/Leetcode-141-Linked-List-Cycle/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a linked list, determine if it has a cycle in it.<br><a id="more"></a></p>
