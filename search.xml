@@ -4,6 +4,236 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-141-Linked List Cycle]]></title>
+      <url>http://yoursite.com/2016/06/07/Leetcode-141-Linked-List-Cycle/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a linked list, determine if it has a cycle in it.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个链表，判断它是否包含一个环</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>环链表的特征很多，最常用的判断方法是双指针法。让快慢两个指针同时在链表中遍历，如果存在环，那么两个指针一定会相遇。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        bool hasCycle(ListNode *head) {
+            if(!head||!head-&gt;next) return false;
+            ListNode* fast=head-&gt;next;
+            ListNode* slow=head;
+            while(slow&amp;&amp;fast&amp;&amp;slow!=fast)
+                {
+                    if(fast-&gt;next)
+                        fast=fast-&gt;next-&gt;next;
+                    else return false;
+                    slow=slow-&gt;next;
+                }
+            return slow==fast;
+
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-70-Climbing Stairs]]></title>
+      <url>http://yoursite.com/2016/06/07/Leetcode-70-Climbing-Stairs/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>You are climbing a stair case. It takes n steps to reach to the top.</p>
+<p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>你在爬一个楼梯，每一步要么爬一阶要么爬两阶，求爬到楼梯的顶部有多少种方法。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>一个简单的动态规划问题，后面的每一步都是前两个数的和，因为要么爬一阶要么爬两阶，那么除开最后一步，就变成和子问题一样的问题了。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int climbStairs(int n) {
+            vector&lt;int&gt; res(n+1);
+            res[0]=1;
+            res[1]=1;
+            for(int i=2;i&lt;=n;i++)
+                res[i]=res[i-1]+res[i-2];
+            return res[n];
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-202-Happy Number]]></title>
+      <url>http://yoursite.com/2016/06/07/Leetcode-202-Happy-Number/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Write an algorithm to determine if a number is “happy”.</p>
+<p>A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</p>
+<p>Example: 19 is a happy number</p>
+<a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>快乐数的定义是这样的，循环做这个步骤：把某个正整数的每个位上的数字的平方相加。当这个循环包含了1的时候，它就是快乐数，判断一个数字是不是快乐数。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>根据快乐数的定义，利用一个哈希表来记录出现过的数字，一旦出现循环，如果不是在1的地方循环，则这个数不是快乐数。很简单的题，细心，争取bugfree.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        bool isHappy(int n) {
+            set&lt;int&gt; s;
+            int sum=helper(n);
+            while (s.find(sum)==s.end())
+                {
+                    s.insert(sum);
+                    sum=helper(sum);
+                }
+            return sum==1;
+
+            }
+        int helper(int n)
+            {
+                int res=0;
+                while(n&gt;0)
+                    {
+                        res+=((n%10)*(n%10));
+                        n/=10;
+                    }
+                return res;
+                }
+    };
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-263-Ugly Number]]></title>
+      <url>http://yoursite.com/2016/06/07/Leetcode-263-Ugly-Number/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Write a program to check whether a given number is an ugly number.</p>
+<p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.</p>
+<p>Note that 1 is typically treated as an ugly number.</p>
+<p>Credits:<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>丑数是指那些只有2，3，5作为质因子的数字，判断一个数是不是丑数。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>循环剔除所有2，3，5因子，看剩下的是否是1.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        bool isUgly(int num) {
+            if(num==0) return false;
+            while(num%5==0)
+                num/=5;
+            while(num%3==0)
+                num/=3;
+            while(num%2==0)
+                num/=2;
+            return num==1;
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-83-Remove Duplicates from Sorted List]]></title>
+      <url>http://yoursite.com/2016/06/07/Leetcode-83-Remove-Duplicates-from-Sorted-List/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a sorted linked list, delete all duplicates such that each element appear only once.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个已排序的链表，删除所有重复的结点。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>遍历整个链表，发现某个结点的下一个结点的值和它一样时，把它的下一个结点指向再后一个结点。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        ListNode* deleteDuplicates(ListNode* head) {
+                ListNode* p = head;
+                if(!head) return head;
+                while(p&amp;&amp;p-&gt;next)
+                    {
+                        if(p-&gt;val==p-&gt;next-&gt;val) 
+                            p-&gt;next=p-&gt;next-&gt;next;
+                        else
+                            p=p-&gt;next;
+                    }
+                return head;
+
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-231-Power of Two]]></title>
+      <url>http://yoursite.com/2016/06/07/Leetcode-231-Power-of-Two/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an integer, write a function to determine if it is a power of two.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个整数，判断是否是2的整数幂。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>和<a href="/2016/06/07/Leetcode-326-Power-of-Tree/">这道题</a>类似，只是判断是否是2的整数幂。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        bool isPowerOfTwo(int n) {
+            while(n&gt;1)
+                {
+                    if(n%2&gt;0) return false;
+                    n/=2;
+                }
+            return n==1;
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-326-Power of Tree]]></title>
+      <url>http://yoursite.com/2016/06/07/Leetcode-326-Power-of-Tree/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an integer, write a function to determine if it is a power of three.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个整数，判断它是不是3的幂</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>简单的循环，判断最后是否得到1.</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        bool isPowerOfThree(int n) {
+
+            while(n&gt;1)
+                {
+                    if(n%3&gt;0) return false;
+                    n/=3;
+                }
+            return n==1;
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-337-House Robber III]]></title>
+      <url>http://yoursite.com/2016/05/27/Leetcode-337-House-Robber-III/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that “all houses in this place forms a binary tree”. It will automatically contact the police if two directly-linked houses were broken into on the same night.</p>
+<p>Determine the maximum amount of money the thief can rob tonight without alerting the police.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>一个树状的结构里，两个相邻的父，子结点不可以被同时偷，求盗贼的最大收益。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>这道题可以使用动态规划,使用一个辅助函数返回是否抢该节点的两个收益最大值。动态转移方程为，左右均不偷+根节点或者偷左右不偷根节点，取最大值。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+    public:
+        int rob(TreeNode* root) {
+            vector&lt;int&gt; res = helper(root);
+            return max(res[0],res[1]); 
+    }
+
+        vector&lt;int&gt; helper(TreeNode* root)
+            {
+                vector&lt;int&gt; res(2,0);
+                if(!root) return res;
+                vector&lt;int&gt; left = helper(root-&gt;left);
+                vector&lt;int&gt; right = helper(root-&gt;right);
+                res[0]= max(left[1],left[0])+max(right[1],right[0]);
+                res[1]= left[0]+right[0]+root-&gt;val;
+                return res;
+            }
+
+    };
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-22-Generate Parentheses]]></title>
       <url>http://yoursite.com/2016/05/26/Leetcode-22-Generate-Parentheses/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
