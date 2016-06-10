@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-06-10T14:56:47.000Z</updated>
+  <updated>2016-06-10T15:18:54.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,60 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Leetcode-121-Best Time to Buy and Sell Stock</title>
+    <link href="http://yoursite.com/2016/06/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/"/>
+    <id>http://yoursite.com/2016/06/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/</id>
+    <published>2016-06-10T15:17:29.000Z</published>
+    <updated>2016-06-10T15:18:54.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
+&lt;p&gt;If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;有一个数组表示一段时间内某只股票每天的价格，如果你只能买卖一次，求你能获得的最大利润&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;依次找到最小值，然后再记录最大差值，返回最大差值即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    int maxProfit(vector&amp;lt;int&amp;gt;&amp;amp; prices) {
+        if(prices.size()&amp;lt;2) return 0;
+        vector&amp;lt;int&amp;gt;dp(prices.size(),0);
+        int max=INT_MIN;
+        int min=prices[0];
+        for(int i=1;i&amp;lt;prices.size();i++)
+        {
+            if(prices[i]&amp;lt;min) min=prices[i];
+            dp[i]=prices[i]-min;
+            if(dp[i]&amp;gt;max)
+            max=dp[i];
+
+        }
+        return max;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
+&lt;p&gt;If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+    
+      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Leetcode-153-Find Minimum in Rotated Sorted Array</title>
     <link href="http://yoursite.com/2016/06/10/Leetcode-153-Find-Minimum-in-Rotated-Sorted-Array/"/>
     <id>http://yoursite.com/2016/06/10/Leetcode-153-Find-Minimum-in-Rotated-Sorted-Array/</id>
     <published>2016-06-10T14:53:48.000Z</published>
-    <updated>2016-06-10T14:56:47.000Z</updated>
+    <updated>2016-06-10T14:56:57.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Suppose a sorted array is rotated at some pivot unknown to you beforehand.&lt;/p&gt;
 &lt;p&gt;(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).&lt;/p&gt;
@@ -157,11 +206,11 @@ public:
     
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
     
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
       <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
     
       <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
     
   </entry>
   
@@ -430,11 +479,11 @@ transactions = [buy, sell, cooldown, buy, sell]
     
       <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
     
-      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
-    
       <category term="Hash Table" scheme="http://yoursite.com/tags/Hash-Table/"/>
     
       <category term="Two Pointers" scheme="http://yoursite.com/tags/Two-Pointers/"/>
+    
+      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
     
       <category term="Sort" scheme="http://yoursite.com/tags/Sort/"/>
     
@@ -835,11 +884,11 @@ class Solution {
     
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
     
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
       <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
     
       <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
     
       <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
     
@@ -998,11 +1047,11 @@ class Solution {
     
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
     
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
       <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
     
       <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+    
+      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
     
       <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
     
@@ -1071,58 +1120,9 @@ class Solution {
     
       <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
     
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
       <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Leetcode-96-Unique Binary Search Trees</title>
-    <link href="http://yoursite.com/2016/05/26/Leetcode-96-Unique-Binary-Search-Trees/"/>
-    <id>http://yoursite.com/2016/05/26/Leetcode-96-Unique-Binary-Search-Trees/</id>
-    <published>2016-05-26T10:35:53.000Z</published>
-    <updated>2016-05-26T10:44:25.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given n, how many structurally unique BST’s (binary search trees) that store values 1…n?&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given n = 3, there are a total of 5 unique BST’s.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给一个数字，求有多少个不同的二叉搜索树。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用动态规划，两边的可能性相乘的和即为总数。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int numTrees(int n) {
-            vector&amp;lt;int&amp;gt; ans(n+1,0);
-            ans[0]=1;
-            ans[1]=1;
-            for(int i=2;i&amp;lt;=n;i++)
-                {
-                    for(int j=0;j&amp;lt;=i;j++)
-                        ans[i]+=ans[j]*ans[i-j-1];
-                   }
-            return ans[n];
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given n, how many structurally unique BST’s (binary search trees) that store values 1…n?&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given n = 3, there are a total of 5 unique BST’s.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
       <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
-      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
-    
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
     
   </entry>
   
