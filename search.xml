@@ -4,6 +4,213 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-153-Find Minimum in Rotated Sorted Array]]></title>
+      <url>http://yoursite.com/2016/06/10/Leetcode-153-Find-Minimum-in-Rotated-Sorted-Array/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Suppose a sorted array is rotated at some pivot unknown to you beforehand.</p>
+<p>(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).</p>
+<p>Find the minimum element.</p>
+<p>You may assume no duplicate exists in the array.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>某个排好序的数组从某一点开始到数组结尾，被全体移动到数组的最开始位置。求这个数组的最小值。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>求数组的最小值，一般情况下需要遍历一次数组，即用O(n)的时间，不过这道题给定的是预先排好序的数组，而且是被移动的是整个子序列，所以我们可以使用二分查找的办法，把时间复杂度缩短到O(logn)。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    int findMin(vector&lt;int&gt;&amp; nums) {
+        if(nums.size()==1) return nums[0];
+        int begin=0,end=nums.size()-1,mid=begin+(end-begin)/2;
+        while(begin&lt;end)
+        {
+            if(nums[mid]&gt;nums[mid+1]) return nums[mid+1];
+            else if(nums[mid]&lt;nums[end])
+            {
+                end=mid;
+                mid=begin+(end-begin)/2;
+            }
+            else if(nums[mid]&gt;nums[end])
+            {
+                begin=mid;
+                mid=begin+(end-begin)/2;
+            }
+
+        }
+        return nums[end];
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-116-Populating Next Right Pointers in Each Node]]></title>
+      <url>http://yoursite.com/2016/06/10/Leetcode-116-Populating-Next-Right-Pointers-in-Each-Node/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree</p>
+<pre><code>struct TreeLinkNode {
+  TreeLinkNode *left;
+  TreeLinkNode *right;
+  TreeLinkNode *next;
+}
+</code></pre><p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.</p>
+<p>Initially, all next pointers are set to NULL.</p>
+<p>Note:</p>
+<p>You may only use constant extra space.<br>You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).<br>For example,<br>Given the following perfect binary tree,<br>             1<br>           /  \<br>          2    3<br>         / \  / \<br>        4  5  6  7<br>After calling your function, the tree should look like:<br>             1 -&gt; NULL<br>           /  \<br>          2 -&gt; 3 -&gt; NULL<br>         / \  / \<br>        4-&gt;5-&gt;6-&gt;7 -&gt; NULL<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给一棵树添加右指针，每一行的末尾指向NULL。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>一个简单的DFS的问题，利用一个队列，完成层次遍历即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for binary tree with next pointer.
+ * struct TreeLinkNode {
+ *  int val;
+ *  TreeLinkNode *left, *right, *next;
+ *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void connect(TreeLinkNode *root) {
+        if(!root) return;
+        queue&lt;TreeLinkNode*&gt; q;
+        q.push(root);
+        q.push(NULL);
+        while(!q.empty())
+        {
+            TreeLinkNode *tem = q.front();
+            q.pop();
+
+            if(tem)
+            {
+                tem-&gt;next=q.front();
+                if(tem-&gt;left)
+                    q.push(tem-&gt;left);
+                if(tem-&gt;right)
+                    q.push(tem-&gt;right);
+
+            }
+            else
+            {
+                if(!q.empty())
+                {
+                    q.push(NULL);
+                    continue;
+                }
+                else break;
+            }
+        }
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-62-Unique Paths]]></title>
+      <url>http://yoursite.com/2016/06/10/Leetcode-62-Unique-Paths/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).</p>
+<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
+<p>How many possible unique paths are there?<br><a href="http://leetcode.com/wp-content/uploads/2014/12/robot_maze.png" target="_blank" rel="external"></a><br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>如图所示，机器人从最左上角走到最右下角，它只能往右或者往下走，求它有多少种不重复的走法。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>一个简单的二维动态规划问题。对于第一行和第一列来说，走到该格子只能沿着直线走，所以走到这些格子的方法数为1.而其他的格子，因为只能往右和往下走，那么第（i,j）格可以由（i,j-1）往下走一步或者(i-1,j)往右走一步达到，所以该格子的方法数应该是这辆格数字的和。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><p>class Solution {<br>    public:<br>        int uniquePaths(int m, int n) {<br>            vector<int> a(m,1);<br>            vector<vector<int>&gt; map;<br>            for(int i=0;i&lt;n;i++)<br>            map.push_back(a);<br>            for(int i=1;i&lt;n;i++)<br>                for(int j=1;j&lt;m;j++)<br>                    map[i][j]=map[i-1][j]+map[i][j-1];<br>            return map[n-1][m-1];<br>        }<br>    };</vector<int></int></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-89-Gray Code]]></title>
+      <url>http://yoursite.com/2016/06/10/Leetcode-89-Gray-Code/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>The gray code is a binary numeral system where two successive values differ in only one bit.</p>
+<p>Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.</p>
+<p>For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:</p>
+<pre><code>00 - 0
+01 - 1
+11 - 3
+10 - 2
+</code></pre><p>Note:<br>For a given n, a gray code sequence is not uniquely defined.</p>
+<p>For example, [0,2,3,1] is also a valid gray code sequence according to the above definition.</p>
+<p>For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>灰码是指邻近的数字只有一位相差，输入一个数字，求出该数字位数相符的灰码序列。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>首先，对于什么是灰码，请参见<a href="https://en.wikipedia.org/wiki/Gray_code" target="_blank" rel="external">维基百科</a>。我觉得和<a href="/2016/05/23/Leetcode-338-Counting-Bits/">这道题</a>比较相似。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        vector&lt;int&gt; grayCode(int n) {
+            vector&lt;int&gt; res;
+            res.push_back(0);
+            for(int i=0;i&lt;n;i++)
+                {
+                    int high=1&lt;&lt;i;
+                    int size=res.size();
+                    for(int j=size-1;j&gt;=0;j--)
+                        res.push_back(high+res[j]);
+                }
+            return res;
+
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-53-Maximum Subarray]]></title>
+      <url>http://yoursite.com/2016/06/09/Leetcode-53-Maximum-Subarray/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p>
+<p>For example, given the array [−2,1,−3,4,−1,2,1,−5,4],<br>the contiguous subarray [4,−1,2,1] has the largest sum = 6.</p>
+<p>click to show more practice.</p>
+<p>More practice:<br>If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>对于给定的一个数组，找出其子序列中和最大的一个。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>本题如果做动态规划，则复杂度为O(n)，对于当前和来讲，如果加上某个元素时和为负数，则舍弃。另用一个变量来储存历史中最大的和。注意考虑到最大和有可能是负数，初始化时应该把max初始化为INT_MIN.</p>
+<p>Follow up: 如果想用分治法来解这道题，那么可以这样做：最大的和要么存在于前半个数组中，要么存在于后半个数组中，要么存在于中间往两边延伸。求出这三种情况的最大值中最大那个，即为我们所求。代码请读者自己完成。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int maxSubArray(vector&lt;int&gt;&amp; nums) {
+            vector&lt;int&gt; dp(nums.size(),0);
+            int sum=0;
+            int max=INT_MIN;
+            for(int i=0;i&lt;nums.size();i++)
+                {
+                       sum+=nums[i];
+                       if(sum&gt;max)
+                           max=sum;
+                       if(sum&lt;0)
+                           sum=0;
+                }
+            return max;
+
+    }
+
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-309-Best Time to Buy and Sell Stock With Cooldown]]></title>
+      <url>http://yoursite.com/2016/06/09/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-With-Cooldown/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:</p>
+<p>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).<br>After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)<br>Example:</p>
+<pre><code>prices = [1, 2, 3, 0, 2]
+maxProfit = 3
+transactions = [buy, sell, cooldown, buy, sell]
+</code></pre><a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>有一个数组表示第I天某只股票的价格。设计一个算法求出买卖这只股票的最大收益，买入之前必须先卖出，卖出后第二天不能进行买入操作。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>一个典型的动态规划问题。我们可以如下分析动态规划问题：<br>状态：买入，卖出，所以我们需要2个数组buy[n],sell[n]分别记录第N天如果买入/卖出，已经获得的最大收益。<br>状态转移方程：对于买入来说，如果今天没有买入，则获益和昨天一样（因为没有发生交易），如果今天买入了，则I-2天之前必须要卖出，则获益为sell[i-2]-price[i]，两种情况下最大值即为当天的buy[i]值（buy[i]=max(buy[i-1],sell[i-2]-prices[i]).<br>对于卖出来说，如果今天没有卖出，则收益和昨天一样（因为没有发生交易），以及如果昨天买入了，今天卖出，则总收益为sell[i-1]+prices[i]，两种情况下最大值即为当天的sell[i]值。而股票收益仅当你不持有股票时才能体现出来，所以我们要的值即为sell数组的最后一个值。<br>初始状态：对于两个数组来说，Buy[0]即第一天买入，收益当然为-prices[0],而buy[1]则表示按照低价买入，所以应当为前两天价格低者的相反数。对于Sell[0]而言，第一天因为之前没有持有股票，所以sell[0]=0，而sell[1]则表示第2天卖出股票的最大收益，那么如果第二天的股价低于第一天，则为0，若高于第一天，则为差价。<br>Follow up:<br>当然了，我们不难发现，状态方程里每天的收益仅仅和前两天的买入/卖出收益相关，所以我们可以improve我们的空间复杂度从O（n）到O(1)。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+    public:
+        int maxProfit(vector&lt;int&gt;&amp; prices) {
+            if(prices.size()&lt;2) return 0;
+            vector&lt;int&gt; buy(prices.size(),0);
+            vector&lt;int&gt; sell(prices.size(),0);
+            buy[0]=-prices[0];
+            buy[1]=max(-prices[0],-prices[1]);
+            sell[0]=0;
+            sell[1]=max(0,prices[1]-prices[0]);
+            for(int i=2;i&lt;prices.size();i++)
+                {
+                    buy[i]=max(buy[i-1],sell[i-2]-prices[i]);
+                    sell[i]=max(sell[i-1],buy[i-1]+prices[i]);
+                }
+            return sell.back();
+        }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-350-Intersection of Two Arrays II]]></title>
       <url>http://yoursite.com/2016/06/07/Leetcode-350-Intersection-of-Two-Arrays-II/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two arrays, write a function to compute their intersection.</p>
