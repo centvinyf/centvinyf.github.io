@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2016-06-10T15:18:54.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://since1992.org/"/>
+  <updated>2016-06-16T04:07:13.000Z</updated>
+  <id>http://since1992.org/</id>
   
   <author>
     <name>Fan Yang</name>
@@ -16,9 +16,330 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Leetcode-27-Remove Element</title>
+    <link href="http://since1992.org/2016/06/16/Leetcode-27-Remove-Element/"/>
+    <id>http://since1992.org/2016/06/16/Leetcode-27-Remove-Element/</id>
+    <published>2016-06-16T03:59:47.000Z</published>
+    <updated>2016-06-16T04:07:13.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array and a value, remove all instances of that value in place and return the new length.&lt;/p&gt;
+&lt;p&gt;Do not allocate extra space for another array, you must do this in place with constant memory.&lt;/p&gt;
+&lt;p&gt;The order of elements can be changed. It doesn’t matter what you leave beyond the new length.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given input array nums = [3,2,2,3], val = 3&lt;/p&gt;
+&lt;p&gt;Your function should return length = 2, with the first two elements of nums being 2.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组和一个特定的值，移除数组中所有该值，并返回剩余值的个数。你只能只用O(1)的额外空间，数字的顺序可以改变。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;本题和&lt;a href=&quot;2016/05/23/Leetcode-283-Move-Zeroes/&quot;&gt;这道题&lt;/a&gt;很类似，只是删除特定的值而已。我们的策略就是把所有的特定值都移动到数组的末尾。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    int removeElement(vector&amp;lt;int&amp;gt;&amp;amp; nums, int val) {
+        int p=0;
+        for(int i=0;i&amp;lt;nums.size();i++)
+        {
+            if(nums[i]!=val)
+                swap(nums[i],nums[p++]);
+        }
+        return p;
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array and a value, remove all instances of that value in place and return the new length.&lt;/p&gt;
+&lt;p&gt;Do not allocate extra space for another array, you must do this in place with constant memory.&lt;/p&gt;
+&lt;p&gt;The order of elements can be changed. It doesn’t matter what you leave beyond the new length.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given input array nums = [3,2,2,3], val = 3&lt;/p&gt;
+&lt;p&gt;Your function should return length = 2, with the first two elements of nums being 2.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
+    
+      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-110-Balanced Binary Tree</title>
+    <link href="http://since1992.org/2016/06/12/Leetcode-110-Balanced-Binary-Tree/"/>
+    <id>http://since1992.org/2016/06/12/Leetcode-110-Balanced-Binary-Tree/</id>
+    <published>2016-06-12T03:11:11.000Z</published>
+    <updated>2016-06-12T03:13:20.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, determine if it is height-balanced.&lt;/p&gt;
+&lt;p&gt;For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一棵二叉树，判断它是否平衡。一个平衡的二叉树的左右子树的深度差小于或等于1.&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;很简单的DFS问题，先判断左右子树是否为平衡二叉树，再判断它们的高度差是否在1以内。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isBalanced(TreeNode* root) {
+        if(!root) return true;
+        if(isBalanced(root-&amp;gt;left)&amp;amp;&amp;amp;isBalanced(root-&amp;gt;right))
+            if(abs(height(root-&amp;gt;left)-height(root-&amp;gt;right))&amp;lt;2)
+                return true;
+        return false;
+
+    }
+    int height(TreeNode* root)
+    {
+        if(!root) return 0;
+        return 1+max(height(root-&amp;gt;left),height(root-&amp;gt;right));
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, determine if it is height-balanced.&lt;/p&gt;
+&lt;p&gt;For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
+    
+      <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-24-Swap Nodes in Pairs</title>
+    <link href="http://since1992.org/2016/06/12/Leetcode-24-Swap-Nodes-in-Pairs/"/>
+    <id>http://since1992.org/2016/06/12/Leetcode-24-Swap-Nodes-in-Pairs/</id>
+    <published>2016-06-12T02:57:01.000Z</published>
+    <updated>2016-06-12T02:58:29.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, swap every two adjacent nodes and return its head.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.&lt;/p&gt;
+&lt;p&gt;Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;交换每一对链表的顺序。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用一个递归的办法可以简单的完成这个问题，注意边界。 当然用非递归的办法也可以，不过写法并不够简洁，本文仅提供递归的解法。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        if(!head||!head-&amp;gt;next) return head;
+        ListNode * nextp = head-&amp;gt;next-&amp;gt;next;
+        ListNode * tem = head-&amp;gt;next;
+        head-&amp;gt;next = swapPairs(nextp);
+        tem-&amp;gt;next = head;
+        return tem;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, swap every two adjacent nodes and return its head.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.&lt;/p&gt;
+&lt;p&gt;Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-198-House Robber</title>
+    <link href="http://since1992.org/2016/06/11/Leetcode-198-House-Robber/"/>
+    <id>http://since1992.org/2016/06/11/Leetcode-198-House-Robber/</id>
+    <published>2016-06-11T03:40:46.000Z</published>
+    <updated>2016-06-11T03:43:42.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.&lt;/p&gt;
+&lt;p&gt;Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;一排房子每个房子有一个价值，一个小偷进行偷窃，不可以连续偷挨着的两家，求小偷的最大收益。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;简单的一维动态规划问题。每个房子要么不偷，要么偷，如果不偷收益和前一个房子一样，如果偷则为前两个房子的最大收益加上这个房子的价值，两种情况下最大的收益即为到这个房子为止的最大收益。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    int rob(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+        if(nums.empty()) return 0;
+        vector&amp;lt;int&amp;gt; dp(nums.size(),0);
+        dp[0]=nums[0];
+        dp[1]=nums[0]&amp;gt;nums[1]?nums[0]:nums[1];
+        for(int i=2;i&amp;lt;nums.size();i++)
+        {
+            dp[i]=max(dp[i-1],dp[i-2]+nums[i]);
+        }
+        return dp.back();
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.&lt;/p&gt;
+&lt;p&gt;Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-345-Reverse Vowels of a String</title>
+    <link href="http://since1992.org/2016/06/11/Leetcode-345-Reverse-Vowels-of-a-String/"/>
+    <id>http://since1992.org/2016/06/11/Leetcode-345-Reverse-Vowels-of-a-String/</id>
+    <published>2016-06-11T03:31:12.000Z</published>
+    <updated>2016-06-11T03:35:52.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes a string as input and reverse only the vowels of a string.&lt;/p&gt;
+&lt;p&gt;Example 1:&lt;br&gt;Given s = “hello”, return “holle”.&lt;/p&gt;
+&lt;p&gt;Example 2:&lt;br&gt;Given s = “leetcode”, return “leotcede”.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;反转一个字符串中所有元音字母的位置。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;记录下来元音字母的顺序以及位置，在位置中倒序插入字母即可。当然也可以使用双指针，从头尾开始扫描，一旦扫描到两个元音字母，则交换他们，这种算法可以使得额外空间代价降低到O(1)。本文只提供第一种解法。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    string reverseVowels(string s) {
+        vector&amp;lt;char&amp;gt; c;
+        vector&amp;lt;int&amp;gt; p;
+        for(int i=0;i&amp;lt;s.length();i++)
+        {
+            if(isV(s[i]))
+            {
+                c.push_back(s[i]);
+                p.push_back(i);
+            }
+        }
+        for(int i=0;i&amp;lt;p.size();i++)
+        {
+            s[p[i]]=c[c.size()-1-i];
+        }
+        return s;
+
+    }
+    bool isV(char x)
+    {
+        return x==&amp;apos;a&amp;apos;||x==&amp;apos;e&amp;apos;||x==&amp;apos;i&amp;apos;||x==&amp;apos;o&amp;apos;||x==&amp;apos;u&amp;apos;||x==&amp;apos;A&amp;apos;||x==&amp;apos;E&amp;apos;||x==&amp;apos;I&amp;apos;||x==&amp;apos;O&amp;apos;||x==&amp;apos;U&amp;apos;;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes a string as input and reverse only the vowels of a string.&lt;/p&gt;
+&lt;p&gt;Example 1:&lt;br&gt;Given s = “hello”, return “holle”.&lt;/p&gt;
+&lt;p&gt;Example 2:&lt;br&gt;Given s = “leetcode”, return “leotcede”.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="String" scheme="http://since1992.org/tags/String/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-21-Merge Two Sorted Lists</title>
+    <link href="http://since1992.org/2016/06/11/Leetcode-21-Merge-Two-Sorted-Lists/"/>
+    <id>http://since1992.org/2016/06/11/Leetcode-21-Merge-Two-Sorted-Lists/</id>
+    <published>2016-06-11T03:21:44.000Z</published>
+    <updated>2016-06-11T03:23:06.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;合并两个已排好序的单向链表&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;非常简单的链表基本操作，实现即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(!l1) return l2;
+        if(!l2) return l1;
+        ListNode* l3;
+        if(l1-&amp;gt;val&amp;lt;l2-&amp;gt;val)
+        {
+            l3=l1;
+            l3-&amp;gt;next=mergeTwoLists(l1-&amp;gt;next,l2);
+        }else{
+            l3=l2;
+            l3-&amp;gt;next=mergeTwoLists(l1,l2-&amp;gt;next);
+        }
+        return l3;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Leetcode-121-Best Time to Buy and Sell Stock</title>
-    <link href="http://yoursite.com/2016/06/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/"/>
-    <id>http://yoursite.com/2016/06/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/</id>
+    <link href="http://since1992.org/2016/06/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/"/>
+    <id>http://since1992.org/2016/06/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/</id>
     <published>2016-06-10T15:17:29.000Z</published>
     <updated>2016-06-10T15:18:54.000Z</updated>
     
@@ -53,21 +374,21 @@ public:
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-153-Find Minimum in Rotated Sorted Array</title>
-    <link href="http://yoursite.com/2016/06/10/Leetcode-153-Find-Minimum-in-Rotated-Sorted-Array/"/>
-    <id>http://yoursite.com/2016/06/10/Leetcode-153-Find-Minimum-in-Rotated-Sorted-Array/</id>
+    <link href="http://since1992.org/2016/06/10/Leetcode-153-Find-Minimum-in-Rotated-Sorted-Array/"/>
+    <id>http://since1992.org/2016/06/10/Leetcode-153-Find-Minimum-in-Rotated-Sorted-Array/</id>
     <published>2016-06-10T14:53:48.000Z</published>
     <updated>2016-06-10T14:56:57.000Z</updated>
     
@@ -112,21 +433,21 @@ public:
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
     
-      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
+      <category term="Binary Search" scheme="http://since1992.org/tags/Binary-Search/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-116-Populating Next Right Pointers in Each Node</title>
-    <link href="http://yoursite.com/2016/06/10/Leetcode-116-Populating-Next-Right-Pointers-in-Each-Node/"/>
-    <id>http://yoursite.com/2016/06/10/Leetcode-116-Populating-Next-Right-Pointers-in-Each-Node/</id>
+    <link href="http://since1992.org/2016/06/10/Leetcode-116-Populating-Next-Right-Pointers-in-Each-Node/"/>
+    <id>http://since1992.org/2016/06/10/Leetcode-116-Populating-Next-Right-Pointers-in-Each-Node/</id>
     <published>2016-06-10T14:41:03.000Z</published>
     <updated>2016-06-10T14:45:47.000Z</updated>
     
@@ -201,23 +522,23 @@ public:
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
     
-      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
+      <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
     
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-62-Unique Paths</title>
-    <link href="http://yoursite.com/2016/06/10/Leetcode-62-Unique-Paths/"/>
-    <id>http://yoursite.com/2016/06/10/Leetcode-62-Unique-Paths/</id>
+    <link href="http://since1992.org/2016/06/10/Leetcode-62-Unique-Paths/"/>
+    <id>http://since1992.org/2016/06/10/Leetcode-62-Unique-Paths/</id>
     <published>2016-06-10T14:21:16.000Z</published>
     <updated>2016-06-10T14:45:44.000Z</updated>
     
@@ -237,21 +558,21 @@ public:
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
     
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-89-Gray Code</title>
-    <link href="http://yoursite.com/2016/06/10/Leetcode-89-Gray-Code/"/>
-    <id>http://yoursite.com/2016/06/10/Leetcode-89-Gray-Code/</id>
+    <link href="http://since1992.org/2016/06/10/Leetcode-89-Gray-Code/"/>
+    <id>http://since1992.org/2016/06/10/Leetcode-89-Gray-Code/</id>
     <published>2016-06-10T01:32:25.000Z</published>
     <updated>2016-06-10T14:45:45.000Z</updated>
     
@@ -300,21 +621,21 @@ public:
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
     
-      <category term="Backtracking" scheme="http://yoursite.com/tags/Backtracking/"/>
+      <category term="Backtracking" scheme="http://since1992.org/tags/Backtracking/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-53-Maximum Subarray</title>
-    <link href="http://yoursite.com/2016/06/09/Leetcode-53-Maximum-Subarray/"/>
-    <id>http://yoursite.com/2016/06/09/Leetcode-53-Maximum-Subarray/</id>
+    <link href="http://since1992.org/2016/06/09/Leetcode-53-Maximum-Subarray/"/>
+    <id>http://since1992.org/2016/06/09/Leetcode-53-Maximum-Subarray/</id>
     <published>2016-06-09T09:26:20.000Z</published>
     <updated>2016-06-10T14:45:50.000Z</updated>
     
@@ -355,23 +676,23 @@ public:
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
     
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
     
-      <category term="Divide and Conqure" scheme="http://yoursite.com/tags/Divide-and-Conqure/"/>
+      <category term="Divide and Conqure" scheme="http://since1992.org/tags/Divide-and-Conqure/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-309-Best Time to Buy and Sell Stock With Cooldown</title>
-    <link href="http://yoursite.com/2016/06/09/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-With-Cooldown/"/>
-    <id>http://yoursite.com/2016/06/09/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-With-Cooldown/</id>
+    <link href="http://since1992.org/2016/06/09/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-With-Cooldown/"/>
+    <id>http://since1992.org/2016/06/09/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-With-Cooldown/</id>
     <published>2016-06-09T08:55:17.000Z</published>
     <updated>2016-06-10T14:45:50.000Z</updated>
     
@@ -416,23 +737,23 @@ transactions = [buy, sell, cooldown, buy, sell]
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
+      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
     
-      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
+      <category term="Mark" scheme="http://since1992.org/tags/Mark/"/>
     
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-350-Intersection of Two Arrays II</title>
-    <link href="http://yoursite.com/2016/06/07/Leetcode-350-Intersection-of-Two-Arrays-II/"/>
-    <id>http://yoursite.com/2016/06/07/Leetcode-350-Intersection-of-Two-Arrays-II/</id>
+    <link href="http://since1992.org/2016/06/07/Leetcode-350-Intersection-of-Two-Arrays-II/"/>
+    <id>http://since1992.org/2016/06/07/Leetcode-350-Intersection-of-Two-Arrays-II/</id>
     <published>2016-06-07T15:39:24.000Z</published>
     <updated>2016-06-07T15:48:27.000Z</updated>
     
@@ -472,27 +793,27 @@ transactions = [buy, sell, cooldown, buy, sell]
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Hash Table" scheme="http://yoursite.com/tags/Hash-Table/"/>
+      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
     
-      <category term="Two Pointers" scheme="http://yoursite.com/tags/Two-Pointers/"/>
+      <category term="Binary Search" scheme="http://since1992.org/tags/Binary-Search/"/>
     
-      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
+      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
     
-      <category term="Sort" scheme="http://yoursite.com/tags/Sort/"/>
+      <category term="Sort" scheme="http://since1992.org/tags/Sort/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-141-Linked List Cycle</title>
-    <link href="http://yoursite.com/2016/06/07/Leetcode-141-Linked-List-Cycle/"/>
-    <id>http://yoursite.com/2016/06/07/Leetcode-141-Linked-List-Cycle/</id>
+    <link href="http://since1992.org/2016/06/07/Leetcode-141-Linked-List-Cycle/"/>
+    <id>http://since1992.org/2016/06/07/Leetcode-141-Linked-List-Cycle/</id>
     <published>2016-06-07T14:50:05.000Z</published>
     <updated>2016-06-07T14:52:35.000Z</updated>
     
@@ -532,23 +853,23 @@ class Solution {
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Linked List" scheme="http://yoursite.com/tags/Linked-List/"/>
+      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
     
-      <category term="Two Pointers" scheme="http://yoursite.com/tags/Two-Pointers/"/>
+      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-70-Climbing Stairs</title>
-    <link href="http://yoursite.com/2016/06/07/Leetcode-70-Climbing-Stairs/"/>
-    <id>http://yoursite.com/2016/06/07/Leetcode-70-Climbing-Stairs/</id>
+    <link href="http://since1992.org/2016/06/07/Leetcode-70-Climbing-Stairs/"/>
+    <id>http://since1992.org/2016/06/07/Leetcode-70-Climbing-Stairs/</id>
     <published>2016-06-07T14:45:30.000Z</published>
     <updated>2016-06-07T14:49:15.000Z</updated>
     
@@ -577,21 +898,21 @@ class Solution {
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
+      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-202-Happy Number</title>
-    <link href="http://yoursite.com/2016/06/07/Leetcode-202-Happy-Number/"/>
-    <id>http://yoursite.com/2016/06/07/Leetcode-202-Happy-Number/</id>
+    <link href="http://since1992.org/2016/06/07/Leetcode-202-Happy-Number/"/>
+    <id>http://since1992.org/2016/06/07/Leetcode-202-Happy-Number/</id>
     <published>2016-06-07T14:25:52.000Z</published>
     <updated>2016-06-07T14:43:01.000Z</updated>
     
@@ -635,23 +956,23 @@ class Solution {
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
     
-      <category term="Hash Table" scheme="http://yoursite.com/tags/Hash-Table/"/>
+      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-263-Ugly Number</title>
-    <link href="http://yoursite.com/2016/06/07/Leetcode-263-Ugly-Number/"/>
-    <id>http://yoursite.com/2016/06/07/Leetcode-263-Ugly-Number/</id>
+    <link href="http://since1992.org/2016/06/07/Leetcode-263-Ugly-Number/"/>
+    <id>http://since1992.org/2016/06/07/Leetcode-263-Ugly-Number/</id>
     <published>2016-06-07T14:22:04.000Z</published>
     <updated>2016-06-07T14:25:17.000Z</updated>
     
@@ -686,21 +1007,21 @@ class Solution {
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-83-Remove Duplicates from Sorted List</title>
-    <link href="http://yoursite.com/2016/06/07/Leetcode-83-Remove-Duplicates-from-Sorted-List/"/>
-    <id>http://yoursite.com/2016/06/07/Leetcode-83-Remove-Duplicates-from-Sorted-List/</id>
+    <link href="http://since1992.org/2016/06/07/Leetcode-83-Remove-Duplicates-from-Sorted-List/"/>
+    <id>http://since1992.org/2016/06/07/Leetcode-83-Remove-Duplicates-from-Sorted-List/</id>
     <published>2016-06-07T14:18:03.000Z</published>
     <updated>2016-06-07T14:21:30.000Z</updated>
     
@@ -739,21 +1060,21 @@ class Solution {
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Linked List" scheme="http://yoursite.com/tags/Linked-List/"/>
+      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
     
   </entry>
   
   <entry>
     <title>Leetcode-231-Power of Two</title>
-    <link href="http://yoursite.com/2016/06/07/Leetcode-231-Power-of-Two/"/>
-    <id>http://yoursite.com/2016/06/07/Leetcode-231-Power-of-Two/</id>
+    <link href="http://since1992.org/2016/06/07/Leetcode-231-Power-of-Two/"/>
+    <id>http://since1992.org/2016/06/07/Leetcode-231-Power-of-Two/</id>
     <published>2016-06-07T14:14:16.000Z</published>
     <updated>2016-06-07T14:17:19.000Z</updated>
     
@@ -779,350 +1100,14 @@ class Solution {
     
     </summary>
     
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
     
     
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-326-Power of Tree</title>
-    <link href="http://yoursite.com/2016/06/07/Leetcode-326-Power-of-Tree/"/>
-    <id>http://yoursite.com/2016/06/07/Leetcode-326-Power-of-Tree/</id>
-    <published>2016-06-07T14:11:14.000Z</published>
-    <updated>2016-06-07T14:13:48.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an integer, write a function to determine if it is a power of three.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个整数，判断它是不是3的幂&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;简单的循环，判断最后是否得到1.&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        bool isPowerOfThree(int n) {
-
-            while(n&amp;gt;1)
-                {
-                    if(n%3&amp;gt;0) return false;
-                    n/=3;
-                }
-            return n==1;
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an integer, write a function to determine if it is a power of three.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-337-House Robber III</title>
-    <link href="http://yoursite.com/2016/05/27/Leetcode-337-House-Robber-III/"/>
-    <id>http://yoursite.com/2016/05/27/Leetcode-337-House-Robber-III/</id>
-    <published>2016-05-27T03:47:41.000Z</published>
-    <updated>2016-06-07T14:09:09.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that “all houses in this place forms a binary tree”. It will automatically contact the police if two directly-linked houses were broken into on the same night.&lt;/p&gt;
-&lt;p&gt;Determine the maximum amount of money the thief can rob tonight without alerting the police.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;一个树状的结构里，两个相邻的父，子结点不可以被同时偷，求盗贼的最大收益。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题可以使用动态规划,使用一个辅助函数返回是否抢该节点的两个收益最大值。动态转移方程为，左右均不偷+根节点或者偷左右不偷根节点，取最大值。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        int rob(TreeNode* root) {
-            vector&amp;lt;int&amp;gt; res = helper(root);
-            return max(res[0],res[1]); 
-    }
-
-        vector&amp;lt;int&amp;gt; helper(TreeNode* root)
-            {
-                vector&amp;lt;int&amp;gt; res(2,0);
-                if(!root) return res;
-                vector&amp;lt;int&amp;gt; left = helper(root-&amp;gt;left);
-                vector&amp;lt;int&amp;gt; right = helper(root-&amp;gt;right);
-                res[0]= max(left[1],left[0])+max(right[1],right[0]);
-                res[1]= left[0]+right[0]+root-&amp;gt;val;
-                return res;
-            }
-
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the “root.” Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that “all houses in this place forms a binary tree”. It will automatically contact the police if two directly-linked houses were broken into on the same night.&lt;/p&gt;
-&lt;p&gt;Determine the maximum amount of money the thief can rob tonight without alerting the police.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
-      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
-    
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
-      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
-    
-      <category term="Dynamic Programming" scheme="http://yoursite.com/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-22-Generate Parentheses</title>
-    <link href="http://yoursite.com/2016/05/26/Leetcode-22-Generate-Parentheses/"/>
-    <id>http://yoursite.com/2016/05/26/Leetcode-22-Generate-Parentheses/</id>
-    <published>2016-05-26T11:33:14.000Z</published>
-    <updated>2016-05-26T14:39:10.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.&lt;/p&gt;
-&lt;p&gt;For example, given n = 3, a solution set is:&lt;/p&gt;
-&lt;p&gt;“((()))”, “(()())”, “(())()”, “()(())”, “()()()”&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数字，返回该数字对括号能产生的所有合法括号组合。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;使用回溯法，生成所有组合。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        vector&amp;lt;string&amp;gt; generateParenthesis(int n) {
-            vector&amp;lt;string&amp;gt; res;
-            string tem;
-            helper(res,tem,0,0,n);
-            return res;
-
-        }
-        void helper(vector&amp;lt;string&amp;gt;&amp;amp;res,string&amp;amp; s,int left,int right,int n)
-            {
-                if(left==n&amp;amp;&amp;amp;right==n) {res.push_back(s);}
-
-                if(left&amp;lt;n) {s.push_back(&amp;apos;(&amp;apos;); helper(res,s,left+1,right,n);s.pop_back();}
-                if(right&amp;lt;left) {s.push_back(&amp;apos;)&amp;apos;); helper(res,s,left,right+1,n);s.pop_back();}
-
-            }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.&lt;/p&gt;
-&lt;p&gt;For example, given n = 3, a solution set is:&lt;/p&gt;
-&lt;p&gt;“((()))”, “(()())”, “(())()”, “()(())”, “()()()”&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
-      <category term="String" scheme="http://yoursite.com/tags/String/"/>
-    
-      <category term="Backtracking" scheme="http://yoursite.com/tags/Backtracking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-35-Search Insert Position</title>
-    <link href="http://yoursite.com/2016/05/26/Leetcode-35-Search-Insert-Position/"/>
-    <id>http://yoursite.com/2016/05/26/Leetcode-35-Search-Insert-Position/</id>
-    <published>2016-05-26T11:28:02.000Z</published>
-    <updated>2016-05-26T11:32:34.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.&lt;/p&gt;
-&lt;p&gt;You may assume no duplicates in the array.&lt;/p&gt;
-&lt;p&gt;Here are few examples.&lt;br&gt;[1,3,5,6], 5 → 2&lt;br&gt;[1,3,5,6], 2 → 1&lt;br&gt;[1,3,5,6], 7 → 4&lt;br&gt;[1,3,5,6], 0 → 0&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个排好序的数组和一个值，返回它的下标，如果它在数组里，否则，则返回该值应该被插入的位置。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;找到第一个大于该值的位置，返回之前一个位置。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int searchInsert(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
-            if(target&amp;lt;nums[0]) return 0;
-            if(target&amp;gt;nums[nums.size()-1]) return nums.size();
-            for(int i=0;i&amp;lt;nums.size();i++)
-                {
-                    if(nums[i]==target) return i;
-                    else if(nums[i]&amp;lt;target) continue;
-                    else if(nums[i-1]&amp;lt;target) return i;  
-                }
-            return 0;
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.&lt;/p&gt;
-&lt;p&gt;You may assume no duplicates in the array.&lt;/p&gt;
-&lt;p&gt;Here are few examples.&lt;br&gt;[1,3,5,6], 5 → 2&lt;br&gt;[1,3,5,6], 2 → 1&lt;br&gt;[1,3,5,6], 7 → 4&lt;br&gt;[1,3,5,6], 0 → 0&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
-      <category term="Array" scheme="http://yoursite.com/tags/Array/"/>
-    
-      <category term="Binary Search" scheme="http://yoursite.com/tags/Binary-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-108-Convert Sorted Array to Binary Search Tree</title>
-    <link href="http://yoursite.com/2016/05/26/Leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree/"/>
-    <id>http://yoursite.com/2016/05/26/Leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree/</id>
-    <published>2016-05-26T10:54:00.000Z</published>
-    <updated>2016-05-26T11:27:33.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array where elements are sorted in ascending order, convert it to a height balanced BST.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给一个已排序数组，把它转化成一个平衡BST。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用DFS和递归调用函数生成。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        TreeNode* sortedArrayToBST(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            return helper(nums,0,nums.size()-1);
-    }
-        TreeNode* helper(vector&amp;lt;int&amp;gt; &amp;amp;nums,int begin,int end)
-                {
-                if(begin&amp;gt;end) return NULL;
-                if(begin==end) return new TreeNode(nums[begin]);
-                int mid = begin + (end-begin)/2;
-                 TreeNode* res = new TreeNode(nums[mid]);
-                 res-&amp;gt;left = helper(nums,begin,mid-1);
-                 res-&amp;gt;right = helper(nums,mid+1,end);
-                 return res;
-                }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array where elements are sorted in ascending order, convert it to a height balanced BST.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
-    
-      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
-    
-      <category term="Medium" scheme="http://yoursite.com/tags/Medium/"/>
-    
-      <category term="Mark" scheme="http://yoursite.com/tags/Mark/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-235-Lowest Common Ancester of a Binary Search Tree</title>
-    <link href="http://yoursite.com/2016/05/26/Leetcode-235-Lowest-Common-Ancester-of-a-Binary-Search-Tree/"/>
-    <id>http://yoursite.com/2016/05/26/Leetcode-235-Lowest-Common-Ancester-of-a-Binary-Search-Tree/</id>
-    <published>2016-05-26T10:49:18.000Z</published>
-    <updated>2016-05-26T10:52:44.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.&lt;/p&gt;
-&lt;p&gt;According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;找到两个节点的最低相同祖先。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;先求出两条路径，再找到最后一个相同元素即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-    public:
-        TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-            vector&amp;lt;TreeNode*&amp;gt; p1;
-            vector&amp;lt;TreeNode*&amp;gt; q1;
-            findpath(p1,p,root);
-            findpath(q1,q,root);
-            for(int i=p1.size()-1;i&amp;gt;=0;i--)
-                {
-                    if(find(q1.begin(),q1.end(),p1[i])!=q1.end())
-                        return p1[i];
-                }
-            return NULL;
-
-
-        }
-        void findpath(vector&amp;lt;TreeNode*&amp;gt;&amp;amp; path,TreeNode* p, TreeNode* root)
-            {
-                TreeNode* current = root;
-                while(current-&amp;gt;val!=p-&amp;gt;val)
-                    {
-                        path.push_back(current);
-                        if(current-&amp;gt;val&amp;gt;p-&amp;gt;val)
-                            current=current-&amp;gt;left;
-                        else current=current-&amp;gt;right;
-                        }
-                path.push_back(p);
-            }
-    };
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.&lt;/p&gt;
-&lt;p&gt;According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes v and w as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).”&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://yoursite.com/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://yoursite.com/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://yoursite.com/tags/Easy/"/>
-    
-      <category term="Tree" scheme="http://yoursite.com/tags/Tree/"/>
+      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
     
   </entry>
   

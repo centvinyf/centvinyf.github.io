@@ -89,7 +89,7 @@
 <meta name="description" content="Time passed never returns.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="帆的小窝">
-<meta property="og:url" content="http://yoursite.com/page/7/index.html">
+<meta property="og:url" content="http://since1992.org/page/7/index.html">
 <meta property="og:site_name" content="帆的小窝">
 <meta property="og:description" content="Time passed never returns.">
 <meta name="twitter:card" content="summary">
@@ -298,8 +298,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/10/Leetcode刷题记录34-Climbing-Stairs/" itemprop="url">
-                  Leetcode刷题记录34-Climbing Stairs
+                <a class="post-title-link" href="/2015/10/02/Latex使用经验1——用bibtex添加引用/" itemprop="url">
+                  Latex使用经验1——用bibtex添加引用
                 </a>
               
             
@@ -312,8 +312,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-10T00:02:19+08:00" content="2015-10-10">
-              2015-10-10
+            <time itemprop="dateCreated" datetime="2015-10-02T21:34:08+08:00" content="2015-10-02">
+              2015-10-02
             </time>
           </span>
 
@@ -326,8 +326,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
+                  <a href="/categories/Latex/" itemprop="url" rel="index">
+                    <span itemprop="name">Latex</span>
                   </a>
                 </span>
 
@@ -342,8 +342,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/10/Leetcode刷题记录34-Climbing-Stairs/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/Leetcode刷题记录34-Climbing-Stairs/" itemprop="commentsCount"></span>
+                <a href="/2015/10/02/Latex使用经验1——用bibtex添加引用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/02/Latex使用经验1——用bibtex添加引用/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -353,7 +353,7 @@
 
           
           
-             <span id="/2015/10/10/Leetcode刷题记录34-Climbing-Stairs/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录34-Climbing Stairs">
+             <span id="/2015/10/02/Latex使用经验1——用bibtex添加引用/" class="leancloud_visitors" data-flag-title="Latex使用经验1——用bibtex添加引用">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -377,42 +377,15 @@
       
         
           
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>You are climbing a stair case. It takes n steps to reach to the top.</p>
-<p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1:"></a>Solution 1:</h2><p>Using Dynamic Programming</p>
-<h2 id="Code-for-Solution-1"><a href="#Code-for-Solution-1" class="headerlink" title="Code for Solution 1:"></a>Code for Solution 1:</h2><pre><code>class Solution {
-    public:
-        int climbStairs(int n) {
-            switch(n)
-                {
-                    case 0:return 1;
-                    case 1:return 1;
-                    default:
-                    vector&lt;int&gt; result;
-                    result.push_back(1);
-                    result.push_back(1);
-                    for(int i =2;i&lt;=n;i++)
-                        {
-                            result.push_back(result[i-1]+result[i-2]);
-                        }
-                    return result[n];
-                }
-            }
-    };
-</code></pre><h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2:"></a>Solution 2:</h2><p>Using Recursive call</p>
-<h2 id="Code-for-Solution-2"><a href="#Code-for-Solution-2" class="headerlink" title="Code for Solution 2:"></a>Code for Solution 2:</h2><pre><code>class Solution {
-    public:
-        int climbStairs(int n) {
-            switch(n)
-                {
-                    case 0 : return 1;
-                    case 1 : return 1;
-                    default: return climbStairs(n-1)+climbStairs(n-2);
+            <p>用bibtex添加引用</p>
+<h2 id="第一步：建立一个tex文件"><a href="#第一步：建立一个tex文件" class="headerlink" title="第一步：建立一个tex文件"></a>第一步：建立一个tex文件</h2><p>任何一种你想要方法建立一个tex文件，假如说叫a.tex</p>
+<p>在文章末尾\end{document}之前加入以下三行：<br>\renewcommand\refname{Reference}<br>\bibliographystyle{plain}<br>\bibliography{b}<br>其中第一行是参考文献的标题，标题是Reference；第二行是格式，还有其他格式见此处，这里用plain；第三行是一个bib格式文件的名字，最好和tex文件名称一致，编译起来方便一些。<br>(有一点小小要注意的地方：最常见的引用格式是plain，它是按作者字母排序的，如果要按引用顺序来排序，推荐用格式unsrt)</p>
+<h2 id="第二步：建立一个bib文件"><a href="#第二步：建立一个bib文件" class="headerlink" title="第二步：建立一个bib文件"></a>第二步：建立一个bib文件</h2><p>bib文件就是一个plain text文件，明明为b.bib，bib格式可以在各种数据库里面的citation找到，例如<br>@book{Book1,<br>title = “Title1”,<br>author = “author1”,<br>publisher = “publisher1”,<br>year = “2015”<br>}</p>
+<h2 id="第三步：在tex文件中引用"><a href="#第三步：在tex文件中引用" class="headerlink" title="第三步：在tex文件中引用"></a>第三步：在tex文件中引用</h2><p>在需要引用的地方使用\cite{Book1},期中Book1是你在bib文件中给每个引用的名字</p>
+<h2 id="第四步：运行-tex文件"><a href="#第四步：运行-tex文件" class="headerlink" title="第四步：运行.tex文件"></a>第四步：运行.tex文件</h2><p>可以直接运行texshop里面的排版或者用命令行 pdflatex a(a是咱们.tex文件的名字)</p>
+<h2 id="第五步：运行-bib文件"><a href="#第五步：运行-bib文件" class="headerlink" title="第五步：运行.bib文件"></a>第五步：运行.bib文件</h2><p>用bibtex b(b是咱们.bib文件的名字)，注意：一定要先运行pdflatex命令，因为运行后会生成aux文件，而编译bib是需要aux文件的、</p>
+<h2 id="第六步：运行-tex文件2次"><a href="#第六步：运行-tex文件2次" class="headerlink" title="第六步：运行.tex文件2次"></a>第六步：运行.tex文件2次</h2><p>对，你没看错，运行2次，才能正确生成引用和引用目录，原理我也不知道，就这么用就行了！pdflatex a 这个命令运行2次就行了</p>
 
-                }
-            }
-    };
-</code></pre>
           
         
       
@@ -461,8 +434,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/10/Leetcode刷题记录33-Majority-Element/" itemprop="url">
-                  Leetcode刷题记录33-Majority Element
+                <a class="post-title-link" href="/2015/10/01/今天的月亮很美/" itemprop="url">
+                  今天的月亮很美
                 </a>
               
             
@@ -475,8 +448,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-10T00:00:39+08:00" content="2015-10-10">
-              2015-10-10
+            <time itemprop="dateCreated" datetime="2015-10-01T21:09:42+08:00" content="2015-10-01">
+              2015-10-01
             </time>
           </span>
 
@@ -489,8 +462,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
+                  <a href="/categories/Mood/" itemprop="url" rel="index">
+                    <span itemprop="name">Mood</span>
                   </a>
                 </span>
 
@@ -505,8 +478,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/10/Leetcode刷题记录33-Majority-Element/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/Leetcode刷题记录33-Majority-Element/" itemprop="commentsCount"></span>
+                <a href="/2015/10/01/今天的月亮很美/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/今天的月亮很美/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -516,7 +489,7 @@
 
           
           
-             <span id="/2015/10/10/Leetcode刷题记录33-Majority-Element/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录33-Majority Element">
+             <span id="/2015/10/01/今天的月亮很美/" class="leancloud_visitors" data-flag-title="今天的月亮很美">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -540,30 +513,8 @@
       
         
           
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.</p>
-<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Every other element will cancel the majority once. The left one is the majority.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        int majorityElement(vector&lt;int&gt;&amp; nums) {
-            int res = nums[0];
-            int count = 1;
-            for(int i =1;i&lt;nums.size();i++)
-                {    
-                    if(nums[i]==res) 
-                        count++;
-                    else if(nums[i]!=res) 
-                        count--;
-                    if(count==0) 
-                        {
-                            res = nums[i];
-                            count=1;
-                        }
-                }
-            return res;
-        }
-    };
-</code></pre>
+            <p>前几天中秋节，在美帝幸运地看到了血月和月全食之后。突然想起了夏目漱石问学生如何翻译“i love you”这个问题。他给学生的答案是“今天的月亮很美”。想起曾经和人谈论过这个问题，当时觉得有种听到“今天的风儿真是喧嚣”的感觉。其实我觉得我现在能理解了这种观点。就仿佛是我期待着下雪，想到下雪后的第一件事就是拍张照片，然后告诉某人，“下雪了”，这是一样的。</p>
+
           
         
       
@@ -612,8 +563,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录32-Remove-Duplicates-from-Sorted-List/" itemprop="url">
-                  Leetcode刷题记录32-Remove Duplicates from Sorted List
+                <a class="post-title-link" href="/2015/09/29/TableView上方总是有一截留白的解决方法/" itemprop="url">
+                  TableView上方总是有一截留白的解决方法
                 </a>
               
             
@@ -626,8 +577,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T23:58:26+08:00" content="2015-10-09">
-              2015-10-09
+            <time itemprop="dateCreated" datetime="2015-09-29T21:07:41+08:00" content="2015-09-29">
+              2015-09-29
             </time>
           </span>
 
@@ -640,8 +591,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -656,8 +607,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/09/Leetcode刷题记录32-Remove-Duplicates-from-Sorted-List/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Leetcode刷题记录32-Remove-Duplicates-from-Sorted-List/" itemprop="commentsCount"></span>
+                <a href="/2015/09/29/TableView上方总是有一截留白的解决方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/29/TableView上方总是有一截留白的解决方法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -667,7 +618,7 @@
 
           
           
-             <span id="/2015/10/09/Leetcode刷题记录32-Remove-Duplicates-from-Sorted-List/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录32-Remove Duplicates from Sorted List">
+             <span id="/2015/09/29/TableView上方总是有一截留白的解决方法/" class="leancloud_visitors" data-flag-title="TableView上方总是有一截留白的解决方法">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -691,1099 +642,8 @@
       
         
           
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a sorted linked list, delete all duplicates such that each element appear only once.</p>
-<p>For example,<br>Given 1-&gt;1-&gt;2, return 1-&gt;2.<br>Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Simple task</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
-* Definition for singly-linked list.
-* struct ListNode {
-*     int val;
-*     ListNode *next;
-*     ListNode(int x) : val(x), next(NULL) {}
-* };
-*/
-class Solution {
-    public:
-        ListNode* deleteDuplicates(ListNode* head) {
-            if(head==NULL||head-&gt;next==NULL) 
-                return head;
-            else
-                {
-                    ListNode*a = head;      
-                    ListNode*b = head-&gt;next;
-                    while(a!=NULL&amp;&amp;b!=NULL)
-                        {
-                            if(a-&gt;val==b-&gt;val)
-                                {
-                                    a-&gt;next=b-&gt;next;
-                                    b=b-&gt;next;
-                                }
-                            else
-                                {
-                                    a= a-&gt;next;
-                                    b=b-&gt;next;
-                                }
+            <p>不知道从哪个版本（大概是iOS8）开始，如果你用了autolayout，当你设置某个tableview（或者任意scrollview）顶部约束为顶格的适合，它总会多出来一个留白，其实解决方法很简单，在该viewcontroller的.m文件中把automaticallyAdjustsScrollViewInsets这个属性设置成false就可以了。鬼知道谁设计的留白。。。</p>
 
-                        }
-                    return head; 
-                }
-
-        }
-    };
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录31-Excel-Sheet-Column-Number/" itemprop="url">
-                  Leetcode刷题记录31-Excel Sheet Column Number
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T23:56:05+08:00" content="2015-10-09">
-              2015-10-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/09/Leetcode刷题记录31-Excel-Sheet-Column-Number/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Leetcode刷题记录31-Excel-Sheet-Column-Number/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/09/Leetcode刷题记录31-Excel-Sheet-Column-Number/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录31-Excel Sheet Column Number">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Related to question Excel Sheet Column Title</p>
-<p>Given a column title as appear in an Excel sheet, return its corresponding column number.</p>
-<p>For example:</p>
-<pre><code>A -&gt; 1
-B -&gt; 2
-C -&gt; 3
-...
-Z -&gt; 26
-AA -&gt; 27
-AB -&gt; 28 
-</code></pre><h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Easy task</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        int toInt(char a)
-            {
-                if(a&gt;=&apos;A&apos;&amp;&amp;a&lt;=&apos;Z&apos;)
-                    return (int)(a-&apos;A&apos;+1);
-                else 
-                    return 0;
-            }
-int titleToNumber(string s) {
-    int res = 0;
-    for(int i =0;i&lt;s.length();i++)
-        {
-            res+= (pow(26,s.length()-i-1)*toInt(s[i])); 
-        }
-    return res;
-
-    }
-};
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录30-Same-Tree/" itemprop="url">
-                  Leetcode刷题记录30-Same Tree
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T23:53:15+08:00" content="2015-10-09">
-              2015-10-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/09/Leetcode刷题记录30-Same-Tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Leetcode刷题记录30-Same-Tree/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/09/Leetcode刷题记录30-Same-Tree/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录30-Same Tree">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two binary trees, write a function to check if they are equal or not.</p>
-<p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Using Depth First Search.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
-* Definition for a binary tree node.
-* struct TreeNode {
-*     int val;
-*     TreeNode *left;
-*     TreeNode *right;
-*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-* };
-*/
-class Solution {
-    public:
-        bool isSameTree(TreeNode* p, TreeNode* q) {
-            if(!p&amp;&amp;!q) 
-                return true;
-            if((p&amp;&amp;!q)||(q&amp;&amp;!p)) 
-                return false;
-            return isSameTree(p-&gt;left,q-&gt;left)&amp;&amp;isSameTree(p-&gt;right,q-&gt;right)&amp;&amp;(p-&gt;val==q-&gt;val);
-        }
-};
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录29-Delete-Node-in-a-Linked-List/" itemprop="url">
-                  Leetcode刷题记录29-Delete Node in a Linked List
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T23:51:56+08:00" content="2015-10-09">
-              2015-10-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/09/Leetcode刷题记录29-Delete-Node-in-a-Linked-List/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Leetcode刷题记录29-Delete-Node-in-a-Linked-List/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/09/Leetcode刷题记录29-Delete-Node-in-a-Linked-List/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录29-Delete Node in a Linked List">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
-<p>Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should become 1 -&gt; 2 -&gt; 4 after calling your function.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Simply use this link to point to the next node.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
-* Definition for singly-linked list.
-* struct ListNode {
-*     int val;
-*     ListNode *next;
-*     ListNode(int x) : val(x), next(NULL) {}
-* };
-*/
-class Solution {
-    public:
-        void deleteNode(ListNode* node) {
-            node-&gt;val = node-&gt;next-&gt;val;
-            node-&gt;next = node-&gt;next-&gt;next;
-        }
-};
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录28-Maximum-Depth-of-Bianary-Tree/" itemprop="url">
-                  Leetcode刷题记录28-Maximum Depth of Bianary Tree
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T23:49:55+08:00" content="2015-10-09">
-              2015-10-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/09/Leetcode刷题记录28-Maximum-Depth-of-Bianary-Tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Leetcode刷题记录28-Maximum-Depth-of-Bianary-Tree/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/09/Leetcode刷题记录28-Maximum-Depth-of-Bianary-Tree/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录28-Maximum Depth of Bianary Tree">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree, find its maximum depth.</p>
-<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>So easy…</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
-* Definition for a binary tree node.
-* struct TreeNode {
-*     int val;
-*     TreeNode *left;
-*     TreeNode *right;
-*     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-* };
-*/
-class Solution {
-    public:
-        int maxDepth(TreeNode* root) {
-        if(root==NULL) 
-            return 0;
-        return max(maxDepth(root-&gt;left)+1,maxDepth(root-&gt;right)+1);
-    }
-};
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Leetcode刷题记录27-Add-Digits/" itemprop="url">
-                  Leetcode刷题记录27-Add Digits
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T23:46:59+08:00" content="2015-10-09">
-              2015-10-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/09/Leetcode刷题记录27-Add-Digits/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Leetcode刷题记录27-Add-Digits/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/09/Leetcode刷题记录27-Add-Digits/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录27-Add Digits">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.</p>
-<p>For example:</p>
-<p>Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.</p>
-<h2 id="Follow-up"><a href="#Follow-up" class="headerlink" title="Follow up:"></a>Follow up:</h2><p>Could you do it without any loop/recursion in O(1) runtime?</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Write a few results and find the clue.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        int addDigits(int num) {
-            if(num&lt;10) 
-                return num;
-            return num%9==0?9:num%9;
-        }
-};
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/08/Leetcode刷题记录26-Single-Number/" itemprop="url">
-                  Leetcode刷题记录26-Single Number
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-08T23:45:31+08:00" content="2015-10-08">
-              2015-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/08/Leetcode刷题记录26-Single-Number/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/08/Leetcode刷题记录26-Single-Number/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/08/Leetcode刷题记录26-Single-Number/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录26-Single Number">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>Using a set to store the unique ones, delete when duplicates are found.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        int singleNumber(vector&lt;int&gt;&amp; nums) {
-            set&lt;int&gt; set;
-            set.clear();
-            for(int i =0;i&lt;nums.size();i++)
-                {
-                    if(set.find(nums[i])!=set.end())
-                        set.erase(nums[i]);
-                    else 
-                        set.insert(nums[i]);
-                }
-            return *set.begin();
-        }
-};
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/08/Leetcode刷题记录25-Isomorphic-Strings/" itemprop="url">
-                  Leetcode刷题记录25-Isomorphic Strings
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-08T23:42:48+08:00" content="2015-10-08">
-              2015-10-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/08/Leetcode刷题记录25-Isomorphic-Strings/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/08/Leetcode刷题记录25-Isomorphic-Strings/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/08/Leetcode刷题记录25-Isomorphic-Strings/" class="leancloud_visitors" data-flag-title="Leetcode刷题记录25-Isomorphic Strings">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two strings s and t, determine if they are isomorphic.</p>
-<p>Two strings are isomorphic if the characters in s can be replaced to get t.</p>
-<p>All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.</p>
-<p>For example,<br>Given “egg”, “add”, return true.</p>
-<p>Given “foo”, “bar”, return false.</p>
-<p>Given “paper”, “title”, return true.</p>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>It’s the same as This Problem.And it’s simpler.</p>
-<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
-    public:
-        bool isIsomorphic(string s, string t) {            
-            string pattern = s;
-            int len = pattern.length();
-            string a = t;
-            std::map&lt;char,char&gt; map;
-            std::map&lt;char,char&gt; map2;
-            std::map&lt;char,char&gt;::iterator it;
-            std::map&lt;char,char&gt;::iterator it2;
-
-            for(int i =0;i&lt;len;i++)
-                {
-                    it = map.find(pattern[i]);
-                    it2 = map2.find(a[i]);
-                    if (it != map.end()|| it2 !=map2.end())
-                        {
-                            if(a[i]!=map[pattern[i]])
-                                return false;
-                            if(map[map2[a[i]]]!=a[i]) return false;
-                        }
-                    else
-                        {
-                            map[pattern[i]]=a[i];
-                            map2[a[i]]=pattern[i];  
-                        }
-                }
-            return true;
-        }
-    };
-</code></pre>
           
         
       
@@ -1815,7 +675,7 @@ class Solution {
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
   </nav>
 
 
@@ -1856,7 +716,7 @@ class Solution {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">97</span>
+              <span class="site-state-item-count">63</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1873,7 +733,7 @@ class Solution {
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
