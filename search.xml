@@ -4,6 +4,322 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-88-Merge Sorted Array]]></title>
+      <url>http://since1992.org/2016/06/19/Leetcode-88-Merge-Sorted-Array/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p>
+<p>Note:<br>You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>合并两个排了序的数组到nums1。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>本题简单，从后开始往前合并即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) {
+        while(m&gt;0&amp;&amp;n&gt;0)
+        {
+            if(nums1[m-1]&gt;nums2[n-1]){
+                nums1[m+n-1]=nums1[m-1];
+                m--;
+            }else{
+                nums1[m+n-1]=nums2[n-1];
+                n--;
+            }
+
+        }
+        if(n&gt;0)
+        {
+            for(int i=0;i&lt;n;i++)
+            nums1[i]=nums2[i];
+        }
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-299-Bulls and Cows]]></title>
+      <url>http://since1992.org/2016/06/19/Leetcode-299-Bulls-and-Cows/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>You are playing the following <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" target="_blank" rel="external">Bulls and Cows</a> game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called “bulls”) and how many digits match the secret number but locate in the wrong position (called “cows”). Your friend will use successive guesses and hints to eventually derive the secret number.</p>
+<p>For example:</p>
+<p>Secret number:  “1807”<br>Friend’s guess: “7810”<br>Hint: 1 bull and 3 cows. (The bull is 8, the cows are 0, 1 and 7.)<br>Write a function to return a hint according to the secret number and friend’s guess, use A to indicate the bulls and B to indicate the cows. In the above example, your function should return “1A3B”.</p>
+<p>Please note that both secret number and friend’s guess may contain duplicate digits, for example:</p>
+<p>Secret number:  “1123”<br>Friend’s guess: “0111”<br>In this case, the 1st 1 in friend’s guess is a bull, the 2nd or 3rd 1 is a cow, and your function should return “1A1B”.<br>You may assume that the secret number and your friend’s guess only contain digits, and their lengths are always equal.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>朋友猜你所想的数字，如果数字与位置均正确记为A，如果数字正确位置错误记为B。输出”XAYB“的结果</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>用两个数组统计每个数字出现的次数，然后就可以输出结果了。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    string getHint(string secret, string guess) {
+        if(!secret.length()||!guess.length()) return &quot;0A0B&quot;;
+        vector&lt;int&gt;countS(10,0);
+        vector&lt;int&gt;countG(10,0);
+        int A=0;
+        int B=0;
+        for(int i=0;i&lt;secret.length();i++)
+        {
+            if(secret[i]==guess[i])
+            A++;
+            else{
+                countS[secret[i]-&apos;0&apos;]++;
+                countG[guess[i]-&apos;0&apos;]++;
+            }
+        }
+        for(int i=0;i&lt;10;i++)
+        {
+            B+=min(countS[i],countG[i]);
+        }
+        string res=&quot;&quot;;
+        res+=num2str(A);
+        res+=&apos;A&apos;;
+        res+=num2str(B);
+        res+=&apos;B&apos;;
+        return res;
+    }
+    string num2str(int n)
+    {
+        if(n==0) return &quot;0&quot;;
+        string res=&quot;&quot;;
+        while(n&gt;0)
+        {
+            res=(char)((n%10)+&apos;0&apos;)+res;
+            n/=10;
+        }
+        return res;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-219-Contains Duplicate II]]></title>
+      <url>http://since1992.org/2016/06/19/Leetcode-219-Contains-Duplicate-II/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个数组和一个数字N，求数组里又没有间隔N以下的相等值。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>维护一个大小为K的滑动窗口，只需要O（n）的时间即可。注意K大于数组容量的情况。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    bool containsNearbyDuplicate(vector&lt;int&gt;&amp; nums, int k) {
+        if(nums.empty()||k&lt;1) return false;
+        set&lt;int&gt; s;
+        if(k&gt;nums.size())
+        {
+            for(int i=0;i&lt;nums.size();i++){
+                if(s.find(nums[i])!=s.end())
+                return true;
+                else
+                s.insert(nums[i]);
+
+            }
+              return false;  
+        }
+        else
+        {
+            for(int i=0;i&lt;k;i++)
+            {
+                if(s.find(nums[i])!=s.end())
+                return true;
+                else
+                s.insert(nums[i]);
+            }
+            for(int j=k;j&lt;nums.size();j++)
+            {
+
+                if(s.find(nums[j])!=s.end())
+                return true;
+                else{
+                s.insert(nums[j]);
+                s.erase(nums[j-k]);
+                }
+            }
+            return false;
+        }
+
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-160-Intersection of Two Linked Lists]]></title>
+      <url>http://since1992.org/2016/06/19/Leetcode-160-Intersection-of-Two-Linked-Lists/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
+<p>For example, the following two linked lists:</p>
+<pre><code>A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3
+                   ↗            
+B:     b1 → b2 → b3
+</code></pre><p>begin to intersect at node c1.</p>
+<p>Notes:</p>
+<p>If the two linked lists have no intersection at all, return null.<br>The linked lists must retain their original structure after the function returns.<br>You may assume there are no cycles anywhere in the entire linked structure.<br>Your code should preferably run in O(n) time and use only O(1) memory.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给两个单向链表，返回他们的交接处，如果没有交接，则返回空指针，只能使用O(1)的额外空间，且不可以修改原链表。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>统计出两个链表的节点数，让长的那个从头去掉相差额的结点，则相遇即相交。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if(!headA||!headB) return NULL;
+        int counta=0;
+        int countb=0;
+        ListNode* a= headA;
+        ListNode* b= headB;
+        while(a)
+        {
+            counta++;
+            a=a-&gt;next;
+        }
+        while(b)
+        {
+            countb++;
+            b=b-&gt;next;
+        }
+        int dif = counta-countb;
+
+            for(int i=abs(dif);i&gt;0;i--)
+            {
+                if(dif &gt; 0)
+                    headA=headA-&gt;next;
+                else headB=headB-&gt;next;
+            }
+        while(headA&amp;&amp;headB&amp;&amp;headA!=headB)
+        {
+            headA=headA-&gt;next;
+            headB=headB-&gt;next;
+        }
+        ListNode * res;
+        headA==headB?res=headA:res=NULL;
+        return res;
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-225-Implement Stack using Queues]]></title>
+      <url>http://since1992.org/2016/06/19/Leetcode-225-Implement-Stack-using-Queues/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Implement the following operations of a stack using queues.</p>
+<p>push(x) – Push element x onto stack.<br>pop() – Removes the element on top of the stack.<br>top() – Get the top element.<br>empty() – Return whether the stack is empty.<br>Notes:<br>You must use only standard operations of a queue – which means only push to back, peek/pop from front, size, and is empty operations are valid.<br>Depending on your language, queue may not be supported natively. You may simulate a queue by using a list or deque (double-ended queue), as long as you use only standard operations of a queue.<br>You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>用队列实现栈的操作。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>和<a href="/2016/06/18/Leetcode-232-Implement-Queue-using-Stacks/">这道题</a>类似，注意对应变量关系即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Stack {
+
+public:
+    queue&lt;int&gt; q1;
+    queue&lt;int&gt; q2;
+    int count = 0;
+    // Push element x onto stack.
+    void push(int x) {
+        q1.push(x);
+        count++;
+    }
+
+    // Removes the element on top of the stack.
+    void pop() {
+        while(count&gt;1)
+        {
+            q2.push(q1.front());
+            q1.pop();
+            count--;
+        }
+        q1.pop();
+        count--;
+        while(!q2.empty())
+        {
+            q1.push(q2.front());
+            count++;
+            q2.pop();
+        }
+    }
+
+    // Get the top element.
+    int top() {
+      return q1.back();
+
+    }
+
+    // Return whether the stack is empty.
+    bool empty() {
+        return q1.empty();
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-111-Minimum Depth of Binary Tree]]></title>
+      <url>http://since1992.org/2016/06/19/Leetcode-111-Minimum-Depth-of-Binary-Tree/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree, find its minimum depth.</p>
+<p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一棵树，找出它从根节点到某一叶子节点的最短路径。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>这道题和<a href="/2016/05/23/Leetcode-104-Maximum-Depth-of-Binary-Tree/">找出最长路径</a>的做法不太一样。不能直接取左右较短者加一，因为有可能某个子树是空的。细心判断即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if(!root) return 0;
+        int minl = minDepth(root-&gt;left);
+        int minr = minDepth(root-&gt;right);
+        int minx = min(minl,minr);
+        minx==0?minx=minl+minr:minx=minx;
+        return minx+1;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-12-Path Sum]]></title>
+      <url>http://since1992.org/2016/06/19/Leetcode-112-Path-Sum/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
+<p>For example:<br>Given the below binary tree and sum = 22,<br>              5<br>             / \<br>            4   8<br>           /   / \<br>          11  13  4<br>         /  \      \<br>        7    2      1<br>return true, as there exist a root-to-leaf path 5-&gt;4-&gt;11-&gt;2 which sum is 22.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一棵二叉树，判断是否有从根到叶子节点的路径和等于给定值。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>一个简单的递归调用函数即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int sum) {
+        if(!root) return false;
+        sum-=root-&gt;val;
+        return hasPathSum(root-&gt;left,sum)||hasPathSum(root-&gt;right,sum)||(!root-&gt;left&amp;&amp;!root-&gt;right&amp;&amp;sum==0);
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-9-Palindrome Number]]></title>
+      <url>http://since1992.org/2016/06/19/Leetcode-9-Palindrome-Number/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Determine whether an integer is a palindrome. Do this without extra space.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>判断一个整数是否是对称数。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>首先负数肯定不是对称的。然后可以把数字转化成字符串，存成两个正\反序的字符串，如果这两个字符串相等，则是对称的。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><p>class Solution {<br>    public:<br>        bool isPalindrome(int x) {<br>            if(x<0) return="" false;="" string="" a="" ,b="" ;="" while(x="">0)<br>            {<br>                a+=(char)(x%10+’0’);<br>                b=(char)(x%10+’0’)+b;<br>                x/=10;<br>            }<br>            return a==b;<br>        }<br>    };</0)></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-119-Pascal's Triangle II]]></title>
       <url>http://since1992.org/2016/06/19/Leetcode-119-Pascal-s-Triangle-II/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an index k, return the kth row of the Pascal’s triangle.</p>

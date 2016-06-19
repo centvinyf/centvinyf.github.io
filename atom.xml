@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://since1992.org/"/>
-  <updated>2016-06-19T04:10:57.000Z</updated>
+  <updated>2016-06-19T10:19:42.000Z</updated>
   <id>http://since1992.org/</id>
   
   <author>
@@ -14,6 +14,511 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-88-Merge Sorted Array</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-88-Merge-Sorted-Array/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-88-Merge-Sorted-Array/</id>
+    <published>2016-06-19T10:17:53.000Z</published>
+    <updated>2016-06-19T10:19:42.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;合并两个排了序的数组到nums1。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;本题简单，从后开始往前合并即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    void merge(vector&amp;lt;int&amp;gt;&amp;amp; nums1, int m, vector&amp;lt;int&amp;gt;&amp;amp; nums2, int n) {
+        while(m&amp;gt;0&amp;amp;&amp;amp;n&amp;gt;0)
+        {
+            if(nums1[m-1]&amp;gt;nums2[n-1]){
+                nums1[m+n-1]=nums1[m-1];
+                m--;
+            }else{
+                nums1[m+n-1]=nums2[n-1];
+                n--;
+            }
+
+        }
+        if(n&amp;gt;0)
+        {
+            for(int i=0;i&amp;lt;n;i++)
+            nums1[i]=nums2[i];
+        }
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
+    
+      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-299-Bulls and Cows</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-299-Bulls-and-Cows/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-299-Bulls-and-Cows/</id>
+    <published>2016-06-19T10:06:23.000Z</published>
+    <updated>2016-06-19T10:19:46.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are playing the following &lt;a href=&quot;https://en.wikipedia.org/wiki/Bulls_and_Cows&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Bulls and Cows&lt;/a&gt; game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called “bulls”) and how many digits match the secret number but locate in the wrong position (called “cows”). Your friend will use successive guesses and hints to eventually derive the secret number.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;p&gt;Secret number:  “1807”&lt;br&gt;Friend’s guess: “7810”&lt;br&gt;Hint: 1 bull and 3 cows. (The bull is 8, the cows are 0, 1 and 7.)&lt;br&gt;Write a function to return a hint according to the secret number and friend’s guess, use A to indicate the bulls and B to indicate the cows. In the above example, your function should return “1A3B”.&lt;/p&gt;
+&lt;p&gt;Please note that both secret number and friend’s guess may contain duplicate digits, for example:&lt;/p&gt;
+&lt;p&gt;Secret number:  “1123”&lt;br&gt;Friend’s guess: “0111”&lt;br&gt;In this case, the 1st 1 in friend’s guess is a bull, the 2nd or 3rd 1 is a cow, and your function should return “1A1B”.&lt;br&gt;You may assume that the secret number and your friend’s guess only contain digits, and their lengths are always equal.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;朋友猜你所想的数字，如果数字与位置均正确记为A，如果数字正确位置错误记为B。输出”XAYB“的结果&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用两个数组统计每个数字出现的次数，然后就可以输出结果了。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    string getHint(string secret, string guess) {
+        if(!secret.length()||!guess.length()) return &amp;quot;0A0B&amp;quot;;
+        vector&amp;lt;int&amp;gt;countS(10,0);
+        vector&amp;lt;int&amp;gt;countG(10,0);
+        int A=0;
+        int B=0;
+        for(int i=0;i&amp;lt;secret.length();i++)
+        {
+            if(secret[i]==guess[i])
+            A++;
+            else{
+                countS[secret[i]-&amp;apos;0&amp;apos;]++;
+                countG[guess[i]-&amp;apos;0&amp;apos;]++;
+            }
+        }
+        for(int i=0;i&amp;lt;10;i++)
+        {
+            B+=min(countS[i],countG[i]);
+        }
+        string res=&amp;quot;&amp;quot;;
+        res+=num2str(A);
+        res+=&amp;apos;A&amp;apos;;
+        res+=num2str(B);
+        res+=&amp;apos;B&amp;apos;;
+        return res;
+    }
+    string num2str(int n)
+    {
+        if(n==0) return &amp;quot;0&amp;quot;;
+        string res=&amp;quot;&amp;quot;;
+        while(n&amp;gt;0)
+        {
+            res=(char)((n%10)+&amp;apos;0&amp;apos;)+res;
+            n/=10;
+        }
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are playing the following &lt;a href=&quot;https://en.wikipedia.org/wiki/Bulls_and_Cows&quot;&gt;Bulls and Cows&lt;/a&gt; game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called “bulls”) and how many digits match the secret number but locate in the wrong position (called “cows”). Your friend will use successive guesses and hints to eventually derive the secret number.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;p&gt;Secret number:  “1807”&lt;br&gt;Friend’s guess: “7810”&lt;br&gt;Hint: 1 bull and 3 cows. (The bull is 8, the cows are 0, 1 and 7.)&lt;br&gt;Write a function to return a hint according to the secret number and friend’s guess, use A to indicate the bulls and B to indicate the cows. In the above example, your function should return “1A3B”.&lt;/p&gt;
+&lt;p&gt;Please note that both secret number and friend’s guess may contain duplicate digits, for example:&lt;/p&gt;
+&lt;p&gt;Secret number:  “1123”&lt;br&gt;Friend’s guess: “0111”&lt;br&gt;In this case, the 1st 1 in friend’s guess is a bull, the 2nd or 3rd 1 is a cow, and your function should return “1A1B”.&lt;br&gt;You may assume that the secret number and your friend’s guess only contain digits, and their lengths are always equal.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-219-Contains Duplicate II</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-219-Contains-Duplicate-II/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-219-Contains-Duplicate-II/</id>
+    <published>2016-06-19T09:50:00.000Z</published>
+    <updated>2016-06-19T10:19:47.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组和一个数字N，求数组里又没有间隔N以下的相等值。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;维护一个大小为K的滑动窗口，只需要O（n）的时间即可。注意K大于数组容量的情况。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    bool containsNearbyDuplicate(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) {
+        if(nums.empty()||k&amp;lt;1) return false;
+        set&amp;lt;int&amp;gt; s;
+        if(k&amp;gt;nums.size())
+        {
+            for(int i=0;i&amp;lt;nums.size();i++){
+                if(s.find(nums[i])!=s.end())
+                return true;
+                else
+                s.insert(nums[i]);
+
+            }
+              return false;  
+        }
+        else
+        {
+            for(int i=0;i&amp;lt;k;i++)
+            {
+                if(s.find(nums[i])!=s.end())
+                return true;
+                else
+                s.insert(nums[i]);
+            }
+            for(int j=k;j&amp;lt;nums.size();j++)
+            {
+
+                if(s.find(nums[j])!=s.end())
+                return true;
+                else{
+                s.insert(nums[j]);
+                s.erase(nums[j-k]);
+                }
+            }
+            return false;
+        }
+
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
+    
+      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-160-Intersection of Two Linked Lists</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-160-Intersection-of-Two-Linked-Lists/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-160-Intersection-of-Two-Linked-Lists/</id>
+    <published>2016-06-19T09:38:27.000Z</published>
+    <updated>2016-06-19T10:19:48.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a program to find the node at which the intersection of two singly linked lists begins.&lt;/p&gt;
+&lt;p&gt;For example, the following two linked lists:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3
+                   ↗            
+B:     b1 → b2 → b3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;begin to intersect at node c1.&lt;/p&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;p&gt;If the two linked lists have no intersection at all, return null.&lt;br&gt;The linked lists must retain their original structure after the function returns.&lt;br&gt;You may assume there are no cycles anywhere in the entire linked structure.&lt;br&gt;Your code should preferably run in O(n) time and use only O(1) memory.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给两个单向链表，返回他们的交接处，如果没有交接，则返回空指针，只能使用O(1)的额外空间，且不可以修改原链表。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;统计出两个链表的节点数，让长的那个从头去掉相差额的结点，则相遇即相交。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if(!headA||!headB) return NULL;
+        int counta=0;
+        int countb=0;
+        ListNode* a= headA;
+        ListNode* b= headB;
+        while(a)
+        {
+            counta++;
+            a=a-&amp;gt;next;
+        }
+        while(b)
+        {
+            countb++;
+            b=b-&amp;gt;next;
+        }
+        int dif = counta-countb;
+
+            for(int i=abs(dif);i&amp;gt;0;i--)
+            {
+                if(dif &amp;gt; 0)
+                    headA=headA-&amp;gt;next;
+                else headB=headB-&amp;gt;next;
+            }
+        while(headA&amp;amp;&amp;amp;headB&amp;amp;&amp;amp;headA!=headB)
+        {
+            headA=headA-&amp;gt;next;
+            headB=headB-&amp;gt;next;
+        }
+        ListNode * res;
+        headA==headB?res=headA:res=NULL;
+        return res;
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a program to find the node at which the intersection of two singly linked lists begins.&lt;/p&gt;
+&lt;p&gt;For example, the following two linked lists:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;A:          a1 → a2
+                   ↘
+                     c1 → c2 → c3
+                   ↗            
+B:     b1 → b2 → b3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;begin to intersect at node c1.&lt;/p&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;p&gt;If the two linked lists have no intersection at all, return null.&lt;br&gt;The linked lists must retain their original structure after the function returns.&lt;br&gt;You may assume there are no cycles anywhere in the entire linked structure.&lt;br&gt;Your code should preferably run in O(n) time and use only O(1) memory.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
+    
+      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-225-Implement Stack using Queues</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-225-Implement-Stack-using-Queues/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-225-Implement-Stack-using-Queues/</id>
+    <published>2016-06-19T09:03:06.000Z</published>
+    <updated>2016-06-19T09:05:02.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Implement the following operations of a stack using queues.&lt;/p&gt;
+&lt;p&gt;push(x) – Push element x onto stack.&lt;br&gt;pop() – Removes the element on top of the stack.&lt;br&gt;top() – Get the top element.&lt;br&gt;empty() – Return whether the stack is empty.&lt;br&gt;Notes:&lt;br&gt;You must use only standard operations of a queue – which means only push to back, peek/pop from front, size, and is empty operations are valid.&lt;br&gt;Depending on your language, queue may not be supported natively. You may simulate a queue by using a list or deque (double-ended queue), as long as you use only standard operations of a queue.&lt;br&gt;You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;用队列实现栈的操作。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;和&lt;a href=&quot;/2016/06/18/Leetcode-232-Implement-Queue-using-Stacks/&quot;&gt;这道题&lt;/a&gt;类似，注意对应变量关系即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Stack {
+
+public:
+    queue&amp;lt;int&amp;gt; q1;
+    queue&amp;lt;int&amp;gt; q2;
+    int count = 0;
+    // Push element x onto stack.
+    void push(int x) {
+        q1.push(x);
+        count++;
+    }
+
+    // Removes the element on top of the stack.
+    void pop() {
+        while(count&amp;gt;1)
+        {
+            q2.push(q1.front());
+            q1.pop();
+            count--;
+        }
+        q1.pop();
+        count--;
+        while(!q2.empty())
+        {
+            q1.push(q2.front());
+            count++;
+            q2.pop();
+        }
+    }
+
+    // Get the top element.
+    int top() {
+      return q1.back();
+
+    }
+
+    // Return whether the stack is empty.
+    bool empty() {
+        return q1.empty();
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Implement the following operations of a stack using queues.&lt;/p&gt;
+&lt;p&gt;push(x) – Push element x onto stack.&lt;br&gt;pop() – Removes the element on top of the stack.&lt;br&gt;top() – Get the top element.&lt;br&gt;empty() – Return whether the stack is empty.&lt;br&gt;Notes:&lt;br&gt;You must use only standard operations of a queue – which means only push to back, peek/pop from front, size, and is empty operations are valid.&lt;br&gt;Depending on your language, queue may not be supported natively. You may simulate a queue by using a list or deque (double-ended queue), as long as you use only standard operations of a queue.&lt;br&gt;You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Stack" scheme="http://since1992.org/tags/Stack/"/>
+    
+      <category term="Design" scheme="http://since1992.org/tags/Design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-111-Minimum Depth of Binary Tree</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-111-Minimum-Depth-of-Binary-Tree/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-111-Minimum-Depth-of-Binary-Tree/</id>
+    <published>2016-06-19T08:49:34.000Z</published>
+    <updated>2016-06-19T10:19:44.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, find its minimum depth.&lt;/p&gt;
+&lt;p&gt;The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一棵树，找出它从根节点到某一叶子节点的最短路径。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题和&lt;a href=&quot;/2016/05/23/Leetcode-104-Maximum-Depth-of-Binary-Tree/&quot;&gt;找出最长路径&lt;/a&gt;的做法不太一样。不能直接取左右较短者加一，因为有可能某个子树是空的。细心判断即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if(!root) return 0;
+        int minl = minDepth(root-&amp;gt;left);
+        int minr = minDepth(root-&amp;gt;right);
+        int minx = min(minl,minr);
+        minx==0?minx=minl+minr:minx=minx;
+        return minx+1;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, find its minimum depth.&lt;/p&gt;
+&lt;p&gt;The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
+    
+      <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-12-Path Sum</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-112-Path-Sum/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-112-Path-Sum/</id>
+    <published>2016-06-19T08:15:00.000Z</published>
+    <updated>2016-06-19T08:53:00.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.&lt;/p&gt;
+&lt;p&gt;For example:&lt;br&gt;Given the below binary tree and sum = 22,&lt;br&gt;              5&lt;br&gt;             / \&lt;br&gt;            4   8&lt;br&gt;           /   / \&lt;br&gt;          11  13  4&lt;br&gt;         /  \      \&lt;br&gt;        7    2      1&lt;br&gt;return true, as there exist a root-to-leaf path 5-&amp;gt;4-&amp;gt;11-&amp;gt;2 which sum is 22.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一棵二叉树，判断是否有从根到叶子节点的路径和等于给定值。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;一个简单的递归调用函数即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int sum) {
+        if(!root) return false;
+        sum-=root-&amp;gt;val;
+        return hasPathSum(root-&amp;gt;left,sum)||hasPathSum(root-&amp;gt;right,sum)||(!root-&amp;gt;left&amp;amp;&amp;amp;!root-&amp;gt;right&amp;amp;&amp;amp;sum==0);
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.&lt;/p&gt;
+&lt;p&gt;For example:&lt;br&gt;Given the below binary tree and sum = 22,&lt;br&gt;              5&lt;br&gt;             / \&lt;br&gt;            4   8&lt;br&gt;           /   / \&lt;br&gt;          11  13  4&lt;br&gt;         /  \      \&lt;br&gt;        7    2      1&lt;br&gt;return true, as there exist a root-to-leaf path 5-&amp;gt;4-&amp;gt;11-&amp;gt;2 which sum is 22.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
+    
+      <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-9-Palindrome Number</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-9-Palindrome-Number/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-9-Palindrome-Number/</id>
+    <published>2016-06-19T07:46:50.000Z</published>
+    <updated>2016-06-19T07:48:43.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Determine whether an integer is a palindrome. Do this without extra space.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;判断一个整数是否是对称数。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;首先负数肯定不是对称的。然后可以把数字转化成字符串，存成两个正\反序的字符串，如果这两个字符串相等，则是对称的。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;p&gt;class Solution {&lt;br&gt;    public:&lt;br&gt;        bool isPalindrome(int x) {&lt;br&gt;            if(x&lt;0) return=&quot;&quot; false;=&quot;&quot; string=&quot;&quot; a=&quot;&quot; ,b=&quot;&quot; ;=&quot;&quot; while(x=&quot;&quot;&gt;0)&lt;br&gt;            {&lt;br&gt;                a+=(char)(x%10+’0’);&lt;br&gt;                b=(char)(x%10+’0’)+b;&lt;br&gt;                x/=10;&lt;br&gt;            }&lt;br&gt;            return a==b;&lt;br&gt;        }&lt;br&gt;    };&lt;/0)&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Determine whether an integer is a palindrome. Do this without extra space.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode-119-Pascal&#39;s Triangle II</title>
@@ -178,9 +683,9 @@ public:
     
       <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
-    
       <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
     
       <category term="BFS" scheme="http://since1992.org/tags/BFS/"/>
     
@@ -541,9 +1046,9 @@ public:
     
       <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
-    
       <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
     
       <category term="BFS" scheme="http://since1992.org/tags/BFS/"/>
     
@@ -611,9 +1116,9 @@ public:
     
       <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
-    
       <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
     
       <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
     
@@ -722,454 +1227,11 @@ public:
     
       <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
-    
       <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-24-Swap Nodes in Pairs</title>
-    <link href="http://since1992.org/2016/06/12/Leetcode-24-Swap-Nodes-in-Pairs/"/>
-    <id>http://since1992.org/2016/06/12/Leetcode-24-Swap-Nodes-in-Pairs/</id>
-    <published>2016-06-12T02:57:01.000Z</published>
-    <updated>2016-06-12T02:58:29.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, swap every two adjacent nodes and return its head.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.&lt;/p&gt;
-&lt;p&gt;Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;交换每一对链表的顺序。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用一个递归的办法可以简单的完成这个问题，注意边界。 当然用非递归的办法也可以，不过写法并不够简洁，本文仅提供递归的解法。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode* swapPairs(ListNode* head) {
-        if(!head||!head-&amp;gt;next) return head;
-        ListNode * nextp = head-&amp;gt;next-&amp;gt;next;
-        ListNode * tem = head-&amp;gt;next;
-        head-&amp;gt;next = swapPairs(nextp);
-        tem-&amp;gt;next = head;
-        return tem;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, swap every two adjacent nodes and return its head.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4, you should return the list as 2-&amp;gt;1-&amp;gt;4-&amp;gt;3.&lt;/p&gt;
-&lt;p&gt;Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-198-House Robber</title>
-    <link href="http://since1992.org/2016/06/11/Leetcode-198-House-Robber/"/>
-    <id>http://since1992.org/2016/06/11/Leetcode-198-House-Robber/</id>
-    <published>2016-06-11T03:40:46.000Z</published>
-    <updated>2016-06-11T03:43:42.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.&lt;/p&gt;
-&lt;p&gt;Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;一排房子每个房子有一个价值，一个小偷进行偷窃，不可以连续偷挨着的两家，求小偷的最大收益。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;简单的一维动态规划问题。每个房子要么不偷，要么偷，如果不偷收益和前一个房子一样，如果偷则为前两个房子的最大收益加上这个房子的价值，两种情况下最大的收益即为到这个房子为止的最大收益。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    int rob(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-        if(nums.empty()) return 0;
-        vector&amp;lt;int&amp;gt; dp(nums.size(),0);
-        dp[0]=nums[0];
-        dp[1]=nums[0]&amp;gt;nums[1]?nums[0]:nums[1];
-        for(int i=2;i&amp;lt;nums.size();i++)
-        {
-            dp[i]=max(dp[i-1],dp[i-2]+nums[i]);
-        }
-        return dp.back();
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.&lt;/p&gt;
-&lt;p&gt;Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-345-Reverse Vowels of a String</title>
-    <link href="http://since1992.org/2016/06/11/Leetcode-345-Reverse-Vowels-of-a-String/"/>
-    <id>http://since1992.org/2016/06/11/Leetcode-345-Reverse-Vowels-of-a-String/</id>
-    <published>2016-06-11T03:31:12.000Z</published>
-    <updated>2016-06-11T03:35:52.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes a string as input and reverse only the vowels of a string.&lt;/p&gt;
-&lt;p&gt;Example 1:&lt;br&gt;Given s = “hello”, return “holle”.&lt;/p&gt;
-&lt;p&gt;Example 2:&lt;br&gt;Given s = “leetcode”, return “leotcede”.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;反转一个字符串中所有元音字母的位置。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;记录下来元音字母的顺序以及位置，在位置中倒序插入字母即可。当然也可以使用双指针，从头尾开始扫描，一旦扫描到两个元音字母，则交换他们，这种算法可以使得额外空间代价降低到O(1)。本文只提供第一种解法。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    string reverseVowels(string s) {
-        vector&amp;lt;char&amp;gt; c;
-        vector&amp;lt;int&amp;gt; p;
-        for(int i=0;i&amp;lt;s.length();i++)
-        {
-            if(isV(s[i]))
-            {
-                c.push_back(s[i]);
-                p.push_back(i);
-            }
-        }
-        for(int i=0;i&amp;lt;p.size();i++)
-        {
-            s[p[i]]=c[c.size()-1-i];
-        }
-        return s;
-
-    }
-    bool isV(char x)
-    {
-        return x==&amp;apos;a&amp;apos;||x==&amp;apos;e&amp;apos;||x==&amp;apos;i&amp;apos;||x==&amp;apos;o&amp;apos;||x==&amp;apos;u&amp;apos;||x==&amp;apos;A&amp;apos;||x==&amp;apos;E&amp;apos;||x==&amp;apos;I&amp;apos;||x==&amp;apos;O&amp;apos;||x==&amp;apos;U&amp;apos;;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a function that takes a string as input and reverse only the vowels of a string.&lt;/p&gt;
-&lt;p&gt;Example 1:&lt;br&gt;Given s = “hello”, return “holle”.&lt;/p&gt;
-&lt;p&gt;Example 2:&lt;br&gt;Given s = “leetcode”, return “leotcede”.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="String" scheme="http://since1992.org/tags/String/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-21-Merge Two Sorted Lists</title>
-    <link href="http://since1992.org/2016/06/11/Leetcode-21-Merge-Two-Sorted-Lists/"/>
-    <id>http://since1992.org/2016/06/11/Leetcode-21-Merge-Two-Sorted-Lists/</id>
-    <published>2016-06-11T03:21:44.000Z</published>
-    <updated>2016-06-11T03:23:06.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;合并两个已排好序的单向链表&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;非常简单的链表基本操作，实现即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        if(!l1) return l2;
-        if(!l2) return l1;
-        ListNode* l3;
-        if(l1-&amp;gt;val&amp;lt;l2-&amp;gt;val)
-        {
-            l3=l1;
-            l3-&amp;gt;next=mergeTwoLists(l1-&amp;gt;next,l2);
-        }else{
-            l3=l2;
-            l3-&amp;gt;next=mergeTwoLists(l1,l2-&amp;gt;next);
-        }
-        return l3;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-121-Best Time to Buy and Sell Stock</title>
-    <link href="http://since1992.org/2016/06/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/"/>
-    <id>http://since1992.org/2016/06/10/Leetcode-121-Best-Time-to-Buy-and-Sell-Stock/</id>
-    <published>2016-06-10T15:17:29.000Z</published>
-    <updated>2016-06-10T15:18:54.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
-&lt;p&gt;If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;有一个数组表示一段时间内某只股票每天的价格，如果你只能买卖一次，求你能获得的最大利润&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;依次找到最小值，然后再记录最大差值，返回最大差值即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    int maxProfit(vector&amp;lt;int&amp;gt;&amp;amp; prices) {
-        if(prices.size()&amp;lt;2) return 0;
-        vector&amp;lt;int&amp;gt;dp(prices.size(),0);
-        int max=INT_MIN;
-        int min=prices[0];
-        for(int i=1;i&amp;lt;prices.size();i++)
-        {
-            if(prices[i]&amp;lt;min) min=prices[i];
-            dp[i]=prices[i]-min;
-            if(dp[i]&amp;gt;max)
-            max=dp[i];
-
-        }
-        return max;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
-&lt;p&gt;If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-153-Find Minimum in Rotated Sorted Array</title>
-    <link href="http://since1992.org/2016/06/10/Leetcode-153-Find-Minimum-in-Rotated-Sorted-Array/"/>
-    <id>http://since1992.org/2016/06/10/Leetcode-153-Find-Minimum-in-Rotated-Sorted-Array/</id>
-    <published>2016-06-10T14:53:48.000Z</published>
-    <updated>2016-06-10T14:56:57.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Suppose a sorted array is rotated at some pivot unknown to you beforehand.&lt;/p&gt;
-&lt;p&gt;(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).&lt;/p&gt;
-&lt;p&gt;Find the minimum element.&lt;/p&gt;
-&lt;p&gt;You may assume no duplicate exists in the array.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;某个排好序的数组从某一点开始到数组结尾，被全体移动到数组的最开始位置。求这个数组的最小值。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;求数组的最小值，一般情况下需要遍历一次数组，即用O(n)的时间，不过这道题给定的是预先排好序的数组，而且是被移动的是整个子序列，所以我们可以使用二分查找的办法，把时间复杂度缩短到O(logn)。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    int findMin(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-        if(nums.size()==1) return nums[0];
-        int begin=0,end=nums.size()-1,mid=begin+(end-begin)/2;
-        while(begin&amp;lt;end)
-        {
-            if(nums[mid]&amp;gt;nums[mid+1]) return nums[mid+1];
-            else if(nums[mid]&amp;lt;nums[end])
-            {
-                end=mid;
-                mid=begin+(end-begin)/2;
-            }
-            else if(nums[mid]&amp;gt;nums[end])
-            {
-                begin=mid;
-                mid=begin+(end-begin)/2;
-            }
-
-        }
-        return nums[end];
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Suppose a sorted array is rotated at some pivot unknown to you beforehand.&lt;/p&gt;
-&lt;p&gt;(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).&lt;/p&gt;
-&lt;p&gt;Find the minimum element.&lt;/p&gt;
-&lt;p&gt;You may assume no duplicate exists in the array.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
-    
-      <category term="Binary Search" scheme="http://since1992.org/tags/Binary-Search/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-116-Populating Next Right Pointers in Each Node</title>
-    <link href="http://since1992.org/2016/06/10/Leetcode-116-Populating-Next-Right-Pointers-in-Each-Node/"/>
-    <id>http://since1992.org/2016/06/10/Leetcode-116-Populating-Next-Right-Pointers-in-Each-Node/</id>
-    <published>2016-06-10T14:41:03.000Z</published>
-    <updated>2016-06-10T14:45:47.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;struct TreeLinkNode {
-  TreeLinkNode *left;
-  TreeLinkNode *right;
-  TreeLinkNode *next;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.&lt;/p&gt;
-&lt;p&gt;Initially, all next pointers are set to NULL.&lt;/p&gt;
-&lt;p&gt;Note:&lt;/p&gt;
-&lt;p&gt;You may only use constant extra space.&lt;br&gt;You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).&lt;br&gt;For example,&lt;br&gt;Given the following perfect binary tree,&lt;br&gt;             1&lt;br&gt;           /  \&lt;br&gt;          2    3&lt;br&gt;         / \  / \&lt;br&gt;        4  5  6  7&lt;br&gt;After calling your function, the tree should look like:&lt;br&gt;             1 -&amp;gt; NULL&lt;br&gt;           /  \&lt;br&gt;          2 -&amp;gt; 3 -&amp;gt; NULL&lt;br&gt;         / \  / \&lt;br&gt;        4-&amp;gt;5-&amp;gt;6-&amp;gt;7 -&amp;gt; NULL&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给一棵树添加右指针，每一行的末尾指向NULL。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;一个简单的DFS的问题，利用一个队列，完成层次遍历即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for binary tree with next pointer.
- * struct TreeLinkNode {
- *  int val;
- *  TreeLinkNode *left, *right, *next;
- *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    void connect(TreeLinkNode *root) {
-        if(!root) return;
-        queue&amp;lt;TreeLinkNode*&amp;gt; q;
-        q.push(root);
-        q.push(NULL);
-        while(!q.empty())
-        {
-            TreeLinkNode *tem = q.front();
-            q.pop();
-
-            if(tem)
-            {
-                tem-&amp;gt;next=q.front();
-                if(tem-&amp;gt;left)
-                    q.push(tem-&amp;gt;left);
-                if(tem-&amp;gt;right)
-                    q.push(tem-&amp;gt;right);
-
-            }
-            else
-            {
-                if(!q.empty())
-                {
-                    q.push(NULL);
-                    continue;
-                }
-                else break;
-            }
-        }
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;struct TreeLinkNode {
-  TreeLinkNode *left;
-  TreeLinkNode *right;
-  TreeLinkNode *next;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.&lt;/p&gt;
-&lt;p&gt;Initially, all next pointers are set to NULL.&lt;/p&gt;
-&lt;p&gt;Note:&lt;/p&gt;
-&lt;p&gt;You may only use constant extra space.&lt;br&gt;You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).&lt;br&gt;For example,&lt;br&gt;Given the following perfect binary tree,&lt;br&gt;             1&lt;br&gt;           /  \&lt;br&gt;          2    3&lt;br&gt;         / \  / \&lt;br&gt;        4  5  6  7&lt;br&gt;After calling your function, the tree should look like:&lt;br&gt;             1 -&amp;gt; NULL&lt;br&gt;           /  \&lt;br&gt;          2 -&amp;gt; 3 -&amp;gt; NULL&lt;br&gt;         / \  / \&lt;br&gt;        4-&amp;gt;5-&amp;gt;6-&amp;gt;7 -&amp;gt; NULL&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
       <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
     
       <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
-    
-      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-62-Unique Paths</title>
-    <link href="http://since1992.org/2016/06/10/Leetcode-62-Unique-Paths/"/>
-    <id>http://since1992.org/2016/06/10/Leetcode-62-Unique-Paths/</id>
-    <published>2016-06-10T14:21:16.000Z</published>
-    <updated>2016-06-10T14:45:44.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).&lt;/p&gt;
-&lt;p&gt;The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).&lt;/p&gt;
-&lt;p&gt;How many possible unique paths are there?&lt;br&gt;&lt;a href=&quot;http://leetcode.com/wp-content/uploads/2014/12/robot_maze.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;如图所示，机器人从最左上角走到最右下角，它只能往右或者往下走，求它有多少种不重复的走法。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;一个简单的二维动态规划问题。对于第一行和第一列来说，走到该格子只能沿着直线走，所以走到这些格子的方法数为1.而其他的格子，因为只能往右和往下走，那么第（i,j）格可以由（i,j-1）往下走一步或者(i-1,j)往右走一步达到，所以该格子的方法数应该是这辆格数字的和。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;p&gt;class Solution {&lt;br&gt;    public:&lt;br&gt;        int uniquePaths(int m, int n) {&lt;br&gt;            vector&lt;int&gt; a(m,1);&lt;br&gt;            vector&lt;vector&lt;int&gt;&amp;gt; map;&lt;br&gt;            for(int i=0;i&amp;lt;n;i++)&lt;br&gt;            map.push_back(a);&lt;br&gt;            for(int i=1;i&amp;lt;n;i++)&lt;br&gt;                for(int j=1;j&amp;lt;m;j++)&lt;br&gt;                    map[i][j]=map[i-1][j]+map[i][j-1];&lt;br&gt;            return map[n-1][m-1];&lt;br&gt;        }&lt;br&gt;    };&lt;/vector&lt;int&gt;&lt;/int&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).&lt;/p&gt;
-&lt;p&gt;The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).&lt;/p&gt;
-&lt;p&gt;How many possible unique paths are there?&lt;br&gt;&lt;a href=&quot;http://leetcode.com/wp-content/uploads/2014/12/robot_maze.png&quot;&gt;&lt;/a&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
-    
-      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
     
   </entry>
   
