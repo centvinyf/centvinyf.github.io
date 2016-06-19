@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://since1992.org/"/>
-  <updated>2016-06-18T14:16:47.000Z</updated>
+  <updated>2016-06-19T04:10:57.000Z</updated>
   <id>http://since1992.org/</id>
   
   <author>
@@ -14,6 +14,228 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-119-Pascal&#39;s Triangle II</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-119-Pascal-s-Triangle-II/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-119-Pascal-s-Triangle-II/</id>
+    <published>2016-06-19T04:09:19.000Z</published>
+    <updated>2016-06-19T04:10:57.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an index k, return the kth row of the Pascal’s triangle.&lt;/p&gt;
+&lt;p&gt;For example, given k = 3,&lt;br&gt;Return [1,3,3,1].&lt;br&gt;Note:&lt;br&gt;Could you optimize your algorithm to use only O(k) extra space?&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数字N，返回帕斯卡三角的第N行结果。只能使用 O(k)的额外空间。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用循环累加的办法生成对应行即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    vector&amp;lt;int&amp;gt; getRow(int rowIndex) {
+        vector&amp;lt;int&amp;gt; row(1,1);
+        if(rowIndex&amp;lt;1) return row;
+        for(int i=1;i&amp;lt;=rowIndex;i++)
+        {
+            int prev1=row[0];
+            int prev2;
+            for(int j=1;j&amp;lt;i;j++)
+                {
+                    prev2=row[j];
+                    row[j]+=prev1;
+                    prev1=prev2;
+                }
+            row.push_back(1);
+        }
+        return row;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an index k, return the kth row of the Pascal’s triangle.&lt;/p&gt;
+&lt;p&gt;For example, given k = 3,&lt;br&gt;Return [1,3,3,1].&lt;br&gt;Note:&lt;br&gt;Could you optimize your algorithm to use only O(k) extra space?&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-172-Factorial Trailing Zeroes</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-172-Factorial-Trailing-Zeroes/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-172-Factorial-Trailing-Zeroes/</id>
+    <published>2016-06-19T03:35:30.000Z</published>
+    <updated>2016-06-19T03:37:14.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an integer n, return the number of trailing zeroes in n!.&lt;/p&gt;
+&lt;p&gt;Note: Your solution should be in logarithmic time complexity.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给一个整数N，返回n的阶乘的结果中末尾0的个数。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;其实很简单，就是考的1-n中有几个5的因子，注意到5的次幂有不止1个因子5即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    int trailingZeroes(int n) {
+        int count=0;
+        while(n&amp;gt;1)
+        {
+            count+=n/5;
+            n/=5;
+        }
+       return count; 
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an integer n, return the number of trailing zeroes in n!.&lt;/p&gt;
+&lt;p&gt;Note: Your solution should be in logarithmic time complexity.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-102-Binary Tree Level Order Traversal</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-102-Binary-Tree-Level-Order-Traversal/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-102-Binary-Tree-Level-Order-Traversal/</id>
+    <published>2016-06-19T03:30:09.000Z</published>
+    <updated>2016-06-19T03:32:09.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).&lt;/p&gt;
+&lt;p&gt;For example:&lt;br&gt;Given binary tree [3,9,20,null,null,15,7],&lt;br&gt;        3&lt;br&gt;       / \&lt;br&gt;      9  20&lt;br&gt;        /  \&lt;br&gt;       15   7&lt;br&gt;return its level order traversal as:&lt;br&gt;    [&lt;br&gt;      [3],&lt;br&gt;      [9,20],&lt;br&gt;      [15,7]&lt;br&gt;    ]&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一棵二叉树，返回层次遍历的结果。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;本题和&lt;a href=&quot;/2016/06/18/Leetcode-107-Binary-Tree-Level-Order-Traversal-II/&quot;&gt;这道题&lt;/a&gt;一样，没什么好说的，很简单利用一个队列完成BFS操作。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; levelOrder(TreeNode* root) {
+        vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res;
+        vector&amp;lt;int&amp;gt; tem;
+        if(!root) return res;
+        queue&amp;lt;TreeNode*&amp;gt; q;
+        q.push(root);
+        q.push(NULL);
+        while(!q.empty())
+        {
+            TreeNode* t=q.front();
+            q.pop();
+            if(t)
+            {
+                tem.push_back(t-&amp;gt;val);
+                if(t-&amp;gt;left)
+                    q.push(t-&amp;gt;left);
+                if(t-&amp;gt;right)
+                    q.push(t-&amp;gt;right);
+            }else{
+                if(!q.empty())
+                {
+                    res.push_back(tem);
+                    tem.clear();
+                    q.push(NULL);
+                }else{
+                    res.push_back(tem);
+                }
+            }
+        }
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).&lt;/p&gt;
+&lt;p&gt;For example:&lt;br&gt;Given binary tree [3,9,20,null,null,15,7],&lt;br&gt;        3&lt;br&gt;       / \&lt;br&gt;      9  20&lt;br&gt;        /  \&lt;br&gt;       15   7&lt;br&gt;return its level order traversal as:&lt;br&gt;    [&lt;br&gt;      [3],&lt;br&gt;      [9,20],&lt;br&gt;      [15,7]&lt;br&gt;    ]&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="BFS" scheme="http://since1992.org/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-26-Remove Duplicates from Sorted Array</title>
+    <link href="http://since1992.org/2016/06/19/Leetcode-26-Remove-Duplicates-from-Sorted-Array/"/>
+    <id>http://since1992.org/2016/06/19/Leetcode-26-Remove-Duplicates-from-Sorted-Array/</id>
+    <published>2016-06-19T02:58:32.000Z</published>
+    <updated>2016-06-19T03:01:02.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.&lt;/p&gt;
+&lt;p&gt;Do not allocate extra space for another array, you must do this in place with constant memory.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;Given input array nums = [1,1,2],&lt;/p&gt;
+&lt;p&gt;Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个已排序的数组，去除重复元素， 然后返回新的长度，只能使用O(1)的额外空间。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;很简单的一次遍历即可。当某个数比它前一个数大的时候说明它是新的一个未重复元素。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    int removeDuplicates(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+        int count=0;
+        if(nums.empty()) return count;
+        count++;
+        for(int i=1;i&amp;lt;nums.size();i++)
+        {
+          if(nums[i]&amp;gt;nums[i-1])
+            nums[count++]=nums[i];
+        }
+        return count;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.&lt;/p&gt;
+&lt;p&gt;Do not allocate extra space for another array, you must do this in place with constant memory.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;Given input array nums = [1,1,2],&lt;/p&gt;
+&lt;p&gt;Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
+    
+      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode-118-Pascal&#39;s Triangle</title>
@@ -319,9 +541,9 @@ public:
     
       <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
       <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
       <category term="BFS" scheme="http://since1992.org/tags/BFS/"/>
     
@@ -332,7 +554,7 @@ public:
     <link href="http://since1992.org/2016/06/16/Leetcode-101-Symmetric-Tree/"/>
     <id>http://since1992.org/2016/06/16/Leetcode-101-Symmetric-Tree/</id>
     <published>2016-06-16T04:16:10.000Z</published>
-    <updated>2016-06-18T10:28:08.000Z</updated>
+    <updated>2016-06-18T14:20:31.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).&lt;/p&gt;
 &lt;p&gt;For example, this binary tree [1,2,2,3,4,4,3] is symmetric:&lt;/p&gt;
@@ -389,9 +611,9 @@ public:
     
       <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
       <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
       <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
     
@@ -500,9 +722,9 @@ public:
     
       <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
     
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
       <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
       <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
     
@@ -948,247 +1170,6 @@ public:
       <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
     
       <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-89-Gray Code</title>
-    <link href="http://since1992.org/2016/06/10/Leetcode-89-Gray-Code/"/>
-    <id>http://since1992.org/2016/06/10/Leetcode-89-Gray-Code/</id>
-    <published>2016-06-10T01:32:25.000Z</published>
-    <updated>2016-06-10T14:45:45.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;The gray code is a binary numeral system where two successive values differ in only one bit.&lt;/p&gt;
-&lt;p&gt;Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.&lt;/p&gt;
-&lt;p&gt;For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;00 - 0
-01 - 1
-11 - 3
-10 - 2
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note:&lt;br&gt;For a given n, a gray code sequence is not uniquely defined.&lt;/p&gt;
-&lt;p&gt;For example, [0,2,3,1] is also a valid gray code sequence according to the above definition.&lt;/p&gt;
-&lt;p&gt;For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;灰码是指邻近的数字只有一位相差，输入一个数字，求出该数字位数相符的灰码序列。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;首先，对于什么是灰码，请参见&lt;a href=&quot;https://en.wikipedia.org/wiki/Gray_code&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;维基百科&lt;/a&gt;。我觉得和&lt;a href=&quot;/2016/05/23/Leetcode-338-Counting-Bits/&quot;&gt;这道题&lt;/a&gt;比较相似。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        vector&amp;lt;int&amp;gt; grayCode(int n) {
-            vector&amp;lt;int&amp;gt; res;
-            res.push_back(0);
-            for(int i=0;i&amp;lt;n;i++)
-                {
-                    int high=1&amp;lt;&amp;lt;i;
-                    int size=res.size();
-                    for(int j=size-1;j&amp;gt;=0;j--)
-                        res.push_back(high+res[j]);
-                }
-            return res;
-
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;The gray code is a binary numeral system where two successive values differ in only one bit.&lt;/p&gt;
-&lt;p&gt;Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.&lt;/p&gt;
-&lt;p&gt;For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;00 - 0
-01 - 1
-11 - 3
-10 - 2
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note:&lt;br&gt;For a given n, a gray code sequence is not uniquely defined.&lt;/p&gt;
-&lt;p&gt;For example, [0,2,3,1] is also a valid gray code sequence according to the above definition.&lt;/p&gt;
-&lt;p&gt;For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
-    
-      <category term="Backtracking" scheme="http://since1992.org/tags/Backtracking/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-53-Maximum Subarray</title>
-    <link href="http://since1992.org/2016/06/09/Leetcode-53-Maximum-Subarray/"/>
-    <id>http://since1992.org/2016/06/09/Leetcode-53-Maximum-Subarray/</id>
-    <published>2016-06-09T09:26:20.000Z</published>
-    <updated>2016-06-10T14:45:50.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Find the contiguous subarray within an array (containing at least one number) which has the largest sum.&lt;/p&gt;
-&lt;p&gt;For example, given the array [−2,1,−3,4,−1,2,1,−5,4],&lt;br&gt;the contiguous subarray [4,−1,2,1] has the largest sum = 6.&lt;/p&gt;
-&lt;p&gt;click to show more practice.&lt;/p&gt;
-&lt;p&gt;More practice:&lt;br&gt;If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;对于给定的一个数组，找出其子序列中和最大的一个。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;本题如果做动态规划，则复杂度为O(n)，对于当前和来讲，如果加上某个元素时和为负数，则舍弃。另用一个变量来储存历史中最大的和。注意考虑到最大和有可能是负数，初始化时应该把max初始化为INT_MIN.&lt;/p&gt;
-&lt;p&gt;Follow up: 如果想用分治法来解这道题，那么可以这样做：最大的和要么存在于前半个数组中，要么存在于后半个数组中，要么存在于中间往两边延伸。求出这三种情况的最大值中最大那个，即为我们所求。代码请读者自己完成。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int maxSubArray(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
-            vector&amp;lt;int&amp;gt; dp(nums.size(),0);
-            int sum=0;
-            int max=INT_MIN;
-            for(int i=0;i&amp;lt;nums.size();i++)
-                {
-                       sum+=nums[i];
-                       if(sum&amp;gt;max)
-                           max=sum;
-                       if(sum&amp;lt;0)
-                           sum=0;
-                }
-            return max;
-
-    }
-
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Find the contiguous subarray within an array (containing at least one number) which has the largest sum.&lt;/p&gt;
-&lt;p&gt;For example, given the array [−2,1,−3,4,−1,2,1,−5,4],&lt;br&gt;the contiguous subarray [4,−1,2,1] has the largest sum = 6.&lt;/p&gt;
-&lt;p&gt;click to show more practice.&lt;/p&gt;
-&lt;p&gt;More practice:&lt;br&gt;If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
-    
-      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
-    
-      <category term="Divide and Conqure" scheme="http://since1992.org/tags/Divide-and-Conqure/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-309-Best Time to Buy and Sell Stock With Cooldown</title>
-    <link href="http://since1992.org/2016/06/09/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-With-Cooldown/"/>
-    <id>http://since1992.org/2016/06/09/Leetcode-309-Best-Time-to-Buy-and-Sell-Stock-With-Cooldown/</id>
-    <published>2016-06-09T08:55:17.000Z</published>
-    <updated>2016-06-10T14:45:50.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
-&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:&lt;/p&gt;
-&lt;p&gt;You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;br&gt;After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)&lt;br&gt;Example:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;prices = [1, 2, 3, 0, 2]
-maxProfit = 3
-transactions = [buy, sell, cooldown, buy, sell]
-&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;有一个数组表示第I天某只股票的价格。设计一个算法求出买卖这只股票的最大收益，买入之前必须先卖出，卖出后第二天不能进行买入操作。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;一个典型的动态规划问题。我们可以如下分析动态规划问题：&lt;br&gt;状态：买入，卖出，所以我们需要2个数组buy[n],sell[n]分别记录第N天如果买入/卖出，已经获得的最大收益。&lt;br&gt;状态转移方程：对于买入来说，如果今天没有买入，则获益和昨天一样（因为没有发生交易），如果今天买入了，则I-2天之前必须要卖出，则获益为sell[i-2]-price[i]，两种情况下最大值即为当天的buy[i]值（buy[i]=max(buy[i-1],sell[i-2]-prices[i]).&lt;br&gt;对于卖出来说，如果今天没有卖出，则收益和昨天一样（因为没有发生交易），以及如果昨天买入了，今天卖出，则总收益为sell[i-1]+prices[i]，两种情况下最大值即为当天的sell[i]值。而股票收益仅当你不持有股票时才能体现出来，所以我们要的值即为sell数组的最后一个值。&lt;br&gt;初始状态：对于两个数组来说，Buy[0]即第一天买入，收益当然为-prices[0],而buy[1]则表示按照低价买入，所以应当为前两天价格低者的相反数。对于Sell[0]而言，第一天因为之前没有持有股票，所以sell[0]=0，而sell[1]则表示第2天卖出股票的最大收益，那么如果第二天的股价低于第一天，则为0，若高于第一天，则为差价。&lt;br&gt;Follow up:&lt;br&gt;当然了，我们不难发现，状态方程里每天的收益仅仅和前两天的买入/卖出收益相关，所以我们可以improve我们的空间复杂度从O（n）到O(1)。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        int maxProfit(vector&amp;lt;int&amp;gt;&amp;amp; prices) {
-            if(prices.size()&amp;lt;2) return 0;
-            vector&amp;lt;int&amp;gt; buy(prices.size(),0);
-            vector&amp;lt;int&amp;gt; sell(prices.size(),0);
-            buy[0]=-prices[0];
-            buy[1]=max(-prices[0],-prices[1]);
-            sell[0]=0;
-            sell[1]=max(0,prices[1]-prices[0]);
-            for(int i=2;i&amp;lt;prices.size();i++)
-                {
-                    buy[i]=max(buy[i-1],sell[i-2]-prices[i]);
-                    sell[i]=max(sell[i-1],buy[i-1]+prices[i]);
-                }
-            return sell.back();
-        }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Say you have an array for which the ith element is the price of a given stock on day i.&lt;/p&gt;
-&lt;p&gt;Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:&lt;/p&gt;
-&lt;p&gt;You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).&lt;br&gt;After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)&lt;br&gt;Example:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;prices = [1, 2, 3, 0, 2]
-maxProfit = 3
-transactions = [buy, sell, cooldown, buy, sell]
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Medium" scheme="http://since1992.org/tags/Medium/"/>
-    
-      <category term="Mark" scheme="http://since1992.org/tags/Mark/"/>
-    
-      <category term="Dynamic Programming" scheme="http://since1992.org/tags/Dynamic-Programming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-350-Intersection of Two Arrays II</title>
-    <link href="http://since1992.org/2016/06/07/Leetcode-350-Intersection-of-Two-Arrays-II/"/>
-    <id>http://since1992.org/2016/06/07/Leetcode-350-Intersection-of-Two-Arrays-II/</id>
-    <published>2016-06-07T15:39:24.000Z</published>
-    <updated>2016-06-07T15:48:27.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two arrays, write a function to compute their intersection.&lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;Each element in the result should appear as many times as it shows in both arrays.&lt;br&gt;The result can be in any order.&lt;br&gt;Follow up:&lt;br&gt;What if the given array is already sorted? How would you optimize your algorithm?&lt;br&gt;What if nums1’s size is small compared to nums2’s size? Which algorithm is better?&lt;br&gt;What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定两个数组，写一个函数来返回两个数组的交集，如果有重复的也需要返回。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;本题和&lt;a href=&quot;/2016/05/23/Leetcode-349-Intersection-of-Two-Arrays/&quot;&gt;这道题&lt;/a&gt;略有不同。本题需要返回交集中的重复数字。其实类似于这类集合的交、并集问题，&lt;a href=&quot;https://www.quora.com/Programming-Interview-Questions-How-do-you-find-out-intersection-between-two-arrays-when-they-are-sorted-when-they-are-not-sorted&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;讲的非常详细，推荐读一读。一个简单的算法，先对数组进行排序，然后使用双指针，当遍历完短数组后结束。这样复杂度为O(nlogn+mlogm)。如果是已排好序的数组，或者某一个数组已排好序，可以对未排序数组的每个元素在已排序数组里进行二分查找，复杂度为O(m*logn).本文提供排序后双指针的解法。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-    public:
-        vector&amp;lt;int&amp;gt; intersect(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) {
-            vector&amp;lt;int&amp;gt; res;
-            if(nums1.empty()||nums2.empty()) return res;
-            sort(nums1.begin(),nums1.end());
-            sort(nums2.begin(),nums2.end());
-            int i=0,j=0;
-               while(i&amp;lt;nums1.size()&amp;amp;&amp;amp;j&amp;lt;nums2.size())
-                   {
-                       if(nums1[i]==nums2[j]){
-                         res.push_back(nums1[i]);
-                         i++;
-                         j++;
-                   }
-                       else if(nums1[i]&amp;gt;nums2[j]) j++;
-                       else i++;
-           }
-               return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two arrays, write a function to compute their intersection.&lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;Each element in the result should appear as many times as it shows in both arrays.&lt;br&gt;The result can be in any order.&lt;br&gt;Follow up:&lt;br&gt;What if the given array is already sorted? How would you optimize your algorithm?&lt;br&gt;What if nums1’s size is small compared to nums2’s size? Which algorithm is better?&lt;br&gt;What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
-    
-      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
-    
-      <category term="Binary Search" scheme="http://since1992.org/tags/Binary-Search/"/>
-    
-      <category term="Sort" scheme="http://since1992.org/tags/Sort/"/>
     
   </entry>
   
