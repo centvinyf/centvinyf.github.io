@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://since1992.org/"/>
-  <updated>2016-06-19T10:19:42.000Z</updated>
+  <updated>2016-06-24T03:14:18.000Z</updated>
   <id>http://since1992.org/</id>
   
   <author>
@@ -14,6 +14,172 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-19-Remove Nth Node From End of List</title>
+    <link href="http://since1992.org/2016/06/24/Leetcode-19-Remove-Nth-Node-From-End-of-List/"/>
+    <id>http://since1992.org/2016/06/24/Leetcode-19-Remove-Nth-Node-From-End-of-List/</id>
+    <published>2016-06-24T03:11:57.000Z</published>
+    <updated>2016-06-24T03:14:18.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, remove the nth node from the end of list and return its head.&lt;/p&gt;
+&lt;p&gt;For example,&lt;/p&gt;
+&lt;p&gt;   Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.&lt;/p&gt;
+&lt;p&gt;   After removing the second node from the end, the linked list becomes 1-&amp;gt;2-&amp;gt;3-&amp;gt;5.&lt;br&gt;Note:&lt;br&gt;Given n will always be valid.&lt;br&gt;Try to do this in one pass.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;移除倒数第N个结点。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用双指针，让快指针先走，主要要删除的结点为首尾的情况。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;p&gt;/**&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Definition for singly-linked list.&lt;/li&gt;
+&lt;li&gt;struct ListNode {&lt;/li&gt;
+&lt;li&gt;int val;&lt;/li&gt;
+&lt;li&gt;ListNode *next;&lt;/li&gt;
+&lt;li&gt;ListNode(int x) : val(x), next(NULL) {}&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;};&lt;br&gt;*/&lt;br&gt;class Solution {&lt;br&gt; public:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ListNode* removeNthFromEnd(ListNode* head, int n) {
+    if(!head-&amp;gt;next&amp;amp;&amp;amp;n==1) return NULL;
+    ListNode* fast = head;
+    ListNode* slow = fast;
+    for(int i=0;i&amp;lt;n;i++)
+    fast=fast-&amp;gt;next;
+    if(!fast) return head-&amp;gt;next;
+    while(fast-&amp;gt;next){
+        fast=fast-&amp;gt;next;
+        slow=slow-&amp;gt;next;
+    }
+    slow-&amp;gt;next=slow-&amp;gt;next-&amp;gt;next;
+    return head;
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; };&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, remove the nth node from the end of list and return its head.&lt;/p&gt;
+&lt;p&gt;For example,&lt;/p&gt;
+&lt;p&gt;   Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.&lt;/p&gt;
+&lt;p&gt;   After removing the second node from the end, the linked list becomes 1-&amp;gt;2-&amp;gt;3-&amp;gt;5.&lt;br&gt;Note:&lt;br&gt;Given n will always be valid.&lt;br&gt;Try to do this in one pass.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
+    
+      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-205-Isomorphic Strings</title>
+    <link href="http://since1992.org/2016/06/24/Leetcode-205-Isomorphic-Strings/"/>
+    <id>http://since1992.org/2016/06/24/Leetcode-205-Isomorphic-Strings/</id>
+    <published>2016-06-24T02:12:59.000Z</published>
+    <updated>2016-06-24T02:17:04.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two strings s and t, determine if they are isomorphic.&lt;/p&gt;
+&lt;p&gt;Two strings are isomorphic if the characters in s can be replaced to get t.&lt;/p&gt;
+&lt;p&gt;All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;Given “egg”, “add”, return true.&lt;/p&gt;
+&lt;p&gt;Given “foo”, “bar”, return false.&lt;/p&gt;
+&lt;p&gt;Given “paper”, “title”, return true.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定两个字符串，判断它们是否是相似的。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用两个哈希表判断两个字符之间是否是一一对应的即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        std::map&amp;lt;char,char&amp;gt; m;
+        std::map&amp;lt;char,char&amp;gt; mr;
+        std::map&amp;lt;char,char&amp;gt;::iterator it;
+        std::map&amp;lt;char,char&amp;gt;::iterator itr;
+        for(int i = 0; i &amp;lt; s.length(); i++)
+        {  
+           it  = m.find(s[i]);
+           itr = mr.find(t[i]);
+           if(it!=m.end()||itr!=mr.end())
+           {
+               if(m[s[i]]!=t[i]||mr[t[i]]!=s[i]) return false;
+           }else{
+               m[s[i]]=t[i];
+               mr[t[i]]=s[i];
+           }
+        }
+        return true;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two strings s and t, determine if they are isomorphic.&lt;/p&gt;
+&lt;p&gt;Two strings are isomorphic if the characters in s can be replaced to get t.&lt;/p&gt;
+&lt;p&gt;All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;Given “egg”, “add”, return true.&lt;/p&gt;
+&lt;p&gt;Given “foo”, “bar”, return false.&lt;/p&gt;
+&lt;p&gt;Given “paper”, “title”, return true.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-223-Rectangle Area</title>
+    <link href="http://since1992.org/2016/06/23/Leetcode-223-Rectangle-Area/"/>
+    <id>http://since1992.org/2016/06/23/Leetcode-223-Rectangle-Area/</id>
+    <published>2016-06-23T13:15:40.000Z</published>
+    <updated>2016-06-23T14:07:10.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Find the total area covered by two rectilinear rectangles in a 2D plane.&lt;/p&gt;
+&lt;p&gt;Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.&lt;br&gt;&lt;a href=&quot;https://leetcode.com/static/images/problemset/rectangle_area.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&lt;br&gt;Assume that the total area is never beyond the maximum possible value of int.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;求出两个矩形覆盖的面积值。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;分重叠与无重叠两种情况讨论，很简单。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+        int AreaA = (C-A)*(D-B);
+        int AreaB = (G-E)*(H-F);
+        if(A&amp;gt;=G||C&amp;lt;=E||B&amp;gt;=H||F&amp;gt;=D) return AreaA+AreaB;
+        int cover = max(min(C,G)-max(A,E),0)*max(min(D,H)-max(F,B),0);
+        return AreaA+AreaB-cover;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Find the total area covered by two rectilinear rectangles in a 2D plane.&lt;/p&gt;
+&lt;p&gt;Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.&lt;br&gt;&lt;a href=&quot;https://leetcode.com/static/images/problemset/rectangle_area.png&quot;&gt;&lt;/a&gt;&lt;br&gt;Assume that the total area is never beyond the maximum possible value of int.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode-88-Merge Sorted Array</title>
@@ -940,7 +1106,7 @@ public:
     <link href="http://since1992.org/2016/06/18/Leetcode-342-Power-of-Four/"/>
     <id>http://since1992.org/2016/06/18/Leetcode-342-Power-of-Four/</id>
     <published>2016-06-18T11:18:22.000Z</published>
-    <updated>2016-06-18T12:33:17.000Z</updated>
+    <updated>2016-06-20T10:32:47.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an integer (signed 32 bits), write a function to check whether it is a power of 4.&lt;/p&gt;
 &lt;p&gt;Example:&lt;br&gt;Given num = 16, return true. Given num = 5, return false.&lt;/p&gt;
@@ -974,7 +1140,7 @@ public:
     
       <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Matt" scheme="http://since1992.org/tags/Matt/"/>
+      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
     
   </entry>
   
@@ -1051,187 +1217,6 @@ public:
       <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
     
       <category term="BFS" scheme="http://since1992.org/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-101-Symmetric Tree</title>
-    <link href="http://since1992.org/2016/06/16/Leetcode-101-Symmetric-Tree/"/>
-    <id>http://since1992.org/2016/06/16/Leetcode-101-Symmetric-Tree/</id>
-    <published>2016-06-16T04:16:10.000Z</published>
-    <updated>2016-06-18T14:20:31.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).&lt;/p&gt;
-&lt;p&gt;For example, this binary tree [1,2,2,3,4,4,3] is symmetric:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    1
-   / \
-  2   2
- / \ / \
-3  4 4  3
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But the following [1,2,2,null,3,null,3] is not:&lt;br&gt;        1&lt;br&gt;       / \&lt;br&gt;      2   2&lt;br&gt;       \   \&lt;br&gt;       3    3&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一棵树，检查它是否是中心对称的。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;很简单，运用一个辅助函数检查两棵树是否对称即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    bool isSymmetric(TreeNode* root) {
-        if(!root) return true;
-        return isM(root-&amp;gt;left,root-&amp;gt;right);
-
-    }
-    bool isM(TreeNode* a,TreeNode* b)
-    {
-        if(!a&amp;amp;&amp;amp;!b) return true;
-        if((a&amp;amp;&amp;amp;!b)||(b&amp;amp;&amp;amp;!a)) return false;
-        if(a-&amp;gt;val!=b-&amp;gt;val) return false;
-        return isM(a-&amp;gt;left,b-&amp;gt;right)&amp;amp;&amp;amp;isM(a-&amp;gt;right,b-&amp;gt;left);
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).&lt;/p&gt;
-&lt;p&gt;For example, this binary tree [1,2,2,3,4,4,3] is symmetric:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;    1
-   / \
-  2   2
- / \ / \
-3  4 4  3
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But the following [1,2,2,null,3,null,3] is not:&lt;br&gt;        1&lt;br&gt;       / \&lt;br&gt;      2   2&lt;br&gt;       \   \&lt;br&gt;       3    3&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
-    
-      <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-27-Remove Element</title>
-    <link href="http://since1992.org/2016/06/16/Leetcode-27-Remove-Element/"/>
-    <id>http://since1992.org/2016/06/16/Leetcode-27-Remove-Element/</id>
-    <published>2016-06-16T03:59:47.000Z</published>
-    <updated>2016-06-16T04:07:13.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array and a value, remove all instances of that value in place and return the new length.&lt;/p&gt;
-&lt;p&gt;Do not allocate extra space for another array, you must do this in place with constant memory.&lt;/p&gt;
-&lt;p&gt;The order of elements can be changed. It doesn’t matter what you leave beyond the new length.&lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given input array nums = [3,2,2,3], val = 3&lt;/p&gt;
-&lt;p&gt;Your function should return length = 2, with the first two elements of nums being 2.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组和一个特定的值，移除数组中所有该值，并返回剩余值的个数。你只能只用O(1)的额外空间，数字的顺序可以改变。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;本题和&lt;a href=&quot;2016/05/23/Leetcode-283-Move-Zeroes/&quot;&gt;这道题&lt;/a&gt;很类似，只是删除特定的值而已。我们的策略就是把所有的特定值都移动到数组的末尾。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    int removeElement(vector&amp;lt;int&amp;gt;&amp;amp; nums, int val) {
-        int p=0;
-        for(int i=0;i&amp;lt;nums.size();i++)
-        {
-            if(nums[i]!=val)
-                swap(nums[i],nums[p++]);
-        }
-        return p;
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array and a value, remove all instances of that value in place and return the new length.&lt;/p&gt;
-&lt;p&gt;Do not allocate extra space for another array, you must do this in place with constant memory.&lt;/p&gt;
-&lt;p&gt;The order of elements can be changed. It doesn’t matter what you leave beyond the new length.&lt;/p&gt;
-&lt;p&gt;Example:&lt;br&gt;Given input array nums = [3,2,2,3], val = 3&lt;/p&gt;
-&lt;p&gt;Your function should return length = 2, with the first two elements of nums being 2.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
-    
-      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-110-Balanced Binary Tree</title>
-    <link href="http://since1992.org/2016/06/12/Leetcode-110-Balanced-Binary-Tree/"/>
-    <id>http://since1992.org/2016/06/12/Leetcode-110-Balanced-Binary-Tree/</id>
-    <published>2016-06-12T03:11:11.000Z</published>
-    <updated>2016-06-12T03:13:20.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, determine if it is height-balanced.&lt;/p&gt;
-&lt;p&gt;For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一棵二叉树，判断它是否平衡。一个平衡的二叉树的左右子树的深度差小于或等于1.&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;很简单的DFS问题，先判断左右子树是否为平衡二叉树，再判断它们的高度差是否在1以内。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    bool isBalanced(TreeNode* root) {
-        if(!root) return true;
-        if(isBalanced(root-&amp;gt;left)&amp;amp;&amp;amp;isBalanced(root-&amp;gt;right))
-            if(abs(height(root-&amp;gt;left)-height(root-&amp;gt;right))&amp;lt;2)
-                return true;
-        return false;
-
-    }
-    int height(TreeNode* root)
-    {
-        if(!root) return 0;
-        return 1+max(height(root-&amp;gt;left),height(root-&amp;gt;right));
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a binary tree, determine if it is height-balanced.&lt;/p&gt;
-&lt;p&gt;For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Tree" scheme="http://since1992.org/tags/Tree/"/>
-    
-      <category term="DFS" scheme="http://since1992.org/tags/DFS/"/>
     
   </entry>
   

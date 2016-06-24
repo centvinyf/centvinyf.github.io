@@ -4,6 +4,101 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-19-Remove Nth Node From End of List]]></title>
+      <url>http://since1992.org/2016/06/24/Leetcode-19-Remove-Nth-Node-From-End-of-List/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a linked list, remove the nth node from the end of list and return its head.</p>
+<p>For example,</p>
+<p>   Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.</p>
+<p>   After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.<br>Note:<br>Given n will always be valid.<br>Try to do this in one pass.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>移除倒数第N个结点。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>用双指针，让快指针先走，主要要删除的结点为首尾的情况。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><p>/**</p>
+<ul>
+<li>Definition for singly-linked list.</li>
+<li>struct ListNode {</li>
+<li>int val;</li>
+<li>ListNode *next;</li>
+<li>ListNode(int x) : val(x), next(NULL) {}</li>
+<li><p>};<br>*/<br>class Solution {<br> public:</p>
+<pre><code>ListNode* removeNthFromEnd(ListNode* head, int n) {
+    if(!head-&gt;next&amp;&amp;n==1) return NULL;
+    ListNode* fast = head;
+    ListNode* slow = fast;
+    for(int i=0;i&lt;n;i++)
+    fast=fast-&gt;next;
+    if(!fast) return head-&gt;next;
+    while(fast-&gt;next){
+        fast=fast-&gt;next;
+        slow=slow-&gt;next;
+    }
+    slow-&gt;next=slow-&gt;next-&gt;next;
+    return head;
+
+}
+</code></pre><p> };</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-205-Isomorphic Strings]]></title>
+      <url>http://since1992.org/2016/06/24/Leetcode-205-Isomorphic-Strings/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two strings s and t, determine if they are isomorphic.</p>
+<p>Two strings are isomorphic if the characters in s can be replaced to get t.</p>
+<p>All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.</p>
+<p>For example,<br>Given “egg”, “add”, return true.</p>
+<p>Given “foo”, “bar”, return false.</p>
+<p>Given “paper”, “title”, return true.</p>
+<a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定两个字符串，判断它们是否是相似的。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>用两个哈希表判断两个字符之间是否是一一对应的即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+        std::map&lt;char,char&gt; m;
+        std::map&lt;char,char&gt; mr;
+        std::map&lt;char,char&gt;::iterator it;
+        std::map&lt;char,char&gt;::iterator itr;
+        for(int i = 0; i &lt; s.length(); i++)
+        {  
+           it  = m.find(s[i]);
+           itr = mr.find(t[i]);
+           if(it!=m.end()||itr!=mr.end())
+           {
+               if(m[s[i]]!=t[i]||mr[t[i]]!=s[i]) return false;
+           }else{
+               m[s[i]]=t[i];
+               mr[t[i]]=s[i];
+           }
+        }
+        return true;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-223-Rectangle Area]]></title>
+      <url>http://since1992.org/2016/06/23/Leetcode-223-Rectangle-Area/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Find the total area covered by two rectilinear rectangles in a 2D plane.</p>
+<p>Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.<br><a href="https://leetcode.com/static/images/problemset/rectangle_area.png" target="_blank" rel="external"></a><br>Assume that the total area is never beyond the maximum possible value of int.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>求出两个矩形覆盖的面积值。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>分重叠与无重叠两种情况讨论，很简单。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+        int AreaA = (C-A)*(D-B);
+        int AreaB = (G-E)*(H-F);
+        if(A&gt;=G||C&lt;=E||B&gt;=H||F&gt;=D) return AreaA+AreaB;
+        int cover = max(min(C,G)-max(A,E),0)*max(min(D,H)-max(F,B),0);
+        return AreaA+AreaB-cover;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-88-Merge Sorted Array]]></title>
       <url>http://since1992.org/2016/06/19/Leetcode-88-Merge-Sorted-Array/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p>
