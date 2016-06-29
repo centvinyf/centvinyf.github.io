@@ -4,6 +4,415 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-303-Range Sum Query- Immutable]]></title>
+      <url>http://since1992.org/2016/06/27/Leetcode-303-Range-Sum-Query-Immutable/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.</p>
+<pre><code>Example:
+Given nums = [-2, 0, 3, -5, 2, -1]
+
+sumRange(0, 2) -&gt; 1
+sumRange(2, 5) -&gt; -1
+sumRange(0, 5) -&gt; -3
+</code></pre><p>Note:<br>You may assume that the array does not change.<br>There are many calls to sumRange function.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个数组，多次查询从i到j的和，实现它。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用一个数组存储从头到I的总和。那么i-j的和用从头到j和减去从头到i-1的和，即为所求。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class NumArray {
+public:
+    vector&lt;int&gt; dp;
+
+    NumArray(vector&lt;int&gt; &amp;nums) {
+     dp.resize(nums.size());
+     if(!nums.empty()){
+     dp[0]=nums[0];
+     for(int i=1;i&lt;nums.size();i++)
+     dp[i]=dp[i-1]+nums[i];
+     }
+    }
+
+    int sumRange(int i, int j) {
+        return i==0?dp[j]:dp[j]-dp[i-1];
+    }
+};
+
+
+// Your NumArray object will be instantiated and called as such:
+// NumArray numArray(nums);
+// numArray.sumRange(0, 1);
+// numArray.sumRange(1, 2);
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-28-Implement strStr()]]></title>
+      <url>http://since1992.org/2016/06/27/Leetcode-28-Implement-strStr/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Implement strStr().</p>
+<p>Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>返回字符串中某子串的出现的第一个序列号。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>维护一个长度和子串相等的滑动窗口，比较它是否和子串相等即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if(needle.length()&gt;haystack.size()) return -1;
+        if(needle==&quot;&quot;) return 0;
+        for(int i = 0 ; i &lt;haystack.length();i++)
+        {
+            string win= haystack.substr(i,needle.size());
+            if(win==needle) return i;
+        }
+        return -1;
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-67-Add Binary]]></title>
+      <url>http://since1992.org/2016/06/27/Leetcode-67-Add-Binary/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given two binary strings, return their sum (also a binary string).<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定两个二进制数，求他们的和。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>简单的字符串操作，注意进位和最后加完了还有进位的情况。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    string addBinary(string a, string b) {
+        string res=&quot;&quot;;
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0 ;
+        if(i&gt;j)
+        {
+            for(int x =0;x&lt;i-j; x++)
+            b=&apos;0&apos;+b;
+        }else{
+            for(int x =0 ;x&lt;j-i;x++)
+            a=&apos;0&apos;+a;
+        }
+        int len = a.length()-1;
+        int cur;
+        while(len&gt;=0){
+            cur = (a[len]-&apos;0&apos;)+(b[len]-&apos;0&apos;)+carry;
+            carry=cur/2;
+            cur%=2;
+            res= (char)(cur+&apos;0&apos;) + res;
+            len--;
+        }
+       if(carry==1) res= to_string(1)+res;
+        return res;
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-14-LongestCommon Prefix]]></title>
+      <url>http://since1992.org/2016/06/27/Leetcode-14-LongestCommon-Prefix/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Write a function to find the longest common prefix string amongst an array of strings.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>找出一组字符串的最长前缀。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>从前往后依次搜索即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
+        if(strs.empty()) return &quot;&quot;;
+        string prefix = &quot;&quot;;
+        for(int i = 0;i &lt; strs[0].length(); i++)
+        {
+            char cur = strs[0][i];
+            for(int j =  0 ;j &lt; strs.size();j++){
+            if(strs[j][i]==cur) {
+                if(j==strs.size()-1) prefix+=cur;
+            }else return prefix;
+            }
+        }
+        return prefix;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-234-Palindrome Linked List]]></title>
+      <url>http://since1992.org/2016/06/27/Leetcode-234-Palindrome-Linked-List/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a singly linked list, determine if it is a palindrome.</p>
+<p>Follow up:<br>Could you do it in O(n) time and O(1) space?<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>判断一个单向链表是否是回文的。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>存下来每一个结点的值，判断是否是对称的即可。至于follow up,可以考虑反转后半个链表，然后挨个比对是否和前半部分相等即可。本文只给出第一种解法。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        vector&lt;int&gt; v;
+        while(head)
+        {
+            v.push_back(head-&gt;val);
+            head=head-&gt;next;
+        }
+        for(int i = 0;i&lt; v.size()/2 ; i++)
+        if(v[i]!=v[v.size()-1-i]) return false;
+        return true;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-203-Remove Linked List Elements]]></title>
+      <url>http://since1992.org/2016/06/27/Leetcode-203-Remove-Linked-List-Elements/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Remove all elements from a linked list of integers that have value val.</p>
+<p>Example<br>    Given: 1 –&gt; 2 –&gt; 6 –&gt; 3 –&gt; 4 –&gt; 5 –&gt; 6, val = 6<br>    Return: 1 –&gt; 2 –&gt; 3 –&gt; 4 –&gt; 5<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>去掉单向链表中所有值与给定值相等的结点。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>保存之前的结点，然后扫描每个节点即可。注意头结点是否会被去掉的问题。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        if(!head) return head;
+        ListNode * prev = head;
+        ListNode * cur = prev-&gt;next;
+        while(prev-&gt;next)
+        {
+            if(cur-&gt;val == val){
+                prev-&gt;next =  cur-&gt;next;
+                cur=prev-&gt;next;
+            }else{
+                prev= cur;
+                cur = prev-&gt;next;
+            }
+        }
+       if(head-&gt;val == val) return head-&gt;next;
+       return head;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-190-Reverse Bits]]></title>
+      <url>http://since1992.org/2016/06/27/Leetcode-190-Reverse-Bits/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 964176192 (represented in binary as 00111001011110000010100101000000).<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>反转一个32位整数（原来是0,1,2,3,…32, 变成 32,31,30…,1）</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>简单的位运算操作。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    uint32_t reverseBits(uint32_t n) {
+        uint32_t res = 0 ;
+        int mask = 1 ;
+        for(int i = 0 ; i &lt;  32 ; i ++)
+        {
+            if( n &amp; mask ) res += 1 ;
+            if(i &lt; 31)res &lt;&lt;=  1 ;
+            mask &lt;&lt;= 1;
+        }
+        return res;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-257-Binary Tree Paths]]></title>
+      <url>http://since1992.org/2016/06/27/Leetcode-257-Binary-Tree-Paths/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a binary tree, return all root-to-leaf paths.</p>
+<p>For example, given the following binary tree:</p>
+<pre><code>   1
+ /   \
+2     3
+ \
+  5
+</code></pre><p>All root-to-leaf paths are:</p>
+<pre><code>[&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]
+</code></pre><a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一棵二叉树，返回所有的从根结点到叶子节点的路径。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用深度优先搜索，每当走到叶子节点便返回路径。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;string&gt; binaryTreePaths(TreeNode* root) {
+        vector&lt;string&gt; res;
+        if(root)
+            dfs(root,res,&quot;&quot;);
+        return res;
+    }
+    void dfs(TreeNode* root, vector&lt;string&gt; &amp;res, string path){
+        path+=to_string(root-&gt;val);
+        if(!root-&gt;left&amp;&amp;!root-&gt;right)
+            res.push_back(path);
+        else {
+            if(root-&gt;left)
+                dfs(root-&gt;left,res,path+&quot;-&gt;&quot;);
+            if(root-&gt;right)
+                dfs(root-&gt;right,res,path+&quot;-&gt;&quot;);
+        }
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-58-Length of Last Word]]></title>
+      <url>http://since1992.org/2016/06/27/Leetcode-58-Length-of-Last-Word/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.</p>
+<p>If the last word does not exist, return 0.</p>
+<p>Note: A word is defined as a character sequence consists of non-space characters only.</p>
+<p>For example,<br>Given s = “Hello World”,<br>return 5.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>返回一个字符串中最后一个单词的长度。如果不存在，则返回0</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>先去掉尾部空格再计算最后一个单词长度即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        if(s==&quot;&quot;) return 0;
+        int i = s.length()-1;
+        int count = 0;
+        while(i&gt;=0){
+            if(count==0&amp;&amp;s[i]==&apos; &apos;) i--;
+            else if(s[i]!=&apos; &apos;){
+                i--;count++;
+            }else if(count&gt;0&amp;&amp;s[i]==&apos; &apos;) break;
+
+        }
+        return count;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-38-Count and Sway]]></title>
+      <url>http://since1992.org/2016/06/26/Leetcode-38-Count-and-Say/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>The count-and-say sequence is the sequence of integers beginning as follows:<br>1, 11, 21, 1211, 111221, …</p>
+<p>1 is read off as “one 1” or 11.<br>11 is read off as “two 1s” or 21.<br>21 is read off as “one 2, then one 1” or 1211.<br>Given an integer n, generate the nth sequence.</p>
+<a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>边数边说出上一次的结果。 1读作 “1 1”，11读作“ 2 1”，21读作“1 2 1 1”</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>递归调用该函数，利用上一次的计算结果来读数即可。注意：数字转化成字符串的时候不可以直接 +’0’,因为有可能会是超过一位数。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    string countAndSay(int n) {
+        if(n==0) return &quot;&quot;;
+        if(n==1) return &quot;1&quot;;
+        string res=&quot;&quot;;
+        string prev = countAndSay(n-1);
+        int count = 1;
+        char cur=prev[0];
+        for(int i = 1 ; i &lt; prev.length(); i++)
+        {
+            if(prev[i]==cur) count++;
+            else
+            {
+                res+=i2s(count);
+                res+=cur;
+                count = 1;
+                cur=prev[i];
+            }
+        }
+        res+=i2s(count);
+        res+=cur;
+        return res;
+
+    }
+    string i2s(int n)
+    {
+        string res = &quot;&quot;;
+        while(n&gt;0){
+            res+=(char)(n%10+&apos;0&apos;);
+            n/=10;
+        }
+        return res;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-20-Valid Parentheses]]></title>
+      <url>http://since1992.org/2016/06/26/Leetcode-20-Valid-Parentheses/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
+<p>The brackets must close in the correct order, “()” and “()[]{}” are all valid but “(]” and “([)]” are not.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个字符串，判断它是否是一个合法的括号组。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>经典的栈匹配的问题。仔细即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    bool isValid(string s) {
+        stack&lt;char&gt;st;
+        for(int i = 0; i &lt; s.length(); i ++)
+        {
+            switch(s[i]){
+                case &apos;(&apos;:
+                case &apos;[&apos;:
+                case &apos;{&apos;: st.push(s[i]);break;
+                case &apos;)&apos;: 
+                    if(st.empty()) return false;
+                    if(st.top()!=&apos;(&apos;) return false;
+                    else st.pop();
+                    break;
+                case &apos;}&apos;:
+                    if(st.empty()) return false;
+                    if(st.top()!=&apos;{&apos;) return false;
+                    else st.pop();
+                    break;
+                case &apos;]&apos;:
+                    if(st.empty()) return false;
+                    if(st.top()!=&apos;[&apos;) return false;
+                    else st.pop();
+                    break;
+                default: continue;
+            }
+        }
+        return st.empty();
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-290-Word Pattern]]></title>
+      <url>http://since1992.org/2016/06/26/Leetcode-290-Word-Pattern/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a pattern and a string str, find if str follows the same pattern.</p>
+<p>Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.</p>
+<p>Examples:<br>pattern = “abba”, str = “dog cat cat dog” should return true.<br>pattern = “abba”, str = “dog cat cat fish” should return false.<br>pattern = “aaaa”, str = “dog cat cat dog” should return false.<br>pattern = “abba”, str = “dog dog dog dog” should return false.<br>Notes:<br>You may assume pattern contains only lowercase letters, and str contains lowercase letters separated by a single space.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个模式和一个字符串，判定字符串是否和模式相匹配。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>本体和<a href="/2016/06/24/Leetcode-205-Isomorphic-Strings/">这道题</a>很相似，只是需要对字符串做一个预处理。仔细即可</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><p>  class Solution {<br>  public:<br>      bool wordPattern(string pattern, string str) {<br>          vector<string> s;<br>          helper(str,s);<br>          map<char,string> m;<br>          map<string,char> mr;<br>          map<char,string>::iterator it;<br>          map<string,char>::iterator itr;<br>          if(pattern.length()!=s.size()) return false;<br>          for(int i = 0; i &lt; pattern.length(); i++)<br>          {<br>             it  = m.find(pattern[i]);<br>             itr = mr.find(s[i]);<br>             if(it!=m.end()||itr!=mr.end())<br>             {<br>                 if(m[pattern[i]]!=s[i]||mr[s[i]]!=pattern[i]) return false;<br>             }else{<br>                 m[pattern[i]]=s[i];<br>                 mr[s[i]]=pattern[i];<br>             }<br>          }<br>          return true;</string,char></char,string></string,char></char,string></string></p>
+<pre><code>}
+void helper(string &amp;str,vector&lt;string&gt;&amp;s)
+{
+    string tem=&quot;&quot;;
+    for(int i = 0;i&lt;str.length();i++)
+    {
+        if(str[i]!=&apos; &apos;)tem+=str[i];
+        else{
+            s.push_back(tem);
+            tem=&quot;&quot;;
+        }
+    }
+    if(tem!=&quot;&quot;) s.push_back(tem);
+}
+</code></pre><p>  };</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-19-Remove Nth Node From End of List]]></title>
       <url>http://since1992.org/2016/06/24/Leetcode-19-Remove-Nth-Node-From-End-of-List/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a linked list, remove the nth node from the end of list and return its head.</p>
