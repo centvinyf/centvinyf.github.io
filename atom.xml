@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://since1992.org/"/>
-  <updated>2016-06-27T14:54:40.000Z</updated>
+  <updated>2016-06-30T15:50:51.000Z</updated>
   <id>http://since1992.org/</id>
   
   <author>
@@ -14,6 +14,120 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-125-Valid Palindrome</title>
+    <link href="http://since1992.org/2016/06/30/Leetcode-125-Valid-Palindrome/"/>
+    <id>http://since1992.org/2016/06/30/Leetcode-125-Valid-Palindrome/</id>
+    <published>2016-06-30T15:48:57.000Z</published>
+    <updated>2016-06-30T15:50:51.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;“A man, a plan, a canal: Panama” is a palindrome.&lt;br&gt;“race a car” is not a palindrome.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;Have you consider that the string might be empty? This is a good question to ask during an interview.&lt;/p&gt;
+&lt;p&gt;For the purpose of this problem, we define empty string as valid palindrome.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个字符串，判断它是否是回文的。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;这道题不难，只要对原始字符串进行适当的预处理之后（去掉标点符号）在判断是否是回文即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    bool isPalindrome(string s) {
+        string nstr=&amp;quot;&amp;quot;;
+        for(int i = 0; i &amp;lt; s.length(); i++)
+        {
+            if(s[i]&amp;gt;=&amp;apos;a&amp;apos;&amp;amp;&amp;amp;s[i]&amp;lt;=&amp;apos;z&amp;apos;)
+                nstr+=s[i];
+            else if(s[i]&amp;gt;=&amp;apos;A&amp;apos;&amp;amp;&amp;amp;s[i]&amp;lt;=&amp;apos;Z&amp;apos;)
+                nstr+=(char)(s[i]-&amp;apos;A&amp;apos;+&amp;apos;a&amp;apos;);
+            else if(s[i]&amp;gt;=&amp;apos;0&amp;apos;&amp;amp;&amp;amp;s[i]&amp;lt;=&amp;apos;9&amp;apos;)
+                nstr+=s[i];
+        }
+        for(int i = 0;i&amp;lt;nstr.length();i++)
+        {
+            if(nstr[i]!=nstr[nstr.length()-1-i]) return false;
+        }
+        return true;
+
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.&lt;/p&gt;
+&lt;p&gt;For example,&lt;br&gt;“A man, a plan, a canal: Panama” is a palindrome.&lt;br&gt;“race a car” is not a palindrome.&lt;/p&gt;
+&lt;p&gt;Note:&lt;br&gt;Have you consider that the string might be empty? This is a good question to ask during an interview.&lt;/p&gt;
+&lt;p&gt;For the purpose of this problem, we define empty string as valid palindrome.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
+    
+      <category term="String" scheme="http://since1992.org/tags/String/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-1-Two Sum</title>
+    <link href="http://since1992.org/2016/06/30/Leetcode-1-Two-Sum/"/>
+    <id>http://since1992.org/2016/06/30/Leetcode-1-Two-Sum/</id>
+    <published>2016-06-30T15:36:59.000Z</published>
+    <updated>2016-06-30T15:38:36.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.&lt;/p&gt;
+&lt;p&gt;You may assume that each input would have exactly one solution.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given nums = [2, 7, 11, 15], target = 9,&lt;/p&gt;
+&lt;p&gt;Because nums[0] + nums[1] = 2 + 7 = 9,&lt;br&gt;return [0, 1].&lt;br&gt;UPDATE (2016/2/13):&lt;br&gt;The return format had been changed to zero-based indices. Please read the above updated description carefully.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;在给定数组中找到两个数的和为目标值，求出对应的两个值的坐标。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;对原数组进行哈希存储，值对应坐标即可，然后查询差值是否在哈希表中。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) {
+        vector&amp;lt;int&amp;gt; res;
+        map&amp;lt;int,int&amp;gt; m;
+        if(nums.empty()) return res;
+        for(int i = 0 ; i &amp;lt; nums.size(); i++)
+        {
+            int rest = target-nums[i];
+            if(m.find(rest)!=m.end()){
+                res.push_back(m[rest]);
+                res.push_back(i);
+                break;
+            }else{
+                m[nums[i]]=i;
+            }
+        }
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.&lt;/p&gt;
+&lt;p&gt;You may assume that each input would have exactly one solution.&lt;/p&gt;
+&lt;p&gt;Example:&lt;br&gt;Given nums = [2, 7, 11, 15], target = 9,&lt;/p&gt;
+&lt;p&gt;Because nums[0] + nums[1] = 2 + 7 = 9,&lt;br&gt;return [0, 1].&lt;br&gt;UPDATE (2016/2/13):&lt;br&gt;The return format had been changed to zero-based indices. Please read the above updated description carefully.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode-303-Range Sum Query- Immutable</title>
@@ -747,9 +861,9 @@ void helper(string &amp;amp;str,vector&amp;lt;string&amp;gt;&amp;amp;s)
     
       <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
-    
       <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
+    
+      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
     
   </entry>
   
@@ -1054,177 +1168,9 @@ public:
     
       <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
-    
       <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Leetcode-160-Intersection of Two Linked Lists</title>
-    <link href="http://since1992.org/2016/06/19/Leetcode-160-Intersection-of-Two-Linked-Lists/"/>
-    <id>http://since1992.org/2016/06/19/Leetcode-160-Intersection-of-Two-Linked-Lists/</id>
-    <published>2016-06-19T09:38:27.000Z</published>
-    <updated>2016-06-19T10:19:48.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a program to find the node at which the intersection of two singly linked lists begins.&lt;/p&gt;
-&lt;p&gt;For example, the following two linked lists:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;A:          a1 → a2
-                   ↘
-                     c1 → c2 → c3
-                   ↗            
-B:     b1 → b2 → b3
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;begin to intersect at node c1.&lt;/p&gt;
-&lt;p&gt;Notes:&lt;/p&gt;
-&lt;p&gt;If the two linked lists have no intersection at all, return null.&lt;br&gt;The linked lists must retain their original structure after the function returns.&lt;br&gt;You may assume there are no cycles anywhere in the entire linked structure.&lt;br&gt;Your code should preferably run in O(n) time and use only O(1) memory.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给两个单向链表，返回他们的交接处，如果没有交接，则返回空指针，只能使用O(1)的额外空间，且不可以修改原链表。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;统计出两个链表的节点数，让长的那个从头去掉相差额的结点，则相遇即相交。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        if(!headA||!headB) return NULL;
-        int counta=0;
-        int countb=0;
-        ListNode* a= headA;
-        ListNode* b= headB;
-        while(a)
-        {
-            counta++;
-            a=a-&amp;gt;next;
-        }
-        while(b)
-        {
-            countb++;
-            b=b-&amp;gt;next;
-        }
-        int dif = counta-countb;
-
-            for(int i=abs(dif);i&amp;gt;0;i--)
-            {
-                if(dif &amp;gt; 0)
-                    headA=headA-&amp;gt;next;
-                else headB=headB-&amp;gt;next;
-            }
-        while(headA&amp;amp;&amp;amp;headB&amp;amp;&amp;amp;headA!=headB)
-        {
-            headA=headA-&amp;gt;next;
-            headB=headB-&amp;gt;next;
-        }
-        ListNode * res;
-        headA==headB?res=headA:res=NULL;
-        return res;
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Write a program to find the node at which the intersection of two singly linked lists begins.&lt;/p&gt;
-&lt;p&gt;For example, the following two linked lists:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;A:          a1 → a2
-                   ↘
-                     c1 → c2 → c3
-                   ↗            
-B:     b1 → b2 → b3
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;begin to intersect at node c1.&lt;/p&gt;
-&lt;p&gt;Notes:&lt;/p&gt;
-&lt;p&gt;If the two linked lists have no intersection at all, return null.&lt;br&gt;The linked lists must retain their original structure after the function returns.&lt;br&gt;You may assume there are no cycles anywhere in the entire linked structure.&lt;br&gt;Your code should preferably run in O(n) time and use only O(1) memory.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
-    
-      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-225-Implement Stack using Queues</title>
-    <link href="http://since1992.org/2016/06/19/Leetcode-225-Implement-Stack-using-Queues/"/>
-    <id>http://since1992.org/2016/06/19/Leetcode-225-Implement-Stack-using-Queues/</id>
-    <published>2016-06-19T09:03:06.000Z</published>
-    <updated>2016-06-19T09:05:02.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Implement the following operations of a stack using queues.&lt;/p&gt;
-&lt;p&gt;push(x) – Push element x onto stack.&lt;br&gt;pop() – Removes the element on top of the stack.&lt;br&gt;top() – Get the top element.&lt;br&gt;empty() – Return whether the stack is empty.&lt;br&gt;Notes:&lt;br&gt;You must use only standard operations of a queue – which means only push to back, peek/pop from front, size, and is empty operations are valid.&lt;br&gt;Depending on your language, queue may not be supported natively. You may simulate a queue by using a list or deque (double-ended queue), as long as you use only standard operations of a queue.&lt;br&gt;You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;用队列实现栈的操作。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;和&lt;a href=&quot;/2016/06/18/Leetcode-232-Implement-Queue-using-Stacks/&quot;&gt;这道题&lt;/a&gt;类似，注意对应变量关系即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Stack {
-
-public:
-    queue&amp;lt;int&amp;gt; q1;
-    queue&amp;lt;int&amp;gt; q2;
-    int count = 0;
-    // Push element x onto stack.
-    void push(int x) {
-        q1.push(x);
-        count++;
-    }
-
-    // Removes the element on top of the stack.
-    void pop() {
-        while(count&amp;gt;1)
-        {
-            q2.push(q1.front());
-            q1.pop();
-            count--;
-        }
-        q1.pop();
-        count--;
-        while(!q2.empty())
-        {
-            q1.push(q2.front());
-            count++;
-            q2.pop();
-        }
-    }
-
-    // Get the top element.
-    int top() {
-      return q1.back();
-
-    }
-
-    // Return whether the stack is empty.
-    bool empty() {
-        return q1.empty();
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Implement the following operations of a stack using queues.&lt;/p&gt;
-&lt;p&gt;push(x) – Push element x onto stack.&lt;br&gt;pop() – Removes the element on top of the stack.&lt;br&gt;top() – Get the top element.&lt;br&gt;empty() – Return whether the stack is empty.&lt;br&gt;Notes:&lt;br&gt;You must use only standard operations of a queue – which means only push to back, peek/pop from front, size, and is empty operations are valid.&lt;br&gt;Depending on your language, queue may not be supported natively. You may simulate a queue by using a list or deque (double-ended queue), as long as you use only standard operations of a queue.&lt;br&gt;You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Stack" scheme="http://since1992.org/tags/Stack/"/>
-    
-      <category term="Design" scheme="http://since1992.org/tags/Design/"/>
+      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
     
   </entry>
   

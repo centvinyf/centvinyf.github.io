@@ -4,6 +4,72 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-125-Valid Palindrome]]></title>
+      <url>http://since1992.org/2016/06/30/Leetcode-125-Valid-Palindrome/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
+<p>For example,<br>“A man, a plan, a canal: Panama” is a palindrome.<br>“race a car” is not a palindrome.</p>
+<p>Note:<br>Have you consider that the string might be empty? This is a good question to ask during an interview.</p>
+<p>For the purpose of this problem, we define empty string as valid palindrome.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个字符串，判断它是否是回文的。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>这道题不难，只要对原始字符串进行适当的预处理之后（去掉标点符号）在判断是否是回文即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    bool isPalindrome(string s) {
+        string nstr=&quot;&quot;;
+        for(int i = 0; i &lt; s.length(); i++)
+        {
+            if(s[i]&gt;=&apos;a&apos;&amp;&amp;s[i]&lt;=&apos;z&apos;)
+                nstr+=s[i];
+            else if(s[i]&gt;=&apos;A&apos;&amp;&amp;s[i]&lt;=&apos;Z&apos;)
+                nstr+=(char)(s[i]-&apos;A&apos;+&apos;a&apos;);
+            else if(s[i]&gt;=&apos;0&apos;&amp;&amp;s[i]&lt;=&apos;9&apos;)
+                nstr+=s[i];
+        }
+        for(int i = 0;i&lt;nstr.length();i++)
+        {
+            if(nstr[i]!=nstr[nstr.length()-1-i]) return false;
+        }
+        return true;
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-1-Two Sum]]></title>
+      <url>http://since1992.org/2016/06/30/Leetcode-1-Two-Sum/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have exactly one solution.</p>
+<p>Example:<br>Given nums = [2, 7, 11, 15], target = 9,</p>
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].<br>UPDATE (2016/2/13):<br>The return format had been changed to zero-based indices. Please read the above updated description carefully.</p>
+<a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>在给定数组中找到两个数的和为目标值，求出对应的两个值的坐标。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>对原数组进行哈希存储，值对应坐标即可，然后查询差值是否在哈希表中。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {
+        vector&lt;int&gt; res;
+        map&lt;int,int&gt; m;
+        if(nums.empty()) return res;
+        for(int i = 0 ; i &lt; nums.size(); i++)
+        {
+            int rest = target-nums[i];
+            if(m.find(rest)!=m.end()){
+                res.push_back(m[rest]);
+                res.push_back(i);
+                break;
+            }else{
+                m[nums[i]]=i;
+            }
+        }
+        return res;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-303-Range Sum Query- Immutable]]></title>
       <url>http://since1992.org/2016/06/27/Leetcode-303-Range-Sum-Query-Immutable/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.</p>
