@@ -4,6 +4,215 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-168-Excel Sheet Column Title]]></title>
+      <url>http://since1992.org/2016/07/02/Leetcode-168-Excel-Sheet-Column-Title/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.</p>
+<p>For example:</p>
+<pre><code>1 -&gt; A
+2 -&gt; B
+3 -&gt; C
+...
+26 -&gt; Z
+27 -&gt; AA
+28 -&gt; AB 
+</code></pre><a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个正整数，返回对应的Excel表头</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>实质上就是一个十进制对26进制的转换问题，注意26整数幂的特殊情况对应的行即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    string convertToTitle(int n) {
+        string res=&quot;&quot;;
+        while(n&gt;0)
+        {
+            int rest = n%26;
+            n/=26;
+            if(rest==0){
+                n--;
+                res=&apos;Z&apos;+res;
+            }else res= (char)(&apos;A&apos;-1+rest)+res;
+        }
+        return res;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-6-ZigZag Conversion]]></title>
+      <url>http://since1992.org/2016/07/02/Leetcode-6-ZigZag-Conversion/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
+<pre><code>P   A   H   N
+A P L S I I G
+Y   I   R
+</code></pre><p>And then read line by line: “PAHNAPLSIIGYIR”<br>Write the code that will take a string and make this conversion given a number of rows:</p>
+<pre><code>string convert(string text, int nRows);
+convert(&quot;PAYPALISHIRING&quot;, 3) should return &quot;PAHNAPLSIIGYIR&quot;.
+</code></pre><a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个字符串和一个要生成的行数，给出之字打印的结果。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>很简单的字符串操作，利用一个辅助数组，存储每一行的结果，再依次连接起来即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    string convert(string s, int numRows) {
+        if(s.empty()||numRows&lt;1) return &quot;&quot;;
+        if(numRows==1) return s;
+       vector&lt;string&gt; res(numRows);
+       int i = 0;
+       int j = 0;
+       int dif=1;
+       while(i&lt;s.length())
+       {
+           res[j].push_back(s[i]);
+           if(j==numRows-1){
+               dif=-1;
+
+           }else if(j==0){
+               dif = 1;
+
+           }
+           j+=dif;
+           i++;
+       }
+       string ans=&quot;&quot;;
+       for(int i = 0;i&lt;numRows;i++)
+       ans+=res[i];
+       return ans;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-189-Rotate Array]]></title>
+      <url>http://since1992.org/2016/07/02/Leetcode-189-Rotate-Array/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Rotate an array of n elements to the right by k steps.</p>
+<p>For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>把一个数组的后N个数移动到数组的最前面。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用插入的方式从后往前依次插入数组最前端即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    void rotate(vector&lt;int&gt;&amp; nums, int k) {
+        for(int i=0;i&lt;k;i++)
+        {
+            nums.insert(nums.begin(),nums.back());
+            nums.erase(nums.begin()+nums.size()-1);
+        }
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-278-First Bad Version]]></title>
+      <url>http://since1992.org/2016/07/02/Leetcode-278-First-Bad-Version/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p>
+<p>Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.</p>
+<p>You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.</p>
+<a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>从某一个版本开始全部都是坏的版本，找到第一个坏版本。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用二分查找，注意边界条件即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>// Forward declaration of isBadVersion API.
+bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        if(n==2) return isBadVersion(1)? 1:2;
+        int begin = 1;
+        int end = n;
+        int mid = begin+(end-begin)/2;
+        while(begin&lt;end){
+        if(isBadVersion(mid))
+        {
+            end=mid;
+            mid = begin+(end-begin)/2;
+        }else{
+            begin = mid+1;
+            mid = begin+(end-begin)/2;
+        }
+        }
+        return mid;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-155-Min Stack]]></title>
+      <url>http://since1992.org/2016/07/02/Leetcode-155-Min-Stack/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
+<p>push(x) – Push element x onto stack.<br>pop() – Removes the element on top of the stack.<br>top() – Get the top element.<br>getMin() – Retrieve the minimum element in the stack.<br>Example:<br>    MinStack minStack = new MinStack();<br>    minStack.push(-2);<br>    minStack.push(0);<br>    minStack.push(-3);<br>    minStack.getMin();   –&gt; Returns -3.<br>    minStack.pop();<br>    minStack.top();      –&gt; Returns 0.<br>    minStack.getMin();   –&gt; Returns -2.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>设计一个栈，支持push,pop,top和在O(1)时间内找到最小值。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>利用一个栈存储到此为止的最小值。注意如果有重复的最小值需要多次push，因为如果出现3 2 1 2 1这样的用例，若不重复入栈则会出错。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class MinStack {
+public:
+stack&lt;int&gt; st;
+stack&lt;int&gt; minSt;
+    /** initialize your data structure here. */
+    MinStack() {
+
+    }
+
+    void push(int x) {
+        st.push(x);
+        if(minSt.empty()||x&lt;=minSt.top()) minSt.push(x);
+    }
+
+    void pop() {
+        if(minSt.top()==st.top()) minSt.pop();
+        st.pop();
+    }
+
+    int top() {
+        return st.top();
+    }
+
+    int getMin() {
+        return minSt.top();
+    }
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack obj = new MinStack();
+ * obj.push(x);
+ * obj.pop();
+ * int param_3 = obj.top();
+ * int param_4 = obj.getMin();
+ */
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-7-Reverse Integer]]></title>
+      <url>http://since1992.org/2016/07/01/Leetcode-7-Reverse-Integer/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Reverse digits of an integer.</p>
+<p>Example1: x = 123, return 321<br>Example2: x = -123, return -321</p>
+<p>click to show spoilers.</p>
+<p>Have you thought about this?<br>Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!</p>
+<p>If the integer’s last digit is 0, what should the output be? ie, cases such as 10, 100.</p>
+<p>Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?</p>
+<p>For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
+<a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>反转一个数字。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>很简单的数学题目，注意overflow的情况即可。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    int reverse(int x) {
+        int res=0;
+        while(abs(x)&gt;0)
+        {
+            if(res&gt;INT_MAX/10||res&lt;INT_MIN/10) return 0;
+            res*=10;
+            res+=x%10;
+            x/=10;
+        }
+        return res;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-125-Valid Palindrome]]></title>
       <url>http://since1992.org/2016/06/30/Leetcode-125-Valid-Palindrome/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>

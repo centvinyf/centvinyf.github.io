@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://since1992.org/"/>
-  <updated>2016-06-30T15:50:51.000Z</updated>
+  <updated>2016-07-02T09:41:45.000Z</updated>
   <id>http://since1992.org/</id>
   
   <author>
@@ -14,6 +14,359 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode-168-Excel Sheet Column Title</title>
+    <link href="http://since1992.org/2016/07/02/Leetcode-168-Excel-Sheet-Column-Title/"/>
+    <id>http://since1992.org/2016/07/02/Leetcode-168-Excel-Sheet-Column-Title/</id>
+    <published>2016-07-02T09:39:53.000Z</published>
+    <updated>2016-07-02T09:41:45.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a positive integer, return its corresponding column title as appear in an Excel sheet.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1 -&amp;gt; A
+2 -&amp;gt; B
+3 -&amp;gt; C
+...
+26 -&amp;gt; Z
+27 -&amp;gt; AA
+28 -&amp;gt; AB 
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个正整数，返回对应的Excel表头&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;实质上就是一个十进制对26进制的转换问题，注意26整数幂的特殊情况对应的行即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    string convertToTitle(int n) {
+        string res=&amp;quot;&amp;quot;;
+        while(n&amp;gt;0)
+        {
+            int rest = n%26;
+            n/=26;
+            if(rest==0){
+                n--;
+                res=&amp;apos;Z&amp;apos;+res;
+            }else res= (char)(&amp;apos;A&amp;apos;-1+rest)+res;
+        }
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a positive integer, return its corresponding column title as appear in an Excel sheet.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1 -&amp;gt; A
+2 -&amp;gt; B
+3 -&amp;gt; C
+...
+26 -&amp;gt; Z
+27 -&amp;gt; AA
+28 -&amp;gt; AB 
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-6-ZigZag Conversion</title>
+    <link href="http://since1992.org/2016/07/02/Leetcode-6-ZigZag-Conversion/"/>
+    <id>http://since1992.org/2016/07/02/Leetcode-6-ZigZag-Conversion/</id>
+    <published>2016-07-02T09:20:56.000Z</published>
+    <updated>2016-07-02T09:22:20.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;P   A   H   N
+A P L S I I G
+Y   I   R
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And then read line by line: “PAHNAPLSIIGYIR”&lt;br&gt;Write the code that will take a string and make this conversion given a number of rows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;string convert(string text, int nRows);
+convert(&amp;quot;PAYPALISHIRING&amp;quot;, 3) should return &amp;quot;PAHNAPLSIIGYIR&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个字符串和一个要生成的行数，给出之字打印的结果。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;很简单的字符串操作，利用一个辅助数组，存储每一行的结果，再依次连接起来即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    string convert(string s, int numRows) {
+        if(s.empty()||numRows&amp;lt;1) return &amp;quot;&amp;quot;;
+        if(numRows==1) return s;
+       vector&amp;lt;string&amp;gt; res(numRows);
+       int i = 0;
+       int j = 0;
+       int dif=1;
+       while(i&amp;lt;s.length())
+       {
+           res[j].push_back(s[i]);
+           if(j==numRows-1){
+               dif=-1;
+
+           }else if(j==0){
+               dif = 1;
+
+           }
+           j+=dif;
+           i++;
+       }
+       string ans=&amp;quot;&amp;quot;;
+       for(int i = 0;i&amp;lt;numRows;i++)
+       ans+=res[i];
+       return ans;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;P   A   H   N
+A P L S I I G
+Y   I   R
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And then read line by line: “PAHNAPLSIIGYIR”&lt;br&gt;Write the code that will take a string and make this conversion given a number of rows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;string convert(string text, int nRows);
+convert(&amp;quot;PAYPALISHIRING&amp;quot;, 3) should return &amp;quot;PAHNAPLSIIGYIR&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="String" scheme="http://since1992.org/tags/String/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-189-Rotate Array</title>
+    <link href="http://since1992.org/2016/07/02/Leetcode-189-Rotate-Array/"/>
+    <id>http://since1992.org/2016/07/02/Leetcode-189-Rotate-Array/</id>
+    <published>2016-07-02T08:47:42.000Z</published>
+    <updated>2016-07-02T08:51:44.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Rotate an array of n elements to the right by k steps.&lt;/p&gt;
+&lt;p&gt;For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;把一个数组的后N个数移动到数组的最前面。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用插入的方式从后往前依次插入数组最前端即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    void rotate(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) {
+        for(int i=0;i&amp;lt;k;i++)
+        {
+            nums.insert(nums.begin(),nums.back());
+            nums.erase(nums.begin()+nums.size()-1);
+        }
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Rotate an array of n elements to the right by k steps.&lt;/p&gt;
+&lt;p&gt;For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-278-First Bad Version</title>
+    <link href="http://since1992.org/2016/07/02/Leetcode-278-First-Bad-Version/"/>
+    <id>http://since1992.org/2016/07/02/Leetcode-278-First-Bad-Version/</id>
+    <published>2016-07-02T03:15:23.000Z</published>
+    <updated>2016-07-02T03:40:37.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.&lt;/p&gt;
+&lt;p&gt;Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.&lt;/p&gt;
+&lt;p&gt;You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;从某一个版本开始全部都是坏的版本，找到第一个坏版本。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用二分查找，注意边界条件即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;// Forward declaration of isBadVersion API.
+bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+        if(n==2) return isBadVersion(1)? 1:2;
+        int begin = 1;
+        int end = n;
+        int mid = begin+(end-begin)/2;
+        while(begin&amp;lt;end){
+        if(isBadVersion(mid))
+        {
+            end=mid;
+            mid = begin+(end-begin)/2;
+        }else{
+            begin = mid+1;
+            mid = begin+(end-begin)/2;
+        }
+        }
+        return mid;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.&lt;/p&gt;
+&lt;p&gt;Suppose you have n versions [1, 2, …, n] and you want to find out the first bad one, which causes all the following ones to be bad.&lt;/p&gt;
+&lt;p&gt;You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Binary Search" scheme="http://since1992.org/tags/Binary-Search/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-155-Min Stack</title>
+    <link href="http://since1992.org/2016/07/02/Leetcode-155-Min-Stack/"/>
+    <id>http://since1992.org/2016/07/02/Leetcode-155-Min-Stack/</id>
+    <published>2016-07-02T02:53:54.000Z</published>
+    <updated>2016-07-02T02:56:54.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.&lt;/p&gt;
+&lt;p&gt;push(x) – Push element x onto stack.&lt;br&gt;pop() – Removes the element on top of the stack.&lt;br&gt;top() – Get the top element.&lt;br&gt;getMin() – Retrieve the minimum element in the stack.&lt;br&gt;Example:&lt;br&gt;    MinStack minStack = new MinStack();&lt;br&gt;    minStack.push(-2);&lt;br&gt;    minStack.push(0);&lt;br&gt;    minStack.push(-3);&lt;br&gt;    minStack.getMin();   –&amp;gt; Returns -3.&lt;br&gt;    minStack.pop();&lt;br&gt;    minStack.top();      –&amp;gt; Returns 0.&lt;br&gt;    minStack.getMin();   –&amp;gt; Returns -2.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;设计一个栈，支持push,pop,top和在O(1)时间内找到最小值。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;利用一个栈存储到此为止的最小值。注意如果有重复的最小值需要多次push，因为如果出现3 2 1 2 1这样的用例，若不重复入栈则会出错。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class MinStack {
+public:
+stack&amp;lt;int&amp;gt; st;
+stack&amp;lt;int&amp;gt; minSt;
+    /** initialize your data structure here. */
+    MinStack() {
+
+    }
+
+    void push(int x) {
+        st.push(x);
+        if(minSt.empty()||x&amp;lt;=minSt.top()) minSt.push(x);
+    }
+
+    void pop() {
+        if(minSt.top()==st.top()) minSt.pop();
+        st.pop();
+    }
+
+    int top() {
+        return st.top();
+    }
+
+    int getMin() {
+        return minSt.top();
+    }
+};
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack obj = new MinStack();
+ * obj.push(x);
+ * obj.pop();
+ * int param_3 = obj.top();
+ * int param_4 = obj.getMin();
+ */
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.&lt;/p&gt;
+&lt;p&gt;push(x) – Push element x onto stack.&lt;br&gt;pop() – Removes the element on top of the stack.&lt;br&gt;top() – Get the top element.&lt;br&gt;getMin() – Retrieve the minimum element in the stack.&lt;br&gt;Example:&lt;br&gt;    MinStack minStack = new MinStack();&lt;br&gt;    minStack.push(-2);&lt;br&gt;    minStack.push(0);&lt;br&gt;    minStack.push(-3);&lt;br&gt;    minStack.getMin();   –&amp;gt; Returns -3.&lt;br&gt;    minStack.pop();&lt;br&gt;    minStack.top();      –&amp;gt; Returns 0.&lt;br&gt;    minStack.getMin();   –&amp;gt; Returns -2.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Stack" scheme="http://since1992.org/tags/Stack/"/>
+    
+      <category term="Design" scheme="http://since1992.org/tags/Design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode-7-Reverse Integer</title>
+    <link href="http://since1992.org/2016/07/01/Leetcode-7-Reverse-Integer/"/>
+    <id>http://since1992.org/2016/07/01/Leetcode-7-Reverse-Integer/</id>
+    <published>2016-07-01T09:39:08.000Z</published>
+    <updated>2016-07-01T09:40:01.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Reverse digits of an integer.&lt;/p&gt;
+&lt;p&gt;Example1: x = 123, return 321&lt;br&gt;Example2: x = -123, return -321&lt;/p&gt;
+&lt;p&gt;click to show spoilers.&lt;/p&gt;
+&lt;p&gt;Have you thought about this?&lt;br&gt;Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!&lt;/p&gt;
+&lt;p&gt;If the integer’s last digit is 0, what should the output be? ie, cases such as 10, 100.&lt;/p&gt;
+&lt;p&gt;Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?&lt;/p&gt;
+&lt;p&gt;For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;反转一个数字。&lt;/p&gt;
+&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;很简单的数学题目，注意overflow的情况即可。&lt;/p&gt;
+&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
+public:
+    int reverse(int x) {
+        int res=0;
+        while(abs(x)&amp;gt;0)
+        {
+            if(res&amp;gt;INT_MAX/10||res&amp;lt;INT_MIN/10) return 0;
+            res*=10;
+            res+=x%10;
+            x/=10;
+        }
+        return res;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Reverse digits of an integer.&lt;/p&gt;
+&lt;p&gt;Example1: x = 123, return 321&lt;br&gt;Example2: x = -123, return -321&lt;/p&gt;
+&lt;p&gt;click to show spoilers.&lt;/p&gt;
+&lt;p&gt;Have you thought about this?&lt;br&gt;Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!&lt;/p&gt;
+&lt;p&gt;If the integer’s last digit is 0, what should the output be? ie, cases such as 10, 100.&lt;/p&gt;
+&lt;p&gt;Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?&lt;/p&gt;
+&lt;p&gt;For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
+    
+    
+      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
+    
+      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
+    
+      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode-125-Valid Palindrome</title>
@@ -67,9 +420,9 @@ public:
     
       <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
-      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
-    
       <category term="String" scheme="http://since1992.org/tags/String/"/>
+    
+      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
     
   </entry>
   
@@ -801,376 +1154,6 @@ void helper(string &amp;amp;str,vector&amp;lt;string&amp;gt;&amp;amp;s)
       <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
     
       <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-19-Remove Nth Node From End of List</title>
-    <link href="http://since1992.org/2016/06/24/Leetcode-19-Remove-Nth-Node-From-End-of-List/"/>
-    <id>http://since1992.org/2016/06/24/Leetcode-19-Remove-Nth-Node-From-End-of-List/</id>
-    <published>2016-06-24T03:11:57.000Z</published>
-    <updated>2016-06-24T03:19:59.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, remove the nth node from the end of list and return its head.&lt;/p&gt;
-&lt;p&gt;For example,&lt;/p&gt;
-&lt;p&gt;   Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.&lt;/p&gt;
-&lt;p&gt;   After removing the second node from the end, the linked list becomes 1-&amp;gt;2-&amp;gt;3-&amp;gt;5.&lt;br&gt;Note:&lt;br&gt;Given n will always be valid.&lt;br&gt;Try to do this in one pass.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;移除倒数第N个结点。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用双指针，让快指针先走，主要要删除的结点为首尾的情况。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;p&gt;/**&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Definition for singly-linked list.&lt;/li&gt;
-&lt;li&gt;struct ListNode {&lt;/li&gt;
-&lt;li&gt;int val;&lt;/li&gt;
-&lt;li&gt;ListNode *next;&lt;/li&gt;
-&lt;li&gt;ListNode(int x) : val(x), next(NULL) {}&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;};&lt;br&gt;*/&lt;br&gt;class Solution {&lt;br&gt; public:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ListNode* removeNthFromEnd(ListNode* head, int n) {
-    if(!head-&amp;gt;next&amp;amp;&amp;amp;n==1) return NULL;
-    ListNode* fast = head;
-    ListNode* slow = fast;
-    for(int i=0;i&amp;lt;n;i++)
-    fast=fast-&amp;gt;next;
-    if(!fast) return head-&amp;gt;next;
-    while(fast-&amp;gt;next){
-        fast=fast-&amp;gt;next;
-        slow=slow-&amp;gt;next;
-    }
-    slow-&amp;gt;next=slow-&amp;gt;next-&amp;gt;next;
-    return head;
-
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; };&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given a linked list, remove the nth node from the end of list and return its head.&lt;/p&gt;
-&lt;p&gt;For example,&lt;/p&gt;
-&lt;p&gt;   Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2.&lt;/p&gt;
-&lt;p&gt;   After removing the second node from the end, the linked list becomes 1-&amp;gt;2-&amp;gt;3-&amp;gt;5.&lt;br&gt;Note:&lt;br&gt;Given n will always be valid.&lt;br&gt;Try to do this in one pass.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
-    
-      <category term="Linked List" scheme="http://since1992.org/tags/Linked-List/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-205-Isomorphic Strings</title>
-    <link href="http://since1992.org/2016/06/24/Leetcode-205-Isomorphic-Strings/"/>
-    <id>http://since1992.org/2016/06/24/Leetcode-205-Isomorphic-Strings/</id>
-    <published>2016-06-24T02:12:59.000Z</published>
-    <updated>2016-06-24T02:17:04.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two strings s and t, determine if they are isomorphic.&lt;/p&gt;
-&lt;p&gt;Two strings are isomorphic if the characters in s can be replaced to get t.&lt;/p&gt;
-&lt;p&gt;All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given “egg”, “add”, return true.&lt;/p&gt;
-&lt;p&gt;Given “foo”, “bar”, return false.&lt;/p&gt;
-&lt;p&gt;Given “paper”, “title”, return true.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定两个字符串，判断它们是否是相似的。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用两个哈希表判断两个字符之间是否是一一对应的即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    bool isIsomorphic(string s, string t) {
-        std::map&amp;lt;char,char&amp;gt; m;
-        std::map&amp;lt;char,char&amp;gt; mr;
-        std::map&amp;lt;char,char&amp;gt;::iterator it;
-        std::map&amp;lt;char,char&amp;gt;::iterator itr;
-        for(int i = 0; i &amp;lt; s.length(); i++)
-        {  
-           it  = m.find(s[i]);
-           itr = mr.find(t[i]);
-           if(it!=m.end()||itr!=mr.end())
-           {
-               if(m[s[i]]!=t[i]||mr[t[i]]!=s[i]) return false;
-           }else{
-               m[s[i]]=t[i];
-               mr[t[i]]=s[i];
-           }
-        }
-        return true;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two strings s and t, determine if they are isomorphic.&lt;/p&gt;
-&lt;p&gt;Two strings are isomorphic if the characters in s can be replaced to get t.&lt;/p&gt;
-&lt;p&gt;All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.&lt;/p&gt;
-&lt;p&gt;For example,&lt;br&gt;Given “egg”, “add”, return true.&lt;/p&gt;
-&lt;p&gt;Given “foo”, “bar”, return false.&lt;/p&gt;
-&lt;p&gt;Given “paper”, “title”, return true.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-223-Rectangle Area</title>
-    <link href="http://since1992.org/2016/06/23/Leetcode-223-Rectangle-Area/"/>
-    <id>http://since1992.org/2016/06/23/Leetcode-223-Rectangle-Area/</id>
-    <published>2016-06-23T13:15:40.000Z</published>
-    <updated>2016-06-23T14:07:10.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Find the total area covered by two rectilinear rectangles in a 2D plane.&lt;/p&gt;
-&lt;p&gt;Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.&lt;br&gt;&lt;a href=&quot;https://leetcode.com/static/images/problemset/rectangle_area.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&lt;br&gt;Assume that the total area is never beyond the maximum possible value of int.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;求出两个矩形覆盖的面积值。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;分重叠与无重叠两种情况讨论，很简单。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
-        int AreaA = (C-A)*(D-B);
-        int AreaB = (G-E)*(H-F);
-        if(A&amp;gt;=G||C&amp;lt;=E||B&amp;gt;=H||F&amp;gt;=D) return AreaA+AreaB;
-        int cover = max(min(C,G)-max(A,E),0)*max(min(D,H)-max(F,B),0);
-        return AreaA+AreaB-cover;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Find the total area covered by two rectilinear rectangles in a 2D plane.&lt;/p&gt;
-&lt;p&gt;Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.&lt;br&gt;&lt;a href=&quot;https://leetcode.com/static/images/problemset/rectangle_area.png&quot;&gt;&lt;/a&gt;&lt;br&gt;Assume that the total area is never beyond the maximum possible value of int.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Math" scheme="http://since1992.org/tags/Math/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-88-Merge Sorted Array</title>
-    <link href="http://since1992.org/2016/06/19/Leetcode-88-Merge-Sorted-Array/"/>
-    <id>http://since1992.org/2016/06/19/Leetcode-88-Merge-Sorted-Array/</id>
-    <published>2016-06-19T10:17:53.000Z</published>
-    <updated>2016-06-19T10:19:42.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;合并两个排了序的数组到nums1。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;本题简单，从后开始往前合并即可。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    void merge(vector&amp;lt;int&amp;gt;&amp;amp; nums1, int m, vector&amp;lt;int&amp;gt;&amp;amp; nums2, int n) {
-        while(m&amp;gt;0&amp;amp;&amp;amp;n&amp;gt;0)
-        {
-            if(nums1[m-1]&amp;gt;nums2[n-1]){
-                nums1[m+n-1]=nums1[m-1];
-                m--;
-            }else{
-                nums1[m+n-1]=nums2[n-1];
-                n--;
-            }
-
-        }
-        if(n&amp;gt;0)
-        {
-            for(int i=0;i&amp;lt;n;i++)
-            nums1[i]=nums2[i];
-        }
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.&lt;/p&gt;
-&lt;p&gt;Note:&lt;br&gt;You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
-    
-      <category term="Two Pointers" scheme="http://since1992.org/tags/Two-Pointers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-299-Bulls and Cows</title>
-    <link href="http://since1992.org/2016/06/19/Leetcode-299-Bulls-and-Cows/"/>
-    <id>http://since1992.org/2016/06/19/Leetcode-299-Bulls-and-Cows/</id>
-    <published>2016-06-19T10:06:23.000Z</published>
-    <updated>2016-06-19T10:19:46.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are playing the following &lt;a href=&quot;https://en.wikipedia.org/wiki/Bulls_and_Cows&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Bulls and Cows&lt;/a&gt; game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called “bulls”) and how many digits match the secret number but locate in the wrong position (called “cows”). Your friend will use successive guesses and hints to eventually derive the secret number.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;p&gt;Secret number:  “1807”&lt;br&gt;Friend’s guess: “7810”&lt;br&gt;Hint: 1 bull and 3 cows. (The bull is 8, the cows are 0, 1 and 7.)&lt;br&gt;Write a function to return a hint according to the secret number and friend’s guess, use A to indicate the bulls and B to indicate the cows. In the above example, your function should return “1A3B”.&lt;/p&gt;
-&lt;p&gt;Please note that both secret number and friend’s guess may contain duplicate digits, for example:&lt;/p&gt;
-&lt;p&gt;Secret number:  “1123”&lt;br&gt;Friend’s guess: “0111”&lt;br&gt;In this case, the 1st 1 in friend’s guess is a bull, the 2nd or 3rd 1 is a cow, and your function should return “1A1B”.&lt;br&gt;You may assume that the secret number and your friend’s guess only contain digits, and their lengths are always equal.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;朋友猜你所想的数字，如果数字与位置均正确记为A，如果数字正确位置错误记为B。输出”XAYB“的结果&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;用两个数组统计每个数字出现的次数，然后就可以输出结果了。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    string getHint(string secret, string guess) {
-        if(!secret.length()||!guess.length()) return &amp;quot;0A0B&amp;quot;;
-        vector&amp;lt;int&amp;gt;countS(10,0);
-        vector&amp;lt;int&amp;gt;countG(10,0);
-        int A=0;
-        int B=0;
-        for(int i=0;i&amp;lt;secret.length();i++)
-        {
-            if(secret[i]==guess[i])
-            A++;
-            else{
-                countS[secret[i]-&amp;apos;0&amp;apos;]++;
-                countG[guess[i]-&amp;apos;0&amp;apos;]++;
-            }
-        }
-        for(int i=0;i&amp;lt;10;i++)
-        {
-            B+=min(countS[i],countG[i]);
-        }
-        string res=&amp;quot;&amp;quot;;
-        res+=num2str(A);
-        res+=&amp;apos;A&amp;apos;;
-        res+=num2str(B);
-        res+=&amp;apos;B&amp;apos;;
-        return res;
-    }
-    string num2str(int n)
-    {
-        if(n==0) return &amp;quot;0&amp;quot;;
-        string res=&amp;quot;&amp;quot;;
-        while(n&amp;gt;0)
-        {
-            res=(char)((n%10)+&amp;apos;0&amp;apos;)+res;
-            n/=10;
-        }
-        return res;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;You are playing the following &lt;a href=&quot;https://en.wikipedia.org/wiki/Bulls_and_Cows&quot;&gt;Bulls and Cows&lt;/a&gt; game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called “bulls”) and how many digits match the secret number but locate in the wrong position (called “cows”). Your friend will use successive guesses and hints to eventually derive the secret number.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;p&gt;Secret number:  “1807”&lt;br&gt;Friend’s guess: “7810”&lt;br&gt;Hint: 1 bull and 3 cows. (The bull is 8, the cows are 0, 1 and 7.)&lt;br&gt;Write a function to return a hint according to the secret number and friend’s guess, use A to indicate the bulls and B to indicate the cows. In the above example, your function should return “1A3B”.&lt;/p&gt;
-&lt;p&gt;Please note that both secret number and friend’s guess may contain duplicate digits, for example:&lt;/p&gt;
-&lt;p&gt;Secret number:  “1123”&lt;br&gt;Friend’s guess: “0111”&lt;br&gt;In this case, the 1st 1 in friend’s guess is a bull, the 2nd or 3rd 1 is a cow, and your function should return “1A1B”.&lt;br&gt;You may assume that the secret number and your friend’s guess only contain digits, and their lengths are always equal.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode-219-Contains Duplicate II</title>
-    <link href="http://since1992.org/2016/06/19/Leetcode-219-Contains-Duplicate-II/"/>
-    <id>http://since1992.org/2016/06/19/Leetcode-219-Contains-Duplicate-II/</id>
-    <published>2016-06-19T09:50:00.000Z</published>
-    <updated>2016-06-19T10:19:47.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目大意：&quot;&gt;&lt;a href=&quot;#题目大意：&quot; class=&quot;headerlink&quot; title=&quot;题目大意：&quot;&gt;&lt;/a&gt;题目大意：&lt;/h2&gt;&lt;p&gt;给定一个数组和一个数字N，求数组里又没有间隔N以下的相等值。&lt;/p&gt;
-&lt;h2 id=&quot;Solutions&quot;&gt;&lt;a href=&quot;#Solutions&quot; class=&quot;headerlink&quot; title=&quot;Solutions:&quot;&gt;&lt;/a&gt;Solutions:&lt;/h2&gt;&lt;p&gt;维护一个大小为K的滑动窗口，只需要O（n）的时间即可。注意K大于数组容量的情况。&lt;/p&gt;
-&lt;h2 id=&quot;Code-in-C&quot;&gt;&lt;a href=&quot;#Code-in-C&quot; class=&quot;headerlink&quot; title=&quot;Code in C++:&quot;&gt;&lt;/a&gt;Code in C++:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;class Solution {
-public:
-    bool containsNearbyDuplicate(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) {
-        if(nums.empty()||k&amp;lt;1) return false;
-        set&amp;lt;int&amp;gt; s;
-        if(k&amp;gt;nums.size())
-        {
-            for(int i=0;i&amp;lt;nums.size();i++){
-                if(s.find(nums[i])!=s.end())
-                return true;
-                else
-                s.insert(nums[i]);
-
-            }
-              return false;  
-        }
-        else
-        {
-            for(int i=0;i&amp;lt;k;i++)
-            {
-                if(s.find(nums[i])!=s.end())
-                return true;
-                else
-                s.insert(nums[i]);
-            }
-            for(int j=k;j&amp;lt;nums.size();j++)
-            {
-
-                if(s.find(nums[j])!=s.end())
-                return true;
-                else{
-                s.insert(nums[j]);
-                s.erase(nums[j-k]);
-                }
-            }
-            return false;
-        }
-
-
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description:&quot;&gt;&lt;/a&gt;Problem Description:&lt;/h2&gt;&lt;p&gt;Given an array of integers and an integer k, find out whether there are two distinct indices i and j in the array such that nums[i] = nums[j] and the difference between i and j is at most k.&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Leetcode" scheme="http://since1992.org/categories/Leetcode/"/>
-    
-    
-      <category term="Leetcode" scheme="http://since1992.org/tags/Leetcode/"/>
-    
-      <category term="Easy" scheme="http://since1992.org/tags/Easy/"/>
-    
-      <category term="Hash Table" scheme="http://since1992.org/tags/Hash-Table/"/>
-    
-      <category term="Array" scheme="http://since1992.org/tags/Array/"/>
     
   </entry>
   
