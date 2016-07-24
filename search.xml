@@ -4,6 +4,118 @@
   
     
     <entry>
+      <title><![CDATA[Leetcode-8-String to Integer(atoi)]]></title>
+      <url>http://since1992.org/2016/07/15/Leetcode-8-String-to-Integer-atoi/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Implement atoi to convert a string to an integer.</p>
+<p>Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
+<p>Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>实现一个字符串向整数转换的函数。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>首先，第一步是去掉首位空格；<br>然后，验证第一个字符是否是+或者-或者数字，如果都不是，则返回0；<br>再做简单的处理即可，注意超过INT范围的情况，所以临时变量建议用long long int;</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    int myAtoi(string str) {
+        int i = 0;
+        bool isN = false;
+        long long int tem=0;
+        for(;i&lt;str.size();i++)
+            if(str[i]!=&apos; &apos;) break;
+        if(!isdigit(str[i])&amp;&amp;str[i]!=&apos;+&apos;&amp;&amp;str[i]!=&apos;-&apos;) return 0;
+        if(str[i]==&apos;-&apos;) {i++;isN = true;}
+        else if(str[i]==&apos;+&apos;) i++;
+        for(;i&lt;str.size();i++){
+            if(isdigit(str[i])){
+                tem=tem*10+(str[i]-&apos;0&apos;);
+                if(tem&gt;INT_MAX) return isN?INT_MIN:INT_MAX;
+            }
+            else break;
+        }
+        return isN?-(int)tem:(int)tem;
+
+
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-204-COunt Primes]]></title>
+      <url>http://since1992.org/2016/07/15/Leetcode-204-COunt-Primes/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Description:</p>
+<p>Count the number of prime numbers less than a non-negative number, n.</p>
+<p>Credits:<br>Special thanks to @mithmatt for adding this problem and creating all test cases.<br><a id="more"></a></p>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>给定一个非负数字， 找出小于它的质数的个数。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>最开始拿到这道题我们可能会用暴力算法，从2开始搜索到sqrt（n），来判断一个数是否是质数。但是这样的算法既麻烦又有许多重复运算。这里我们推荐<a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" target="_blank" rel="external">Sieve of Eratosthenes算法</a>，它通过循环来标记数字的整数倍，然后最后统计标记来判断有多少个质数。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>class Solution {
+public:
+    int countPrimes(int n) {
+        vector&lt;bool&gt; mark(n,true);
+            mark[1]=false;
+        for(int i=4;i&lt;n;i+=2)
+            mark[i]=false;
+        for(int i =3;i&lt;n;i++)
+        {
+            if(mark[i]){
+                if(i*i&gt;n) break;
+                else{
+                    for(int j =2;i*j&lt;n;j++)
+                        mark[i*j]=false;
+                }
+            }
+        }
+        int count=0;
+        for(int i=2;i&lt;n;i++)
+            if(mark[i]) count++;
+        return count;
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Leetcode-374-Guess Number Higher or Lower]]></title>
+      <url>http://since1992.org/2016/07/15/Leetcode-374-Guess-Number-Higher-or-Lower/</url>
+      <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>We are playing the Guess Game. The game is as follows:</p>
+<p>I pick a number from 1 to n. You have to guess which number I picked.</p>
+<p>Every time you guess wrong, I’ll tell you whether the number is higher or lower.</p>
+<p>You call a pre-defined API guess(int num) which returns 3 possible results (-1, 1, or 0):</p>
+<pre><code>-1 : My number is lower
+ 1 : My number is higher
+ 0 : Congrats! You got it!
+</code></pre><p>Example:<br>    n = 10, I pick 6.</p>
+<pre><code>Return 6.
+</code></pre><a id="more"></a>
+<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>猜数字，如果正确数字比猜测数字大返回1，小返回-1，正确返回0.求正确数字。</p>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions:"></a>Solutions:</h2><p>很简单的二分查找问题。</p>
+<h2 id="Code-in-C"><a href="#Code-in-C" class="headerlink" title="Code in C++:"></a>Code in C++:</h2><pre><code>// Forward declaration of guess API.
+// @param num, your guess
+// @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
+int guess(int num);
+
+class Solution {
+public:
+    int guessNumber(int n) {
+        int begin = 1;
+        int end = n;
+        int mid = begin + (end-begin)/2;
+        while(1){
+            if(guess(mid)==1){
+                begin = mid+1;
+                mid = begin + (end-begin)/2;
+            }
+            else if(guess(mid)==-1){
+                end = mid -1;
+                mid = begin + (end-begin)/2;
+            }
+            else if(guess(mid)==0){
+                return mid;
+            }
+        }
+    }
+};
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Leetcode-168-Excel Sheet Column Title]]></title>
       <url>http://since1992.org/2016/07/02/Leetcode-168-Excel-Sheet-Column-Title/</url>
       <content type="html"><![CDATA[<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description:"></a>Problem Description:</h2><p>Given a positive integer, return its corresponding column title as appear in an Excel sheet.</p>
